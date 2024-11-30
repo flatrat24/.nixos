@@ -18,6 +18,7 @@
     nodejs_22
     python312Packages.python-lsp-server
     nodePackages_latest.bash-language-server
+    yazi
   ];
 
   # xdg.desktopEntries = {
