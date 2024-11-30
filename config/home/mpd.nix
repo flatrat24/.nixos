@@ -2,13 +2,13 @@
 
   services.mpd = {
     enable = true;
-    musicDirectory = /home/ea/Music;
+    musicDirectory = /home/ea/Music; # TODO: Use user directory dynamically
     dbFile = "/home/ea/.mpd/database";
-    playlistDirectory = /home/ea/.mpd/playlists;
-    dataDir = /home/ea/.mpd;
+    playlistDirectory = /home/ea/.mpd/playlists; # TODO: Use user directory dynamically
+    dataDir = /home/ea/.mpd; # TODO: Use user directory dynamically
     extraConfig = ''
       state_file        "~/.mpd/state"
-      restore_paused  "yes"
+      restore_paused    "yes"
       sticker_file      "~/.mpd/sticker.sql"
       auto_update       "yes"
 
@@ -43,8 +43,7 @@
       visualizer_output_name    = ''"PipeWire Sound Server"'' ;
       visualizer_in_stereo      = ''"yes"''                   ;
       visualizer_type           = ''"ellipse"''               ;
-      visualizer_look           = ''"󰝤󰝤"''                    ;
-      # TODO: visualizer not working
+      visualizer_look           = ''"󰝤󰝤"''                    ; # TODO: Fix visualizer
     };
     bindings = [
       { key = "y"        ; command = "dummy"                                                                                                                                   ; }
