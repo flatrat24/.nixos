@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  programs.hyprland.enable = true;
-
   networking.hostName = "leoito";
 
   imports =
@@ -38,6 +36,8 @@
     shell = pkgs.zsh;
     packages = with pkgs; [ ];
   };
+
+  programs.hyprland.enable = true;
 
   system.stateVersion = "24.05"; # Did you read the comment?
 }

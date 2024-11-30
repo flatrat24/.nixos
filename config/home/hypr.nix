@@ -1,12 +1,12 @@
 { inputs, pkgs, ... }: {
 
-  home.file = {
-    ".config/hypr" = {
-      source = ./sources/hypr;
-      executable = false;
-      recursive = true;
-    };
-  };
+  # home.file = {
+  #   ".config/hypr" = {
+  #     source = ./sources/hypr;
+  #     executable = false;
+  #     recursive = true;
+  #   };
+  # };
 
   # home.file = {
   #   ".config/waybar" = {
@@ -26,15 +26,32 @@
   #   ];
   # };
 
-  home.file = {
-    ".config/mako/config" = {
-      source = ./sources/mako/config;
-      executable = false;
-      recursive = false;
+  # home.file = {
+  #   ".config/mako/config" = {
+  #     source = ./sources/mako/config;
+  #     executable = false;
+  #     recursive = false;
+  #   };
+  # };
+
+  #### HYPRLAND TRANSFORMATION ####
+  # Main Settings
+  wayland.windowManager.hyprland.enable = true;
+
+  # Theme
+  wayland.windowManager.hyprland.settings = {
+    general = {
+      gaps_in = "5";
+      gaps_out = "5";
+      border_size = "3";
+      col.active_border = "$color11";
+      col.inactive_border = "$color2";
+      resize_on_border = "true" ;
+      allow_tearing = "false";
+      layout = "master";
     };
   };
 
-  #### HYPRLAND TRANSFORMATION ####
   # Hyprpaper
   services.hyprpaper = {
     enable = true;
