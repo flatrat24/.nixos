@@ -6,6 +6,7 @@
       defaultApplications = {
         "application/pdf" = ["org.pwmt.zathura.desktop"];
         "inode/directory" = ["yazi.desktop"];
+        "text/*"          = ["nvim.desktop"];
       };
     };
   };
