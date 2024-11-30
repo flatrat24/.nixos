@@ -41,13 +41,6 @@ in
     historyFile = "$HOME/.bash_history";
   };
 
-  home.file = {
-    ".config/zsh/.p10k.zsh" = {
-      source = ./sources/sh/p10k.zsh;
-      executable = false;
-      recursive = false;
-    };
-  };
   programs.zsh = {
     enable = true;
     shellAliases = myAliases;
@@ -86,6 +79,13 @@ in
       eval "$(fzf --zsh)"
       eval "$(zoxide init --cmd cd zsh)"
     '';
+  };
+  home.file = {
+    ".config/zsh/.p10k.zsh" = {
+      source = ./sources/sh/p10k.zsh;
+      executable = false;
+      recursive = false;
+    };
   };
 
   home.packages = with pkgs; [
