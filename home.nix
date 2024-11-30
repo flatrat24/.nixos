@@ -4,7 +4,7 @@
   imports = [
     # General Modules
     ./config/home/fonts.nix
-    ./config/home/mime.nix
+    # ./config/home/mime.nix
 
     # Shell/Terminal Modules
     ./config/home/sh.nix
@@ -17,7 +17,7 @@
 
     # Other Modules
     # ./config/home/mpd.nix
-    ./config/home/hypr.nix
+    # ./config/home/hypr.nix
   ];
 
   home = {
