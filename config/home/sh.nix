@@ -61,7 +61,7 @@ in
       enable = true;
     };
     zplug = {
-      enable = true;
+      enable = false;
       plugins = [ ];
     };
     dotDir = ".config/zsh";
