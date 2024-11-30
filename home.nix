@@ -3,6 +3,8 @@
 {
   imports = [
     ./config/home/sh.nix
+    ./config/home/yazi.nix
+    ./config/home/zellij.nix
     ./config/home/fonts.nix
     ./config/home/git.nix
     ./config/home/hypr.nix
