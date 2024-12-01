@@ -29,8 +29,6 @@
             home-manager.useUserPackages = true;
             home-manager.users.ea = import ./home.nix;
           }
-
-          inputs.stylix.nixosModules.stylix
         ];
       };
       leoito = nixpkgs.lib.nixosSystem {
@@ -50,7 +48,9 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.ea = import ./home.nix;
-	  }
+	        }
+
+          inputs.stylix.nixosModules.stylix
         ];
       };
     };
