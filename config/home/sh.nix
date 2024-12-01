@@ -5,6 +5,8 @@ let
     ls   = "eza --group-directories-first --hyperlink"    ;
     la   = "ls --all --long --header --git"               ;
     lt   = "ls --tree --level=3"                          ;
+
+    cd   = "cd .."                                        ;
                                                           
     z    = "zellij"                                       ;
     za   = "zellij attach"                                ;
