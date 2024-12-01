@@ -7,6 +7,7 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix.url = "github:danth/stylix/cf8b6e2d4e8aca8ef14b839a906ab5eb98b08561";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
@@ -40,6 +41,7 @@
           ./config/system/bluetooth.nix
           ./config/system/grub.nix
           # ./config/system/sddm.nix
+          ./config/system/stylix.nix
           ./hosts/frame/configuration.nix
 
           home-manager.nixosModules.home-manager {
@@ -47,6 +49,8 @@
             home-manager.useUserPackages = true;
             home-manager.users.ea = import ./home.nix;
 	        }
+
+          inputs.stylix.nixosModules.stylix
         ];
       };
     };
