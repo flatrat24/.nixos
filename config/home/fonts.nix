@@ -1,9 +1,6 @@
 { pkgs, ... }: 
-
-{
-  fonts.fontconfig.enable = true;
-
-  home.packages = with pkgs; [
+let
+  dependencies = with pkgs; [
     (pkgs.nerdfonts.override {
       fonts = [
         "IBMPlexMono"
@@ -12,4 +9,8 @@
       ];
     })
   ];
+in {
+  home.packages = dependencies;
+
+  fonts.fontconfig.enable = true;
 }

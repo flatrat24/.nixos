@@ -1,14 +1,6 @@
-{ pkgs, ... }: {
-
-  home.file = {
-    ".config/nvim" = {
-      source = ./sources/nvim;
-      executable = false;
-      recursive = true;
-    };
-  };
-
-  home.packages = with pkgs; [
+{ pkgs, ... }:
+let
+  dependencies = with pkgs; [
     neovim
     python3
     luajitPackages.luarocks
@@ -18,9 +10,24 @@
     nodejs_22
     python312Packages.python-lsp-server
     nodePackages_latest.bash-language-server
-    yazi
-    lazygit
   ];
+in {
+
+  imports = [ 
+    ./git.nix
+    ./yazi.nix
+    ./fonts.nix
+  ];
+
+  home.packages = dependencies;
+
+  home.file = {
+    ".config/nvim" = {
+      source = ./sources/nvim;
+      executable = false;
+      recursive = true;
+    };
+  };
 
   xdg = {
     enable = true;
@@ -32,7 +39,7 @@
         genericName = "Text Editor";
         # exec = ''foot -e "nvim %F" %f'';
         exec = "nvim %F";
-        terminal = false;
+        terminal = true;
         categories = [ "Utility" "TextEditor" ];
         mimeType = [ "text/english" "text/plain" "text/x-makefile" "text/x-c++hdr" "text/x-c++src" "text/x-chdr" "text/x-csrc" "text/x-java" "text/x-moc" "text/x-pascal" "text/x-tcl" "text/x-tex" "application/x-shellscript" "text/x-c" "text/x-c++" "text/x-python" ];
       };
