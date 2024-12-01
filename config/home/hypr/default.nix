@@ -1,7 +1,7 @@
 { inputs, pkgs, ... }: {
 
   imports = [
-    ./keybinds.nix
+    ./keybinds/default.nix
   ];
 
   # home.file = {
@@ -47,11 +47,6 @@
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
     "$terminal" = "foot";
-    bindd = [
-      "$mod, Escape, Lock Screen, exec, hyprlock"
-      "$mod, A, Launch Terminal, exec, $terminal"
-    ];
-
     general = {
       "gaps_in" = "5";
       "gaps_out" = "5";

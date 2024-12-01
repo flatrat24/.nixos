@@ -60,22 +60,22 @@
     ];
     binded = [
       # Resize Focused Window
-      "$mod SHIFT CTRH, Resize Window Leftwards, resizeactive, -40 0"
-      "$mod SHIFT CTRL, Resize Window Rightwards, resizeactive, 40 0"
-      "$mod SHIFT CTRK, Resize Window Upwards, resizeactive, 0 -40"
-      "$mod SHIFT CTRJ, Resize Window Downwards, resizeactive, 0 40"
+      "$mod SHIFT CTRL, H, Resize Window Leftwards, resizeactive, -40 0"
+      "$mod SHIFT CTRL, L, Resize Window Rightwards, resizeactive, 40 0"
+      "$mod SHIFT CTRL, K, Resize Window Upwards, resizeactive, 0 -40"
+      "$mod SHIFT CTRL, J, Resize Window Downwards, resizeactive, 0 40"
 
       "$mod, equal, Focus Next Workspace, workspace, +1"
       "$mod, minus, Focus Previous Workspace, workspace, -1"
 
       "$mod SHIFT, equal, Move Window to Next Workspace, movetoworkspace, r+1"
-      "$mod SHIFT, minus, Move Window to Previous Workspacmovetoworkspace, r-1"
+      "$mod SHIFT, minus, Move Window to Previous Workspace, movetoworkspace, r-1"
 
       # Manage Monitors
       "$mod SHIFT, equal, Focus Next Monitor, focusmonitor, +1"
       "$mod SHIFT, minus, Focus Previous Monitor, focusmonitor, -1"
-      "$mod SHIFT CTRequal, Move Workspace to Next Monitor, movecurrentworkspacetomonitor, +1"
-      "$mod SHIFT CTRminus, Move Workspace to Next Monitor, movecurrentworkspacetomonitor, -1"
+      "$mod SHIFT CTRL, equal, Move Workspace to Next Monitor, movecurrentworkspacetomonitor, +1"
+      "$mod SHIFT CTRL, minus, Move Workspace to Next Monitor, movecurrentworkspacetomonitor, -1"
     ];
     bindm = [
       # Manage Windows With Mouse
@@ -83,5 +83,6 @@
       "$mod SHIFT, mouse:272, resizewindow"
       "$mod, ALT_l, movewindow"
       "$mod SHIFT, ALT_l, resizewindow"
-    ];
+      ];
+  };
 }
