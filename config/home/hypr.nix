@@ -42,57 +42,57 @@
   # Theme
   wayland.windowManager.hyprland.settings = {
     # COLORS #
-    "$cursor" = "rgba(928374ee)";
-
-    "$url_color" = "rgba(83a598ee)";
-
-    "$visual_bell_color" = "rgba(8ec07cee)";
-    "$bell_border_color" = "rgba(8ec07cee)";
-
-    "$active_border_color" = "rgba(d3869bee)";
-    "$inactive_border_color" = "rgba(665c54ee)";
-
-    "$foreground" = "rgba(ebdbb2ee)";
-    "$background" = "rgba(282828ee)";
-    "$selection_foreground" = "rgba(928374ee)";
-    "$selection_background" = "rgba(ebdbb2ee)";
-
-    "$active_tab_foreground" = "rgba(fbf1c7ee)";
-    "$active_tab_background" = "rgba(665c54ee)";
-    "$inactive_tab_foreground" = "rgba(a89984ee)";
-    "$inactive_tab_background" = "rgba(3c3836ee)";
-
-    # black  (bg3/bg4)
-    "$color0" = "rgba(665c54ee)";
-    "$color8" = "rgba(7c6f64ee)";
-
-    # red
-    "$color1" = "rgba(cc241dee)";
-    "$color9" = "rgba(fb4934ee)";
-
-    # green
-    "$color2" = "rgba(98971aee)";
-    "$color10" = "rgba(b8bb26ee)";
-
-    # yellow
-    "$color3" = "rgba(d79921ee)";
-    "$color11" = "rgba(fabd2fee)";
-
-    # blue
-    "$color4" = "rgba(458588ee)";
-    "$color12" = "rgba(83a598ee)";
-
-    # purple
-    "$color5" = "rgba(b16286ee)";
-    "$color13" = "rgba(d3869bee)";
-
-    # aqua
-    "$color6" = "rgba(689d6aee)";
-    "$color14" = "rgba(8ec07cee)";
-
-    # white (fg4/fg3)
-    "$color7" = "rgba(a89984ee)";
-    "$color15" = "rgba(bdae93ee)";
+    # "$cursor" = "rgba(928374ee)";
+    #
+    # "$url_color" = "rgba(83a598ee)";
+    #
+    # "$visual_bell_color" = "rgba(8ec07cee)";
+    # "$bell_border_color" = "rgba(8ec07cee)";
+    #
+    # "$active_border_color" = "rgba(d3869bee)";
+    # "$inactive_border_color" = "rgba(665c54ee)";
+    #
+    # "$foreground" = "rgba(ebdbb2ee)";
+    # "$background" = "rgba(282828ee)";
+    # "$selection_foreground" = "rgba(928374ee)";
+    # "$selection_background" = "rgba(ebdbb2ee)";
+    #
+    # "$active_tab_foreground" = "rgba(fbf1c7ee)";
+    # "$active_tab_background" = "rgba(665c54ee)";
+    # "$inactive_tab_foreground" = "rgba(a89984ee)";
+    # "$inactive_tab_background" = "rgba(3c3836ee)";
+    #
+    # # black  (bg3/bg4)
+    # "$color0" = "rgba(665c54ee)";
+    # "$color8" = "rgba(7c6f64ee)";
+    #
+    # # red
+    # "$color1" = "rgba(cc241dee)";
+    # "$color9" = "rgba(fb4934ee)";
+    #
+    # # green
+    # "$color2" = "rgba(98971aee)";
+    # "$color10" = "rgba(b8bb26ee)";
+    #
+    # # yellow
+    # "$color3" = "rgba(d79921ee)";
+    # "$color11" = "rgba(fabd2fee)";
+    #
+    # # blue
+    # "$color4" = "rgba(458588ee)";
+    # "$color12" = "rgba(83a598ee)";
+    #
+    # # purple
+    # "$color5" = "rgba(b16286ee)";
+    # "$color13" = "rgba(d3869bee)";
+    #
+    # # aqua
+    # "$color6" = "rgba(689d6aee)";
+    # "$color14" = "rgba(8ec07cee)";
+    #
+    # # white (fg4/fg3)
+    # "$color7" = "rgba(a89984ee)";
+    # "$color15" = "rgba(bdae93ee)";
 
     "$mod" = "SUPER";
     "$terminal" = "foot";
@@ -105,8 +105,8 @@
       "gaps_in" = "5";
       "gaps_out" = "5";
       "border_size" = "3";
-      "col.active_border" = "$color11";
-      "col.inactive_border" = "$color2";
+      # "col.active_border" = "$color11";
+      # "col.inactive_border" = "$color2";
       "resize_on_border" = "true" ;
       "allow_tearing" = "false";
       "layout" = "master";
@@ -119,7 +119,7 @@
       "drop_shadow" = "true";
       "shadow_range" = "4";
       "shadow_render_power" = "3";
-      "col.shadow" = "rgba(1a1a1aee)";
+      # "col.shadow" = "rgba(1a1a1aee)";
       "blur" = {
         "enabled" = "true";
         "size" = "3";
@@ -152,21 +152,21 @@
     };
 
     group = {
-      "col.border_active" = "$color11";
-      "col.border_inactive" = "$color2";
-      "col.border_locked_active" = "$color11";
-      "col.border_locked_inactive" = "$color2";
+      # "col.border_active" = "$color11";
+      # "col.border_inactive" = "$color2";
+      # "col.border_locked_active" = "$color11";
+      # "col.border_locked_inactive" = "$color2";
       groupbar = {
         "enabled" = "true";
         "font_size" = "10";
         "font_family" = "Fira Code Nerd Font Mono";
         "height" = "14";
         "render_titles" = "true";
-        "text_color" = "$background";
-        "col.active" = "$color10";
-        "col.inactive" = "$color2";
-        "col.locked_active" = "$color10";
-        "col.locked_inactive" = "$color2";
+        # "text_color" = "$background";
+        # "col.active" = "$color10";
+        # "col.inactive" = "$color2";
+        # "col.locked_active" = "$color10";
+        # "col.locked_inactive" = "$color2";
       };
     };
   };

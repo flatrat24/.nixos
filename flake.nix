@@ -7,7 +7,6 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix.url = "github:danth/stylix";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
@@ -35,7 +34,6 @@
         system = "x86_64-linux";
         modules = [
           ./config/system/basic-packages.nix
-          ./config/system/stylix.nix
           ./config/system/network.nix
           # ./config/system/nvidia.nix
           # ./config/system/nvidia-hyprland.nix
@@ -49,8 +47,6 @@
             home-manager.useUserPackages = true;
             home-manager.users.ea = import ./home.nix;
 	        }
-
-          inputs.stylix.nixosModules.stylix
         ];
       };
     };
