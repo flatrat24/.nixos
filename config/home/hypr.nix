@@ -176,10 +176,10 @@
     enable = true;
     settings = {
       preload = [
-        "/home/ea/.dotfiles/config/home/sources/hypr/assets/grove.png"
+        "/home/ea/.nixos/config/home/sources/hypr/assets/grove.png"
       ];
       wallpaper = [
-        ",/home/ea/.dotfiles/config/home/sources/hypr/assets/grove.png"
+        ",/home/ea/.nixos/config/home/sources/hypr/assets/grove.png"
       ];
     };
   };
@@ -196,7 +196,7 @@
 
       background = [{
         monitor = "";
-        path = "/home/ea/.dotfiles/config/home/sources/hypr/assets/grove.png";
+        path = "/home/ea/.nixos/config/home/sources/hypr/assets/grove.png";
         blur_passes = 3;
         contrast = 0.8916;
         brightness = 0.8172;
@@ -227,7 +227,7 @@
       } {
         # Song Info
         monitor = "";
-        text = "cmd[update:1000] echo $(/home/ea/.dotfiles/config/home/sources/hypr/scripts/songDetails.sh)";
+        text = "cmd[update:1000] echo $(/home/ea/.nixos/config/home/sources/hypr/scripts/songDetails.sh)";
         color = "rgba(235, 219, 178, .75)";
         font_size = 16;
         font_family = "Fira Code Nerd Font Mono";

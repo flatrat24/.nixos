@@ -17,21 +17,21 @@
     keymap = {
       manager.keymap = [
         # General
-        { on = [ "<esc>" ];         run = "escape";                                             desc = "exit visual mode, clear selected, or cancel search"; }
+        { on = [ "<Esc>" ];         run = "escape";                                             desc = "exit visual mode, clear selected, or cancel search"; }
         { on = [ "q" ];             run = "quit";                                               desc = "exit the process"; }
         { on = [ "q" ];             run = "quit --no-cwd-file";                                 desc = "exit the process without writing cwd-file"; }
-        { on = [ "<c-q>" ];         run = "close";                                              desc = "close the current tab, or quit if it is last tab"; }
-        { on = [ "<c-z>" ];         run = "suspend";                                            desc = "suspend the process"; }
+        { on = [ "<C-q>" ];         run = "close";                                              desc = "close the current tab, or quit if it is last tab"; }
+        { on = [ "<C-z>" ];         run = "suspend";                                            desc = "suspend the process"; }
 
         # navigation
         { on = [ "k" ];             run = "arrow -1";                                           desc = "move cursor up"; }
         { on = [ "j" ];             run = "arrow 1";                                            desc = "move cursor down"; }
 
-        { on = [ "k" ];             run = "arrow -5";                                           desc = "move cursor up 5 lines"; }
-        { on = [ "j" ];             run = "arrow 5";                                            desc = "move cursor down 5 lines"; }
+        { on = [ "K" ];             run = "arrow -5";                                           desc = "move cursor up 5 lines"; }
+        { on = [ "J" ];             run = "arrow 5";                                            desc = "move cursor down 5 lines"; }
 
-        { on = [ "<c-k>" ];         run = "arrow -50%";                                         desc = "move cursor up half page"; }
-        { on = [ "<c-j>" ];         run = "arrow 50%";                                          desc = "move cursor down half page"; }
+        { on = [ "<C-k>" ];         run = "arrow -50%";                                         desc = "move cursor up half page"; }
+        { on = [ "<C-j>" ];         run = "arrow 50%";                                          desc = "move cursor down half page"; }
 
         { on = [ "h" ];             run = "leave";                                              desc = "go back to the parent directory"; }
         { on = [ "l" ];             run = "enter";                                              desc = "enter the child directory"; }
@@ -43,15 +43,15 @@
         { on = [ "g" ];             run = "arrow 99999999";                                     desc = "move cursor to the bottom"; }
 
         # selection
-        { on = [ "<space>" ];       run = [ "select --state=none" "arrow 1" ];                  desc = "toggle the current selection state"; }
+        { on = [ "<Space>" ];       run = [ "select --state=none" "arrow 1" ];                  desc = "toggle the current selection state"; }
         { on = [ "v" ];             run = "visual_mode";                                        desc = "enter visual mode (selection mode)"; }
         { on = [ "v" ];             run = "visual_mode --unset";                                desc = "enter visual mode (unset mode)"; }
-        { on = [ "<c-a>" ];         run = "select_all --state=true";                            desc = "select all files"; }
-        { on = [ "<c-r>" ];         run = "select_all --state=none";                            desc = "inverse selection of all files"; }
+        { on = [ "<C-a>" ];         run = "select_all --state=true";                            desc = "select all files"; }
+        { on = [ "<C-r>" ];         run = "select_all --state=none";                            desc = "inverse selection of all files"; }
 
         # operation
-        { on = [ "<enter>" ];       run = "open";                                               desc = "open the selected files"; }
-        { on = [ "<c-enter>" ];     run = "open --interactive";                                 desc = "open the selected files interactively"; }
+        { on = [ "<Enter>" ];       run = "open";                                               desc = "open the selected files"; }
+        { on = [ "<C-Enter>" ];     run = "open --interactive";                                 desc = "open the selected files interactively"; }
         { on = [ "y" ];             run = "yank";                                               desc = "copy the selected files"; }
         { on = [ "y" ];             run = "unyank";                                             desc = "cancel the yank status of files"; }
         { on = [ "x" ];             run = "yank --cut";                                         desc = "cut the selected files"; }
@@ -136,18 +136,18 @@
         { on = [ "g" "t" ];         run = "cd /tmp";                                            desc = "go to the temporary directory"; }
         { on = [ "g" "m" ];         run = "cd ~/music/musicstagingground";                      desc = "go to the music staging ground directory"; }
         { on = [ "g" "/" ];         run = "cd /";                                               desc = "go to the root directory"; }
-        { on = [ "g" "<space>" ];   run = "cd --interactive";                                   desc = "go to a directory interactively"; }
+        { on = [ "g" "<Space>" ];   run = "cd --interactive";                                   desc = "go to a directory interactively"; }
 
         # help
         { on = [ "~" ];             run = "help";                                               desc = "open help"; }
-          ];
+      ];
 
-          select.keymap = [
+      select.keymap = [
         # general
-        { on = [ "<esc>" ];         run = "close";                                              desc = "cancel selection"; }
-        { on = [ "<c-[>" ];         run = "close";                                              desc = "cancel selection"; }
-        { on = [ "<c-q>" ];         run = "close";                                              desc = "cancel selection"; }
-        { on = [ "<enter>" ];       run = "close --submit";                                     desc = "submit the selection"; }
+        { on = [ "<Esc>" ];         run = "close";                                              desc = "cancel selection"; }
+        { on = [ "<C-[>" ];         run = "close";                                              desc = "cancel selection"; }
+        { on = [ "<C-q>" ];         run = "close";                                              desc = "cancel selection"; }
+        { on = [ "<Enter>" ];       run = "close --submit";                                     desc = "submit the selection"; }
 
         # navigation
         { on = [ "k" ];             run = "arrow -1";                                           desc = "move cursor up"; }

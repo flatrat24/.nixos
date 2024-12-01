@@ -1,41 +1,40 @@
 { pkgs, lib, ... }:
 let
   myAliases = {
-    sudo = "sudo "                                        ;
-    ls   = "eza --group-directories-first --hyperlink"    ;
-    la   = "ls --all --long --header --git"               ;
-    lt   = "ls --tree --level=3"                          ;
+    "sudo" = "sudo "                                        ;
+    "ls"   = "eza --group-directories-first --hyperlink"    ;
+    "la"   = "ls --all --long --header --git"               ;
+    "lt"   = "ls --tree --level=3"                          ;
 
-    cd   = "cd .."                                        ;
+    ".."   = "cd .."                                        ;
                                                           
-    z    = "zellij"                                       ;
-    za   = "zellij attach"                                ;
-    zd   = "zellij delete-session"                        ;
-    zD   = "zellij delete-all-sessions"                   ;
-    zk   = "zellij kill-session"                          ;
-    zK   = "zellij kill-all-sessions"                     ;
-    zp   = "zellij list-aliases"                          ;
-    zl   = "zellij list-sessions"                         ;
-    zr   = "zellij run"                                   ;
+    "z"    = "zellij"                                       ;
+    "za"   = "zellij attach"                                ;
+    "zd"   = "zellij delete-session"                        ;
+    "zD"   = "zellij delete-all-sessions"                   ;
+    "zk"   = "zellij kill-session"                          ;
+    "zK"   = "zellij kill-all-sessions"                     ;
+    "zp"   = "zellij list-aliases"                          ;
+    "zl"   = "zellij list-sessions"                         ;
+    "zr"   = "zellij run"                                   ;
                                                           
-    cat  = "bat"                                          ;
+    "cat"  = "bat"                                          ;
                                                           
-    p    = "python3"                                      ;
-    h    = "fc -ln 1 | fzf | wl-copy"                     ;
-    v    = "nvim"                                         ;
-    c    = "clear"                                        ;
-    q    = "exit"                                         ;
-    d    = "yazi"                                         ;
-    n    = "ncmpcpp"                                      ;
-    y    = "hyprland"                                     ;
-    f    = "fzf --preview 'bat --color=always {}'"        ;
+    "p"    = "python3"                                      ;
+    "h"    = "fc -ln 1 | fzf | wl-copy"                     ;
+    "v"    = "nvim"                                         ;
+    "c"    = "clear"                                        ;
+    "q"    = "exit"                                         ;
+    "d"    = "yazi"                                         ;
+    "n"    = "ncmpcpp"                                      ;
+    "y"    = "hyprland"                                     ;
+    "f"    = "fzf --preview 'bat --color=always {}'"        ;
                                                           
-    tt   = "sh ~/.config/hypr/scripts/toggleTouchpad.sh"  ;
+    "tt"   = "sh ~/.config/hypr/scripts/toggleTouchpad.sh"  ;
 
-    nr   = "nixos-rebuild switch --flake /home/ea/.nixos" ;
+    "nr"   = "nixos-rebuild switch --flake /home/ea/.nixos" ;
   };
-in
-  {
+in {
   programs.bash = {
     enable = true;
     shellAliases = myAliases;
