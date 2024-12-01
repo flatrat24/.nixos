@@ -14,6 +14,7 @@
     ./config/home/nvim.nix
 
     # Application Modules
+    ./config/home/firefox.nix
 
     # Other Modules
     # ./config/home/mpd.nix

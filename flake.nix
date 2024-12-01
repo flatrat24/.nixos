@@ -8,6 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix/cf8b6e2d4e8aca8ef14b839a906ab5eb98b08561";
+    textfox.url = "github:adriankarlen/textfox";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
