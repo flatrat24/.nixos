@@ -52,6 +52,7 @@ keybinds clear-defaults=true {
     bind "Alt r"     { SwitchToMode "RenamePane"           ; PaneNameInput 0       ; }
 
     bind "Alt R"     { SwitchToMode "RenameTab"            ; TabNameInput 0;         }
+    // bind "Alt Tab"   { SwitchFocus                         ;                         }
     bind "Alt ["     { GoToPreviousTab                     ;                         }
     bind "Alt ]"     { GoToNextTab                         ;                         }
     bind "Alt t"     { NewTab                              ; SwitchToMode "Normal" ; }
