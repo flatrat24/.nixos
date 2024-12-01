@@ -22,15 +22,15 @@
       size = 24;
     };
     fonts = {
-      packages = with pkgs; [
-        (pkgs.nerdfonts.override {
-          fonts = [
-            "IBMPlexMono"
-            "Iosevka"
-            "IosevkaTerm"
-          ];
-        })
-      ];
+      # packages = with pkgs; [
+      #   (pkgs.nerdfonts.override {
+      #     fonts = [
+      #       "IBMPlexMono"
+      #       "Iosevka"
+      #       "IosevkaTerm"
+      #     ];
+      #   })
+      # ];
       serif = {
         name = "IBM Plex Serif";
         package = pkgs.ibm-plex;
@@ -44,8 +44,8 @@
         package = pkgs.ibm-plex;
       };
       emoji = {
-        name = "Whatsapp Emoji";
-        package = pkgs.whatsapp-emoji-font;
+        name = "Twemoji";
+        package = pkgs.twitter-color-emoji;
       };
       sizes = {
         applications = 12;

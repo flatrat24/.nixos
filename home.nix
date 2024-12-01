@@ -3,7 +3,6 @@
 {
   imports = [
     # General Modules
-    ./config/home/fonts.nix
     ./config/home/stylix.nix
     # ./config/home/mime.nix
 
