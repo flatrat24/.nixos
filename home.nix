@@ -17,7 +17,7 @@
 
     # Other Modules
     # ./config/home/mpd.nix
-    ./config/home/hypr.nix
+    ./config/home/hypr/default.nix
   ];
 
   home = {
