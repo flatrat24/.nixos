@@ -16,7 +16,7 @@ in {
   imports = [ 
     ./git.nix
     ./yazi.nix
-    ./fonts.nix
+    # ./fonts.nix
   ];
 
   home.packages = dependencies;
