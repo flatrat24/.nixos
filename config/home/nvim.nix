@@ -29,7 +29,7 @@ in {
     };
   };
 
-  xdg = {
+  xdg = { # TODO: Fix desktop entry, doesn't work
     enable = true;
     mimeApps.enable = true;
     mimeApps.defaultApplications = {"text/*" = ["nvim.desktop"];};
