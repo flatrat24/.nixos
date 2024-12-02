@@ -3,7 +3,8 @@ let
   dependencies = with pkgs; [ ];
 in {
   imports = [
-    ./framework.nix
+    # ./framework.nix
+    ./davidsMonitor.nix
   ];
 
   wayland.windowManager.hyprland.settings = {
