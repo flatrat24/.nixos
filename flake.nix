@@ -46,7 +46,7 @@
           # ./config/system/nvidia-hyprland.nix
           ./config/system/bluetooth.nix
           ./config/system/grub.nix
-          # ./config/system/sddm.nix
+          ./config/system/sddm.nix
           ./config/system/stylix.nix
           ./hosts/frame/configuration.nix
 
