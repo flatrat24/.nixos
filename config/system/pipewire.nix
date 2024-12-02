@@ -3,7 +3,7 @@ let
   dependencies = with pkgs; [
     pavucontrol
   ];
-{
+in {
   environment.systemPackages = dependencies;
 
   security.rtkit.enable = true;
