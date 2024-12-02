@@ -4,7 +4,7 @@
       ##### Launch Applications #####
       "$mod, Escape, Lock Screen, exec, hyprlock"
       "$mod, A, Launch Terminal, exec, $terminal"
-      "$mod, D, Launch Browser, exec, $browser"
+      "$mod, S, Launch Browser, exec, $browser"
     ];
   };
 }
