@@ -28,7 +28,7 @@
           ./config/system/bluetooth.nix
           ./config/system/grub.nix
           ./config/system/stylix.nix
-          ./config/system/syncthing.nix
+          # ./config/system/syncthing.nix
           ./config/system/pipewire.nix
           # ./config/system/sddm.nix
           ./hosts/loque/configuration.nix
