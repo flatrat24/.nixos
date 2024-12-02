@@ -1,5 +1,6 @@
 { pkgs, ... }: {
 
+
   home.file = {
     ".config/foot/foot.ini" = {
       text = ''
@@ -13,10 +14,10 @@
         title=terminal
         # locked-title=no
 
-        font                                    =FiraCode-VF:size=12
-        font-bold                               =FiraCode-VF:style=Bold:size=12
-        font-italic                             =FiraCode-VF:style=Italic:size=12
-        font-bold-italic                        =FiraCode-VF:style=Bold:style=Italic:size=12
+        font                                    =IBM Plex Mono:size=12
+        font-bold                               =IBM Plex Mono:style=Bold:size=12
+        font-italic                             =IBM Plex Mono:style=Italic:size=12
+        font-bold-italic                        =IBM Plex Mono:style=Bold:style=Italic:size=12
         font-size-adjustment                    =0.5
         # line-height                           =<font metrics>
         letter-spacing                          =0
