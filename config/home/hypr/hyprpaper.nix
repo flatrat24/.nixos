@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }:
+let
+  dependencies = with pkgs; [
+    hyprpaper
+  ];
+in {
   services.hyprpaper = {
     enable = true;
     settings = {

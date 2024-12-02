@@ -1,5 +1,18 @@
 { inputs, pkgs, ... }: {
   wayland.windowManager.hyprland.settings = {
+    bindd = [
+      ##### Notifications #####
+      ", F9, Restore Last Notification, exec, makoctl restore"
+      ", F10, Dismiss Last Notification, exec, makoctl dismiss"
+
+      ##### Color Picker #####
+      ", F12, Activate Color Picker, exec, hyprpicker | wl-copy"
+    ];
+    binded = [
+      ##### Screenshots #####
+      ", F11, Screenshot (Select Area), exec, grimblast --notify copysave area"
+      "$mod SHIFT, F11, Screenshot (Entire Screen), exec, grimblast --notify copysave screen"
+    ];
     bindeld = [
       ##### Volume Controls #####
       ", F1, Toggle Volume Mute, exec, pamixer -t"
@@ -10,17 +23,12 @@
       # ", F5, Increase Volume, exec, pamixer -i 2"
       # ", F6, Decrease Volume, exec, pamixer -d 2"
 
-      ", F7, Increase Screen Brightness, exec, brightnessctl s +2%"
-      ", F8, Decrease Screen Brightness, exec, brightnessctl s 2%-"
+      ##### Brightness #####
+      ", F7, Decrease Screen Brightness, exec, brightnessctl s 2%-"
+      ", F8, Increase Screen Brightness, exec, brightnessctl s +2%"
 
-      ", F11, Screenshot (Select Area), exec, grimblast --notify copysave area"
+      ##### Screenshots #####
       "$mod, F11, Screenshot (Focused Window), exec, grimblast --notify copysave active"
-      "$mod SHIFT, F11, Screenshot (Entire Screen), exec, grimblast --notify copysave screen"
-
-      # ", F9, Increase Volume, exec, pamixer -i 2"
-      # ", F10, Decrease Volume, exec, pamixer -d 2"
-      # ", F11, Increase Volume, exec, pamixer -i 2"
-      # ", F12, Decrease Volume, exec, pamixer -d 2"
     ];
     bindld = [
       ##### MPD Controls #####

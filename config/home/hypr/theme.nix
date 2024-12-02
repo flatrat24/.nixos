@@ -1,4 +1,6 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }:
+
+{
   wayland.windowManager.hyprland.settings = {
     general = {
       "gaps_in" = "5";
@@ -24,14 +26,16 @@
       };
     };
 
-    # animations = {
-    #   "enabled" = "true";
-    #   "bezier" = "myBezier, 0.05, 0.9, 0.1, 1.05";
-    #   "animation" = "windows, 1, 2, myBezier, slidein";
-    #   "animation" = "border, 1, 2, default";
-    #   "animation" = "fade, 1, 2, default";
-    #   "animation" = "workspaces, 1, 2, default, slide";
-    # };
+    animations = {
+      "enabled" = "true";
+      "bezier" = "myBezier, 0.05, 0.9, 0.1, 1.05";
+      "animation" = [
+        "windows, 1, 2, myBezier, slidein"
+        "border, 1, 2, default"
+        "fade, 1, 2, default"
+        "workspaces, 1, 2, default, slide"
+      ];
+    };
 
     dwindle = {
       "pseudotile" = "true";

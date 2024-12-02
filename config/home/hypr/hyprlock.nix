@@ -2,6 +2,7 @@
 let
   dependencies = with pkgs; [
     ibm-plex
+    hyprlock
   ];
 in {
   home.packages = dependencies;
@@ -30,10 +31,9 @@ in {
         monitor = "";
         text = ''cmd[update:1000] echo "<span>$(date '+%A, %d %b')</span>"'';
         color = "rgba(225, 225, 225, 0.75)";
-        font_size = 30;
-        # font_family = "IBM Plex Sans";
-        font_family = "Fira Code Nerd Font Mono";
-        position = "0, -60";
+        font_size = 25;
+        font_family = "IBM Plex Sans";
+        position = "0, -75";
         halign = "center";
         valign = "top";
       } {
@@ -41,9 +41,9 @@ in {
         monitor = "";
         text = ''cmd[update:1000] echo "$(date +'%H:%M')"'';
         color = "rgba(250, 189, 47, .75)";
-        font_size = 120;
-        font_family = "MesloLGS NF";
-        position = "0, -90";
+        font_size = 125;
+        font_family = "IBM Plex Sans";
+        position = "0, -100";
         halign = "center";
         valign = "top";
       } {
@@ -51,9 +51,8 @@ in {
         monitor = "";
         text = "cmd[update:1000] echo $(/home/ea/.nixos/config/home/sources/hypr/scripts/songDetails.sh)";
         color = "rgba(235, 219, 178, .75)";
-        font_size = 16;
-        # font_family = "IBM Plex Sans";
-        font_family = "Fira Code Nerd Font Mono";
+        font_size = 20;
+        font_family = "IBM Plex Sans";
         position = "0, 50";
         halign = "center";
         valign = "bottom";
@@ -72,8 +71,7 @@ in {
         dots_center = true;
 
         fade_on_empty = false;
-        # font_family = "IBM Plex Sans";
-        font_family = "Fira Code Nerd Font Mono";
+        font_family = "IBM Plex Sans";
         placeholder_text = "";
 
         check_color = "rgba(60, 56, 54, 0.5)";
