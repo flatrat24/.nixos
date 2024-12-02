@@ -16,6 +16,7 @@
     # Application Modules
     ./config/home/firefox.nix
     ./config/home/foot.nix
+    ./config/home/syncthing.nix
 
     # Other Modules
     # ./config/home/mpd.nix
