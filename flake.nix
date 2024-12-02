@@ -30,9 +30,11 @@
           ./hosts/loque/configuration.nix
 
           home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.ea = import ./home.nix;
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.ea = import ./home.nix;
+            };
           }
         ];
       };
@@ -51,10 +53,13 @@
           ./hosts/frame/configuration.nix
 
           home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.ea = import ./home.nix;
-            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.ea = import ./home.nix;
+              backupFileExtension = "hm-backup";
+              extraSpecialArgs = { inherit inputs; };
+            };
 	        }
 
           inputs.stylix.nixosModules.stylix
