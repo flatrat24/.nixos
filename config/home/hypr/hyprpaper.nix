@@ -4,6 +4,8 @@ let
     hyprpaper
   ];
 in {
+  home.packages = dependencies;
+
   services.hyprpaper = {
     enable = true;
     settings = {
