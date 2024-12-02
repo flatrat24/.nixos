@@ -28,5 +28,13 @@
     stateVersion = "24.05";
   };
 
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+    documents = "${config.home.homeDirectory}/Documents";
+    download = "${config.home.homeDirectory}/Downloads";
+    music = "${config.home.homeDirectory}/Music";
+  };
+
   programs.home-manager.enable = true;
 }
