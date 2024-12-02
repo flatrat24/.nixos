@@ -4,6 +4,9 @@ let
     pavucontrol
   ];
 {
+  environment.systemPackages = dependencies;
+
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -11,6 +14,4 @@ let
     pulse.enable = true;
     # jack.enable = true;
   };
-
-  environment.systemPackages = dependencies;
 }
