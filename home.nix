@@ -15,6 +15,7 @@
 
     # Application Modules
     ./config/home/firefox.nix
+    ./config/home/foot.nix
 
     # Other Modules
     # ./config/home/mpd.nix
