@@ -19,13 +19,15 @@
     nixosConfigurations = {
       leo = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
           ./config/system/basic-packages.nix
           ./config/system/network.nix
           # ./config/system/nvidia.nix
-          ./config/system/nvidia-hyprland.nix
+          ./config/system/nvidia-hyprland.nix # Merge with nvidia.nix
           ./config/system/bluetooth.nix
           ./config/system/grub.nix
+          ./config/system/stylix.nix
           # ./config/system/sddm.nix
           ./hosts/loque/configuration.nix
 
@@ -34,8 +36,12 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.ea = import ./home.nix;
+              backupFileExtension = "hm-backup";
+              extraSpecialArgs = { inherit inputs; };
             };
           }
+
+          inputs.stylix.nixosModules.stylix
         ];
       };
       leoito = nixpkgs.lib.nixosSystem {
