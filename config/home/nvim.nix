@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 let
   dependencies = with pkgs; [
     neovim
@@ -32,18 +32,19 @@ in {
   xdg = { # TODO: Fix desktop entry, doesn't work
     enable = true;
     mimeApps.enable = true;
-    mimeApps.defaultApplications = {"text/*" = ["nvim.desktop"];};
+    mimeApps.defaultApplications = {
+      "text/*" = ["nvim.desktop"];
+    };
     desktopEntries = {
       nvim = {
         name = "Neovim";
         genericName = "Text Editor";
-        # exec = ''foot -e "nvim %F" %f'';
-        exec = "nvim %F";
-        terminal = true;
+        exec = ''foot -e nvim %f''; # remove hardcoded foot
+        # exec = "nvim %F";
+        terminal = false;
         categories = [ "Utility" "TextEditor" ];
         mimeType = [ "text/english" "text/plain" "text/x-makefile" "text/x-c++hdr" "text/x-c++src" "text/x-chdr" "text/x-csrc" "text/x-java" "text/x-moc" "text/x-pascal" "text/x-tcl" "text/x-tex" "application/x-shellscript" "text/x-c" "text/x-c++" "text/x-python" ];
       };
     };
   };
-
 }
