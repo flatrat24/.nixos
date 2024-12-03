@@ -21,16 +21,6 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./config/system/basic-packages.nix
-          ./config/system/network.nix
-          # ./config/system/nvidia.nix
-          ./config/system/nvidia-hyprland.nix # Merge with nvidia.nix
-          ./config/system/bluetooth.nix
-          ./config/system/grub.nix
-          ./config/system/stylix.nix
-          ./config/system/syncthing.nix
-          ./config/system/pipewire.nix
-          # ./config/system/sddm.nix
           ./hosts/loque/configuration.nix
 
           home-manager.nixosModules.home-manager {
@@ -50,16 +40,6 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./config/system/basic-packages.nix
-          ./config/system/network.nix
-          # ./config/system/nvidia.nix
-          # ./config/system/nvidia-hyprland.nix
-          ./config/system/bluetooth.nix
-          ./config/system/grub.nix
-          ./config/system/stylix.nix
-          ./config/system/syncthing.nix
-          ./config/system/pipewire.nix
-          # ./config/system/sddm.nix
           ./hosts/frame/configuration.nix
 
           home-manager.nixosModules.home-manager {
