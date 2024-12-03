@@ -16,10 +16,10 @@
     # Application Modules
     ./config/home/firefox.nix
     ./config/home/foot.nix
-    # ./config/home/syncthing.nix
+    ./config/home/keepass.nix
 
     # Other Modules
-    # ./config/home/mpd.nix
+    ./config/home/mpd.nix
     ./config/home/hypr/default.nix
   ];
 
