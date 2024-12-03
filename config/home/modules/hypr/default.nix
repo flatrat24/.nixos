@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, lib, config, ... }:
 let
   dependencies = with pkgs; [
     hyprland
@@ -20,7 +20,6 @@ let
     foot
   ];
 in {
-
   imports = [
     ./keybinds/default.nix
     ./theme.nix
@@ -31,18 +30,23 @@ in {
     ./hyprpaper.nix
   ];
 
-  home.packages = dependencies;
+  options = {
+    hypr.enable = lib.mkEnableOption "enables hypr";
+  };
 
-  wayland.windowManager.hyprland = {
-    enable = true;
-    settings = {
-      "$mod" = "SUPER";
-      "$terminal" = "foot";
+  config = lib.mkIf config.hypr.enable {
+    home.packages = dependencies;
+
+    wayland.windowManager.hyprland = {
+      enable = true;
+      settings = {
+        "$mod" = "SUPER";
+        "$terminal" = "foot";
+      };
+    };
+
+    home.sessionVariables = {
+      BOOKMARKS = "/home/ea/Documents/Personal/bookmarks.json";
     };
   };
-
-  home.sessionVariables = {
-    BOOKMARKS = "/home/ea/Documents/Personal/bookmarks.json";
-  };
-
 }

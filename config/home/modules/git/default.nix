@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 let
   gitAliases = {
     g    = "git"                                      ;
@@ -14,26 +14,30 @@ let
     gz   = "lazygit"                                  ;
   };
 in {
-
-  programs.bash.shellAliases = gitAliases;
-  programs.zsh.shellAliases = gitAliases;
-
-  programs.lazygit.enable = true;
-
-  programs.git = {
-    enable = true;
-    userName = "Ethan Anthony";
-    userEmail = "ethan.anthony@du.edu";
-    delta.enable = true;
-    extraConfig = {
-      init.defaultBranch = "main";
-    };
+  options = {
+    git.enable = lib.mkEnableOption "enables git";
   };
 
-  home.packages = with pkgs; [
-    git
-    lazygit
-    delta
-  ];
+  config = lib.mkIf config.git.enable {
+    programs.bash.shellAliases = gitAliases;
+    programs.zsh.shellAliases = gitAliases;
 
+    programs.lazygit.enable = true;
+
+    programs.git = {
+      enable = true;
+      userName = "Ethan Anthony";
+      userEmail = "ethan.anthony@du.edu";
+      delta.enable = true;
+      extraConfig = {
+        init.defaultBranch = "main";
+      };
+    };
+
+    home.packages = with pkgs; [
+      git
+      lazygit
+      delta
+    ];
+  };
 }

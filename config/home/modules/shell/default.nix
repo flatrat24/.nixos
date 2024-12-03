@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 let
   myAliases = {
     "sudo" = "sudo "                                        ;
@@ -35,86 +35,92 @@ let
     "nr"   = "nixos-rebuild switch --flake /home/ea/.nixos" ;
   };
 in {
-  programs.bash = {
-    enable = true;
-    shellAliases = myAliases;
-    historySize = 5000;
-    historyFile = "$HOME/.bash_history";
+  options = {
+    shell.enable = lib.mkEnableOption "enables shell";
   };
 
-  programs.zsh = {
-    enable = true;
-    shellAliases = myAliases;
-    history = {
-      save = 5000;
-      size = 5000;
-      path = "$HOME/.zsh_history";
-      share = true;
-      ignoreDups = true;
-      ignoreSpace = true;
-      ignoreAllDups = true;
-    };
-    enableCompletion = true;
-    autosuggestion = {
+  config = lib.mkIf config.shell.enable {
+    programs.bash = {
       enable = true;
+      shellAliases = myAliases;
+      historySize = 5000;
+      historyFile = "$HOME/.bash_history";
     };
-    syntaxHighlighting = {
+
+    programs.zsh = {
       enable = true;
-    };
-    zplug = {
-      enable = false;
-      plugins = [ ];
-    };
-    dotDir = ".config/zsh";
-    initExtraFirst = ''
-      [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-    '';
-    initExtra = ''
-      source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
+      shellAliases = myAliases;
+      history = {
+        save = 5000;
+        size = 5000;
+        path = "$HOME/.zsh_history";
+        share = true;
+        ignoreDups = true;
+        ignoreSpace = true;
+        ignoreAllDups = true;
+      };
+      enableCompletion = true;
+      autosuggestion = {
+        enable = true;
+      };
+      syntaxHighlighting = {
+        enable = true;
+      };
+      zplug = {
+        enable = false;
+        plugins = [ ];
+      };
+      dotDir = ".config/zsh";
+      initExtraFirst = ''
+        [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+      '';
+      initExtra = ''
+        source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
 
-      bindkey '^f' autosuggest-accept
-      bindkey '^k' history-search-backward
-      bindkey '^j' history-search-forward
-      bindkey '^[w' kill-region
+        bindkey '^f' autosuggest-accept
+        bindkey '^k' history-search-backward
+        bindkey '^j' history-search-forward
+        bindkey '^[w' kill-region
 
-      eval "$(fzf --zsh)"
-      eval "$(zoxide init --cmd cd zsh)"
-    '';
+        eval "$(fzf --zsh)"
+        eval "$(zoxide init --cmd cd zsh)"
+      '';
+    };
+    home.file = {
+      ".config/zsh/.p10k.zsh" = {
+        source = ./sources/p10k.zsh;
+        executable = false;
+        recursive = false;
+      };
+    };
+
+    home.packages = with pkgs; [
+      git
+      zsh
+      bash
+      fd
+      bat
+      eza
+      gping
+      delta
+      ripgrep
+      zoxide
+      fzf
+      delta
+      jq
+      moreutils
+      xdg-utils
+      bottom
+      imagemagick
+      poppler_utils
+      wget
+      croc
+      typioca
+      killall
+      zsh-powerlevel10k
+      meslo-lgs-nf
+
+      python3
+    ];
   };
-  home.file = {
-    ".config/zsh/.p10k.zsh" = {
-      source = ./sources/p10k.zsh;
-      executable = false;
-      recursive = false;
-    };
-  };
-
-  home.packages = with pkgs; [
-    git
-    zsh
-    bash
-    fd
-    bat
-    eza
-    gping
-    delta
-    ripgrep
-    zoxide
-    fzf
-    delta
-    jq
-    moreutils
-    xdg-utils
-    bottom
-    imagemagick
-    poppler_utils
-    wget
-    croc
-    typioca
-    killall
-    zsh-powerlevel10k
-    meslo-lgs-nf
-
-    python3
-  ];
 }

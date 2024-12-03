@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, lib, config, ... }:
 let
   importMusic = pkgs.writeShellApplication {
     name = "importMusic";
@@ -10,26 +10,31 @@ let
     text = builtins.readFile ./sources/importMusic;
   };
 in {
-
-  home.file = {
-    ".config/yt-dlp/albumconfig.conf" = {
-      source = ./sources/yt-dlp/albumconfig.conf;
-      executable = false;
-      recursive = false;
-    };
+  options = {
+    importMusic.enable = lib.mkEnableOption "enables import music";
   };
 
-  home.file = {
-    ".config/beets/config.yaml" = {
-      source = ./sources/beets/config.yaml;
-      executable = false;
-      recursive = false;
+  config = lib.mkIf config.importMusic.enable {
+    home.file = {
+      ".config/yt-dlp/albumconfig.conf" = {
+        source = ./sources/yt-dlp/albumconfig.conf;
+        executable = false;
+        recursive = false;
+      };
     };
-  };
 
-  home.packages = [
-    importMusic
-    pkgs.beets
-    pkgs.yt-dlp
-  ];
+    home.file = {
+      ".config/beets/config.yaml" = {
+        source = ./sources/beets/config.yaml;
+        executable = false;
+        recursive = false;
+      };
+    };
+
+    home.packages = [
+      importMusic
+      pkgs.beets
+      pkgs.yt-dlp
+    ];
+  };
 }
