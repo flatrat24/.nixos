@@ -22,7 +22,6 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/loque/configuration.nix
-
           home-manager.nixosModules.home-manager {
             home-manager = {
               useGlobalPkgs = true;
@@ -32,7 +31,6 @@
               extraSpecialArgs = { inherit inputs; };
             };
           }
-
           inputs.stylix.nixosModules.stylix
         ];
       };
@@ -41,7 +39,6 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/frame/configuration.nix
-
           home-manager.nixosModules.home-manager {
             home-manager = {
               useGlobalPkgs = true;
@@ -51,7 +48,6 @@
               extraSpecialArgs = { inherit inputs; };
             };
 	        }
-
           inputs.stylix.nixosModules.stylix
         ];
       };
