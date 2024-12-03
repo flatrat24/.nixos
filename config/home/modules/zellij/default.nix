@@ -2,7 +2,7 @@
 
   home.file = {
     ".config/zellij" = {
-      source = ./sources/zellij;
+      source = ./sources;
       executable = false;
       recursive = true;
     };
