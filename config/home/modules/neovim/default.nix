@@ -14,8 +14,8 @@ let
 in {
 
   imports = [ 
-    ./git.nix
-    ./yazi.nix
+    ../git/default.nix
+    ../yazi/default.nix
     # ./fonts.nix
   ];
 
@@ -23,7 +23,7 @@ in {
 
   home.file = {
     ".config/nvim" = {
-      source = ./sources/nvim;
+      source = ./sources;
       executable = false;
       recursive = true;
     };
