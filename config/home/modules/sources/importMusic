@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+while [[ $# -gt 0 ]]; do
+  yt-dlp --config-locations ~/.config/yt-dlp/albumconfig.conf "$1" &
+  shift
+done
+wait
+
+cd ~/Music/musicStagingGround/
+mapfile -t albums < <(find ./ -mindepth 1 -maxdepth 1 -type d)
+
+for album in "${albums[@]}"; do
+  if [[ $album =~ '- Album -' ]]; then
+    newName="$(echo "$album" | sed "s/^\.\/\(.*\) - Album - \(.*\)/\.\/\1 - \2/")"
+    mv "$album" "$newName"
+  fi
+done
+
+beet import .

@@ -1,0 +1,142 @@
+/*
+background: #282828; background
+foreground: #F9F5D7; foreground
+
+regular0: #665C54; regular black
+regular1: #CC241D; regular red
+regular2: #98971A; regular green
+regular3: #D79921; regular yellow
+regular4: #458588; regular blue
+regular5: #B16286; regular magenta
+regular6: #689D6A; regular cyan
+regular7: #A89984; regular white
+
+bright0:  #7C6F64; bright black
+bright1:  #FB4934; bright red
+bright2:  #B8BB26; bright green
+bright3:  #FABD2F; bright yellow
+bright4:  #83A598; bright blue
+bright5:  #D3869B; bright magenta
+bright6:  #8EC07C; bright cyan
+bright7:  #BDAE93; bright white
+*/
+
+* {
+  border: none;
+  font-family: FiraCode Nerd Font, monospace;
+  font-weight: bold;
+  font-size: 14px;
+  min-height: 20px;
+}
+
+tooltip {
+  background-color: #282828;
+  border: 2px solid #d3869b;
+  text-shadow: none;
+}
+
+tooltip label {
+  font-size: 12px;
+  color: #F9F5D7;
+}
+
+window#waybar {
+  background: rgba(28, 28, 28, 0);
+  color: #F9F5D7;
+}
+
+#workspaces button {
+  padding: 5px 3px 5px 3px;
+  color: #F9F5D7;
+  margin-right: 5px;
+}
+
+#workspaces button.empty {
+  color: #948E6C;
+}
+
+#workspaces button.urgent {
+  color: #CC241D;
+}
+
+#workspaces button.active {
+  color: #8EC07C;
+}
+
+#workspaces button:hover {
+  box-shadow: none;
+  text-shadow: none;
+  background: none;
+  color: #8EC07C;
+}
+
+#mpd,
+#bluetooth,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#workspaces,
+#backlight,
+#custom-powerButton {
+  background: #282828;
+  padding: 0px 10px;
+  margin: 5px 0px 0px 0px;
+  color: #F9F5D7;
+}
+
+#workspaces {
+  border-radius: 5px;
+  margin-left: 10px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+#clock {
+  border-radius: 5px 5px 5px 5px;
+  margin-left: 5px;
+  border-right: 0px;
+}
+
+#mpd {
+  border-radius: 5px 5px 5px 5px;
+  margin-left: 10px;
+}
+
+#network {
+  border-radius: 5px 0px 0px 5px;
+}
+
+#bluetooth {
+  border-radius: 0px 5px 5px 0px;
+}
+
+#battery {
+  border-radius: 5px 0px 0px 5px;
+  margin-left: 10px;
+}
+
+#backlight {
+  border-radius: 0px 5px 5px 0px;
+  margin-right: 10px;
+}
+
+#pulseaudio {
+  border-radius: 5px 0px 0px 5px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#pulseaudio.microphone {
+  border-radius: 0px 5px 5px 0px;
+  border-left: 0px;
+  border-right: 0px;
+  margin-right: 5px;
+}
+
+#custom-powerButton {
+  border-radius: 5px 5px 5px 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 0px 13px 1px 9px;
+}
