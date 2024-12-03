@@ -8,7 +8,7 @@
 
     stylix = {
       autoEnable = false;
-      image = ../home/sources/hypr/assets/grove.png;
+      image = ../../home/modules/sources/hypr/assets/grove.png;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
       homeManagerIntegration = {
         autoImport = true;
