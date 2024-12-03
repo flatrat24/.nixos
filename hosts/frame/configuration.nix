@@ -3,10 +3,26 @@
 {
   networking.hostName = "leoito";
 
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../config/system/default.nix
+  ];
+
+  basicPackages.enable = true;
+  basicSettings.enable = true;
+  bluetooth.enable = true;
+  grub.enable = true;
+  hyprland.enable = true;
+  network.enable = true;
+  nvidia.enable = false;
+  nvidiaHyprland.enable = false;
+  pipewire.enable = true;
+  power.enable = false;
+  printing.enable = false;
+  sddm.enable = true;
+  stylix.enable = true;
+  syncthing.enable = true;
+  system76.enable = false;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
@@ -25,10 +41,7 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-  
-  fonts.fontDir.enable = true;
 
-  programs.zsh.enable = true;
   users.users.ea = {
     isNormalUser = true;
     description = "Ethan Anthony";

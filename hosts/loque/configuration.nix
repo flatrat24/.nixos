@@ -3,32 +3,27 @@
 {
   networking.hostName = "leo";
 
-  imports =
-    [
+  imports = [
       ./hardware-configuration.nix
-    ];
+    ../../config/system/default.nix
+  ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.config.allowUnfree = true;
+  basicPackages.enable  = true;
+  basicSettings.enable  = true;
+  bluetooth.enable      = true;
+  grub.enable           = true;
+  hyprland.enable       = true;
+  network.enable        = true;
+  nvidia.enable         = false;
+  nvidiaHyprland.enable = true;
+  pipewire.enable       = true;
+  power.enable          = false;
+  printing.enable       = false;
+  sddm.enable           = true;
+  stylix.enable         = true;
+  syncthing.enable      = true;
+  system76.enable       = false;
 
-  time.timeZone = "America/New_York";
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
-  
-  fonts.fontDir.enable = true;
-
-  programs.zsh.enable = true;
   users.users.ea = {
     isNormalUser = true;
     description = "Ethan Anthony";
