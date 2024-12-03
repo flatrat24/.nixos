@@ -15,7 +15,6 @@
   hyprland.enable       = true;
   network.enable        = true;
   nvidia.enable         = false;
-  nvidiaHyprland.enable = true;
   pipewire.enable       = true;
   power.enable          = false;
   printing.enable       = false;
