@@ -5,6 +5,22 @@
     ./config/home/default.nix
   ];
 
+  firefox.enable = true;
+  foot.enable = true;
+  gaming.enable = false;
+  git.enable = true;
+  hypr.enable = true;
+  importMusic.enable = false;
+  keepass.enable = true;
+  mpd.enable = true;
+  neovim.enable = true;
+  shell.enable = true;
+  swayimg.enable = true;
+  theme.enable = true;
+  yazi.enable = true;
+  zathura.enable = true;
+  zellij.enable = true;
+
   home = {
     username = "ea";
     homeDirectory = "/home/ea";
