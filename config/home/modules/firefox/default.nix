@@ -96,6 +96,7 @@ in {
           "browser.tabs.tabmanager.enabled" = false;
           "browser.fullscreen.autohide" = false;
           "browser.toolbars.bookmarks.visibility" = "never";
+          "sidebar.position_start" = false;
 
           # Prevent window from closing when last tab is closed
           "browser.tabs.closeWindowWithLastTab" = false;
