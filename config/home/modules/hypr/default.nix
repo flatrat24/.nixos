@@ -21,13 +21,13 @@ let
   ];
 in {
   imports = [
+    ./hyprlock/default.nix
+    ./hyprpaper/default.nix
+    ./input/default.nix
     ./keybinds/default.nix
-    ./theme.nix
-    ./input.nix
     ./monitors/default.nix
-    ./windowRules.nix
-    ./hyprlock.nix
-    ./hyprpaper.nix
+    ./theme/default.nix
+    ./windowRules/default.nix
   ];
 
   options = {
