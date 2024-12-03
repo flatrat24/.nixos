@@ -8,7 +8,7 @@
   stylix = {
     enable = true;
     autoEnable = false;
-    image = ./../modules/sources/hypr/assets/grove.png;
+    image = ../hypr/sources/assets/grove.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
     targets = {

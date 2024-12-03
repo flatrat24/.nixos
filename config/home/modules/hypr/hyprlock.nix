@@ -18,7 +18,7 @@ in {
 
       background = [{
         monitor = "";
-        path = "/home/ea/.nixos/config/home/modules/sources/hypr/assets/grove.png";
+        path = "/home/ea/.nixos/config/home/modules/hypr/sources/assets/grove.png";
         blur_passes = 3;
         contrast = 0.8916;
         brightness = 0.8172;
@@ -49,7 +49,7 @@ in {
       } {
         # Song Info
         monitor = "";
-        text = "cmd[update:1000] echo $(/home/ea/.nixos/config/home/modules/sources/hypr/scripts/songDetails.sh)";
+        text = "cmd[update:1000] echo $(/home/ea/.nixos/config/home/modules/hypr/sources/scripts/songDetails.sh)";
         color = "rgba(235, 219, 178, .75)";
         font_size = 20;
         font_family = "IBM Plex Sans";
