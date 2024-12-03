@@ -83,7 +83,7 @@ in {
   };
   home.file = {
     ".config/zsh/.p10k.zsh" = {
-      source = ./sources/sh/p10k.zsh;
+      source = ./sources/p10k.zsh;
       executable = false;
       recursive = false;
     };
