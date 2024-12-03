@@ -23,9 +23,9 @@
    ./modules/git/default.nix
    ./modules/keepass/default.nix
    ./modules/mpd/default.nix
-   ./modules/nvim/default.nix
-   ./modules/sh/default.nix
-   ./modules/stylix/default.nix
+   ./modules/neovim/default.nix
+   ./modules/shell/default.nix
+   ./modules/theme/default.nix
    ./modules/yazi/default.nix
    ./modules/zellij/default.nix
   ];
