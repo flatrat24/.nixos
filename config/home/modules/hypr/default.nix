@@ -6,7 +6,6 @@ let
     hyprlang
     hypridle
     hyprpicker
-    xdg-desktop-portal-hyprland
     cliphist
     wl-clipboard
     wl-clip-persist
