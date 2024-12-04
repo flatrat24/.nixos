@@ -14,7 +14,7 @@ in {
   };
 
   config = lib.mkIf config.nvidia.enable {
-    # services.xserver.videoDrivers = lib.mkDefault [ "nvidia" ];
+    services.xserver.videoDrivers = lib.mkDefault [ "nvidia" ];
 
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";
@@ -22,9 +22,7 @@ in {
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     };
 
-    services.xserver.videoDrivers = ["nvidia"];
     hardware = {
-      opengl.enable = true;
       nvidia = {
         package = config.boot.kernelPackages.nvidiaPackages.stable;
         powerManagement = {
@@ -37,8 +35,6 @@ in {
       };
     };
   
-    # environment.systemPackages = hyprlandDependencies;
-
     environment.systemPackages = dependencies ++
       (if (config.hyprland.enable == true) then
         hyprlandDependencies

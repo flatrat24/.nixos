@@ -21,5 +21,17 @@
       LC_TELEPHONE = "en_US.UTF-8";
       LC_TIME = "en_US.UTF-8";
     };
+
+    hardware.graphics = {
+      enable = true;
+    };
+
+    xdg.portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+      ];
+      xdgOpenUsePortal = true;
+    };
   };
 }

@@ -11,6 +11,7 @@
   basicPackages.enable  = true;
   basicSettings.enable  = true;
   bluetooth.enable      = true;
+  gaming.enable         = true;
   grub.enable           = true;
   hyprland.enable       = true;
   network.enable        = true;

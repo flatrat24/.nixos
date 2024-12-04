@@ -24,6 +24,14 @@
     #   };
     # };
 
+    xdg.portal = {
+      # enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-hyprland
+      ];
+      # xdgOpenUsePortal = true;
+    };
+
     environment.systemPackages = with pkgs; (if (config.nvidia.enable == true) then [egl-wayland] else []);
   };
 }

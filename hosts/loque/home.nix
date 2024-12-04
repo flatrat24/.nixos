@@ -11,7 +11,13 @@
     stateVersion = "24.05";
   };
 
+  email = {
+    enable = true;
+    thunderbird.enable = true;
+  };
+
   firefox.enable = true;
+
   foot.enable = true;
 
   gaming = {
