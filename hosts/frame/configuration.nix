@@ -8,21 +8,20 @@
     ../../config/system/default.nix
   ];
 
-  basicPackages.enable = true;
-  basicSettings.enable = true;
-  bluetooth.enable = true;
-  grub.enable = true;
-  hyprland.enable = true;
-  network.enable = true;
-  nvidia.enable = false;
-  nvidiaHyprland.enable = false;
-  pipewire.enable = true;
-  power.enable = false;
-  printing.enable = false;
-  sddm.enable = true;
-  stylix.enable = true;
-  syncthing.enable = true;
-  system76.enable = false;
+  basicPackages.enable  = true;
+  basicSettings.enable  = true;
+  bluetooth.enable      = true;
+  grub.enable           = true;
+  hyprland.enable       = true;
+  network.enable        = true;
+  nvidia.enable         = false;
+  pipewire.enable       = true;
+  power.enable          = false;
+  printing.enable       = false;
+  sddm.enable           = false;
+  stylix.enable         = true;
+  syncthing.enable      = true;
+  system76.enable       = false;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
