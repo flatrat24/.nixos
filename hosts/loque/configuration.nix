@@ -14,11 +14,11 @@
   grub.enable           = true;
   hyprland.enable       = true;
   network.enable        = true;
-  nvidia.enable         = false;
+  nvidia.enable         = true;
   pipewire.enable       = true;
   power.enable          = false;
   printing.enable       = false;
-  sddm.enable           = true;
+  sddm.enable           = false;
   stylix.enable         = true;
   syncthing.enable      = true;
   system76.enable       = false;
