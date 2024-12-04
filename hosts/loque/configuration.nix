@@ -23,6 +23,12 @@
   syncthing.enable      = true;
   system76.enable       = false;
 
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+
   users.users.ea = {
     isNormalUser = true;
     description = "Ethan Anthony";
