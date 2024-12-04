@@ -23,7 +23,6 @@ in {
     };
 
     hardware = {
-      opengl.enable = true;
       nvidia = {
         package = config.boot.kernelPackages.nvidiaPackages.stable;
         powerManagement = {
