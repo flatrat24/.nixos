@@ -1,0 +1,2 @@
+ - change ncmpcpp keybinds to use repeat queue and single with r and R
+ - refactor mpd module to be a music module
