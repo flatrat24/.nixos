@@ -11,6 +11,7 @@
   basicPackages.enable  = true;
   basicSettings.enable  = true;
   bluetooth.enable      = true;
+  gaming.enable         = true;
   grub.enable           = true;
   hyprland.enable       = true;
   network.enable        = true;
@@ -22,12 +23,6 @@
   stylix.enable         = true;
   syncthing.enable      = true;
   system76.enable       = false;
-
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
 
   users.users.ea = {
     isNormalUser = true;
