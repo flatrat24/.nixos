@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./config/home/default.nix
+    ../../config/home/default.nix
   ];
 
   home = {
@@ -13,7 +13,11 @@
 
   firefox.enable = true;
   foot.enable = true;
-  gaming.enable = false;
+
+  gaming = {
+    enable = true;
+  };
+
   git.enable = true;
 
   hypr = {
@@ -24,7 +28,10 @@
     };
     hyprpaper = {
       enable = true;
-      wallpaper = ./config/assets/grove.png;
+      wallpaper = ../../config/assets/grove.png;
+    };
+    animations = {
+      enable = true;
     };
   };
 
@@ -41,6 +48,12 @@
 
   input = {
     touchpad.enable = false;
+    keyboard = {
+      formFactor = "mac";
+    };
+  };
+  monitors = {
+    microstepMSI.enable = true;
   };
 
   xdg.userDirs = {
