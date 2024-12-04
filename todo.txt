@@ -18,7 +18,7 @@ THEMEING
   - swayimg
   - zathura
   - sddm
-  - Grub
+  - Grub (minecraft flake)
   - thunderbird
   - Wofi
 
