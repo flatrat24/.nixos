@@ -75,11 +75,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1733087703,
-        "narHash": "sha256-WKdLy5t8SH9HBtajC8BZb+V4n0FaP71aUUYLuku46Rk=",
+        "lastModified": 1733299393,
+        "narHash": "sha256-xQvMnRp0WWsZ9phxm5FN4pA5HELIM7i3FCSkAr7NVME=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "d4cbff4dda07726005224b33cf2cc5dc4a2c4211",
+        "rev": "e09e109b584ecbc4efeeae1029cdc2fd4d099aa8",
         "type": "gitlab"
       },
       "original": {
@@ -181,16 +181,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1726989464,
-        "narHash": "sha256-Vl+WVTJwutXkimwGprnEtXc/s/s8sMuXzqXaspIGlwM=",
+        "lastModified": 1733050161,
+        "narHash": "sha256-lYnT+EYE47f5yY3KS/Kd4pJ6CO9fhCqumkYYkQ3TK20=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "2f23fa308a7c067e52dfcc30a0758f47043ec176",
+        "rev": "62d536255879be574ebfe9b87c4ac194febf47c5",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-24.05",
+        "ref": "release-24.11",
         "repo": "home-manager",
         "type": "github"
       }
@@ -234,16 +234,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1732632634,
-        "narHash": "sha256-+G7n/ZD635aN0sEXQLynU7pWMd3PKDM7yBIXvYmjABQ=",
+        "lastModified": 1733120037,
+        "narHash": "sha256-En+gSoVJ3iQKPDU1FHrR6zIxSLXKjzKY+pnh9tt+Yts=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "6f6076c37180ea3a916f84928cf3a714c5207a30",
+        "rev": "f9f0d5c5380be0a599b1fb54641fa99af8281539",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-24.05",
+        "ref": "nixos-24.11",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -357,11 +357,11 @@
         "nur": "nur"
       },
       "locked": {
-        "lastModified": 1732397216,
-        "narHash": "sha256-FDekqUyQJEePz1yVjUIlYeHJeextV3aAGhjAaXNeYzs=",
+        "lastModified": 1733129397,
+        "narHash": "sha256-JbE5C47PjM825T9Ta8lgQPlMfOIlPPQuYjssbIgx8us=",
         "owner": "adriankarlen",
         "repo": "textfox",
-        "rev": "f38c5d12876a69ee08a36dcfaa1b9a9b29579600",
+        "rev": "24796909af0c5a24dd4f7cef36ca1e44f0e7f23e",
         "type": "github"
       },
       "original": {
