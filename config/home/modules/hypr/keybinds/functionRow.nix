@@ -70,8 +70,8 @@
         bindeld = [
           ##### Volume Controls #####
           ", F1, Toggle Volume Mute, exec, pamixer -t"
-          ", F2, Increase Volume, exec, pamixer -i 2"
-          ", F3, Decrease Volume, exec, pamixer -d 2"
+          ", F2, Decrease Volume, exec, pamixer -d 2"
+          ", F3, Increase Volume, exec, pamixer -i 2"
 
           ##### Unbound Keys #####
           # ", F4, Toggle Volume Mute, exec, pamixer -t"
