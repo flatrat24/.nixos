@@ -5,6 +5,10 @@
         type = lib.types.bool;
         default = config.hypr.enable;
       };
+      battlenet = lib.mkOption { # Make dependent on gaming (is this too much modularity)
+        type = lib.types.bool;
+        default = config.hypr.enable;
+      };
     };
   };
   
@@ -12,6 +16,25 @@
     (lib.mkIf (config.hypr.windowRules.preventAutoFullscreen == true) {
       wayland.windowManager.hyprland.settings.windowrulev2 = [
         "suppressevent maximize, class:.*"
+      ];
+    })
+    (lib.mkIf (config.hypr.windowRules.battlenet == true) {
+      wayland.windowManager.hyprland.settings.windowrulev2 = [
+        # Login Popup
+        "float,class:battle.net.exe,title:Battle.net Login"
+        "noborder,class:battle.net.exe,title:Battle.net Login"
+        "size 50% 50%,class:battle.net.exe,title:Battle.net Login"
+        "move 25% 25%,class:battle.net.exe,title:Battle.net Login"
+
+        "float,class:battle.net.exe,title:Battle.net"
+        "noborder,class:battle.net.exe,title:Battle.net"
+        "size 50% 50%,class:battle.net.exe,title:Battle.net"
+        "move 25% 25%,class:battle.net.exe,title:Battle.net"
+
+        # Little weird system tray thing
+        # "float,class:explorer.exe,title:Wine System Tray"
+        # "size 40% 40%,class:explorer.exe,title:Wine System Tray"
+        # "move 30% 30%,class:explorer.exe,title:Wine System Tray"
       ];
     })
     # wayland.windowManager.hyprland.settings = {
