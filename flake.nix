@@ -13,6 +13,7 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
@@ -43,11 +44,12 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.ea = import ./home.nix; # TODO: Switch to host-specific directory
+              users.ea = import ./hosts/frame/home.nix;
               backupFileExtension = "hm-backup";
               extraSpecialArgs = { inherit inputs; };
             };
 	        }
+          inputs.nixos-hardware.nixosModules.framework-13-7040-amd
           inputs.stylix.nixosModules.stylix
         ];
       };
