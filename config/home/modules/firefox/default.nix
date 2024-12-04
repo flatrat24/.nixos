@@ -2,7 +2,7 @@
 let
   profileName = "ea";
   dependencies = with pkgs; [
-    firefox
+    # firefox
   ];
   # TODO: Figure out how to auto-enable extensions
   extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
