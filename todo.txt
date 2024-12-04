@@ -1,2 +1,69 @@
- - change ncmpcpp keybinds to use repeat queue and single with r and R
- - refactor mpd module to be a music module
+MUSIC
+- Change keybinds to include single song repeat
+- Refactor MPD module to be a general music module
+  - Include importMusic script
+    - yt-dlp
+    - beets
+
+THEMEING
+- Get better wallpapers for catppuccin
+- Fix following errors:
+  - Nerdfont icons in terminal not consistent (vertical rectangle instead of icon)
+  - Icons in GTK apps not consistent
+  - Not an error, but ICONS IN YAZI ARE UGLY ASF
+- Theme following applications:
+  - Neovim
+  - ncmpcpp
+  - foot
+  - swayimg
+  - zathura
+  - sddm
+  - Grub
+  - thunderbird
+  - Wofi
+
+MIME
+  - Get all applications integrated with xdg-mime/xdg-open
+
+EMAIL
+  - Get thunderbird working in a basic sense
+  - Get google calendar working with thunderbird
+
+AGS
+  - Get a barebones setup working and move on.
+  - Once returned, possible ideas:
+    - School integration (show current course; other information)
+    - Calendar
+    - Basic Hyprland actions (screenshot, hyprpicker, switch workspaces)
+    - Brightness, volume, nightlight controls
+
+NEOVIM
+  - Remake alpha.nvim landing page
+  - Figure out a solution to navigating the filesystem
+  - Get a buffer management plugin
+  - Get neovim working with LaTeX and zathura
+  - Do a general cleanup of plugins and options
+  - Peruse for new plugins and options
+
+WOFI
+  - Get Wofi working as a:
+    - Application launcher
+    - Calculator
+    - Clipboard manager
+    - Password manager (read-only)
+  - Advanced use-cases for Wofi:
+    - Hyprland keybinds
+    - Bookmark manager
+    - Quick-open filesystem
+    - Window (focus) switcher?
+
+SCHOOL
+  - Verify the following:
+    - Neovim works with latex documents
+    - Wofi is installed and working
+  - Setup:
+    - Wofi
+    - Hyprland keybinds
+    - Zathura/Neovim
+    - Bookmarks
+    - AGS
