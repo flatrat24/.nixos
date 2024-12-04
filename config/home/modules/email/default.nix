@@ -60,8 +60,8 @@ in {
             };
             smtp = {
               tls.enable = true; # MAYBE CHANGE?
-              port = 587;
-              host = "smtp.gmail.com"; # MAYBE CHANGE?
+              port = lib.mkDefault 587;
+              host = lib.mkDefault "smtp.gmail.com"; # MAYBE CHANGE?
             };
             signature = {
               text = "Ethan Anthony";
