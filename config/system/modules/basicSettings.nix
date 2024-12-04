@@ -22,7 +22,7 @@
       LC_TIME = "en_US.UTF-8";
     };
 
-    hardware.opengl = {
+    hardware.graphics = {
       enable = true;
     };
 
