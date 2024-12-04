@@ -22,14 +22,14 @@
       wayland.windowManager.hyprland.settings.windowrulev2 = [
         # Login Popup
         "float,class:battle.net.exe,title:Battle.net Login"
-        "noborder,class:battle.net.exe,title:Battle.net Login"
+        # "noborder,class:battle.net.exe,title:Battle.net Login"
         "size 50% 50%,class:battle.net.exe,title:Battle.net Login"
         "move 25% 25%,class:battle.net.exe,title:Battle.net Login"
 
         "float,class:battle.net.exe,title:Battle.net"
-        "noborder,class:battle.net.exe,title:Battle.net"
-        "size 50% 50%,class:battle.net.exe,title:Battle.net"
-        "move 25% 25%,class:battle.net.exe,title:Battle.net"
+        # "noborder,class:battle.net.exe,title:Battle.net"
+        "size 75% 75%,class:battle.net.exe,title:Battle.net"
+        "move 12.5% 12.5%,class:battle.net.exe,title:Battle.net"
 
         # Little weird system tray thing
         # "float,class:explorer.exe,title:Wine System Tray"
