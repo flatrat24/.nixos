@@ -1,20 +1,35 @@
-{ inputs, pkgs, ... }:
+{ pkgs, lib, inputs, config, ... }:
 let
   dependencies = with pkgs; [
     hyprpaper
   ];
 in {
-  home.packages = dependencies;
+  options = {
+    hypr.hyprpaper = {
+      enable = lib.mkOption {
+        type = lib.types.bool;
+        default = config.hypr.enable;
+      };
+      wallpaper = lib.mkOption {
+        type = lib.types.path;
+        default = ../../../../assets/grove.png; # TODO: Fix error where grove.png is always used no matter what
+      };
+    };
+  };
 
-  services.hyprpaper = {
-    enable = true;
-    settings = {
-      preload = [
-        "/home/ea/.nixos/config/home/modules/hypr/sources/assets/grove.png"
-      ];
-      wallpaper = [
-        ",/home/ea/.nixos/config/home/modules/hypr/sources/assets/grove.png"
-      ];
+  config = lib.mkIf config.hypr.hyprpaper.enable {
+    home.packages = dependencies;
+
+    services.hyprpaper = {
+      enable = true;
+      settings = {
+        preload = [
+          "${config.hypr.hyprpaper.wallpaper}"
+        ];
+        wallpaper = [
+          ",${config.hypr.hyprpaper.wallpaper}"
+        ];
+      };
     };
   };
 }
