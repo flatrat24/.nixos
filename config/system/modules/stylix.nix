@@ -1,4 +1,5 @@
 { pkgs, lib, config, ... }: {
+  ### stylix.enable is already an option
   # options = {
   #   stylix.enable = lib.mkEnableOption "enables stylix";
   # };
@@ -23,8 +24,8 @@
       };
 
       cursor = {
-        name = "macOS-BigSur";
-        package = pkgs.apple-cursor;
+        name = "catppuccin-frappe-dark-cursors";
+        package = pkgs.catppuccin-cursors.frappeDark;
         size = 24;
       };
       fonts = {
