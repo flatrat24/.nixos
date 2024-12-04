@@ -26,8 +26,10 @@ MIME
   - Get all applications integrated with xdg-mime/xdg-open
 
 EMAIL
-  - Get thunderbird working in a basic sense
   - Get google calendar working with thunderbird
+  - Get some about:config things going
+    - Prevent welcome screen/popups
+    - Remove tasks and chat from toolbar
 
 AGS
   - Get a barebones setup working and move on.
