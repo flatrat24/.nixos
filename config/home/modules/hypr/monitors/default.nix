@@ -15,6 +15,7 @@
     wayland.windowManager.hyprland.settings = {
       "monitor" = [
         ", preferred, auto-right, 1"
+        "Unknown-1, disable"
       ];
     };
   };
