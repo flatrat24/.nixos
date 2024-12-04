@@ -1,10 +1,8 @@
-{ config, pkgs, ... }:
-
-{
+{ config, pkgs, ... }: {
   networking.hostName = "leo";
 
   imports = [
-      ./hardware-configuration.nix
+    ./hardware-configuration.nix
     ../../config/system/default.nix
   ];
 
