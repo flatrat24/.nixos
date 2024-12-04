@@ -26,6 +26,9 @@
       enable = true;
       wallpaper = ../../config/assets/grove.png;
     };
+    animations = {
+      enable = true;
+    };
   };
 
   importMusic.enable = false;
@@ -41,6 +44,12 @@
 
   input = {
     touchpad.enable = false;
+    keyboard = {
+      formFactor = "mac";
+    };
+  };
+  monitors = {
+    microstepMSI.enable = true;
   };
 
   xdg.userDirs = {
