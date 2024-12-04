@@ -2,8 +2,14 @@
 
 {
   imports = [
-    ./config/home/default.nix
+    ../../config/home/default.nix
   ];
+
+  home = {
+    username = "ea";
+    homeDirectory = "/home/ea";
+    stateVersion = "24.05";
+  };
 
   firefox.enable = true;
   foot.enable = true;
@@ -18,7 +24,7 @@
     };
     hyprpaper = {
       enable = true;
-      wallpaper = ./config/assets/grove.png;
+      wallpaper = ../../config/assets/grove.png;
     };
   };
 
@@ -35,12 +41,6 @@
 
   input = {
     touchpad.enable = false;
-  };
-
-  home = {
-    username = "ea";
-    homeDirectory = "/home/ea";
-    stateVersion = "24.05";
   };
 
   xdg.userDirs = {

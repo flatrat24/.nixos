@@ -26,7 +26,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.ea = import ./home.nix;
+              users.ea = import ./hosts/loque/home.nix;
               backupFileExtension = "hm-backup";
               extraSpecialArgs = { inherit inputs; };
             };
@@ -43,7 +43,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.ea = import ./home.nix;
+              users.ea = import ./home.nix; # TODO: Switch to host-specific directory
               backupFileExtension = "hm-backup";
               extraSpecialArgs = { inherit inputs; };
             };
