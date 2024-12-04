@@ -17,7 +17,6 @@
   };
 
   firefox.enable = true;
-
   foot.enable = true;
 
   gaming = {
@@ -58,8 +57,10 @@
       formFactor = "mac";
     };
   };
+
   monitors = {
     microstepMSI.enable = true;
+    framework.enable = false;
   };
 
   xdg.userDirs = {
