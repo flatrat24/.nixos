@@ -9,6 +9,10 @@
   config = lib.mkMerge [
     (lib.mkIf (config.hypr.enable == true) {
       wayland.windowManager.hyprland.settings = {
+        cursor = {
+          "no_hardware_cursors" = "true";
+        };
+
         general = {
           "gaps_in" = "5";
           "gaps_out" = "5";
