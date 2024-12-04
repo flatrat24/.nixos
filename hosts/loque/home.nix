@@ -13,7 +13,11 @@
 
   firefox.enable = true;
   foot.enable = true;
-  gaming.enable = false;
+
+  gaming = {
+    enable = true;
+  };
+
   git.enable = true;
 
   hypr = {
