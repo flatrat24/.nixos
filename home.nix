@@ -5,11 +5,29 @@
     ./config/home/default.nix
   ];
 
+  home = {
+    username = "ea";
+    homeDirectory = "/home/ea";
+    stateVersion = "24.05";
+  };
+
   firefox.enable = true;
   foot.enable = true;
   gaming.enable = false;
   git.enable = true;
-  hypr.enable = true;
+
+  hypr = {
+    enable = true;
+    hyprlock = {
+      enable = true;
+      showMusic = true;
+    };
+    hyprpaper = {
+      enable = true;
+      wallpaper = ./config/assets/grove.png;
+    };
+  };
+
   importMusic.enable = false;
   keepass.enable = true;
   mpd.enable = true;
@@ -21,10 +39,8 @@
   zathura.enable = true;
   zellij.enable = true;
 
-  home = {
-    username = "ea";
-    homeDirectory = "/home/ea";
-    stateVersion = "24.05";
+  input = {
+    touchpad.enable = false;
   };
 
   xdg.userDirs = {
