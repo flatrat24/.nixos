@@ -3,6 +3,7 @@
     ./modules/basicPackages.nix
     ./modules/basicSettings.nix
     ./modules/bluetooth.nix
+    ./modules/gaming.nix
     ./modules/grub.nix
     ./modules/hyprland.nix
     ./modules/network.nix
