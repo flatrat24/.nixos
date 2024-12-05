@@ -255,109 +255,119 @@ in {
           { on = [ "/" ];             run = "filter";                                             desc = "Apply a filter for the help items"; }
         ];
       };
-      # theme = {
-      #   manager = {
-      #     cwd = { fg = "#83a598"; };
-      #
-      #     # Hovered
-      #     hovered         = { fg = "#282828"; bg = "#83a598"; };
-      #     preview_hovered = { underline = true; };
-      #
-      #     # Find
-      #     find_keyword  = { fg = "#b8bb26"; italic = true; };
-      #     find_position = { fg = "#fe8019"; bg = "reset"; italic = true; };
-      #
-      #     # Marker
-      #     marker_selected = { fg = "#b8bb26"; bg = "#b8bb26"; };
-      #     marker_copied   = { fg = "#b8bb26"; bg = "#b8bb26"; };
-      #     marker_cut      = { fg = "#fb4934"; bg = "#fb4934"; };
-      #
-      #     # Tab
-      #     tab_active   = { fg = "#282828"; bg = "#504945"; };
-      #     tab_inactive = { fg = "#a89984"; bg = "#3c3836"; };
-      #     tab_width    = 1;
-      #
-      #     # Border
-      #     border_symbol = "│";
-      #     border_style  = { fg = "#665c54"; };
-      #   };
-      #   status = {
-      #     separator_open  = "";
-      #     separator_close = "";
-      #     separator_style = { fg = "#3c3836"; bg = "#3c3836"; };
-      #
-      #     # Mode
-      #     mode_normal = { fg = "#282828"; bg = "#A89984"; bold = true; };
-      #     mode_select = { fg = "#282828"; bg = "#b8bb26"; bold = true; };
-      #     mode_unset  = { fg = "#282828"; bg = "#d3869b"; bold = true; };
-      #
-      #     # Progress
-      #     progress_label  = { fg = "#ebdbb2"; bold = true; };
-      #     progress_normal = { fg = "#504945"; bg = "#3c3836"; };
-      #     progress_error  = { fg = "#fb4934"; bg = "#3c3836"; };
-      #
-      #     # Permissions
-      #     permissions_t = { fg = "#504945"; };
-      #     permissions_r = { fg = "#b8bb26"; };
-      #     permissions_w = { fg = "#fb4934"; };
-      #     permissions_x = { fg = "#b8bb26"; };
-      #     permissions_s = { fg = "#665c54"; };
-      #   };
-      #   input = {
-      #     border   = { fg = "#bdae93"; };
-      #     title    = {};
-      #     value    = {};
-      #     selected = { reversed = true; };
-      #   };
-      #   select = {
-      #     border   = { fg = "#504945"; };
-      #     active   = { fg = "#fe8019"; };
-      #     inactive = {};
-      #   };
-      #   tasks = {
-      #     border  = { fg = "#504945"; };
-      #     title   = {};
-      #     hovered = { underline = true; };
-      #   };
-      #   which = {
-      #     mask            = { bg = "#3c3836"; };
-      #     cand            = { fg = "#83a598"; };
-      #     rest            = { fg = "#928374"; };
-      #     desc            = { fg = "#fe8019"; };
-      #     separator       = "  ";
-      #     separator_style = { fg = "#504945"; };
-      #   };
-      #   help = {
-      #     on      = { fg = "#fe8019"; };
-      #     exec    = { fg = "#83a598"; };
-      #     desc    = { fg = "#928374"; };
-      #     hovered = { bg = "#504945"; bold = true; };
-      #     footer  = { fg = "#3c3836"; bg = "#a89984"; };
-      #   };
-      #   filetype = {
-      #     rules = [
-      #       # Images
-      #       { fg = "#83a598"; mime = "image/*"; }
-      #      
-      #       # Videos
-      #       { fg = "#b8bb26"; mime = "video/*"; }
-      #       { fg = "#b8bb26"; mime = "audio/*"; }
-      #      
-      #       # Archives
-      #       { fg = "#fe8019"; mime = "application/zip"; }
-      #       { fg = "#fe8019"; mime = "application/gzip"; }
-      #       { fg = "#fe8019"; mime = "application/x-tar"; }
-      #       { fg = "#fe8019"; mime = "application/x-bzip"; }
-      #       { fg = "#fe8019"; mime = "application/x-bzip2"; }
-      #       { fg = "#fe8019"; mime = "application/x-7z-compressed"; }
-      #       { fg = "#fe8019"; mime = "application/x-rar"; }
-      #      
-      #       # Fallback
-      #       { fg = "#a89984"; name = "*"; }
-      #       { fg = "#83a598"; name = "*/"; }
-       #    ];
-      #   };
-      # };
+      theme = {
+        icon.dirs = [ ];
+        icon.exts = [
+          { name = "txt";           text = "󰈙"; }
+          { name = "md";            text = "󰥥"; }
+          { name = "rst";           text = "󰈙"; }
+          { name = "COPYING";       text = "󰿃"; }
+          { name = "LICENSE";       text = "󰿃"; }
+
+          # Archives
+          { name = "zip";           text = "󰛫"; }
+          { name = "tar";           text = "󰛫"; }
+          { name = "gz";            text = "󰛫"; }
+          { name = "7z";            text = "󰛫"; }
+          { name = "bz2";           text = "󰛫"; }
+          { name = "xz";            text = "󰛫"; }
+
+          # Documents
+          { name = "doc";           text = "󰈬"; }
+          { name = "doct";          text = "󰈬"; }
+          { name = "docx";          text = "󰈬"; }
+          { name = "dot";           text = "󰈬"; }
+          { name = "pdf";           text = ""; }
+          { name = "pom";           text = "󰈧"; }
+          { name = "pot";           text = "󰈧"; }
+          { name = "ppm";           text = "󰈧"; }
+          { name = "pps";           text = "󰈧"; }
+          { name = "ppt";           text = "󰈧"; }
+          { name = "potx";          text = "󰈧"; }
+          { name = "ppmx";          text = "󰈧"; }
+          { name = "ppsx";          text = "󰈧"; }
+          { name = "pptx";          text = "󰈧"; }
+          { name = "csv";           text = "󰈛"; }
+          { name = "ods";           text = "󰈛"; }
+          { name = "ots";           text = "󰈛"; }
+          { name = "xlc";           text = "󰈛"; }
+          { name = "xlm";           text = "󰈛"; }
+          { name = "xls";           text = "󰈛"; }
+          { name = "xlt";           text = "󰈛"; }
+          { name = "xlsm";          text = "󰈛"; }
+          { name = "xlsx";          text = "󰈛"; }
+
+          # Audio
+          { name = "mp3";           text = "󰈣"; }
+          { name = "flac";          text = "󰈣"; }
+          { name = "wav";           text = "󰈣"; }
+          { name = "aac";           text = "󰈣"; }
+          { name = "ogg";           text = "󰈣"; }
+          { name = "m4a";           text = "󰈣"; }
+          { name = "mp2";           text = "󰈣"; }
+
+          # Movies
+          { name = "mp4";           text = "󰈫"; }
+          { name = "mkv";           text = "󰈫"; }
+          { name = "avi";           text = "󰈫"; }
+          { name = "mov";           text = "󰈫"; }
+          { name = "webm";          text = "󰈫"; }
+
+          # Images
+          { name = "jpg";           text = "󰈟"; }
+          { name = "jpeg";          text = "󰈟"; }
+          { name = "png";           text = "󰈟"; }
+          { name = "gif";           text = "󰈟"; }
+          { name = "webp";          text = "󰈟"; }
+          { name = "avif";          text = "󰈟"; }
+          { name = "bmp";           text = "󰈟"; }
+          { name = "ico";           text = "󰈟"; }
+          { name = "svg";           text = "󰈟"; }
+          { name = "xcf";           text = "󰈟"; }
+          { name = "HEIC";          text = "󰈟"; }
+
+          # Programming
+          { name = "c";             text = ""; }
+          { name = "cpp";           text = ""; }
+          { name = "h";             text = ""; }
+          { name = "hpp";           text = ""; }
+          { name = "rs";            text = ""; }
+          { name = "go";            text = ""; }
+          { name = "py";            text = ""; }
+          { name = "hs";            text = ""; }
+          { name = "js";            text = ""; }
+          { name = "ts";            text = ""; }
+          { name = "tsx";           text = ""; }
+          { name = "jsx";           text = ""; }
+          { name = "rb";            text = ""; }
+          { name = "php";           text = ""; }
+          { name = "java";          text = ""; }
+          { name = "sh";            text = ""; }
+          { name = "fish";          text = ""; }
+          { name = "swift";         text = ""; }
+          { name = "vim";           text = ""; }
+          { name = "lua";           text = ""; }
+          { name = "html";          text = ""; }
+          { name = "css";           text = ""; }
+          { name = "sass";          text = ""; }
+          { name = "scss";          text = ""; }
+          { name = "json";          text = ""; }
+          { name = "toml";          text = ""; }
+          { name = "yml";           text = ""; }
+          { name = "yaml";          text = ""; }
+          { name = "ini";           text = ""; }
+          { name = "conf";          text = ""; }
+          { name = "lock";          text = ""; }
+          { name = "nix";           text = ""; }
+          { name = "Containerfile"; text = "󰡨"; }
+          { name = "Dockerfile";    text = "󰡨"; }
+
+          # Misc
+          { name = "bin";           text = ""; }
+          { name = "exe";           text = ""; }
+          { name = "pkg";           text = ""; }
+        ];
+      };
       settings = {
         open.rules = [
           { mime = "inode/directory";               use = [ "directory" ]; }
