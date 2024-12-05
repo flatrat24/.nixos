@@ -1,4 +1,10 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, ... }:
+let
+  dependencies = with pkgs; [
+    foot
+    (nerdfonts.override { fonts = [ "IBMPlexMono" ]; })
+  ];
+in {
   options = {
     foot.enable = lib.mkEnableOption "enables foot";
   };
@@ -229,8 +235,6 @@
       };
     };
 
-    home.packages = with pkgs; [
-      foot
-    ];
+    home.packages = dependencies;
   };
 }
