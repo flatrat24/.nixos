@@ -12,7 +12,7 @@ let
   mpdDependencies = with pkgs; [
     mpd
     mpc-cli
-    mpdscribble # config is currently .mpdscribble/mpdscribble.conf
+    mpdscribble
     mpd-notification
   ];
   ncmpcppDependencies = with pkgs; [
@@ -58,29 +58,46 @@ in {
         playlistDirectory = /home/ea/.mpd/playlists; # TODO: Use user directory dynamically
         dataDir = /home/ea/.mpd; # TODO: Use user directory dynamically
         extraConfig = ''
-        state_file        "~/.mpd/state"
-        restore_paused    "yes"
-        sticker_file      "~/.mpd/sticker.sql"
-        auto_update       "yes"
+          state_file        "~/.mpd/state"
+          restore_paused    "yes"
+          sticker_file      "~/.mpd/sticker.sql"
+          auto_update       "yes"
 
-        audio_output {  
-            type          "pipewire"
-            name          "PipeWire Sound Server"
-            path          "/tmp/mpd.fifo"
-            format        "44100:16:2"
-        }
+          audio_output {  
+              type          "pipewire"
+              name          "PipeWire Sound Server"
+              path          "/tmp/mpd.fifo"
+              format        "44100:16:2"
+          }
 
-        audio_output {  
-            type          "fifo"
-            name          "my_fifo"
-            path          "/tmp/mpd.fifo"
-            format        "44100:16:2"
-        }
+          audio_output {  
+              type          "fifo"
+              name          "my_fifo"
+              path          "/tmp/mpd.fifo"
+              format        "44100:16:2"
+          }
 
-        input {
-          plugin          "curl"
-        }
+          input {
+            plugin          "curl"
+          }
         '';
+      };
+      home.file = {
+        ".mpdscribble/mpdscribble.conf" = {
+          text = ''
+            verbose = 1
+            host = localhost
+            port = 6600
+
+            [last.fm]
+            url = https://post.audioscrobbler.com/
+            username = being_pool
+            password = 22dcd898e12ef1a9aa614284e6d82ecc
+            journal = /var/cache/mpdscribble/lastfm.journal
+          '';
+          executable = false;
+          recursive = false;
+        };
       };
       home.file = {
         ".config/mpd-notification.conf" = {
@@ -109,17 +126,38 @@ in {
         mpdMusicDir = "~/Music";
         settings = {
           ##--- Technical ---##
-          media_library_primary_tag = "album_artist"              ;
-          ncmpcpp_directory         = "~/.config/ncmpcpp"         ;
-          startup_screen            = "media_library"             ;
-          visualizer_data_source    = ''"/tmp/mpd.fifo"''         ;
-          visualizer_output_name    = ''"PipeWire Sound Server"'' ;
-          visualizer_in_stereo      = ''"yes"''                   ;
-          visualizer_type           = ''"ellipse"''               ;
-          visualizer_look           = ''"󰝤󰝤"''                    ; # TODO: Fix visualizer
+          media_library_primary_tag = "album_artist"          ;
+          ncmpcpp_directory         = "~/.config/ncmpcpp"     ;
+          startup_screen            = "media_library"         ;
+          visualizer_data_source    = "/tmp/mpd.fifo"         ;
+          visualizer_output_name    = "PipeWire Sound Server" ;
+          visualizer_in_stereo      = "yes"                   ;
+          visualizer_type           = "ellipse"               ;
+          visualizer_look           = "󰝤󰝤"                    ; # TODO: Fix visualizer
 
-          ##--- Themeing ---##
+          ##--- Basic UI ---##
           user_interface            = "classic"                   ;
+          colors_enabled            = "yes"                       ;
+          color1                    = "green"                     ; # Selected item color
+          color2                    = "black"                     ; # I don't know
+          main_window_color         = "blue"                      ; # Self explanatory
+          current_item_prefix       = "$(green)$r"                ; # Highlight when hovering over an item
+          current_item_suffix       = "$/r$(yellow)"              ; # Unselected items
+
+          ##--- Popup Menu ---##
+          window_border_color       = "green"                     ;
+          active_window_border      = "red"                       ;
+
+          ##--- Current Playlist Layout ---##
+          song_columns_list_format = "(6)[red]{n} (39)[yellow]{t}|{f} (35)[green]{b}|{D} (15)[blue]{A} (5)[magenta]{l}";
+
+          ##--- Progress Bar ---##
+          progressbar_look = "━█─";
+          progressbar_color = "black";
+          progressbar_elapsed_color = "default"; #this basically sets it to the foreground color
+
+          ##--- Now Playing Song ---###
+          song_status_format = "{$4%t [$3%b$9] - $5%A}|{$4%f}";
         };
         bindings = [
           { key = "m"        ; command = "dummy"                                                                                                                                   ; }
