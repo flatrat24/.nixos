@@ -1,3 +1,5 @@
+@import "~/.config/wofi/colors/frappe.css";
+
 * {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 14px;
@@ -7,7 +9,7 @@
 window {
   margin: 0px;
   padding: 10px;
-  background-color: --wofi-color0;
+  background-color: @base;
 }
 
 /* Slide In */
@@ -26,7 +28,7 @@ window {
   margin: 5px;
   padding: 5px;
   border: none;
-  background-color: --wofi-color0;
+  background-color: @base;
 }
 
 /* Fade In */
@@ -45,7 +47,7 @@ window {
   margin: 5px;
   padding: 5px;
   border: none;
-  background-color: --wofi-color0;
+  background-color: @base;
 }
 
 /* Scroll */
@@ -53,7 +55,7 @@ window {
   margin: 0px;
   padding: 10px;
   border: none;
-  background-color: --wofi-color0;
+  background-color: @base;
 }
 
 /* Input */
@@ -62,35 +64,35 @@ window {
   padding: 10px;
   border: none;
   border-radius: 0.1em;
-  color: --wofi-color1;
-  background-color: --wofi-color0;
+  color: @text;
+  background-color: @base;
   animation: fadeIn 0.5s ease-in-out both;
 }
 
 #input image {
     border: none;
-    color: --wofi-color8;
+    color: @red;
 }
 
 #input * {
-  outline: 4px solid --wofi-color8!important;
+  outline: 4px solid @red!important;
 }
 
 /* Text */
 #text {
   margin: 5px;
   border: none;
-  color: --wofi-color1;
+  color: @text;
   animation: fadeIn 0.5s ease-in-out both;
 }
 
 #entry {
-  background-color: --wofi-color0;
+  background-color: @base;
 }
 
 #entry arrow {
   border: none;
-  color: --wofi-color7;
+  color: @lavender;
 }
 
 /* Selected Entry */
@@ -99,9 +101,9 @@ window {
 }
 
 #entry:selected #text {
-  color: --wofi-color14;
+  color: @mauve;
 }
 
 #entry:drop(active) {
-  background-color: --wofi-color7!important;
+  background-color: @lavender!important;
 }
