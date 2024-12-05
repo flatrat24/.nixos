@@ -1,9 +1,4 @@
 MUSIC
-  - Change keybinds to include single song repeat
-  - Refactor MPD module to be a general music module
-    - Include importMusic script
-      - yt-dlp
-      - beets
 
 THEMEING
   - Get better wallpapers for catppuccin
@@ -51,11 +46,10 @@ NEOVIM
 
 WOFI
   - Get Wofi working as a:
-    - Emoji selector
-    - Calculator
-    - Clipboard manager
     - Password manager (read-only)
   - Advanced use-cases for Wofi:
+    - Calculator
+    - Emoji selector
     - Hyprland keybinds
     - Bookmark manager
     - Quick-open filesystem
@@ -75,7 +69,6 @@ SCHOOL
     - AGS
 
 HYPRLAND
-  - Set startup applications
 
 SHELL
   - Get a better zsh prompt
