@@ -12,7 +12,6 @@ THEMEING
     - sddm
     - Grub (minecraft flake)
     - thunderbird
-    - Wofi
 
 YAZI
   - Directory shortcuts (gx)
@@ -71,7 +70,6 @@ SCHOOL
 HYPRLAND
 
 SHELL
-  - Get a better zsh prompt
 
 FIREFOX
   - Enable autoscrolling
