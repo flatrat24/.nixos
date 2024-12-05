@@ -57,7 +57,7 @@
 
   wofi = {
     enable = true;
-    emoji.enable = true;
+    emoji.enable = false;
   };
 
   yazi.enable = true;
