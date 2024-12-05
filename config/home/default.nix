@@ -8,7 +8,7 @@
     ./modules/git/default.nix
     ./modules/hypr/default.nix
     ./modules/importMusic/default.nix
-    ./modules/keepass/default.nix
+    ./modules/passwords/default.nix
     ./modules/music/default.nix
     ./modules/neovim/default.nix
     ./modules/shell/default.nix
