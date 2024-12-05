@@ -1,26 +1,28 @@
 MUSIC
-- Change keybinds to include single song repeat
-- Refactor MPD module to be a general music module
-  - Include importMusic script
-    - yt-dlp
-    - beets
+  - Change keybinds to include single song repeat
+  - Refactor MPD module to be a general music module
+    - Include importMusic script
+      - yt-dlp
+      - beets
 
 THEMEING
-- Get better wallpapers for catppuccin
-- Fix following errors:
-  - Nerdfont icons in terminal not consistent (vertical rectangle instead of icon)
-  - Icons in GTK apps not consistent
-  - Not an error, but ICONS IN YAZI ARE UGLY ASF
-- Theme following applications:
-  - Neovim
-  - ncmpcpp
-  - foot
-  - swayimg
-  - zathura
-  - sddm
-  - Grub (minecraft flake)
-  - thunderbird
-  - Wofi
+  - Get better wallpapers for catppuccin
+  - Fix following errors:
+    - Nerdfont icons in terminal not consistent (vertical rectangle instead of icon)
+    - Icons in GTK apps not consistent
+  - Theme following applications:
+    - Neovim
+    - ncmpcpp
+    - foot
+    - swayimg
+    - zathura
+    - sddm
+    - Grub (minecraft flake)
+    - thunderbird
+    - Wofi
+
+YAZI
+  - Directory shortcuts (gx)
 
 MIME
   - Get all applications integrated with xdg-mime/xdg-open
@@ -60,6 +62,8 @@ WOFI
     - Window (focus) switcher?
 
 SCHOOL
+  - GET SOLIDWORKS WORKING
+  - GET MATLAB WORKING
   - Verify the following:
     - Neovim works with latex documents
     - Wofi is installed and working
@@ -69,3 +73,9 @@ SCHOOL
     - Zathura/Neovim
     - Bookmarks
     - AGS
+
+HYPRLAND
+  - Set startup applications
+
+SHELL
+  - Get a better zsh prompt
