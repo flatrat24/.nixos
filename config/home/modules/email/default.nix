@@ -14,7 +14,7 @@ in {
   config = lib.mkMerge [
     (lib.mkIf (config.email.enable == true) {
       home.packages = dependencies;
-      accounts.email = {
+      accounts.email = { # authentication not really working with this
         maildirBasePath = "Mail";
         accounts = {
           DU = {
@@ -49,7 +49,7 @@ in {
             address = "ethananthony271@gmail.com";
             realName = "Ethan Anthony";
             thunderbird = { # TODO: Thunderbird is spilling over into general email config
-              enable = true;
+              enable = false;
               profiles = [ "Main" ];
             };
             flavor = "gmail.com";
