@@ -54,6 +54,12 @@
   shell.enable = true;
   swayimg.enable = true;
   theme.enable = true;
+
+  wofi = {
+    enable = true;
+    emoji.enable = true;
+  };
+
   yazi.enable = true;
   zathura.enable = true;
   zellij.enable = true;

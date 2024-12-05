@@ -13,6 +13,7 @@
     ./modules/shell/default.nix
     ./modules/swayimg/default.nix
     ./modules/theme/default.nix
+    ./modules/wofi/default.nix
     ./modules/yazi/default.nix
     ./modules/zathura/default.nix
     ./modules/zellij/default.nix
