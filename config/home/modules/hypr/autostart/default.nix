@@ -1,3 +1,5 @@
+# TODO: Make modular with which applications to launch
+
 { pkgs, lib, inputs, config, ... }:
 let
   dependencies = with pkgs; [
@@ -9,7 +11,7 @@ in {
 
   config = lib.mkIf config.hypr.enable {
     wayland.windowManager.hyprland = {
-      settings = { # TODO: Make modular with which applications to launch
+      settings = {
         "exec-once" = [
           "mako"
           "wl-paste --type text --watch cliphist store"
