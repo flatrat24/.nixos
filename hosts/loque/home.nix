@@ -16,6 +16,8 @@
     thunderbird.enable = true;
   };
 
+  beeper.enable = true;
+
   firefox.enable = true;
   foot.enable = true;
 
