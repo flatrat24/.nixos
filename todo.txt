@@ -80,3 +80,7 @@ HYPRLAND
 
 SHELL
   - Get a better zsh prompt
+
+FIREFOX
+  - Enable autoscrolling
+  - Get better homepage (hometree thing)
