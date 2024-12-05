@@ -11,14 +11,5 @@
         ];
       };
     }
-    (lib.mkIf config.wofi.enable (lib.mkMerge [
-      {
-        wayland.windowManager.hyprland.settings = {
-          bindd = [
-            "$mod, Space, Wofi Drun, exec, wofi -c ~/.config/wofi/configs/default --show drun"
-          ];
-        };
-      }
-    ]))
   ]);
 }
