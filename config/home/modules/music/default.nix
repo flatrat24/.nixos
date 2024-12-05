@@ -1,5 +1,14 @@
 { pkgs, lib, config, ... }:
 let
+  importMusic = pkgs.writeShellApplication {
+    name = "importMusic";
+    runtimeInputs = with pkgs; [
+      yt-dlp
+      beets
+      gnused
+    ];
+    text = builtins.readFile ./sources/importMusic;
+  };
   mpdDependencies = with pkgs; [
     mpd
     mpc-cli
@@ -9,28 +18,36 @@ let
   ncmpcppDependencies = with pkgs; [
     ncmpcpp
   ];
-  importMusicDependencies = with pkgs; [ ];
+  importMusicDependencies = [
+    importMusic
+    pkgs.beets
+    pkgs.yt-dlp
+  ];
 in {
   options = {
-    music.enable = lib.mkEnableOption "enables music";
-    mpd.enable = lib.mkOption {
-      description = "enables mpd";
-      type = lib.types.bool;
-      default = config.music.enable;
-    };
-    ncmpcpp.enable = lib.mkOption {
-        description = "enables ncmpcpp";
-        type = lib.types.bool;
-        default = config.music.enable;
-    };
-    importMusic.enable = lib.mkOption {
-        description = "enables importMusic";
-        type = lib.types.bool;
-        default = config.music.enable;
+    music = {
+      enable = lib.mkEnableOption "enables music";
+      mpd = {
+        enable = lib.mkOption {
+          description = "enables mpd";
+          type = lib.types.bool;
+          default = config.music.enable;
+        };
+        ncmpcpp.enable = lib.mkOption {
+            description = "enables ncmpcpp";
+            type = lib.types.bool;
+            default = config.music.mpd.enable;
+        };
+      };
+      importMusic.enable = lib.mkOption {
+          description = "enables importMusic";
+          type = lib.types.bool;
+          default = config.music.enable;
+      };
     };
   };
 
-  config = lib.mkIf config.music.enable (mkMerge [
+  config = lib.mkIf config.music.enable (lib.mkMerge [
     (lib.mkIf config.music.mpd.enable {
       home.packages = mpdDependencies;
 
@@ -84,13 +101,14 @@ in {
       };
     })
     
-    (lib.mkIf config.music.ncmpcpp.enable {
+    (lib.mkIf config.music.mpd.ncmpcpp.enable {
       home.packages = ncmpcppDependencies;
 
       programs.ncmpcpp = {
         enable = true;
         mpdMusicDir = "~/Music";
         settings = {
+          ##--- Technical ---##
           media_library_primary_tag = "album_artist"              ;
           ncmpcpp_directory         = "~/.config/ncmpcpp"         ;
           startup_screen            = "media_library"             ;
@@ -99,13 +117,15 @@ in {
           visualizer_in_stereo      = ''"yes"''                   ;
           visualizer_type           = ''"ellipse"''               ;
           visualizer_look           = ''"󰝤󰝤"''                    ; # TODO: Fix visualizer
+
+          ##--- Themeing ---##
+          user_interface            = "classic"                   ;
         };
         bindings = [
-          { key = "y"        ; command = "dummy"                                                                                                                                   ; }
           { key = "m"        ; command = "dummy"                                                                                                                                   ; }
           { key = "ctrl-_"   ; command = "dummy"                                                                                                                                   ; }
           { key = "ctrl-v"   ; command = "dummy"                                                                                                                                   ; }
-          { key = "s"        ; command = "dummy"                                                                                                                                   ; }
+          { key = "y"        ; command = "dummy"                                                                                                                                   ; }
           { key = "U"        ; command = "dummy"                                                                                                                                   ; }
           { key = "up"       ; command = "dummy"                                                                                                                                   ; }
           { key = "down"     ; command = "dummy"                                                                                                                                   ; }
@@ -161,7 +181,7 @@ in {
           { key = "="        ; command = "volume_up"                                                                                                                               ; }
           { key = "-"        ; command = "volume_down"                                                                                                                             ; }
           { key = "'"        ; command = "move_selected_items_down"                                                                                                                ; }
-          { key = ";"        ; command = "move_selected_items_up"                                                                                                                ; }
+          { key = ";"        ; command = "move_selected_items_up"                                                                                                                  ; }
           { key = "\\\""     ; command = [ "move_selected_items_down" "move_selected_items_down" "move_selected_items_down" "move_selected_items_down" "move_selected_items_down" ]; }
           { key = ":"        ; command = [ "move_selected_items_up" "move_selected_items_up" "move_selected_items_up" "move_selected_items_up" "move_selected_items_up" ]          ; }
           { key = "n"        ; command = "next_found_item"                                                                                                                         ; }
@@ -181,6 +201,7 @@ in {
           { key = ":"        ; command = "execute_command"                                                                                                                         ; }
           { key = "u"        ; command = "update_database"                                                                                                                         ; }
           { key = "?"        ; command = "show_help"                                                                                                                               ; }
+          { key = "s"        ; command = "toggle_single"                                                                                                                           ; }
           #### PLAYLISTS ####
           { key = "c"        ; command = "toggle_playing_song_centering"                                                                                                           ; }
           #### SEARCH ENGINE ####
@@ -194,6 +215,22 @@ in {
     
     (lib.mkIf config.music.importMusic.enable {
       home.packages = importMusicDependencies;
+
+      home.file = {
+        ".config/yt-dlp/albumconfig.conf" = {
+          source = ./sources/yt-dlp/albumconfig.conf;
+          executable = false;
+          recursive = false;
+        };
+      };
+
+      home.file = {
+        ".config/beets/config.yaml" = {
+          source = ./sources/beets/config.yaml;
+          executable = false;
+          recursive = false;
+        };
+      };
     })
   ]);
 }

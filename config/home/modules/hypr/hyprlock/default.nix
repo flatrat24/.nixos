@@ -61,7 +61,7 @@ in {
           position = "0, -100";
           halign = "center";
           valign = "top";
-        }] ++ (if (config.mpd.enable == true) then [ # Remember to change mpd to music when making the change
+        }] ++ (if (config.music.mpd.enable == true) then [ # Make more options for different types of music if necessary. ALternatively, modify the script so it can dynamically find the name of the song regardless of the service through which the music is being played.
           {
             monitor = "";
             text = "cmd[update:1000] echo $(/home/ea/.nixos/config/home/modules/hypr/sources/scripts/songDetails.sh)";

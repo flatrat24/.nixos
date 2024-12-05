@@ -44,8 +44,10 @@
   keepass.enable = true;
   music = {
     enable = true;
-    mpd.enable = true;
-    ncmpcpp.enable = true;
+    mpd = {
+      enable = true;
+      ncmpcpp.enable = true;
+    };
     importMusic.enable = true;
   };
   neovim.enable = true;
