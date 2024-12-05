@@ -18,7 +18,19 @@ in {
   };
 
   config = lib.mkIf config.wofi.enable (lib.mkMerge [
-    { home.packages = dependencies; }
+    {
+      home = {
+        packages = dependencies;
+
+        file = {
+          ".config/wofi" = {
+            source = ./sources;
+            executable = false;
+            recursive = true;
+          };
+        };
+      };
+    }
     (lib.mkIf config.wofi.emoji.enable {
       home.packages = with pkgs; [ wofi-emoji ];
     })
