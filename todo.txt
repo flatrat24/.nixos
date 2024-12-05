@@ -47,6 +47,7 @@ NEOVIM
   - Get neovim working with LaTeX and zathura
   - Do a general cleanup of plugins and options
   - Peruse for new plugins and options
+  - Set as manpager
 
 WOFI
   - Get Wofi working as a:
