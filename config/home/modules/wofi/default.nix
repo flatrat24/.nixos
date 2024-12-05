@@ -4,6 +4,10 @@ let
     wofi
   ];
 in {
+  imports = [
+    ./clipboard/default.nix
+  ];
+
   options = {
     wofi = {
       enable = lib.mkOption {
@@ -35,5 +39,4 @@ in {
       home.packages = with pkgs; [ wofi-emoji ];
     })
   ]);
-
 }
