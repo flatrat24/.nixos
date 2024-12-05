@@ -12,8 +12,6 @@ THEMEING
     - Icons in GTK apps not consistent
   - Theme following applications:
     - Neovim
-    - ncmpcpp
-    - foot
     - swayimg
     - zathura
     - sddm
@@ -52,7 +50,7 @@ NEOVIM
 
 WOFI
   - Get Wofi working as a:
-    - Application launcher
+    - Emoji selector
     - Calculator
     - Clipboard manager
     - Password manager (read-only)
