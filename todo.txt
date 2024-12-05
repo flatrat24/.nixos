@@ -44,6 +44,7 @@ AGS
 NEOVIM
   - Remake alpha.nvim landing page
   - Figure out a solution to navigating the filesystem
+  - Configure consistent behavior for ","
   - Get a buffer management plugin
   - Get neovim working with LaTeX and zathura
   - Do a general cleanup of plugins and options
