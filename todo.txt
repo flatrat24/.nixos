@@ -8,7 +8,6 @@ THEMEING
   - Theme following applications:
     - Neovim
     - swayimg
-    - zathura
     - sddm
     - Grub (minecraft flake)
     - thunderbird
