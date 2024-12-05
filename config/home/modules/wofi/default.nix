@@ -15,10 +15,6 @@ in {
         type = lib.types.bool;
         default = config.hypr.enable;
       };
-      emoji.enable = lib.mkOption {
-        type = lib.types.bool;
-        default = config.wofi.enable;
-      };
     };
   };
 
