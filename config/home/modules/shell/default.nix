@@ -34,12 +34,49 @@ let
 
     "nr"   = "nixos-rebuild switch --flake /home/ea/.nixos" ;
   };
+  dependencies = with pkgs; [
+    git
+    zsh
+    bash
+    fd
+    bat
+    eza
+    gping
+    delta
+    ripgrep
+    zoxide
+    fzf
+    delta
+    jq
+    moreutils
+    xdg-utils
+    bottom
+    imagemagick
+    poppler_utils
+    wget
+    croc
+    typioca
+    killall
+
+    cowsay
+    fortune
+    figlet
+    pipes
+    cbonsai
+    cava
+    cavalier
+
+    python3
+  ];
 in {
   options = {
     shell.enable = lib.mkEnableOption "enables shell";
+    # TODO: Add specific options for each bash and zsh
   };
 
   config = lib.mkIf config.shell.enable {
+    home.packages = dependencies;
+
     programs.bash = {
       enable = true;
       shellAliases = myAliases;
@@ -66,14 +103,19 @@ in {
       syntaxHighlighting = {
         enable = true;
       };
-      zplug = {
-        enable = false;
-        plugins = [ ];
-      };
+      plugins = [
+        {
+          name = "powerlevel10k";
+          src = pkgs.zsh-powerlevel10k;
+          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        }
+        {
+          name = "powerlevel10k-config";
+          src = ./sources;
+          file = "p10k.zsh";
+        }
+      ];
       dotDir = ".config/zsh";
-      initExtraFirst = ''
-        [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-      '';
       initExtra = ''
         source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
 
@@ -86,41 +128,5 @@ in {
         eval "$(zoxide init --cmd cd zsh)"
       '';
     };
-    home.file = {
-      ".config/zsh/.p10k.zsh" = {
-        source = ./sources/p10k.zsh;
-        executable = false;
-        recursive = false;
-      };
-    };
-
-    home.packages = with pkgs; [
-      git
-      zsh
-      bash
-      fd
-      bat
-      eza
-      gping
-      delta
-      ripgrep
-      zoxide
-      fzf
-      delta
-      jq
-      moreutils
-      xdg-utils
-      bottom
-      imagemagick
-      poppler_utils
-      wget
-      croc
-      typioca
-      killall
-      zsh-powerlevel10k
-      meslo-lgs-nf
-
-      python3
-    ];
   };
 }
