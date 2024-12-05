@@ -6,6 +6,7 @@ let
 in {
   imports = [
     ./clipboard/default.nix
+    ./emoji/default.nix
   ];
 
   options = {
@@ -25,7 +26,6 @@ in {
     {
       home = {
         packages = dependencies;
-
         file = {
           ".config/wofi" = {
             source = ./sources;
@@ -35,8 +35,14 @@ in {
         };
       };
     }
-    (lib.mkIf config.wofi.emoji.enable {
-      home.packages = with pkgs; [ wofi-emoji ];
-    })
+    (lib.mkIf config.hypr.enable (lib.mkMerge [
+      {
+        wayland.windowManager.hyprland.settings = {
+          bindd = [
+            "$mod, Space, Wofi Drun, exec, wofi -c ~/.config/wofi/configs/default --show drun"
+          ];
+        };
+      }
+    ]))
   ]);
 }

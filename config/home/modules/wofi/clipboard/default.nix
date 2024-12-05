@@ -16,7 +16,8 @@ in {
     (lib.mkIf config.hypr.enable {
       wayland.windowManager.hyprland.settings = {
         bindd = [
-          "$mod, v, Wofi Clipboard Select, exec, cliphist list | wofi -c ~/.config/wofi/configs/clipboard | cliphist decode | wl-copy"
+          "$mod, v, Wofi Clipboard Select, exec, cliphist list | wofi --show dmenu -c ~/.config/wofi/configs/clipboard | cliphist decode | wl-copy"
+          "$mod SHIFT, v, Wofi Clipboard Remove, exec, cliphist list | wofi --show dmenu -c ~/.config/wofi/configs/clipboard | cliphist delete"
         ];
       };
     })
