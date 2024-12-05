@@ -8,7 +8,7 @@
     ./modules/hypr/default.nix
     ./modules/importMusic/default.nix
     ./modules/keepass/default.nix
-    ./modules/mpd/default.nix
+    ./modules/music/default.nix
     ./modules/neovim/default.nix
     ./modules/shell/default.nix
     ./modules/swayimg/default.nix
