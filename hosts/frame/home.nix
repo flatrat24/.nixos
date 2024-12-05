@@ -41,7 +41,13 @@
   };
 
   importMusic.enable = false;
-  keepass.enable = true;
+
+  passwords = {
+    enable = true;
+    keepass.enable = true;
+    pass.enable = false;
+  };
+
   music = {
     enable = true;
     mpd = {
