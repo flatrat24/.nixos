@@ -42,7 +42,14 @@
 
   importMusic.enable = false;
   keepass.enable = true;
-  mpd.enable = true;
+  music = {
+    enable = true;
+    mpd = {
+      enable = true;
+      ncmpcpp.enable = true;
+    };
+    importMusic.enable = true;
+  };
   neovim.enable = true;
   shell.enable = true;
   swayimg.enable = true;
