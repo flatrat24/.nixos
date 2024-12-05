@@ -4,7 +4,6 @@ let
   dependencies = with pkgs; [
     # firefox
   ];
-  # TODO: Figure out how to auto-enable extensions
   extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
     youtube-shorts-block
     ublock-origin
@@ -101,7 +100,7 @@ in {
             "browser.tabs.tabmanager.enabled" = false;
             "browser.fullscreen.autohide" = false;
             "browser.toolbars.bookmarks.visibility" = "never";
-          "sidebar.position_start" = false;
+            "sidebar.position_start" = false;
 
             # Prevent window from closing when last tab is closed
             "browser.tabs.closeWindowWithLastTab" = false;
@@ -114,6 +113,10 @@ in {
 
             # Prevent warning when opening about:config
             "browser.aboutConfig.showWarning" = false;
+
+            # Auto-enable extensions
+            "extensions.autoDisableScopes" = 0;
+            "extensions.enabledScopes" = 15;
           };
         };
       };
