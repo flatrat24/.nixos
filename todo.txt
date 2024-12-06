@@ -25,7 +25,7 @@ EMAIL
     - Remove tasks and chat from toolbar
 
 AGS
-  - Get a barebones setup working and move on.
+  - Get a barebones setup working and move on
   - Once returned, possible ideas:
     - School integration (show current course; other information)
     - Calendar
@@ -71,5 +71,8 @@ HYPRLAND
 SHELL
 
 FIREFOX
-  - Enable autoscrolling
-  - Get better homepage (hometree thing)
+  - Disable session memory, make a new session every time
+  - Get better homepage (startTree)
+  - Integrate firefox with keepass or pass
+  - Sidebery keybinds for tab navigation (or just general firefox keybinds)
+  - Firefox keybinds (looks like it has to be an extension)
