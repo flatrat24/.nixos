@@ -14,10 +14,6 @@ in {
   };
 
   config = lib.mkIf config.passwords.enable {
-    home.packages = with pkgs; [
-      keepassxc
-      keepassxc-go
-      keepass-diff
-    ];
+    home.packages = dependencies;
   };
 }
