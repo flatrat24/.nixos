@@ -6,6 +6,7 @@
     ./modules/foot/default.nix
     ./modules/gaming/default.nix
     ./modules/git/default.nix
+    ./modules/gpg/default.nix
     ./modules/hypr/default.nix
     ./modules/importMusic/default.nix
     ./modules/passwords/default.nix
