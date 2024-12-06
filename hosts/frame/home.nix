@@ -11,6 +11,8 @@
     stateVersion = "24.05";
   };
 
+  gpg.enable = true;
+
   email = {
     enable = true;
     thunderbird.enable = true;
@@ -45,7 +47,7 @@
   passwords = {
     enable = true;
     keepass.enable = true;
-    pass.enable = false;
+    pass.enable = true;
   };
 
   music = {
