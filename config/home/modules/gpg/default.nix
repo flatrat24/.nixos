@@ -1,10 +1,9 @@
 { pkgs, lib, config, ... }:
-let
-  dependencies = with pkgs; [
-    gnupg
-    pinentry-tty
-  ];
-in {
+# let
+  # dependencies = with pkgs; [
+  #   gnupg
+  # ];
+{ # in {
   imports = [ ];
 
   options = {
@@ -13,16 +12,21 @@ in {
     };
   };
 
-  config = lib.mkIf config.gpg.enable {
-    home.packages = dependencies;
 
-    programs.gpg = {
-      enable = true;
-      homedir = "${config.home.homeDirectory}/.gnupg";
+  config = lib.mkIf config.gpg.enable {
+    programs = {
+      gpg = {
+        enable = true;
+        homedir = "${config.home.homeDirectory}/.gnupg";
+      };
     };
 
-    services.gpg-agent = {
-      enable = true;
+    services = {
+      gpg-agent = {
+        enable = true;
+        enableSshSupport = true;
+        pinentryPackage = pkgs.pinentry-curses;
+      };
     };
   };
 }
