@@ -111,12 +111,13 @@ in {
             "browser.tabs.firefox-view" = false; # tab overview # TODO: Fix this
             "signon.rememberSignons" = false; # asking to save passwords
 
-            # Prevent warning when opening about:config
-            "browser.aboutConfig.showWarning" = false;
-
             # Auto-enable extensions
             "extensions.autoDisableScopes" = 0;
             "extensions.enabledScopes" = 15;
+
+            # Miscellaneous options
+            "general.autoScroll" = true; # Enable autoscrolling
+            "browser.aboutConfig.showWarning" = false; # Prevent about:config warning
           };
         };
       };
