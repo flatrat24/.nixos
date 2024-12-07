@@ -19,16 +19,12 @@ let
     "zr"   = "zellij run"                                   ;
                                                           
     "p"    = "python3"                                      ;
-    "h"    = "fc -ln 1 | fzf | wl-copy"                     ;
     "v"    = "nvim"                                         ;
     "d"    = "yazi"                                         ;
     "n"    = "ncmpcpp"                                      ;
-
-    "f"    = "fzf --preview 'bat --color=always {}'"        ;
   };
   dependencies = with pkgs; [
     delta # TODO: Get this working as a submodule
-    fzf
     delta
     jq
     bottom
@@ -42,6 +38,7 @@ in {
     ./eza/default.nix
     ./bat/default.nix
     ./fd/default.nix
+    ./fzf/default.nix
     ./gping/default.nix
     ./ripgrep/default.nix
     ./zoxide/default.nix
