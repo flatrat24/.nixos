@@ -48,6 +48,11 @@ in {
 
   config = lib.mkIf config.shell.programs.fzf.enable (lib.mkMerge [
     { home.packages = dependencies; }
+    (lib.mkIf config.theme.enable {
+      stylix.targets = {
+        fzf.enable = true;
+      };
+    })
     (lib.mkIf config.shell.programs.fzf.bash.enable {
       programs.bash.shellAliases = fzfAliases;
     })
