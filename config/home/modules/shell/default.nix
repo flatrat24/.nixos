@@ -72,11 +72,11 @@ in {
       enable = lib.mkEnableOption "enables shell";
       bash.enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.shell.enable
+        default = config.shell.enable;
       };
       zsh.enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.shell.enable
+        default = config.shell.enable;
       };
     };
   };
