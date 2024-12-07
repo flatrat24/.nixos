@@ -17,19 +17,7 @@
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
       targets = {
-        bat.enable = true;
-        foot.enable = true;
-        fzf.enable = true;
         gtk.enable = true;
-        hyprland.enable = true;
-        # hyprpaper.enable = true;
-        # hyprlock.enable = true;
-        lazygit.enable = true;
-        # mako.enable = true;
-        # rofi.enable = true;
-        yazi.enable = true;
-        zathura.enable = true;
-        zellij.enable = true;
       };
 
       # iconTheme = {
