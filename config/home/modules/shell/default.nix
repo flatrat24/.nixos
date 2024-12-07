@@ -27,7 +27,7 @@ let
     "f"    = "fzf --preview 'bat --color=always {}'"        ;
   };
   dependencies = with pkgs; [
-    delta # TODO: Get this working
+    delta # TODO: Get this working as a submodule
     fzf
     delta
     jq
