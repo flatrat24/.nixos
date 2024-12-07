@@ -38,15 +38,10 @@ let
     fzf
     delta
     jq
-    moreutils
-    xdg-utils
     bottom
-    imagemagick
-    poppler_utils
     wget
     croc
     typioca
-    killall
 
     cowsay
     fortune
@@ -62,6 +57,7 @@ in {
   imports = [
     ./eza/default.nix
     ./bat/default.nix
+    ./utils/default.nix
   ];
 
   options = {
