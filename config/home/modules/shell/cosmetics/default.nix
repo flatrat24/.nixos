@@ -1,38 +1,41 @@
 { pkgs, lib, config, ... }:
 let
   dependencies = with pkgs; [
-    moreutils
-    xdg-utils
-    imagemagick
-    poppler_utils
-    killall
+    typioca
+    cowsay
+    fortune
+    figlet
+    pipes
+    cbonsai
+    cava # TODO: Move this to part of music home module
+    cavalier
   ];
-  utilsAliases = { };
+  cosmeticsAliases = { };
 in {
   options = {
-    shell.programs.utils = {
+    shell.programs.cosmetics = {
       enable = lib.mkOption {
         type = lib.types.bool;
         default = config.shell.enable;
       };
       bash.enable = lib.mkOption {
         type = lib.types.bool;
-        default = (config.shell.programs.utils.enable && config.shell.bash.enable);
+        default = (config.shell.programs.cosmetics.enable && config.shell.bash.enable);
       };
       zsh.enable = lib.mkOption {
         type = lib.types.bool;
-        default = (config.shell.programs.utils.enable && config.shell.zsh.enable);
+        default = (config.shell.programs.cosmetics.enable && config.shell.zsh.enable);
       };
     };
   };
 
-  config = lib.mkIf config.shell.programs.utils.enable (lib.mkMerge [
+  config = lib.mkIf config.shell.programs.cosmetics.enable (lib.mkMerge [
     { home.packages = dependencies; }
-    (lib.mkIf config.shell.programs.utils.bash.enable {
-      programs.bash.shellAliases = utilsAliases;
+    (lib.mkIf config.shell.programs.cosmetics.bash.enable {
+      programs.bash.shellAliases = cosmeticsAliases;
     })
-    (lib.mkIf config.shell.programs.utils.zsh.enable {
-      programs.zsh.shellAliases = utilsAliases;
+    (lib.mkIf config.shell.programs.cosmetics.zsh.enable {
+      programs.zsh.shellAliases = cosmeticsAliases;
     })
   ]);
 }
