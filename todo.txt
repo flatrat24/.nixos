@@ -6,7 +6,6 @@ THEMEING
     - Nerdfont icons in terminal not consistent (vertical rectangle instead of icon)
     - Icons in GTK apps not consistent
   - Theme following applications:
-    - Neovim
     - swayimg
     - sddm
     - Grub (minecraft flake)

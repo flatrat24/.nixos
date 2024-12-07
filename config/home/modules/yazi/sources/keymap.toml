@@ -122,14 +122,16 @@ keymap = [
 	{ on = [ "w" ],             run = "tasks_show",                                         desc = "Show the tasks manager" },
 
 	# Goto
-	{ on = [ "g", "h" ],        run = "cd ~",                                               desc = "Go to the home directory" },
-	{ on = [ "g", "s" ],        run = "cd ~/Documents/School",                              desc = "Go to the school directory" },
-	{ on = [ "g", "p" ],        run = "cd ~/Documents/Personal",                            desc = "Go to the personl directory" },
-  { on = [ "g", "c" ],        run = "cd ~/.dotfiles",                                     desc = "Go to the config directory" },
-	{ on = [ "g", "d" ],        run = "cd ~/Downloads",                                     desc = "Go to the downloads directory" },
-	{ on = [ "g", "t" ],        run = "cd /tmp",                                            desc = "Go to the temporary directory" },
-	{ on = [ "g", "m" ],        run = "cd ~/Music/musicStagingGround",                      desc = "Go to the Music Staging Ground directory" },
-	{ on = [ "g", "/" ],        run = "cd /",                                               desc = "Go to the root directory" },
+	{ on = [ "g", "h" ],        run = "cd ~",                                               desc = "$HOME" },
+	{ on = [ "g", "s" ],        run = "cd ~/Documents/School",                              desc = "School" },
+	{ on = [ "g", "p" ],        run = "cd ~/Documents/Personal",                            desc = "Personal" },
+  { on = [ "g", "c" ],        run = "cd ~/.nixos",                                        desc = "NixOS Config" },
+	{ on = [ "g", "d" ],        run = "cd ~/Downloads",                                     desc = "Downloads" },
+	{ on = [ "g", "m" ],        run = "cd ~/Music/musicStagingGround",                      desc = "Music Staging Ground" },
+	{ on = [ "g", "/" ],        run = "cd /",                                               desc = "Root" },
+	{ on = [ "g", "t" ],        run = "cd /tmp",                                            desc = "/tmp" },
+	{ on = [ "g", "n" ],        run = "cd /nix",                                            desc = "/nix" },
+	{ on = [ "g", "e" ],        run = "cd /etc",                                            desc = "/etc" },
 	{ on = [ "g", "<Space>" ],  run = "cd --interactive",                                   desc = "Go to a directory interactively" },
 
 	# Help
