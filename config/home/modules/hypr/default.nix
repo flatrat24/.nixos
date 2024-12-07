@@ -34,19 +34,26 @@ in {
     hypr.enable = lib.mkEnableOption "enables hypr";
   };
 
-  config = lib.mkIf config.hypr.enable {
-    home.packages = dependencies;
+  config = lib.mkIf config.hypr.enable (lib.mkMerge [
+    {
+      home.packages = dependencies;
 
-    wayland.windowManager.hyprland = {
-      enable = true;
-      settings = {
-        "$mod" = "SUPER";
-        "$terminal" = "foot";
+      wayland.windowManager.hyprland = {
+        enable = true;
+        settings = {
+          "$mod" = "SUPER";
+          "$terminal" = "foot";
+        };
       };
-    };
 
-    home.sessionVariables = {
-      BOOKMARKS = "/home/ea/Documents/Personal/bookmarks.json";
-    };
-  };
+      home.sessionVariables = {
+        BOOKMARKS = "/home/ea/Documents/Personal/bookmarks.json";
+      };
+    }
+    (lib.mkIf config.theme.enable {
+      stylix.targets = {
+        hyprland.enable = true;
+      };
+    })
+  ]);
 }
