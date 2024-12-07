@@ -5,6 +5,7 @@ THEMEING
   - Fix following errors:
     - Nerdfont icons in terminal not consistent (vertical rectangle instead of icon)
     - Icons in GTK apps not consistent
+    - Wallpaper not working
   - Theme following applications:
     - swayimg
     - sddm
