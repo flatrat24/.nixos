@@ -27,9 +27,7 @@ let
     "f"    = "fzf --preview 'bat --color=always {}'"        ;
   };
   dependencies = with pkgs; [
-    delta
-    ripgrep
-    zoxide
+    delta # TODO: Get this working
     fzf
     delta
     jq
@@ -45,6 +43,8 @@ in {
     ./bat/default.nix
     ./fd/default.nix
     ./gping/default.nix
+    ./ripgrep/default.nix
+    ./zoxide/default.nix
     ./utils/default.nix
     ./cosmetics/default.nix
   ];
