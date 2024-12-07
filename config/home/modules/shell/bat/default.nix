@@ -31,8 +31,8 @@ in {
       home.file = {
         ".config/bat" = {
           source = ./sources/;
-          executable = true;
-          recursive = false;
+          executable = false;
+          recursive = true;
         };
       };
     }
