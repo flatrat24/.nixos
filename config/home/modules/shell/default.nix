@@ -2,8 +2,11 @@
 let
   aliases = {
     "sudo" = "sudo "                                        ;
-
     ".."   = "cd .."                                        ;
+    "c"    = "clear"                                        ;
+    "q"    = "exit"                                         ;
+
+    "nr"   = "nixos-rebuild switch --flake /home/ea/.nixos" ;
                                                           
     "z"    = "zellij"                                       ;
     "za"   = "zellij attach"                                ;
@@ -18,19 +21,12 @@ let
     "p"    = "python3"                                      ;
     "h"    = "fc -ln 1 | fzf | wl-copy"                     ;
     "v"    = "nvim"                                         ;
-    "c"    = "clear"                                        ;
-    "q"    = "exit"                                         ;
     "d"    = "yazi"                                         ;
     "n"    = "ncmpcpp"                                      ;
-    "y"    = "hyprland"                                     ;
-    "f"    = "fzf --preview 'bat --color=always {}'"        ;
-                                                          
-    "tt"   = "sh ~/.config/hypr/scripts/toggleTouchpad.sh"  ;
 
-    "nr"   = "nixos-rebuild switch --flake /home/ea/.nixos" ;
+    "f"    = "fzf --preview 'bat --color=always {}'"        ;
   };
   dependencies = with pkgs; [
-    fd
     gping
     delta
     ripgrep
@@ -48,6 +44,7 @@ in {
   imports = [
     ./eza/default.nix
     ./bat/default.nix
+    ./fd/default.nix
     ./utils/default.nix
     ./cosmetics/default.nix
   ];
