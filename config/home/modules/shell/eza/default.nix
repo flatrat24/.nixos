@@ -4,9 +4,9 @@ let
     eza
   ];
   ezaAliases = {
-    "ls"   = "eza --group-directories-first --hyperlink"    ;
-    "la"   = "ls --all --long --header --git"               ;
-    "lt"   = "ls --tree --level=3"                          ;
+    "ls" = "eza --group-directories-first --hyperlink";
+    "la" = "ls --all --long --header --git";
+    "lt" = "ls --tree --level=3";
   };
 in {
   options = {
@@ -26,7 +26,7 @@ in {
     };
   };
 
-  config = lib.mkIf config.shell.eza.enable (lib.mkMerge [
+  config = lib.mkIf config.shell.programs.eza.enable (lib.mkMerge [
     {
       home.packages = dependencies;
 

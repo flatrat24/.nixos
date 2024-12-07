@@ -15,8 +15,6 @@ let
     "zl"   = "zellij list-sessions"                         ;
     "zr"   = "zellij run"                                   ;
                                                           
-    "cat"  = "bat"                                          ;
-                                                          
     "p"    = "python3"                                      ;
     "h"    = "fc -ln 1 | fzf | wl-copy"                     ;
     "v"    = "nvim"                                         ;
@@ -34,7 +32,6 @@ let
   dependencies = with pkgs; [
     fd
     bat
-    eza
     gping
     delta
     ripgrep
