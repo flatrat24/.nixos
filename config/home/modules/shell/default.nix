@@ -41,15 +41,6 @@ let
     bottom
     wget
     croc
-    typioca
-
-    cowsay
-    fortune
-    figlet
-    pipes
-    cbonsai
-    cava
-    cavalier
 
     python3
   ];
@@ -58,6 +49,7 @@ in {
     ./eza/default.nix
     ./bat/default.nix
     ./utils/default.nix
+    ./cosmetics/default.nix
   ];
 
   options = {
