@@ -31,7 +31,6 @@ let
   };
   dependencies = with pkgs; [
     fd
-    bat
     gping
     delta
     ripgrep
@@ -62,6 +61,7 @@ let
 in {
   imports = [
     ./eza/default.nix
+    ./bat/default.nix
   ];
 
   options = {

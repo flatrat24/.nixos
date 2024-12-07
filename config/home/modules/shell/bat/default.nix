@@ -1,3 +1,7 @@
+# TODO: Fix error where user might have to imperatively run
+#           $ bat cache --build
+#       to load new themes
+
 { pkgs, lib, config, ... }:
 let
   dependencies = with pkgs; [
@@ -30,11 +34,12 @@ in {
 
       home.file = {
         ".config/bat" = {
-          source = ./sources/;
+          source = ./sources;
           executable = false;
           recursive = true;
         };
       };
+
     }
     (lib.mkIf config.shell.programs.bat.bash.enable {
       programs.bash.shellAliases = batAliases;
