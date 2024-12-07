@@ -1,10 +1,7 @@
 { pkgs, lib, config, ... }:
 let
-  myAliases = {
+  aliases = {
     "sudo" = "sudo "                                        ;
-    "ls"   = "eza --group-directories-first --hyperlink"    ;
-    "la"   = "ls --all --long --header --git"               ;
-    "lt"   = "ls --tree --level=3"                          ;
 
     ".."   = "cd .."                                        ;
                                                           
@@ -35,9 +32,6 @@ let
     "nr"   = "nixos-rebuild switch --flake /home/ea/.nixos" ;
   };
   dependencies = with pkgs; [
-    git
-    zsh
-    bash
     fd
     bat
     eza
@@ -69,9 +63,22 @@ let
     python3
   ];
 in {
+  imports = [
+    ./eza/default.nix
+  ];
+
   options = {
-    shell.enable = lib.mkEnableOption "enables shell";
-    # TODO: Add specific options for each bash and zsh
+    shell = {
+      enable = lib.mkEnableOption "enables shell";
+      bash.enable = lib.mkOption {
+        type = lib.types.bool;
+        default = config.shell.enable
+      };
+      zsh.enable = lib.mkOption {
+        type = lib.types.bool;
+        default = config.shell.enable
+      };
+    };
   };
 
   config = lib.mkIf config.shell.enable {
@@ -79,14 +86,14 @@ in {
 
     programs.bash = {
       enable = true;
-      shellAliases = myAliases;
+      shellAliases = aliases;
       historySize = 5000;
       historyFile = "$HOME/.bash_history";
     };
 
     programs.zsh = {
       enable = true;
-      shellAliases = myAliases;
+      shellAliases = aliases;
       history = {
         save = 5000;
         size = 5000;
