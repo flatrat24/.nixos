@@ -27,7 +27,6 @@ let
     "f"    = "fzf --preview 'bat --color=always {}'"        ;
   };
   dependencies = with pkgs; [
-    gping
     delta
     ripgrep
     zoxide
@@ -45,6 +44,7 @@ in {
     ./eza/default.nix
     ./bat/default.nix
     ./fd/default.nix
+    ./gping/default.nix
     ./utils/default.nix
     ./cosmetics/default.nix
   ];
