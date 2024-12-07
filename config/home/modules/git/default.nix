@@ -14,30 +14,38 @@ let
     gz   = "lazygit"                                  ;
   };
 in {
+  # TODO: add nested option for lazygit
   options = {
     git.enable = lib.mkEnableOption "enables git";
   };
 
-  config = lib.mkIf config.git.enable {
-    programs.bash.shellAliases = gitAliases;
-    programs.zsh.shellAliases = gitAliases;
+  config = lib.mkIf config.git.enable (lib.mkMerge [
+    {
+      programs.bash.shellAliases = gitAliases;
+      programs.zsh.shellAliases = gitAliases;
 
-    programs.lazygit.enable = true;
+      programs.lazygit.enable = true;
 
-    programs.git = {
-      enable = true;
-      userName = "Ethan Anthony";
-      userEmail = "ethan.anthony@du.edu";
-      delta.enable = true;
-      extraConfig = {
-        init.defaultBranch = "main";
+      programs.git = {
+        enable = true;
+        userName = "Ethan Anthony";
+        userEmail = "ethan.anthony@du.edu";
+        delta.enable = true;
+        extraConfig = {
+          init.defaultBranch = "main";
+        };
       };
-    };
 
-    home.packages = with pkgs; [
-      git
-      lazygit
-      delta
-    ];
-  };
+      home.packages = with pkgs; [
+        git
+        lazygit
+        delta
+      ];
+    }
+    (lib.mkIf config.theme.enable {
+      stylix.targets = {
+        lazygit.enable = false;
+      };
+    })
+  ]);
 }
