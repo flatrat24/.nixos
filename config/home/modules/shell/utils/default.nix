@@ -1,11 +1,13 @@
 { pkgs, lib, config, ... }:
 let
   dependencies = with pkgs; [
+    wget
     moreutils
     xdg-utils
     imagemagick
     poppler_utils
     killall
+    nix-prefetch-github
   ];
   utilsAliases = { };
 in {
