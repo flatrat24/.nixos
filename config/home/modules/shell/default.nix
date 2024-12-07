@@ -97,6 +97,11 @@ in {
           src = ./sources;
           file = "p10k.zsh";
         }
+        {
+          name = "vi-mode";
+          src = pkgs.zsh-vi-mode;
+          file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+        }
       ];
       dotDir = ".config/zsh";
       initExtra = ''
