@@ -75,13 +75,13 @@ in {
           { on = [ "m" "p" ];         run = "linemode permissions";                               desc = "set linemode to permissions"; }
           { on = [ "m" "m" ];         run = "linemode mtime";                                     desc = "set linemode to mtime"; }
           { on = [ "m" "n" ];         run = "linemode none";                                      desc = "set linemode to none"; }
-                              
+
           # copy                      
           { on = [ "c" "c" ];         run = "copy path";                                          desc = "copy the absolute path"; }
           { on = [ "c" "d" ];         run = "copy dirname";                                       desc = "copy the path of the parent directory"; }
           { on = [ "c" "f" ];         run = "copy filename";                                      desc = "copy the name of the file"; }
           { on = [ "c" "n" ];         run = "copy name_without_ext";                              desc = "copy the name of the file without the extension"; }
-                              
+
           # filter                    
           { on = [ "f" ];             run = "filter --smart";                                     desc = "filter the files"; }
 
@@ -128,15 +128,17 @@ in {
           { on = [ "w" ];             run = "tasks_show";                                         desc = "show the tasks manager"; }
 
           # goto
-          { on = [ "g" "h" ];         run = "cd ~";                                               desc = "go to the home directory"; }
-          { on = [ "g" "s" ];         run = "cd ~/documents/school";                              desc = "go to the school directory"; }
-          { on = [ "g" "p" ];         run = "cd ~/documents/personal";                            desc = "go to the personl directory"; }
-          { on = [ "g" "c" ];         run = "cd ~/.dotfiles";                                     desc = "go to the config directory"; }
-          { on = [ "g" "d" ];         run = "cd ~/downloads";                                     desc = "go to the downloads directory"; }
-          { on = [ "g" "t" ];         run = "cd /tmp";                                            desc = "go to the temporary directory"; }
-          { on = [ "g" "m" ];         run = "cd ~/music/musicstagingground";                      desc = "go to the music staging ground directory"; }
-          { on = [ "g" "/" ];         run = "cd /";                                               desc = "go to the root directory"; }
-          { on = [ "g" "<Space>" ];   run = "cd --interactive";                                   desc = "go to a directory interactively"; }
+          { on = [ "g", "h" ];        run = "cd ~";                                               desc = "$HOME"; }
+          { on = [ "g", "s" ];        run = "cd ~/Documents/School";                              desc = "School"; }
+          { on = [ "g", "p" ];        run = "cd ~/Documents/Personal";                            desc = "Personal"; }
+          { on = [ "g", "c" ];        run = "cd ~/.nixos";                                        desc = "NixOS Config"; }
+          { on = [ "g", "d" ];        run = "cd ~/Downloads";                                     desc = "Downloads"; }
+          { on = [ "g", "m" ];        run = "cd ~/Music/musicStagingGround";                      desc = "Music Staging Ground"; }
+          { on = [ "g", "/" ];        run = "cd /";                                               desc = "Root"; }
+          { on = [ "g", "t" ];        run = "cd /tmp";                                            desc = "/tmp"; }
+          { on = [ "g", "n" ];        run = "cd /nix";                                            desc = "/nix"; }
+          { on = [ "g", "e" ];        run = "cd /etc";                                            desc = "/etc"; }
+          { on = [ "g", "<Space>" ];  run = "cd --interactive";                                   desc = "Go to a directory interactively"; }
 
           # help
           { on = [ "~" ];             run = "help";                                               desc = "open help"; }
@@ -427,12 +429,12 @@ in {
           ];
         };
         manager = {
-        ratio = [1 4 3];
-        sort_by = "extension";
-        set_dir_first = true;
-        show_symlink = true;
-        scrolloff = 10;
-        linemode = "mtime";
+          ratio = [1 4 3];
+          sort_by = "extension";
+          set_dir_first = true;
+          show_symlink = true;
+          scrolloff = 10;
+          linemode = "mtime";
         };
       };
     };

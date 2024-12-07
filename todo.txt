@@ -12,7 +12,6 @@ THEMEING
     - thunderbird
 
 YAZI
-  - Directory shortcuts (gx)
 
 MIME
   - Get all applications integrated with xdg-mime/xdg-open
