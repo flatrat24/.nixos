@@ -25,11 +25,6 @@ let
   };
   dependencies = with pkgs; [
     delta # TODO: Get this working as a submodule
-    delta
-    jq
-    bottom
-    wget
-    croc
 
     python3
   ];
@@ -37,10 +32,12 @@ in {
   imports = [
     ./eza/default.nix
     ./bat/default.nix
+    ./json/default.nix
     ./fd/default.nix
     ./fzf/default.nix
     ./gping/default.nix
     ./ripgrep/default.nix
+    ./bottom/default.nix
     ./zoxide/default.nix
     ./utils/default.nix
     ./cosmetics/default.nix
@@ -103,15 +100,10 @@ in {
       ];
       dotDir = ".config/zsh";
       initExtra = ''
-        source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
-
         bindkey '^f' autosuggest-accept
         bindkey '^k' history-search-backward
         bindkey '^j' history-search-forward
         bindkey '^[w' kill-region
-
-        eval "$(fzf --zsh)"
-        eval "$(zoxide init --cmd cd zsh)"
       '';
     };
   };
