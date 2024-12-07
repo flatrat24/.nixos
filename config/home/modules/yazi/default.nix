@@ -128,17 +128,17 @@ in {
           { on = [ "w" ];             run = "tasks_show";                                         desc = "show the tasks manager"; }
 
           # goto
-          { on = [ "g", "h" ];        run = "cd ~";                                               desc = "$HOME"; }
-          { on = [ "g", "s" ];        run = "cd ~/Documents/School";                              desc = "School"; }
-          { on = [ "g", "p" ];        run = "cd ~/Documents/Personal";                            desc = "Personal"; }
-          { on = [ "g", "c" ];        run = "cd ~/.nixos";                                        desc = "NixOS Config"; }
-          { on = [ "g", "d" ];        run = "cd ~/Downloads";                                     desc = "Downloads"; }
-          { on = [ "g", "m" ];        run = "cd ~/Music/musicStagingGround";                      desc = "Music Staging Ground"; }
-          { on = [ "g", "/" ];        run = "cd /";                                               desc = "Root"; }
-          { on = [ "g", "t" ];        run = "cd /tmp";                                            desc = "/tmp"; }
-          { on = [ "g", "n" ];        run = "cd /nix";                                            desc = "/nix"; }
-          { on = [ "g", "e" ];        run = "cd /etc";                                            desc = "/etc"; }
-          { on = [ "g", "<Space>" ];  run = "cd --interactive";                                   desc = "Go to a directory interactively"; }
+          { on = [ "g" "h" ];        run = "cd ~";                                               desc = "$HOME"; }
+          { on = [ "g" "s" ];        run = "cd ~/Documents/School";                              desc = "School"; }
+          { on = [ "g" "p" ];        run = "cd ~/Documents/Personal";                            desc = "Personal"; }
+          { on = [ "g" "c" ];        run = "cd ~/.nixos";                                        desc = "NixOS Config"; }
+          { on = [ "g" "d" ];        run = "cd ~/Downloads";                                     desc = "Downloads"; }
+          { on = [ "g" "m" ];        run = "cd ~/Music/musicStagingGround";                      desc = "Music Staging Ground"; }
+          { on = [ "g" "/" ];        run = "cd /";                                               desc = "Root"; }
+          { on = [ "g" "t" ];        run = "cd /tmp";                                            desc = "/tmp"; }
+          { on = [ "g" "n" ];        run = "cd /nix";                                            desc = "/nix"; }
+          { on = [ "g" "e" ];        run = "cd /etc";                                            desc = "/etc"; }
+          { on = [ "g" "<Space>" ];  run = "cd --interactive";                                   desc = "Go to a directory interactively"; }
 
           # help
           { on = [ "~" ];             run = "help";                                               desc = "open help"; }
