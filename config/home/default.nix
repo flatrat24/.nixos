@@ -2,6 +2,7 @@
   imports = [
     ./modules/email/default.nix
     ./modules/beeper/default.nix
+    ./modules/discord/default.nix
     ./modules/firefox/default.nix
     ./modules/foot/default.nix
     ./modules/gaming/default.nix
