@@ -1,14 +1,10 @@
 { pkgs, lib, inputs, config, ... }:
 let
-    dependencies = with pkgs; [ ${config.discord.client} ];
+    dependencies = with pkgs; [ vesktop ];
 in {
   options = {
     discord = {
       enable = lib.mkEnableOption "enable discord";
-      client = lib.mkOption {
-        type = lib.types.str;
-        default = "vesktop";
-      };
     };
   };
 

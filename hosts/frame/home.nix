@@ -11,10 +11,7 @@
     stateVersion = "24.05";
   };
 
-  discord.enable = {
-    enable = true;
-    client = "vesktop";
-  }
+  discord.enable = true;
 
   gpg.enable = true;
 
