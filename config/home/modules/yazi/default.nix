@@ -453,7 +453,7 @@ in {
     }
     (lib.mkIf (config.theme.enable) {
       stylix.targets = {
-        yazi.enable = false;
+        yazi.enable = true;
       };
     })
   ]);
