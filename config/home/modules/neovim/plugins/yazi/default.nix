@@ -3,7 +3,7 @@ let
   dependencies = with pkgs; [ ];
 in {
   options = {
-    neovim.plugins.yazi.enable = {
+    neovim.plugins.yazi = {
       enable = lib.mkOption {
         type = lib.types.bool;
         default = config.neovim.enable;
@@ -11,7 +11,7 @@ in {
     };
   };
 
-  config = lib.mkIf config.shell.programs.cosmetics.enable {
+  config = lib.mkIf config.neovim.plugins.yazi.enable {
     programs.nixvim = {
       plugins.yazi.enable = true;
       keymaps = [

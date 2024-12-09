@@ -1,24 +1,24 @@
 { pkgs, lib, config, inputs, ... }:
 let
   dependencies = with pkgs; [
-    # neovim
-    # python3
-    # luajitPackages.luarocks
-    # luajitPackages.jsregexp
-    # clang
-    # tree-sitter
-    # nodejs_22
-    # python312Packages.python-lsp-server
-    # nodePackages_latest.bash-language-server
+    neovim
+    python3
+    luajitPackages.luarocks
+    luajitPackages.jsregexp
+    clang
+    tree-sitter
+    nodejs_22
+    python312Packages.python-lsp-server
+    nodePackages_latest.bash-language-server
   ];
 in {
   imports = [
-    inputs.nixvim.homeManagerModules.nixvim
+    # inputs.nixvim.homeManagerModules.nixvim
     # ./git.nix
     # ./yazi.nix
     # ./fonts.nix
-    ./keymaps/default.nix
-    ./plugins/default.nix
+    # ./keymaps/default.nix
+    # ./plugins/default.nix
   ];
 
   options = {
@@ -28,27 +28,35 @@ in {
   config = lib.mkIf config.neovim.enable {
     home.packages = dependencies;
 
-    programs.nixvim = {
-      enable = true;
-      opts = {
-        expandtab = true;
-        number = true;
-        numberwidth = 1;
-        tabstop = 2;
-        softtabstop = 2;
-        shiftwidth = 2;
-        wrap = false;
-        scrolloff = 10;
-        sidescrolloff = 5;
-        ignorecase = true;
-        smartcase = true;
-        cursorline = true;
-        formatoptions = "jql";
+    # programs.nixvim = {
+      # enable = true;
+      # opts = {
+        # expandtab = true;
+        # number = true;
+        # numberwidth = 1;
+        # tabstop = 2;
+        # softtabstop = 2;
+        # shiftwidth = 2;
+        # wrap = false;
+        # scrolloff = 10;
+        # sidescrolloff = 5;
+        # ignorecase = true;
+        # smartcase = true;
+        # cursorline = true;
+        # formatoptions = "jql";
+      # };
+      # colorschemes = {
+      	# catppuccin.enable = true;
+      # };
+      # plugins.lualine.enable = true;
+    # };
+
+    home.file = {
+      ".config/nvim" = {
+        source = ./sources;
+        executable = false;
+        recursive = true;
       };
-      colorschemes = {
-      	catppuccin.enable = true;
-      };
-      plugins.lualine.enable = true;
     };
 
     xdg = { # TODO: Fix desktop entry, doesn't work
