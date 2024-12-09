@@ -31,6 +31,7 @@ in {
             PASSWORD_STORE_DIR = "${config.home.homeDirectory}/.password-store";
           };
         };
+        browserpass.enable = true;
       };
     }
     (lib.mkIf config.wofi.enable (lib.mkMerge [
