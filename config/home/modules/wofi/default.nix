@@ -35,7 +35,7 @@ in {
       {
         wayland.windowManager.hyprland.settings = {
           bindd = [
-            "$mod, Space, Wofi Drun, exec, wofi -c ~/.config/wofi/configs/default --show drun"
+            "$mod, Space, Wofi Drun, exec, wofi --show drun"
           ];
         };
       }
