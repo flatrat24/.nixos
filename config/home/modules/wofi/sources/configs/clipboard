@@ -6,6 +6,7 @@ prompt        = clipboard
 normal_window = true
 allow_markup  = true
 insensitive   = true
+hide_scroll   = true
 columns       = 1
 key_up        = Ctrl-k
 key_down      = Ctrl-j

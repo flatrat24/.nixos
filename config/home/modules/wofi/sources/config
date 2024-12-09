@@ -7,6 +7,7 @@ prompt        = run
 normal_window = true
 allow_markup  = true
 insensitive   = true
+hide_scroll   = true
 columns       = 1
 sort_order    = alphabetical
 key_up        = Ctrl-k

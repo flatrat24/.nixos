@@ -57,14 +57,24 @@ window {
 }
 
 /* Input */
+/* #input { */
+/*   margin: 5px 20px; */
+/*   padding: 10px; */
+/*   border: none; */
+/*   border-radius: 0.1em; */
+/*   color: --wofi-color5; */
+/*   background-color: --wofi-color0; */
+/*   animation: fadeIn 0.5s ease-in-out both; */
+/* } */
+
 #input {
-  margin: 5px 20px;
-  padding: 10px;
+  margin: 5px;
+  padding: 0px;
+  border-radius: 0px;
   border: none;
-  border-radius: 0.1em;
-  color: --wofi-color5;
+  border-bottom: 3px solid --wofi-color2;
   background-color: --wofi-color0;
-  animation: fadeIn 0.5s ease-in-out both;
+  color: --wofi-color5;
 }
 
 #input image {
@@ -96,6 +106,7 @@ window {
 /* Selected Entry */
 #entry:selected {
   border: none;
+  outline: none;
 }
 
 #entry:selected #text {
@@ -105,3 +116,8 @@ window {
 #entry:drop(active) {
   background-color: --wofi-color7!important;
 }
+
+/* Give color to even items */
+/* #entry:nth-child(even){ */
+/*     background-color: --wofi-color1; */
+/* } */
