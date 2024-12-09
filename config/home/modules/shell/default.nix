@@ -7,6 +7,7 @@ let
     "q"    = "exit"                                         ;
 
     "nr"   = "nixos-rebuild switch --flake /home/ea/.nixos" ;
+    "ns"   = "nix-shell -p --command $SHELL "               ;
                                                           
     "z"    = "zellij"                                       ;
     "za"   = "zellij attach"                                ;
