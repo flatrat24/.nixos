@@ -33,19 +33,28 @@ in {
         };
       };
     }
-    (lib.mkIf config.wofi.enable {
-      home.packages = with pkgs; [
-        wofi-pass
-        wtype
-      ];
+    (lib.mkIf config.wofi.enable (lib.mkMerge [
+      {
+        home.packages = with pkgs; [
+          wofi-pass
+          wtype
+        ];
 
-      home.file = {
-        ".config/wofi-pass/config" = {
-          source = ./sources/config;
-          executable = false;
-          recursive = false;
+        home.file = {
+          ".config/wofi-pass/config" = {
+            source = ./sources/config;
+            executable = false;
+            recursive = false;
+          };
         };
-      };
-    })
+      }
+      (lib.mkIf config.hypr.enable {
+        wayland.windowManager.hyprland.settings = {
+          bindd = [
+            "$mod, x, Wofi Pass, exec, wofi-pass"
+          ];
+        };
+      })
+    ]))
   ]);
 }
