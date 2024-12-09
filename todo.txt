@@ -31,6 +31,12 @@ AGS
     - Basic Hyprland actions (screenshot, hyprpicker, switch workspaces)
     - Brightness, volume, nightlight controls
 
+PASS
+  - Push to a git repository on github
+  - Get gpg signing/authenticating to work
+  - Get gpg running on desktop
+  - Passepartui
+
 NEOVIM
   - Remake alpha.nvim landing page
   - Figure out a solution to navigating the filesystem
@@ -70,8 +76,10 @@ HYPRLAND
 SHELL
 
 FIREFOX
-  - Disable session memory, make a new session every time
   - Get better homepage (startTree)
   - Integrate firefox with keepass or pass
   - Sidebery keybinds for tab navigation (or just general firefox keybinds)
   - Firefox keybinds (looks like it has to be an extension)
+
+DISCORD
+  - Get discord working with voice chat
