@@ -8,9 +8,7 @@ let
     youtube-shorts-block
     ublock-origin
     sponsorblock
-    keepassxc-browser
-    browserpass # TODO: Implement this
-    firefox-color # For textfox
+    firefox-color
   ];
 in {
   imports = [
@@ -40,7 +38,11 @@ in {
           name = "Ethan Anthony";
           isDefault = true;
           
-          extensions = extensions ++ [];
+          extensions = extensions ++ (if (config.passwords.pass.enable == true)
+                                      then [inputs.firefox-addons.packages."x86_64-linux".browserpass]
+                                      else (if (config.passwords.keepassxc.enable == true)
+                                            then [inputs.firefox-addons.packages."x86_64-linux".keepassxc-browser]
+                                            else []));
 
           search = {
             force = true;
