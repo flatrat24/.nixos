@@ -11,23 +11,27 @@ vim.g.maplocalleader = " "
 -- vim.keymap.del({"n", "x"}, "gco")
 -- vim.keymap.del({"n", "x"}, "gcA")
 
--- Miscellaneous
+-- Miscellaneous (DONE)
 vim.keymap.set("n", "U",            "<C-r>",                                        { noremap = true, silent = true,            desc = "Redo"                                })
 vim.keymap.set("n", "L",            "$",                                            { noremap = true, silent = true,            desc = "Go to End of Line"                   })
 vim.keymap.set("n", "H",            "0",                                            { noremap = true, silent = true,            desc = "Go to Front of Line"                 })
 vim.keymap.set("n", "<C-;>",        "<C-y>",                                        { noremap = true, silent = true,            desc = "Move Screen Up"                      })
 vim.keymap.set("n", "<C-'>",        "<C-e>",                                        { noremap = true, silent = true,            desc = "Move Screen Down"                    })
 
+vim.keymap.set("n", ",",            ";",                                            { noremap = true, silent = true,            desc = "Repeat Find in Line"                 })
+
+-- Miscellaneous
 vim.keymap.set("n", "<leader>`",    "<cmd>Alpha<CR>",                               { noremap = true, silent = true,            desc = "Return to Homepage"                  })
 vim.keymap.set("n", "<leader>?",    "<cmd>WhichKey<CR>",                            { noremap = true, silent = true,            desc = "Display Keymaps"                     })
 vim.keymap.set("n", "<leader>h",    "<cmd>Telescope help_tags hidden=true<CR>",     { noremap = true, silent = true,            desc = "Search Help Tags"                    })
-vim.keymap.set("n", ",",            ";",                                            { noremap = true, silent = true,            desc = "Repeat Find in Line"                 })
 
--- View Management                  
+-- View Management (DONE)
 vim.keymap.set("n", "<leader>vh",   "<cmd>nohl<CR>",                                { noremap = true, silent = true,            desc = "Clear Highlighting"                  })
+
+-- View Management
 vim.keymap.set("n", "<leader>vu",   "<cmd>UndotreeToggle<CR><cmd>UndotreeFocus<CR>",{ noremap = true, silent = true,            desc = "Toggle UndoTree"                     })
 
--- Window Management                
+-- Window Management  (DONE)
 vim.keymap.set("n", "<C-h>",        "<C-w>h",                                       { noremap = true, silent = true,            desc = "Move Window Focus Left"              })
 vim.keymap.set("n", "<C-j>",        "<C-w>j",                                       { noremap = true, silent = true,            desc = "Move Window Focus Down"              })
 vim.keymap.set("n", "<C-k>",        "<C-w>k",                                       { noremap = true, silent = true,            desc = "Move Window Focus Up"                })
@@ -40,7 +44,7 @@ vim.keymap.set("n", "<C-S-j>",      "<cmd>resize -2<CR>",                       
 vim.keymap.set("n", "<C-S-h>",      "<cmd>vertical resize -2<CR>",                  { noremap = true, silent = true,            desc = "Horizontally Grow Focused Window"    })
 vim.keymap.set("n", "<C-S-l>",      "<cmd>vertical resize +2<CR>",                  { noremap = true, silent = true,            desc = "Vertically Grow Focused Window"      })
 
--- Buffer Management                        
+-- Buffer Management
 vim.keymap.set("n", "<leader>ff",   "<cmd>Telescope find_files hidden=true<CR>",    { noremap = true, silent = true,            desc = "Find Files"                          })
 vim.keymap.set("n", "<leader>fg",   "<cmd>Telescope live_grep hidden=true<CR>",     { noremap = true, silent = true,            desc = "Live Grep"                           })
 vim.keymap.set("n", "<leader>fr",   "<cmd>Telescope oldfiles hidden=true<CR>",      { noremap = true, silent = true,            desc = "Recent Files"                        })
@@ -48,6 +52,8 @@ vim.keymap.set("n", "<leader>fb",   "<cmd>Telescope buffers hidden=true<CR>",   
 vim.keymap.set("n", "<leader>fo",   "<cmd>Yazi<CR>",                                { noremap = true, silent = true,            desc = "Open Yazi"                           })
 vim.keymap.set("n", "<leader>fO",   "<cmd>Oil<CR>",                                 { noremap = true, silent = true,            desc = "Open Oil"                            })
 vim.keymap.set("n", "<leader>fd!",  "<cmd>Delete!<CR>",                             { noremap = true, silent = true,            desc = "Delete File"                         })
+
+-- Buffer Management (DONE)
 vim.keymap.set("n", "<leader>fw",   "<cmd>w<CR>",                                   { noremap = true, silent = true,            desc = "Write Current Buffer"                })
 vim.keymap.set("n", "<leader>fW",   "<cmd>wa<CR>",                                  { noremap = true, silent = true,            desc = "Write All Buffers"                   })
 vim.keymap.set("n", "<leader>fq",   "<cmd>wq<CR>",                                  { noremap = true, silent = true,            desc = "Write Current Buffer and Quit"       })
@@ -118,15 +124,15 @@ end,                                                                            
 --%%% INSERT MODE %%%--
 
 --%%% VISUAL MODE %%%--
--- Miscellaneous
+-- Miscellaneous (DONE)
 vim.keymap.set("x", ">",            ">gv",                                          { noremap = true, silent = true,            desc = "Increase line indent"                })
 vim.keymap.set("x", "<",            "<gv",                                          { noremap = true, silent = true,            desc = "Decrease line indent"                })
 
--- Movement
+-- Movement (DONE)
 vim.keymap.set("x", "L",            "$",                                            { noremap = true, silent = true,            desc = "Go to End of Line"                   })
 vim.keymap.set("x", "H",            "0",                                            { noremap = true, silent = true,            desc = "Go to Front of Line"                 })
 
--- Multi  Mode --
+-- Multi  Mode -- (DONE)
 vim.keymap.set({'n', 'x', 'o'}, 's',     '<Plug>(leap-forward)',                    { noremap = true, silent = true,            desc = "Leap Forward"                        })
 vim.keymap.set({'n', 'x', 'o'}, 'S',     '<Plug>(leap-backward)',                   { noremap = true, silent = true,            desc = "Leap Backward"                       })
 vim.keymap.set({'n', 'x', 'o'}, 'gs',    '<Plug>(leap-from-window)',                { noremap = true, silent = true,            desc = "Leap From Window"                    })
