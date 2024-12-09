@@ -1,9 +1,4 @@
-{ pkgs, lib, config, ... }:
-# let
-  # dependencies = with pkgs; [
-  #   gnupg
-  # ];
-{ # in {
+{ pkgs, lib, config, ... }: {
   imports = [ ];
 
   options = {
@@ -26,6 +21,8 @@
         enable = true;
         enableSshSupport = true;
         pinentryPackage = pkgs.pinentry-curses;
+        maxCacheTtl = 7 * 24 * 60 * 60; # One week
+        defaultCacheTtl = 7 * 24 * 60 * 60; # One week
       };
     };
   };
