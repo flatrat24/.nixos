@@ -19,17 +19,33 @@ in {
     };
   };
 
-  config = lib.mkIf config.passwords.pass.enable {
-    home.packages = dependencies;
+  config = lib.mkIf config.passwords.pass.enable (lib.mkMerge [
+    {
+      home.packages = dependencies;
 
-    programs = {
-      password-store = {
-        enable = true;
-        package = pkgs.pass.withExtensions (exts: [exts.pass-import]);
-        settings = {
-          PASSWORD_STORE_DIR = "${config.home.homeDirectory}/.password-store";
+      programs = {
+        password-store = {
+          enable = true;
+          package = pkgs.pass.withExtensions (exts: [exts.pass-import]);
+          settings = {
+            PASSWORD_STORE_DIR = "${config.home.homeDirectory}/.password-store";
+          };
         };
       };
-    };
-  };
+    }
+    (lib.mkIf config.wofi.enable {
+      home.packages = with pkgs; [
+        wofi-pass
+        wtype
+      ];
+
+      home.file = {
+        ".config/wofi-pass/config" = {
+          source = ./sources/config;
+          executable = false;
+          recursive = false;
+        };
+      };
+    })
+  ]);
 }
