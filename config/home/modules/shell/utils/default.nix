@@ -8,6 +8,7 @@ let
     poppler_utils
     killall
     nix-prefetch-github
+    nix-index
   ];
   utilsAliases = { };
 in {
