@@ -33,7 +33,7 @@ in {
 
         background = [{
           monitor = "";
-          path = "/home/ea/.nixos/config/home/modules/hypr/sources/assets/grove.png";
+          path = "/home/ea/.nixos/config/home/modules/hypr/sources/assets/mountains.png";
           blur_passes = 3;
           contrast = 0.8916;
           brightness = 0.8172;

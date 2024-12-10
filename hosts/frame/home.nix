@@ -11,6 +11,9 @@
     stateVersion = "24.05";
   };
 
+  ags.enable = false;
+  waybar.enable = false;
+
   discord.enable = true;
 
   gpg.enable = true;
@@ -37,7 +40,7 @@
     };
     hyprpaper = {
       enable = true;
-      wallpaper = ../../config/assets/grove.png;
+      wallpaper = ../../config/assets/mountains.png;
     };
     animations = {
       enable = true;

@@ -13,7 +13,7 @@
     stylix = {
       enable = true;
       autoEnable = false;
-      image = ../hypr/sources/assets/grove.png;
+      image = ../../../assets/mountains.png;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
       targets = {

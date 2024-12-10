@@ -12,7 +12,7 @@ in {
       };
       wallpaper = lib.mkOption {
         type = lib.types.path;
-        default = ../../../../assets/grove.png; # TODO: Fix error where grove.png is always used no matter what
+        default = ../../../../assets/mountains.png; # TODO: Fix error where grove.png is always used no matter what
       };
     };
   };
