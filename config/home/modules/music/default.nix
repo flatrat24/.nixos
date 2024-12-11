@@ -64,17 +64,10 @@ in {
           auto_update       "yes"
 
           audio_output {  
-              type          "pipewire"
-              name          "PipeWire Sound Server"
-              path          "/tmp/mpd.fifo"
-              format        "44100:16:2"
-          }
-
-          audio_output {  
-              type          "fifo"
-              name          "my_fifo"
-              path          "/tmp/mpd.fifo"
-              format        "44100:16:2"
+            type          "fifo"
+            name          "Visualizer"
+            path          "/tmp/mpd.fifo"
+            format        "44100:16:2"
           }
 
           input {
@@ -82,6 +75,12 @@ in {
           }
         '';
       };
+          # audio_output {  
+          #   type          "pipewire"
+          #   name          "PipeWire Sound Server"
+          #   path          "/tmp/mpd.fifo"
+          #   format        "44100:16:2"
+          # }
       home.file = {
         ".mpdscribble/mpdscribble.conf" = {
           text = ''
@@ -130,10 +129,10 @@ in {
           ncmpcpp_directory         = "~/.config/ncmpcpp"     ;
           startup_screen            = "media_library"         ;
           visualizer_data_source    = "/tmp/mpd.fifo"         ;
-          visualizer_output_name    = "PipeWire Sound Server" ;
-          visualizer_in_stereo      = "yes"                   ;
+          visualizer_output_name    = "mpd_visualizer"        ;
           visualizer_type           = "ellipse"               ;
           visualizer_look           = "󰝤󰝤"                    ; # TODO: Fix visualizer
+          visualizer_color          = "blue, green"           ;
 
           ##--- Basic UI ---##
           user_interface            = "classic"                   ;
