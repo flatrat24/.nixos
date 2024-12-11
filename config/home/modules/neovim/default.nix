@@ -13,7 +13,7 @@ let
   ];
 in {
   imports = [
-    # inputs.nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeManagerModules.nixvim
     # ./git.nix
     # ./yazi.nix
     # ./fonts.nix
@@ -22,60 +22,74 @@ in {
   ];
 
   options = {
-    neovim.enable = lib.mkEnableOption "enables neovim";
-  };
-
-  config = lib.mkIf config.neovim.enable {
-    home.packages = dependencies;
-
-    # programs.nixvim = {
-      # enable = true;
-      # opts = {
-        # expandtab = true;
-        # number = true;
-        # numberwidth = 1;
-        # tabstop = 2;
-        # softtabstop = 2;
-        # shiftwidth = 2;
-        # wrap = false;
-        # scrolloff = 10;
-        # sidescrolloff = 5;
-        # ignorecase = true;
-        # smartcase = true;
-        # cursorline = true;
-        # formatoptions = "jql";
-      # };
-      # colorschemes = {
-      	# catppuccin.enable = true;
-      # };
-      # plugins.lualine.enable = true;
-    # };
-
-    home.file = {
-      ".config/nvim" = {
-        source = ./sources;
-        executable = false;
-        recursive = true;
+    neovim = {
+      enable = lib.mkEnableOption "enables neovim";
+      nixvim.enable = lib.mkOption {
+        type = lib.types.bool;
+        default = config.neovim.enable;
+      };
+      lua.enable = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
       };
     };
+  };
 
-    xdg = { # TODO: Fix desktop entry, doesn't work
-      enable = true;
-      mimeApps.enable = true;
-      mimeApps.defaultApplications = {
-        "text/*" = ["nvim.desktop"];
-      };
-      desktopEntries = {
-        nvim = {
-          name = "Neovim";
-          genericName = "Text Editor";
-          exec = ''foot -e nvim %f''; # remove hardcoded foot
-          # exec = "nvim %F";
-          terminal = false;
-          categories = [ "Utility" "TextEditor" ];
-          mimeType = [ "text/english" "text/plain" "text/x-makefile" "text/x-c++hdr" "text/x-c++src" "text/x-chdr" "text/x-csrc" "text/x-java" "text/x-moc" "text/x-pascal" "text/x-tcl" "text/x-tex" "application/x-shellscript" "text/x-c" "text/x-c++" "text/x-python" ];
+  config = lib.mkIf config.neovim.enable (lib.mkMerge [
+    (lib.mkIf config.neovim.lua.enable {
+      home.packages = dependencies;
+
+      home.file = {
+        ".config/nvim" = {
+          source = ./sources;
+          executable = false;
+          recursive = true;
         };
       };
-    };
-  };
+    })
+    (lib.mkIf config.neovim.nixvim.enable {
+      programs.nixvim = {
+        enable = true;
+        opts = {
+          expandtab = true;
+          number = true;
+          numberwidth = 1;
+          tabstop = 2;
+          softtabstop = 2;
+          shiftwidth = 2;
+          wrap = false;
+          scrolloff = 10;
+          sidescrolloff = 5;
+          ignorecase = true;
+          smartcase = true;
+          cursorline = true;
+          formatoptions = "jql";
+        };
+        colorschemes = {
+          catppuccin.enable = true;
+        };
+        plugins.lualine.enable = true;
+      };
+    })
+    {
+      xdg = { # TODO: Fix desktop entry, doesn't work
+        enable = true;
+        mimeApps.enable = true;
+        mimeApps.defaultApplications = {
+          "text/*" = ["nvim.desktop"];
+        };
+        desktopEntries = {
+          nvim = {
+            name = "Neovim";
+            genericName = "Text Editor";
+            exec = ''foot -e nvim %f''; # remove hardcoded foot
+            # exec = "nvim %F";
+            terminal = false;
+            categories = [ "Utility" "TextEditor" ];
+            mimeType = [ "text/english" "text/plain" "text/x-makefile" "text/x-c++hdr" "text/x-c++src" "text/x-chdr" "text/x-csrc" "text/x-java" "text/x-moc" "text/x-pascal" "text/x-tcl" "text/x-tex" "application/x-shellscript" "text/x-c" "text/x-c++" "text/x-python" ];
+          };
+        };
+      };
+    }
+  ]);
 }
