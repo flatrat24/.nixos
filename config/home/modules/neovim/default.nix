@@ -17,8 +17,8 @@ in {
     # ./git.nix
     # ./yazi.nix
     # ./fonts.nix
-    # ./keymaps/default.nix
-    # ./plugins/default.nix
+    ./keymaps/default.nix
+    ./plugins/default.nix
   ];
 
   options = {

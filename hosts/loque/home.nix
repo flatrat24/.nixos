@@ -52,7 +52,11 @@
     };
     importMusic.enable = true;
   };
-  neovim.enable = true;
+  neovim = {
+    enable = true;
+    nixvim.enable = false;
+    lua.enable = true;
+  };
   shell = {
     enable = true;
     bash.enable = true;
