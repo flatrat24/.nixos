@@ -63,16 +63,19 @@
     };
     importMusic.enable = true;
   };
+
   neovim = {
     enable = true;
     nixvim.enable = false;
     lua.enable = true;
   };
+
   shell = {
     enable = true;
     bash.enable = true;
     zsh.enable = true;
   };
+
   swayimg.enable = true;
   theme.enable = true;
   yazi.enable = true;

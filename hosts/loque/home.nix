@@ -10,6 +10,13 @@
     homeDirectory = "/home/ea";
     stateVersion = "24.05";
   };
+  
+  ags.enable = false;
+  waybar.enable = false;
+
+  discord.enable = true;
+
+  gpg.enable = true;
 
   email = {
     enable = true;
@@ -35,7 +42,7 @@
     };
     hyprpaper = {
       enable = true;
-      wallpaper = ../../config/assets/grove.png;
+      wallpaper = ../../config/assets/mountains.png;
     };
     animations = {
       enable = true;
@@ -43,7 +50,13 @@
   };
 
   importMusic.enable = false;
-  keepass.enable = true;
+
+  passwords = {
+    enable = true;
+    keepass.enable = true;
+    pass.enable = true;
+  };
+
   music = {
     enable = true;
     mpd = {
@@ -52,16 +65,19 @@
     };
     importMusic.enable = true;
   };
+
   neovim = {
     enable = true;
     nixvim.enable = false;
     lua.enable = true;
   };
+
   shell = {
     enable = true;
     bash.enable = true;
     zsh.enable = true;
   };
+
   swayimg.enable = true;
   theme.enable = true;
 
