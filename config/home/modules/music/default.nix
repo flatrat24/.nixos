@@ -58,16 +58,21 @@ in {
         playlistDirectory = /home/ea/.mpd/playlists; # TODO: Use user directory dynamically
         dataDir = /home/ea/.mpd; # TODO: Use user directory dynamically
         extraConfig = ''
-          state_file        "~/.mpd/state"
-          restore_paused    "yes"
-          sticker_file      "~/.mpd/sticker.sql"
-          auto_update       "yes"
+          state_file     "~/.mpd/state"
+          restore_paused "yes"
+          sticker_file   "~/.mpd/sticker.sql"
+          auto_update    "yes"
 
           audio_output {  
-            type          "fifo"
-            name          "Visualizer"
-            path          "/tmp/mpd.fifo"
-            format        "44100:16:2"
+            type   "fifo"
+            name   "Visualizer"
+            path   "/tmp/mpd.fifo"
+            format "44100:16:2"
+          }
+
+          audio_output {
+            type "pipewire"
+            name "PipeWire Sound Server"
           }
 
           input {
