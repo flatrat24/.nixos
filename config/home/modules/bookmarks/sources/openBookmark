@@ -1,5 +1,5 @@
 style         = /home/ea/openBookmark.css
-color         = /home/ea/.config/wofi/colors/frappe.css
+color         = /home/ea/.config/wofi/colors/mocha.css
 height        = 25%
 width         = 50%
 prompt        = add a bookmark
