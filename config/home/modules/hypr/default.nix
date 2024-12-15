@@ -45,10 +45,6 @@ in {
           "$terminal" = "foot";
         };
       };
-
-      home.sessionVariables = {
-        BOOKMARKS = "/home/ea/Documents/Personal/bookmarks.json";
-      };
     }
     (lib.mkIf config.theme.enable {
       stylix.targets = {
