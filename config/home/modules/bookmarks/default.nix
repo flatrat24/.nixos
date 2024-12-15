@@ -1,29 +1,4 @@
-{ pkgs, lib, config, ... }:
-let
-  importMusic = pkgs.writeShellApplication {
-    name = "importMusic";
-    runtimeInputs = with pkgs; [
-      yt-dlp
-      beets
-      gnused
-    ];
-    text = builtins.readFile ./sources/importMusic;
-  };
-  mpdDependencies = with pkgs; [
-    mpd
-    mpc-cli
-    mpdscribble
-    mpd-notification
-  ];
-  ncmpcppDependencies = with pkgs; [
-    ncmpcpp
-  ];
-  importMusicDependencies = [
-    importMusic
-    pkgs.beets
-    pkgs.yt-dlp
-  ];
-in {
+{ pkgs, lib, config, ... }: {
   options = {
     bookmarks = {
       enable = lib.mkEnableOption "enables bookmarks";
@@ -32,7 +7,7 @@ in {
 
   config = lib.mkIf config.bookmarks.enable (lib.mkMerge [
     {
-      config.wofi.enable = true;
+      # config.wofi.enable = true;
 
       home.file = {
         ".bookmarks" = {
