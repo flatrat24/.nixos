@@ -1,0 +1,104 @@
+* {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+}
+
+/* Window */
+window {
+  margin: 0px;
+  padding: 10px;
+  background-color: --wofi-color0;
+}
+
+/* Inner Box */
+#inner-box {
+  margin: 0px 0px 0px 0px;
+  padding: 2.5px 10px 2.5px 10px;
+  border: none;
+  background-color: --wofi-color0;
+}
+
+/* Outer Box */
+#outer-box {
+  margin: 1px;
+  padding: 1px;
+  border: none;
+  background-color: --wofi-color0;
+}
+
+/* Scroll */
+#scroll {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  background-color: --wofi-color0;
+}
+
+/* Input */
+/* #input { */
+/*   margin: 5px 20px; */
+/*   padding: 10px; */
+/*   border: none; */
+/*   border-radius: 0.1em; */
+/*   color: --wofi-color5; */
+/*   background-color: --wofi-color0; */
+/*   animation: fadeIn 0.5s ease-in-out both; */
+/* } */
+
+#input {
+  margin: 5px;
+  padding: 2.5px;
+  border-radius: 0px;
+  border: none;
+  background-color: --wofi-color0;
+  color: --wofi-color5;
+}
+
+#input:focus {
+  box-shadow: 0px 0px 0px 1px --wofi-color0 inset;
+}
+
+#input image {
+    border: none;
+    color: --wofi-color8;
+}
+
+#input * {
+  outline: 4px solid --wofi-color8!important;
+}
+
+/* Text */
+#text {
+  margin: 2.5px;
+  border: none;
+  color: --wofi-color5;
+  animation: fadeIn 0.5s ease-in-out both;
+}
+
+#entry {
+  background-color: --wofi-color0;
+}
+
+#expander-box {
+  background-color: --wofi-color0;
+}
+
+#entry arrow {
+  border: none;
+  color: --wofi-color7;
+}
+
+/* Selected Entry */
+#entry:selected {
+  border: none;
+  background-color: --wofi-color9;
+  outline: none;
+}
+
+#entry:selected #text {
+  color: --wofi-color0;
+}
+
+#entry:drop(active) {
+  background-color: --wofi-color7!important;
+}

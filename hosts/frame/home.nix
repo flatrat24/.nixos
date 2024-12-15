@@ -14,6 +14,9 @@
   ags.enable = false;
   waybar.enable = false;
 
+  bookmarks.enable = true;
+  beeper.enable = true;
+
   discord.enable = true;
 
   gpg.enable = true;
