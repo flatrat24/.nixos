@@ -3,6 +3,7 @@
     ./modules/ags
     ./modules/email
     ./modules/beeper
+    ./modules/bookmarks
     ./modules/discord
     ./modules/firefox
     ./modules/foot
