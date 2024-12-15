@@ -26,6 +26,8 @@
     };
 
     ags.url = "github:Aylur/ags";
+
+    minegrub-theme.url = "github:Lxtharia/minegrub-theme";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
@@ -45,6 +47,7 @@
             };
           }
           inputs.stylix.nixosModules.stylix
+          inputs.minegrub-theme.nixosModules.default
         ];
       };
       leoito = nixpkgs.lib.nixosSystem {
