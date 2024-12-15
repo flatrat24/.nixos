@@ -72,7 +72,6 @@ window {
   padding: 0px;
   border-radius: 0px;
   border: none;
-  border-bottom: 3px solid --wofi-color2;
   background-color: --wofi-color0;
   color: --wofi-color5;
 }
@@ -95,6 +94,10 @@ window {
 }
 
 #entry {
+  background-color: --wofi-color0;
+}
+
+#expander-box {
   background-color: --wofi-color0;
 }
 
