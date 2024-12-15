@@ -12,16 +12,27 @@ window {
 
 /* Inner Box */
 #inner-box {
-  margin: 0px 0px 0px 0px;
-  padding: 2.5px 10px 2.5px 10px;
+  margin: 5px;
+  padding: 5px;
   border: none;
   background-color: --wofi-color0;
 }
 
+/* Fade In */
+@keyframes fadeIn {
+  0% {
+     opacity: 0;
+  }
+
+  100% {
+     opacity: 1;
+  }
+}
+
 /* Outer Box */
 #outer-box {
-  margin: 1px;
-  padding: 1px;
+  margin: 5px;
+  padding: 5px;
   border: none;
   background-color: --wofi-color0;
 }
@@ -29,7 +40,7 @@ window {
 /* Scroll */
 #scroll {
   margin: 0px;
-  padding: 0px;
+  padding: 10px;
   border: none;
   background-color: --wofi-color0;
 }
@@ -47,15 +58,11 @@ window {
 
 #input {
   margin: 5px;
-  padding: 2.5px;
+  padding: 0px;
   border-radius: 0px;
   border: none;
   background-color: --wofi-color0;
   color: --wofi-color5;
-}
-
-#input:focus {
-  box-shadow: 0px 0px 0px 1px --wofi-color0 inset;
 }
 
 #input image {
@@ -69,7 +76,7 @@ window {
 
 /* Text */
 #text {
-  margin: 2.5px;
+  margin: 5px;
   border: none;
   color: --wofi-color5;
   animation: fadeIn 0.5s ease-in-out both;
@@ -91,14 +98,18 @@ window {
 /* Selected Entry */
 #entry:selected {
   border: none;
-  background-color: --wofi-color9;
   outline: none;
 }
 
 #entry:selected #text {
-  color: --wofi-color0;
+  color: --wofi-color13;
 }
 
 #entry:drop(active) {
   background-color: --wofi-color7!important;
 }
+
+/* Give color to even items */
+/* #entry:nth-child(even){ */
+/*     background-color: --wofi-color1; */
+/* } */

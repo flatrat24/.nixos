@@ -1,5 +1,5 @@
 style         = /home/ea/.config/wofi/styles/default.css
-color         = /home/ea/.config/wofi/colors/frappe.css
+color         = /home/ea/.config/wofi/colors/mocha.css
 width         = 50%
 height        = 5%
 prompt        = add a bookmark
