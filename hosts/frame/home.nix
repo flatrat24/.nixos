@@ -34,7 +34,7 @@
   };
   
   slack.enable = true;
-
+  teams.enable = true;
   libreoffice.enable = true;
   git.enable = true;
 

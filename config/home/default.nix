@@ -19,6 +19,7 @@
     ./modules/shell
     ./modules/slack
     ./modules/swayimg
+    ./modules/teams
     ./modules/theme
     ./modules/waybar
     ./modules/wofi
