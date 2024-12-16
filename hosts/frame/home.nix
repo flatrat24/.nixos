@@ -32,6 +32,8 @@
   gaming = {
     enable = false;
   };
+  
+  slack.enable = true;
 
   git.enable = true;
 

@@ -33,6 +33,7 @@
     enable = true;
   };
 
+  slack.enable = true;
   git.enable = true;
 
   hypr = {

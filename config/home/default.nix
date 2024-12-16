@@ -16,6 +16,7 @@
     ./modules/music
     ./modules/neovim
     ./modules/shell
+    ./modules/slack
     ./modules/swayimg
     ./modules/theme
     ./modules/waybar
