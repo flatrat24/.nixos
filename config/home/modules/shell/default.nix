@@ -42,6 +42,8 @@ in {
     ./zoxide/default.nix
     ./utils/default.nix
     ./cosmetics/default.nix
+    ./croc/default.nix
+    ./qrcp/default.nix
   ];
 
   options = {
