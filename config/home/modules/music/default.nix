@@ -1,5 +1,8 @@
 { pkgs, lib, config, ... }:
 let
+  musicAliases = {
+    "n" = "ncmpcpp";
+  };
   importMusic = pkgs.writeShellApplication {
     name = "importMusic";
     runtimeInputs = with pkgs; [
@@ -123,6 +126,9 @@ in {
     })
     
     (lib.mkIf config.music.mpd.ncmpcpp.enable {
+      programs.bash.shellAliases = zellijAliases;
+      programs.zsh.shellAliases = zellijAliases;
+
       home.packages = ncmpcppDependencies;
 
       programs.ncmpcpp = {

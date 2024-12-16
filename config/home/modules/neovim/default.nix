@@ -1,5 +1,8 @@
 { pkgs, lib, config, inputs, ... }:
 let
+  neovimAliases = {
+    "v" = "nvim";
+  };
   dependencies = with pkgs; [
     neovim
     python3
@@ -36,6 +39,10 @@ in {
   };
 
   config = lib.mkIf config.neovim.enable (lib.mkMerge [
+    {
+      programs.bash.shellAliases = neovimAliases;
+      programs.zsh.shellAliases = neovimAliases;
+    }
     (lib.mkIf config.neovim.lua.enable {
       home.packages = dependencies;
 

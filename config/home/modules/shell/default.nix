@@ -8,21 +8,8 @@ let
 
     "nr"   = "nixos-rebuild switch --flake /home/ea/.nixos" ;
     "ns"   = "nix-shell -p --command $SHELL "               ;
-                                                          
-    "z"    = "zellij"                                       ;
-    "za"   = "zellij attach"                                ;
-    "zd"   = "zellij delete-session"                        ;
-    "zD"   = "zellij delete-all-sessions"                   ;
-    "zk"   = "zellij kill-session"                          ;
-    "zK"   = "zellij kill-all-sessions"                     ;
-    "zp"   = "zellij list-aliases"                          ;
-    "zl"   = "zellij list-sessions"                         ;
-    "zr"   = "zellij run"                                   ;
-                                                          
+
     "p"    = "python3"                                      ;
-    "v"    = "nvim"                                         ;
-    "d"    = "yazi"                                         ;
-    "n"    = "ncmpcpp"                                      ;
   };
   dependencies = with pkgs; [
     delta # TODO: Get this working as a submodule
