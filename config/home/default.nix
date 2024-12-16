@@ -12,6 +12,7 @@
     ./modules/gpg
     ./modules/hypr
     ./modules/importMusic
+    ./modules/libreoffice
     ./modules/passwords
     ./modules/music
     ./modules/neovim

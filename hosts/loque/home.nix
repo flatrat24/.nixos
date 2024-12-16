@@ -35,6 +35,7 @@
 
   slack.enable = true;
   git.enable = true;
+  libreoffice.enable = true;
 
   hypr = {
     enable = true;
