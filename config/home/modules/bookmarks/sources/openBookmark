@@ -1,4 +1,4 @@
-style         = /home/ea/openBookmark.css
+style         = /home/ea/.config/wofi/styles/default.css
 color         = /home/ea/.config/wofi/colors/mocha.css
 height        = 25%
 width         = 50%

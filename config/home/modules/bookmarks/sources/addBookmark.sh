@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 
-configLocation="$HOME/addBookmark"
+config="$BOOKMARKS/sources/addBookmark"
 
-title=$(wofi -c $configLocation --define=prompt='title' --show dmenu)
+title=$(wofi -c $config --define=prompt='title' --show dmenu)
 if [[ -z "$title" ]]; then
   notify-send "No Bookmark Created" "Title was not specified"
   exit 1
 fi
 
-url=$(wofi -c $configLocation --define=prompt='url' --show dmenu)
+url=$(wofi -c $config --define=prompt='url' --show dmenu)
 if [[ -z "$url" ]]; then
   notify-send "No Bookmark Created" "URL was not specified"
   exit 1
 fi
 
-category=$(jq --sort-keys -r "keys[]" "$BOOKMARKS" | wofi -c $configLocation --define=lines=10 --define=width=15% --define=prompt='category' --show dmenu)
+category=$(jq --sort-keys -r "keys[]" "$BOOKMARKS" | wofi -c $config --define=lines=10 --define=width=15% --define=prompt='category' --show dmenu)
 if [[ -z "$category" ]]; then
   notify-send "No Bookmark Created" "Category was not specified"
   exit 1

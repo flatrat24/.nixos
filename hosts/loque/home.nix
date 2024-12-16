@@ -23,6 +23,7 @@
     thunderbird.enable = true;
   };
 
+  bookmarks.enable = true;
   beeper.enable = true;
 
   firefox.enable = true;

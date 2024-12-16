@@ -3,14 +3,14 @@
 BIFS="$IFS"
 IFS=$'\n'
 
-configLocation="$HOME/openBookmark"
-BOOKMARKS="$HOME/Documents/Personal/bookmarks.json"
+config="$BOOKMARKS/sources/openBookmark"
+bookmarks="$BOOKMARKS/bookmarks.json"
 
 declare -a names
 declare -a urls
-for i in $(seq 0 $(($(jq -r "length" "$BOOKMARKS")-1))); do
-  mapfile -t tempNames < <(jq --sort-keys -r --arg i "$i" ".[keys[$i]] | keys[]" "$BOOKMARKS")
-  mapfile -t tempUrls < <(jq --sort-keys -r --arg i 1 ".[keys[$i]]" "$BOOKMARKS" | jq --sort-keys -r --arg i 1 ".[]")
+for i in $(seq 0 $(($(jq -r "length" "$bookmarks")-1))); do
+  mapfile -t tempNames < <(jq --sort-keys -r --arg i "$i" ".[keys[$i]] | keys[]" "$bookmarks")
+  mapfile -t tempUrls < <(jq --sort-keys -r --arg i 1 ".[keys[$i]]" "$bookmarks" | jq --sort-keys -r --arg i 1 ".[]")
   names+=("${tempNames[@]}")
   urls+=("${tempUrls[@]}")
 done
@@ -20,7 +20,7 @@ names=("${names[@]/%/'\n'}")
 urls=("${urls[@]/%/'\n'}")
 
 # Get a choice from wofi, save its index number
-index=$(echo -e "${names[@]}" | wofi -c "$configLocation" --define=dmenu-print_line_num=true --show dmenu)
+index=$(echo -e "${names[@]}" | wofi -c "$config" --define=dmenu-print_line_num=true --show dmenu)
 
 # Only opens if index is declared:
 # prevents something from opening when wofi is exited with esc

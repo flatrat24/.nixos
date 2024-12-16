@@ -1,4 +1,4 @@
-style         = /home/ea/addBookmark.css
+style         = /home/ea/.config/wofi/styles/default.css
 color         = /home/ea/.config/wofi/colors/mocha.css
 height        = 48
 width         = 50%
