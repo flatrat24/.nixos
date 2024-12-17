@@ -8,7 +8,6 @@ let
     pipes
     cbonsai
     cava # TODO: Move this to part of music home module
-    cavalier
   ];
   cosmeticsAliases = { };
 in {
