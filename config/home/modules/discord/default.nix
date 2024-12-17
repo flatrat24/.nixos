@@ -1,6 +1,6 @@
 { pkgs, lib, inputs, config, ... }:
 let
-    dependencies = with pkgs; [ vesktop ];
+    dependencies = with pkgs; [ legcord ];
 in {
   options = {
     discord = {
@@ -9,6 +9,31 @@ in {
   };
 
   config = lib.mkIf config.discord.enable {
-    home.packages = dependencies;
+    home = {
+      packages = dependencies;
+
+      file = {
+        ".config/legcord" = {
+          source = ./sources;
+          executable = false;
+          recursive = true;
+        };
+      };
+    };
   };
 }
+
+# { pkgs, lib, inputs, config, ... }:
+# let
+#     dependencies = with pkgs; [ vesktop ];
+# in {
+#   options = {
+#     discord = {
+#       enable = lib.mkEnableOption "enable discord";
+#     };
+#   };
+#
+#   config = lib.mkIf config.discord.enable {
+#     home.packages = dependencies;
+#   };
+# }
