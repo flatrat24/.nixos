@@ -35,6 +35,7 @@
   
   slack.enable = true;
   teams.enable = true;
+  zoom.enable = true;
   libreoffice.enable = true;
   git.enable = true;
 
