@@ -120,8 +120,8 @@ in {
     })
     
     (lib.mkIf config.music.mpd.ncmpcpp.enable {
-      programs.bash.shellAliases = zellijAliases;
-      programs.zsh.shellAliases = zellijAliases;
+      programs.bash.shellAliases = musicAliases;
+      programs.zsh.shellAliases = musicAliases;
 
       home.packages = ncmpcppDependencies;
 
