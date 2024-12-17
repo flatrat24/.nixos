@@ -15,7 +15,7 @@ in {
     programs.nixvim = {
       plugins.yazi.enable = true;
       keymaps = [
-        { mode = [ "n" ]; key = "<leader>be"; action = "<cmd>Yazi<CR>"; options = { noremap = true; silent = true; desc = "Open Yazi"; }; }
+        { mode = [ "n" ]; key = "<leader>o"; action = "<cmd>Yazi<CR>"; options = { noremap = true; silent = true; desc = "Open Yazi"; }; }
       ];
     };
   };

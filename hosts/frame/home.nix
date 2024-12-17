@@ -73,8 +73,8 @@
 
   neovim = {
     enable = true;
-    nixvim.enable = false;
-    lua.enable = true;
+    nixvim.enable = true;
+    lua.enable = false;
   };
 
   shell = {
