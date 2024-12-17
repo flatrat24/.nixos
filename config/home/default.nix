@@ -26,5 +26,6 @@
     ./modules/yazi
     ./modules/zathura
     ./modules/zellij
+    ./modules/zoom
   ];
 }
