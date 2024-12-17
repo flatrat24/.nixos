@@ -56,10 +56,10 @@ in {
 
       services.mpd = {
         enable = true;
-        musicDirectory = /home/ea/Music; # TODO: Use user directory dynamically
-        dbFile = "/home/ea/.mpd/database";
-        playlistDirectory = /home/ea/.mpd/playlists; # TODO: Use user directory dynamically
-        dataDir = /home/ea/.mpd; # TODO: Use user directory dynamically
+        musicDirectory = "${config.home.homeDirectory}/Music"; # TODO: Use user directory dynamically
+        dbFile = "${config.home.homeDirectory}/.mpd/database";
+        playlistDirectory = "${config.home.homeDirectory}/.mpd/playlists"; # TODO: Use user directory dynamically
+        dataDir = "${config.home.homeDirectory}/.config/mpd"; # TODO: Use user directory dynamically
         extraConfig = ''
           state_file     "~/.mpd/state"
           restore_paused "yes"
@@ -83,14 +83,8 @@ in {
           }
         '';
       };
-          # audio_output {  
-          #   type          "pipewire"
-          #   name          "PipeWire Sound Server"
-          #   path          "/tmp/mpd.fifo"
-          #   format        "44100:16:2"
-          # }
       home.file = {
-        ".mpdscribble/mpdscribble.conf" = {
+        ".mpdscribble/mpdscribble.conf" = { # TODO: Systemd not starting this module
           text = ''
             verbose = 1
             host = localhost
@@ -136,27 +130,30 @@ in {
         mpdMusicDir = "~/Music";
         settings = {
           ##--- Technical ---##
-          media_library_primary_tag = "album_artist"          ;
-          ncmpcpp_directory         = "~/.config/ncmpcpp"     ;
-          startup_screen            = "media_library"         ;
-          visualizer_data_source    = "/tmp/mpd.fifo"         ;
-          visualizer_output_name    = "mpd_visualizer"        ;
-          visualizer_type           = "ellipse"               ;
-          visualizer_look           = "󰝤󰝤"                    ; # TODO: Fix visualizer
-          visualizer_color          = "blue, green"           ;
+          media_library_primary_tag = "album_artist";
+          ncmpcpp_directory         = "~/.config/ncmpcpp";
+          startup_screen            = "media_library";
+
+          ##--- Visualizer ---##
+          visualizer_data_source          = "/tmp/mpd.fifo";
+          visualizer_output_name          = "Visualizer";
+          # visualizer_type                 = "spectrum";
+          visualizer_spectrum_smooth_look = "yes";
+          visualizer_look                 = "󰝤󰝤"; # TODO: Fix visualizer
+          visualizer_fps                  = "60";
 
           ##--- Basic UI ---##
-          user_interface            = "classic"                   ;
-          colors_enabled            = "yes"                       ;
-          color1                    = "green"                     ; # Selected item color
-          color2                    = "black"                     ; # I don't know
-          main_window_color         = "blue"                      ; # Self explanatory
-          current_item_prefix       = "$(green)$r"                ; # Highlight when hovering over an item
-          current_item_suffix       = "$/r$(yellow)"              ; # Unselected items
+          user_interface      = "classic";
+          colors_enabled      = "yes";
+          color1              = "green"; # Selected item color
+          color2              = "black"; # I don't know
+          main_window_color   = "blue"; # Self explanatory
+          current_item_prefix = "$(green)$r"; # Highlight when hovering over an item
+          current_item_suffix = "$/r$(yellow)"; # Unselected items
 
           ##--- Popup Menu ---##
-          window_border_color       = "green"                     ;
-          active_window_border      = "red"                       ;
+          window_border_color  = "green";
+          active_window_border = "red";
 
           ##--- Current Playlist Layout ---##
           song_columns_list_format = "(6)[red]{n} (39)[yellow]{t}|{f} (35)[green]{b}|{D} (15)[blue]{A} (5)[magenta]{l}";
@@ -170,7 +167,7 @@ in {
           song_status_format = "{$4%t [$3%b$9] - $5%A}|{$4%f}";
         };
         bindings = [
-          { key = "m"        ; command = "dummy"                                                                                                                                   ; }
+          # { key = "m"        ; command = "dummy"                                                                                                                                   ; }
           { key = "ctrl-_"   ; command = "dummy"                                                                                                                                   ; }
           { key = "ctrl-v"   ; command = "dummy"                                                                                                                                   ; }
           { key = "y"        ; command = "dummy"                                                                                                                                   ; }
@@ -215,7 +212,7 @@ in {
           { key = "5"        ; command = "show_playlist_editor"                                                                                                                    ; }
           { key = "6"        ; command = "show_tag_editor"                                                                                                                         ; }
           { key = "7"        ; command = "show_outputs"                                                                                                                            ; }
-          { key = "8"        ; command = "show_visualizer"                                                                                                                         ; }
+          { key = "m"        ; command = "show_visualizer"                                                                                                                         ; }
           { key = "9"        ; command = "show_clock"                                                                                                                              ; }
           { key = "@"        ; command = "show_server_info"                                                                                                                        ; }
           #### GLOBAL ####
