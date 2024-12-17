@@ -22,7 +22,7 @@ in {
             address = "ethan.anthony@du.edu";
             realName = "Ethan Anthony";
             thunderbird = { # TODO: Thunderbird is spilling over into general email config
-              enable = true;
+              enable = false;
               profiles = [ "Main" ];
             };
             flavor = "outlook.office365.com";
@@ -49,7 +49,7 @@ in {
             address = "ethananthony271@gmail.com";
             realName = "Ethan Anthony";
             thunderbird = { # TODO: Thunderbird is spilling over into general email config
-              enable = false;
+              enable = true;
               profiles = [ "Main" ];
             };
             flavor = "gmail.com";
