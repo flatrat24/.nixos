@@ -63,7 +63,7 @@
               backupFileExtension = "hm-backup";
               extraSpecialArgs = { inherit inputs; };
             };
-	        }
+          }
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
           inputs.stylix.nixosModules.stylix
           inputs.minegrub-theme.nixosModules.default
