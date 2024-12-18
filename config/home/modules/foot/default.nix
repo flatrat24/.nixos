@@ -75,9 +75,9 @@ in {
           clipboard-paste                             = Control+Shift+v XF86Paste
           primary-paste                               = Shift+Insert
           search-start                                = Control+Shift+r
-          font-increase                               = Control+plus Control+KP_Add
+          font-increase                               = Control+equal Control+KP_Equal
           font-decrease                               = Control+minus Control+KP_Subtract
-          font-reset                                  = Control+equal Control+KP_Equal
+          font-reset                                  = Control+plus Control+KP_Add
           spawn-terminal                              = Control+Shift+n
           minimize                                    = none
           maximize                                    = none
