@@ -14,6 +14,11 @@
         plugins.leap = {
           enable = true;
         };
+
+        # Important to override leap rebinding x to a leap motion
+        extraConfigLua = ''
+          vim.keymap.set("x", "x", "x", { noremap = true, silent = true, desc = "Delete"})
+        '';
       };
     }
   ]);
