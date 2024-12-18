@@ -3,6 +3,7 @@
     ./comment
     ./dashboard
     ./eyeliner
+    ./git
     ./indent-blankline
     ./leap
     ./lualine
@@ -10,6 +11,7 @@
     ./rainbow-delimiters
     ./yazi
     ./telescope
+    ./transparent
     ./treesitter
     ./web-devicons
   ];
