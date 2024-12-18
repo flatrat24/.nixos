@@ -216,7 +216,6 @@ in {
           { key = "9"        ; command = "show_clock"                                                                                                                              ; }
           { key = "@"        ; command = "show_server_info"                                                                                                                        ; }
           #### GLOBAL ####
-          { key = "p"        ; command = "play"                                                                                                                                    ; }
           { key = "backspace"; command = "stop"                                                                                                                                    ; }
           { key = "P"        ; command = "pause"                                                                                                                                   ; }
           { key = ">"        ; command = "next"                                                                                                                                    ; }
