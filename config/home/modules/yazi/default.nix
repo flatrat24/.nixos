@@ -138,7 +138,7 @@ in {
             { on = [ "g" "h" ];        run = "cd ~";                                               desc = "$HOME"; }
             { on = [ "g" "s" ];        run = "cd ~/Documents/School";                              desc = "School"; }
             { on = [ "g" "p" ];        run = "cd ~/Documents/Personal";                            desc = "Personal"; }
-            { on = [ "g" "c" ];        run = "cd ~/.nixos";                                        desc = "NixOS Config"; }
+            { on = [ "g" "x" ];        run = "cd ~/.nixos";                                        desc = "NixOS Config"; }
             { on = [ "g" "d" ];        run = "cd ~/Downloads";                                     desc = "Downloads"; }
             { on = [ "g" "m" ];        run = "cd ~/Music/musicStagingGround";                      desc = "Music Staging Ground"; }
             { on = [ "g" "/" ];        run = "cd /";                                               desc = "Root"; }

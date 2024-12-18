@@ -7,6 +7,7 @@
     ./indent-blankline
     ./leap
     ./lualine
+    ./neoscroll
     ./nvim-surround
     ./rainbow-delimiters
     ./yazi
