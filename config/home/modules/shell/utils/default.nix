@@ -9,6 +9,7 @@ let
     killall
     nix-prefetch-github
     nix-index
+    unzip
   ];
   utilsAliases = { };
 in {
