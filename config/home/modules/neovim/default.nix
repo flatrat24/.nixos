@@ -22,6 +22,8 @@ in {
     # ./fonts.nix
     ./keymaps
     ./plugins
+    ./lsp
+    ./cmp
   ];
 
   options = {
