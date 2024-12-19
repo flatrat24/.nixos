@@ -17,9 +17,6 @@ let
 in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    # ./git.nix
-    # ./yazi.nix
-    # ./fonts.nix
     ./keymaps
     ./plugins
     ./lsp
@@ -42,9 +39,43 @@ in {
 
   config = lib.mkIf config.neovim.enable (lib.mkMerge [
     {
-      programs.bash.shellAliases = neovimAliases;
-      programs.zsh.shellAliases = neovimAliases;
+      xdg = { # TODO: Fix desktop entry, doesn't work
+        enable = true;
+        mimeApps.enable = true;
+        mimeApps.defaultApplications = {
+          "text/*" = ["nvim.desktop"];
+        };
+        desktopEntries = {
+          nvim = {
+            name = "Neovim";
+            genericName = "Text Editor";
+            exec = ''foot -e nvim %f''; # remove hardcoded foot
+            # exec = "nvim %F";
+            terminal = false;
+            categories = [ "Utility" "TextEditor" ];
+            mimeType = [ "text/english" "text/plain" "text/x-makefile" "text/x-c++hdr" "text/x-c++src" "text/x-chdr" "text/x-csrc" "text/x-java" "text/x-moc" "text/x-pascal" "text/x-tcl" "text/x-tex" "application/x-shellscript" "text/x-c" "text/x-c++" "text/x-python" ];
+          };
+        };
+      };
     }
+    (lib.mkIf config.shell.enable (lib.mkMerge [
+      (lib.mkIf config.shell.bash.enable {
+        programs.bash.shellAliases = neovimAliases;
+      })
+      (lib.mkIf config.shell.zsh.enable {
+        programs.bash.shellAliases = neovimAliases;
+      })
+    ]))
+    (lib.mkIf config.yazi.enable {
+      programs.yazi.settings.opener = {
+        edit = [
+          { run = ''nvim "$@"''; block = true; desc = " neovim"; }
+        ];
+        directory = [
+          { run = ''nvim "$@"''; block = true; desc = " neovim"; }
+        ];
+      };
+    })
     (lib.mkIf config.neovim.lua.enable {
       home.packages = dependencies;
 
@@ -79,25 +110,5 @@ in {
         };
       };
     })
-    {
-      xdg = { # TODO: Fix desktop entry, doesn't work
-        enable = true;
-        mimeApps.enable = true;
-        mimeApps.defaultApplications = {
-          "text/*" = ["nvim.desktop"];
-        };
-        desktopEntries = {
-          nvim = {
-            name = "Neovim";
-            genericName = "Text Editor";
-            exec = ''foot -e nvim %f''; # remove hardcoded foot
-            # exec = "nvim %F";
-            terminal = false;
-            categories = [ "Utility" "TextEditor" ];
-            mimeType = [ "text/english" "text/plain" "text/x-makefile" "text/x-c++hdr" "text/x-c++src" "text/x-chdr" "text/x-csrc" "text/x-java" "text/x-moc" "text/x-pascal" "text/x-tcl" "text/x-tex" "application/x-shellscript" "text/x-c" "text/x-c++" "text/x-python" ];
-          };
-        };
-      };
-    }
   ]);
 }

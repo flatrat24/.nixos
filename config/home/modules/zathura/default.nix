@@ -74,6 +74,13 @@ in{
 
       home.packages = dependencies;
     }
+    (lib.mkIf config.yazi.enable {
+      programs.yazi.settings.opener = {
+        pdf = [                                     
+          { run = ''zathura "$@"''; orphan = true; desc = "zathura"; }
+        ];
+      };
+    })
     (lib.mkIf config.theme.enable {
       stylix.targets = {
         zathura.enable = false;

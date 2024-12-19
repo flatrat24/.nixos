@@ -143,7 +143,19 @@ in {
         };
       };
     }
-
+    (lib.mkIf config.yazi.enable {
+      programs.yazi.settings.opener = {
+        pdf = [
+          { run = ''firefox "$@"''; orphan = true; desc = "󰈹 Firefox"; }
+        ];
+        image = [
+          { run = ''firefox "$@"''; orphan = true; desc = "󰈹 Firefox"; }
+        ];
+        office = [
+          { run = ''firefox "$@"''; orphan = true; desc = "󰈹 Firefox"; }
+        ];
+      };
+    })
     (lib.mkIf (config.hypr.windowRules.enable == true) {
       wayland.windowManager.hyprland.settings.windowrulev2 = [
         "float,class:firefox,title:Picture-in-Picture"

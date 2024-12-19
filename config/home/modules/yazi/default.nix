@@ -396,43 +396,8 @@ in {
             { mime = "application/vnd.oasis.opend*";  use = [ "office"    ]; }
           ];
           opener = {
-            open = [
-              { run = ''nvim "$@"'';                    block = true;         desc = "neovim";      }
-              { run = ''zeditor "$@"'';                 orphan = true;        desc = "Zed";         }
-            ];
-            edit = [                                    
-              { run = ''nvim "$@"'';                    block = true;         desc = "neovim";      }
-              { run = ''zeditor "$@"'';                 orphan = true;        desc = "Zed";         }
-            ];
-            pdf = [                                     
-              { run = ''zathura "$@"'';                 orphan = true;        desc = "zathura";     }
-              { run = ''zen-browser "$@"'';             orphan = true;        desc = "Zen Browser"; }
-              { run = ''libreoffice "$@"'';             orphan = true;        desc = "LibreOffice"; }
-              { run = ''librewolf "$@"'';               orphan = true;        desc = "LibreWolf";   }
-            ];
-            video = [                                   
-              { run = ''mpv "$@"'';                     orphan = true;        desc = "mpv";         }
-              { run = ''libreoffice "$@"'';             orphan = true;        desc = "LibreOffice"; }
-            ];
-            audio = [                                   
-              { run = ''mpv "$@"'';                     orphan = true;        desc = "mpv";         }
-              { run = ''libreoffice "$@"'';             orphan = true;        desc = "LibreOffice"; }
-            ];
-            image = [                                   
-              { run = ''xdg-open "$@"'';                orphan = true;        desc = "swayimg";     }
-              { run = ''swayimg "$@"'';                 orphan = true;        desc = "swayimg";     }
-              { run = ''libreoffice "$@"'';             orphan = true;        desc = "LibreOffice"; }
-            ];
-            office = [                                  
-              { run = ''libreoffice "$@"'';             orphan = true;        desc = "LibreOffice"; }
-              { run = ''zen-browser "$@"'';             orphan = true;        desc = "Zen Browser"; }
-              { run = ''librewolf "$@"'';               orphan = true;        desc = "LibreWolf";   }
-            ];
             directory = [
-              { run = ''foot -D "$@"'';                 orphan = true;        desc = "terminal";    }
-              { run = ''nvim "$@"'';                    block = true;         desc = "neovim";      }
-              { run = ''foot -e yazi "$@"'';            orphan = true;        desc = "yazi";        }
-              { run = ''zeditor "$@"'';                 orphan = true;        desc = "Zed";         }
+              { run = ''$TERM -e yazi "$@"''; orphan = true; desc = "󰇥 yazi"; }
             ];
           };
           manager = {
