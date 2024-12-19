@@ -7,6 +7,7 @@ let
     ublock-origin
     sponsorblock
     firefox-color
+    new-tab-override
   ];
 in {
   imports = [
@@ -19,7 +20,16 @@ in {
 
   config = lib.mkIf config.firefox.enable (lib.mkMerge [
     {
-      home.packages = dependencies;
+      home = {
+        packages = dependencies;
+        file = {
+          ".mozilla/startpage" = {
+            source = ./sources/startpage;
+            executable = false;
+            recursive = true;
+          };
+        };
+      };
 
       textfox = {
         enable = true;
@@ -76,7 +86,7 @@ in {
             };
 
             settings = {
-              "browser.startup.homepage" = "about:home";
+              "browser.startup.homepage" = "/home/ea/.mozilla/startpage/index.html";
 
               # Disable irritating first-run stuff
               "browser.disableResetPrompt" = true;

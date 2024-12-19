@@ -1,0 +1,23 @@
+.bookmark-group:nth-of-type(1) > ul {
+  color: color-mix(in srgb, var(--color-fg-base) 25%, var(--color-palette-red) 50%);
+}
+
+.bookmark-group:nth-of-type(1) > h2 {
+  color: var(--color-palette-red);
+}
+
+.bookmark-group:nth-of-type(2) > ul {
+  color: color-mix(in srgb, var(--color-fg-base) 25%, var(--color-palette-yellow) 50%);
+}
+
+.bookmark-group:nth-of-type(2) > h2 {
+  color: var(--color-palette-yellow);
+}
+
+.bookmark-group:nth-of-type(3) > ul {
+  color: color-mix(in srgb, var(--color-fg-base) 25%, var(--color-palette-purple) 50%);
+}
+
+.bookmark-group:nth-of-type(3) > h2 {
+  color: var(--color-palette-purple);
+}
