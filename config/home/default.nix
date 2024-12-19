@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ ... }: {
   imports = [
     ./modules/ags
     ./modules/email
@@ -15,6 +15,7 @@
     ./modules/libreoffice
     ./modules/passwords
     ./modules/music
+    ./modules/mpv
     ./modules/neovim
     ./modules/shell
     ./modules/slack

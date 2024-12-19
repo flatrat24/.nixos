@@ -13,6 +13,7 @@
 
   ags.enable = false;
   waybar.enable = false;
+  mpv.enable = true;
 
   bookmarks.enable = true;
   beeper.enable = true;
