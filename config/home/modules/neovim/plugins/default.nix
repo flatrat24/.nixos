@@ -1,4 +1,4 @@
-{ pkgs, lib, config, inputs, ... }: {
+{ ... }: {
   imports = [
     ./comment
     ./dashboard
@@ -12,6 +12,7 @@
     ./rainbow-delimiters
     ./yazi
     ./telescope
+    ./trouble
     ./transparent
     ./treesitter
     ./web-devicons
