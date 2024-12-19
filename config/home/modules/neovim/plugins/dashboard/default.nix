@@ -44,7 +44,7 @@
                 {
                   icon = "󰥨  ";
                   desc = "Explore Filesystem";
-                  key = "e";
+                  key = "d";
                   action = "Yazi";
                 }
                 {
