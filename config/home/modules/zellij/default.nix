@@ -19,18 +19,20 @@ in {
     zellij.enable = lib.mkEnableOption "enables zellij";
   };
 
-  config = lib.mkIf config.zellij.enable {
-    programs.bash.shellAliases = zellijAliases;
-    programs.zsh.shellAliases = zellijAliases;
+  config = lib.mkIf config.zellij.enable (lib.mkMerge [
+    {
+      programs.bash.shellAliases = zellijAliases;
+      programs.zsh.shellAliases = zellijAliases;
 
-    home.packages = dependencies;
+      home.packages = dependencies;
 
-    home.file = {
-      ".config/zellij" = {
-        source = ./sources;
-        executable = false;
-        recursive = true;
+      home.file = {
+        ".config/zellij" = {
+          source = ./sources;
+          executable = false;
+          recursive = true;
+        };
       };
-    };
-  };
+    }
+  ]);
 }
