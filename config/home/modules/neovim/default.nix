@@ -1,19 +1,8 @@
-{ pkgs, lib, config, inputs, ... }:
+{ lib, config, inputs, ... }:
 let
   neovimAliases = {
     "v" = "nvim";
   };
-  dependencies = with pkgs; [
-    neovim
-    python3
-    luajitPackages.luarocks
-    luajitPackages.jsregexp
-    clang
-    tree-sitter
-    nodejs_22
-    python312Packages.python-lsp-server
-    nodePackages_latest.bash-language-server
-  ];
 in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
@@ -30,15 +19,15 @@ in {
         type = lib.types.bool;
         default = config.neovim.enable;
       };
-      lua.enable = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
-      };
     };
   };
 
   config = lib.mkIf config.neovim.enable (lib.mkMerge [
     {
+      programs.neovim = {
+        defaultEditor = true;
+      };
+
       programs.bash.shellAliases = neovimAliases;
       programs.zsh.shellAliases = neovimAliases;
 
@@ -69,17 +58,6 @@ in {
         directory = [
           { run = ''nvim "$@"''; block = true; desc = " neovim"; }
         ];
-      };
-    })
-    (lib.mkIf config.neovim.lua.enable {
-      home.packages = dependencies;
-
-      home.file = {
-        ".config/nvim" = {
-          source = ./sources;
-          executable = false;
-          recursive = true;
-        };
       };
     })
     (lib.mkIf config.neovim.nixvim.enable {
