@@ -411,14 +411,21 @@ in {
         };
       };
 
-      xdg.desktopEntries = {
-        yazi = {
-          name = "Yazi";
-          genericName = "File Manager";
-          exec = ''foot -e yazi %u'';
-          terminal = true;
-          categories = [ "Utility" "Core" "System" "FileTools" "FileManager" "ConsoleOnly" ];
-          mimeType = [ "inode/directory" ];
+      xdg = {
+        enable = lib.mkDefault true;
+        mimeApps.enable = lib.mkDefault true;
+        mimeApps.defaultApplications = {
+          "inode/directory" = ["yazi.desktop"];
+        };
+        desktopEntries = {
+          yazi = {
+            name = "Yazi";
+            genericName = "File Manager";
+            exec = ''foot -e yazi %u''; # TODO: remove hardcoded foot
+            terminal = false;
+            categories = [ "Utility" "Core" "System" "FileTools" "FileManager" "ConsoleOnly" ];
+            mimeType = [ "inode/directory" ];
+          };
         };
       };
     }
