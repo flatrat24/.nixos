@@ -39,9 +39,12 @@ in {
 
   config = lib.mkIf config.neovim.enable (lib.mkMerge [
     {
-      xdg = { # TODO: Fix desktop entry, doesn't work
-        enable = true;
-        mimeApps.enable = true;
+      programs.bash.shellAliases = neovimAliases;
+      programs.zsh.shellAliases = neovimAliases;
+
+      xdg = {
+        enable = lib.mkDefault true;
+        mimeApps.enable = lib.mkDefault true;
         mimeApps.defaultApplications = {
           "text/*" = ["nvim.desktop"];
         };
@@ -58,14 +61,6 @@ in {
         };
       };
     }
-    (lib.mkIf config.shell.enable (lib.mkMerge [
-      (lib.mkIf config.shell.bash.enable {
-        programs.bash.shellAliases = neovimAliases;
-      })
-      (lib.mkIf config.shell.zsh.enable {
-        programs.bash.shellAliases = neovimAliases;
-      })
-    ]))
     (lib.mkIf config.yazi.enable {
       programs.yazi.settings.opener = {
         edit = [
