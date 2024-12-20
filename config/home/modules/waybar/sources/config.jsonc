@@ -66,8 +66,8 @@
   },
   "mpd": {
     "format": "{title} [{album}] - {albumArtist}",
-    "format-disconnected": "MPD (disconnected)",
-    "format-stopped": "  ---",
+    "format-disconnected": "/^(o.o)^\\ /^(o.o)^\\ /^(o.o)^\\ /^(o.o)^\\",
+    "format-stopped": "=^..^= =^..^= =^..^= =^..^= =^..^= =^..^=",
     "interval": 10,
     "max-length": 50,
     "state-icons": {
