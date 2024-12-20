@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }: {
+{ lib, config, ... }: {
   options = {
     bookmarks = {
       enable = lib.mkEnableOption "enables bookmarks";
@@ -7,8 +7,6 @@
 
   config = lib.mkIf config.bookmarks.enable (lib.mkMerge [
     {
-      # config.wofi.enable = true;
-
       home = {
         file = {
           ".bookmarks/sources" = {
