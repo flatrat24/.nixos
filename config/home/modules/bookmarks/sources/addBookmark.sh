@@ -26,6 +26,6 @@ cp "$temp_bookmarks" "$BOOKMARKS/bookmarks.json"
 
 cd $BOOKMARKS
 git add bookmarks.json
-git commit -c "+$title in $category"
+git commit -m "+$title in $category"
 
 notify-send "Created New Bookmark" "$title in $category"

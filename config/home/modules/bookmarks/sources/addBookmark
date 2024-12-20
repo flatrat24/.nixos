@@ -1,7 +1,7 @@
 style         = /home/ea/.config/wofi/styles/default.css
 color         = /home/ea/.config/wofi/colors/mocha.css
 height        = 48
-width         = 50%
+width         = 40%
 prompt        = add a bookmark
 normal_window = true
 allow_markup  = true
