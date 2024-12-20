@@ -1,4 +1,4 @@
-{ pkgs, lib, config, inputs, ... }: {
+{ ... }: {
   programs.nixvim.globals.mapleader = " ";
   programs.nixvim.keymaps = [
     ##--- Window Management ---##
@@ -29,6 +29,7 @@
     { mode = [ "n" ]; key = "<leader>fW"; action = "<cmd>wa<CR>"; options = { noremap = true; silent = true; desc = "Write All Buffers"; }; }
     { mode = [ "n" ]; key = "<leader>fq"; action = "<cmd>wq<CR>"; options = { noremap = true; silent = true; desc = "Write Current Buffer and Quit"; }; }
     { mode = [ "n" ]; key = "<leader>fQ"; action = "<cmd>wa<CR><cmd>q<CR>"; options = { noremap = true; silent = true; desc = "Write All Buffers and Quit"; }; }
+    { mode = [ "n" ]; key = "<leader>fn"; action = "<cmd>enew<CR>"; options = { noremap = true; silent = true; desc = "New Buffer"; }; }
 
     ##--- Movement ---##
     { mode = [ "n" "x" "o" ]; key = "L"; action = "$"; options = { noremap = true; silent = true; desc = "Go to End of Line"; }; }
