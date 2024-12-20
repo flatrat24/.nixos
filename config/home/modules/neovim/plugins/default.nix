@@ -8,14 +8,16 @@
     ./leap
     ./lualine
     ./luasnip
-    ./neoscroll
+    ./nvim-highlight-colors
     ./nvim-surround
+    ./oil
     ./rainbow-delimiters
-    ./yazi
     ./telescope
-    ./trouble
     ./transparent
     ./treesitter
+    ./trouble
+    ./undotree
     ./web-devicons
+    ./yazi
   ];
 }
