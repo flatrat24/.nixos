@@ -72,7 +72,7 @@ vim.keymap.set({ "i", "s" }, "<c-k>", function()
   if require("luasnip").expand_or_jumpable() then
     require("luasnip").expand_or_jump()
   end
-end,                                                                                { noremap = true, silent = true,            desc = "Expand or Jump Within Snippet"       })
+end,                                                                                { noremap = true, silent = true,            desc = "expand or jump within snippet"       })
 vim.keymap.set({ "i", "s" }, "<c-j>", function()
   if require("luasnip").jumpable(-1) then
     require("luasnip").jump(-1)
