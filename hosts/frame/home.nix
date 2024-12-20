@@ -74,9 +74,6 @@
 
   neovim = {
     enable = true;
-    nixvim.enable = true;
-    lua.enable = false;
-    plugins.neoscroll.enable = false;
   };
 
   shell = {
