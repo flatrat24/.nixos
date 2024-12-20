@@ -12,7 +12,7 @@
   };
 
   ags.enable = false;
-  waybar.enable = false;
+  waybar.enable = true;
   mpv.enable = true;
 
   bookmarks.enable = true;
