@@ -27,8 +27,6 @@ vim.keymap.set("n", "<leader>h",    "<cmd>Telescope help_tags hidden=true<CR>", 
 
 -- View Management (DONE)
 vim.keymap.set("n", "<leader>vh",   "<cmd>nohl<CR>",                                { noremap = true, silent = true,            desc = "Clear Highlighting"                  })
-
--- View Management
 vim.keymap.set("n", "<leader>vu",   "<cmd>UndotreeToggle<CR><cmd>UndotreeFocus<CR>",{ noremap = true, silent = true,            desc = "Toggle UndoTree"                     })
 
 -- Window Management  (DONE)
