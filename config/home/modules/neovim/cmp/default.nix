@@ -1,4 +1,4 @@
-{ lib, config, helpers, ... }: {
+{ lib, config, ... }: {
   options = {
     neovim.plugins.cmp = {
       enable = lib.mkOption {
@@ -16,7 +16,6 @@
           autoEnableSources = true;
           settings = {
             sources = [
-              { name = "nvim_lsp"; }
               { name = "path"; }
               { name = "buffer"; keyword_length = 5; }
               { name = "calc"; }
@@ -28,9 +27,11 @@
             window = {
               completion = {
                 border = "rounded";
+                winhighlight = "Normal:CmpNormal,FloatBorder:CmpNormal,CursorLine:PmenuSel,Search:None";
               };
               documentation = {
                 border = "rounded";
+                winhighlight = "Normal:CmpNormal,FloatBorder:CmpNormal,CursorLine:PmenuSel,Search:None";
               };
             };
             mapping = {
