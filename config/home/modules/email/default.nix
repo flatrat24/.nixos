@@ -1,6 +1,6 @@
-{ pkgs, lib, inputs, config, ... }:
+{ lib, config, ... }:
 let
-  dependencies = with pkgs; [ ];
+  dependencies = [ ];
 in {
   imports = [ ];
 
