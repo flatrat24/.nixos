@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }: {
+{ lib, config, ... }: {
   imports = [
     ./nix
   ];
@@ -21,5 +21,12 @@
         };
       };
     }
+    (lib.mkIf config.neovim.plugins.cmp.enable {
+      programs.nixvim = {
+        plugins.cmp.settings.sources = [
+          { name = "nvim_lsp"; }
+        ];
+      };
+    })
   ]);
 }
