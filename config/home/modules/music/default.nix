@@ -26,6 +26,9 @@ let
     pkgs.beets
     pkgs.yt-dlp
   ];
+  cavaDependencies = with pkgs; [
+    cava
+  ];
 in {
   options = {
     music = {
@@ -44,6 +47,11 @@ in {
       };
       importMusic.enable = lib.mkOption {
           description = "enables importMusic";
+          type = lib.types.bool;
+          default = config.music.enable;
+      };
+      cava.enable = lib.mkOption {
+          description = "enables cava";
           type = lib.types.bool;
           default = config.music.enable;
       };
@@ -273,6 +281,29 @@ in {
           source = ./sources/beets/config.yaml;
           executable = false;
           recursive = false;
+        };
+      };
+    })
+
+    (lib.mkIf config.music.cava.enable {
+      home.packages = cavaDependencies;
+
+      home.file = {
+        ".config/cava/config" = {
+          text = ''
+            [color]
+            gradient = 1
+
+            gradient_color_8 = '#94e2d5'
+            gradient_color_7 = '#89dceb'
+            gradient_color_6 = '#74c7ec'
+            gradient_color_5 = '#89b4fa'
+            gradient_color_4 = '#cba6f7'
+            gradient_color_3 = '#f5c2e7'
+            gradient_color_2 = '#eba0ac'
+            gradient_color_1 = '#f38ba8'
+          '';
+          executable = false;
         };
       };
     })
