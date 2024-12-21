@@ -8,7 +8,7 @@
     };
   };
 
-  config = {
+  config = lib.mkIf config.neovim.plugins.nvim-surround.enable {
     programs.nixvim = {
       plugins.nvim-surround = {
         enable = true;
