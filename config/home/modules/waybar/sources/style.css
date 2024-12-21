@@ -1,6 +1,7 @@
 * {
   font-family: "IBM Plex Mono", sans-serif;
   font-size: 12px;
+  font-weight: 600;
   background: transparent;
 }
 
@@ -18,12 +19,12 @@ tooltip {
 }
 
 #custom-divider {
-  padding: 0px;
+  padding: 1px;
   color: white;
 }
 
 #clock.time {
-  padding: 5px 10px 5px 5px;
+  padding: 5px 10px 5px 0px;
   color: white;
 }
 
@@ -44,6 +45,11 @@ tooltip {
 
 #backlight {
   padding: 5px 5px 5px 0px;
+}
+
+#custom-divider.right_of_backlight {
+  padding: 1px 0px 1px 1px;
+  color: white;
 }
 
 #workspaces {

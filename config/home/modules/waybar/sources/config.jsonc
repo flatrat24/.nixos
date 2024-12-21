@@ -25,13 +25,18 @@
     "network",
     "custom/divider",
     "backlight",
+    "custom/divider#right_of_backlight",
     "battery",
     "custom/divider",
     "clock#calendar",
+    "custom/divider",
     "clock#time"
   ],
   // Module-specific configurations
   "custom/divider": {
+    "format": "|"
+  },
+  "custom/divider#right_of_backlight": {
     "format": "|"
   },
   "custom/nix": {
