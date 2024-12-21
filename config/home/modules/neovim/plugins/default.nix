@@ -1,5 +1,6 @@
 { ... }: {
   imports = [
+    ./aerial
     ./comment
     ./dashboard
     ./eyeliner
@@ -10,11 +11,13 @@
     ./leap
     ./lualine
     ./luasnip
+    ./neo-tree
     ./nvim-highlight-colors
     ./nvim-surround
     ./oil
     ./rainbow-delimiters
     ./telescope
+    ./todo-comments
     ./transparent
     ./treesitter
     ./trouble
