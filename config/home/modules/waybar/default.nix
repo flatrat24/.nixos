@@ -20,7 +20,7 @@ in {
         };
       };
     }
-    (lib.mkIf config.hypr.enable {
+    (lib.mkIf config.hyprland.enable {
       wayland.windowManager.hyprland = {
         settings = {
           "exec-once" = [

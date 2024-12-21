@@ -96,7 +96,7 @@ in {
           };
         };
       }
-      (lib.mkIf config.hypr.windowRules.enable {
+      (lib.mkIf config.hyprland.windowRules.enable {
         wayland.windowManager.hyprland.settings.windowrulev2 = [
           "float,title:(Sign in to your account)(.*),class:thunderbird"
           "size 50% 50%,title:(Sign in to your account)(.*),class:thunderbird"

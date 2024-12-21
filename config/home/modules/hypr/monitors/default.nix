@@ -7,7 +7,7 @@
   options = {
     monitors.enable = lib.mkOption {
       type = lib.types.bool;
-      default = config.hypr.enable;
+      default = config.hyprland.enable;
     };
   };
 

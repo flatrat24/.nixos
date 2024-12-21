@@ -8,7 +8,7 @@
     };
   };
 
-  config = lib.mkIf config.hypr.enable (lib.mkMerge [
+  config = lib.mkIf config.hyprland.enable (lib.mkMerge [
     (lib.mkIf (config.input.keyboard.formFactor == "mac") {
       wayland.windowManager.hyprland.settings = {
         bindd = [

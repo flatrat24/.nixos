@@ -40,7 +40,7 @@
   libreoffice.enable = true;
   git.enable = true;
 
-  hypr = {
+  hyprland = {
     enable = true;
     hyprlock = {
       enable = true;

@@ -1,7 +1,7 @@
 { pkgs, lib, inputs, config, ... }: {
   options = {};
 
-  config = lib.mkIf config.hypr.enable (lib.mkMerge [
+  config = lib.mkIf config.hyprland.enable (lib.mkMerge [
     {
       wayland.windowManager.hyprland.settings = {
         bindd = [

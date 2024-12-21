@@ -31,10 +31,10 @@ in {
   ];
 
   options = {
-    hypr.enable = lib.mkEnableOption "enables hypr";
+    hyprland.enable = lib.mkEnableOption "enables hypr";
   };
 
-  config = lib.mkIf config.hypr.enable (lib.mkMerge [
+  config = lib.mkIf config.hyprland.enable (lib.mkMerge [
     {
       home.packages = dependencies;
 

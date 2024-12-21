@@ -41,7 +41,7 @@ in {
           };
         };
       }
-      (lib.mkIf config.hypr.enable {
+      (lib.mkIf config.hyprland.enable {
         wayland.windowManager.hyprland.settings = {
           bindd = [
             "$mod, c, Wofi Pass, exec, wofi-pass"

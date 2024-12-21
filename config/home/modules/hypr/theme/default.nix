@@ -1,13 +1,13 @@
 { pkgs, lib, inputs, config, ... }: {
   options = {
-    hypr.animations.enable = lib.mkOption {
+    hyprland.animations.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
     };
   };
 
   config = lib.mkMerge [
-    (lib.mkIf (config.hypr.enable == true) {
+    (lib.mkIf (config.hyprland.enable == true) {
       wayland.windowManager.hyprland.settings = {
         cursor = {
           "no_hardware_cursors" = "true";
@@ -38,8 +38,8 @@
         };
 
         animations = lib.mkMerge [
-          (lib.mkIf (config.hypr.animations.enable == true) { "enabled" = "true"; })
-          (lib.mkIf (config.hypr.animations.enable == false) { "enabled" = "false"; })
+          (lib.mkIf (config.hyprland.animations.enable == true) { "enabled" = "true"; })
+          (lib.mkIf (config.hyprland.animations.enable == false) { "enabled" = "false"; })
           { # Unconditional
             "bezier" = "myBezier, 0.05, 0.9, 0.1, 1.05";
             "animation" = [

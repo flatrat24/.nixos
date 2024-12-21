@@ -13,7 +13,7 @@ in {
 
   config = lib.mkIf config.wofi.clipboard.enable (lib.mkMerge [
     { home.packages = dependencies; }
-    (lib.mkIf config.hypr.enable {
+    (lib.mkIf config.hyprland.enable {
       wayland.windowManager.hyprland.settings = {
         bindd = [
           "$mod, v, Wofi Clipboard Select, exec, cliphist list | wofi --show dmenu -c ~/.config/wofi/configs/clipboard | cliphist decode | wl-copy"

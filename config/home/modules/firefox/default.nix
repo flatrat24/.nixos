@@ -156,7 +156,7 @@ in {
         ];
       };
     })
-    (lib.mkIf (config.hypr.windowRules.enable == true) {
+    (lib.mkIf (config.hyprland.windowRules.enable == true) {
       wayland.windowManager.hyprland.settings.windowrulev2 = [
         "float,class:firefox,title:Picture-in-Picture"
         "size 50% 50%,class:firefox,title:Picture-in-Picture"

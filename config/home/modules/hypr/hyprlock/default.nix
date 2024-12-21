@@ -6,10 +6,10 @@ let
   ];
 in {
   options = {
-    hypr.hyprlock = {
+    hyprland.hyprlock = {
       enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.hypr.enable;
+        default = config.hyprland.enable;
       };
       showMusic = lib.mkOption {
         type = lib.types.bool;
@@ -19,7 +19,7 @@ in {
     };
   };
 
-  config = lib.mkIf config.hypr.hyprlock.enable {
+  config = lib.mkIf config.hyprland.hyprlock.enable {
     home.packages = dependencies;
     
     programs.hyprlock = {

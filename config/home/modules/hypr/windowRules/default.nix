@@ -1,14 +1,14 @@
 { pkgs, lib, inputs, config, ... }: {
   options = {
-    hypr.windowRules = {
+    hyprland.windowRules = {
       enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.hypr.enable;
+        default = config.hyprland.enable;
       };
     };
   };
 
-  config = lib.mkIf (config.hypr.windowRules.enable == true) (lib.mkMerge [
+  config = lib.mkIf (config.hyprland.windowRules.enable == true) (lib.mkMerge [
     {
       wayland.windowManager.hyprland.settings.windowrulev2 = [
         "suppressevent maximize, class:.*"

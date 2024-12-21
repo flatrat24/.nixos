@@ -31,7 +31,7 @@ in {
           "\${HOME}/.steam/room/compatibilitytools.d";
       };
     }
-    (lib.mkIf (config.hypr.windowRules.enable) {
+    (lib.mkIf (config.hyprland.windowRules.enable) {
       wayland.windowManager.hyprland.settings.windowrulev2 = [
         ##--- Minecraft ---##
         "float,class:Minecraft*,title:Minecraft*"

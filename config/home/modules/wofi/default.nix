@@ -13,7 +13,7 @@ in {
     wofi = {
       enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.hypr.enable;
+        default = config.hyprland.enable;
       };
     };
   };
@@ -31,7 +31,7 @@ in {
         };
       };
     }
-    (lib.mkIf config.hypr.enable (lib.mkMerge [
+    (lib.mkIf config.hyprland.enable (lib.mkMerge [
       {
         wayland.windowManager.hyprland.settings = {
           bindd = [

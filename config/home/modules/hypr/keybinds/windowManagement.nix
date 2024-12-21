@@ -1,7 +1,7 @@
 { pkgs, lib, inputs, config, ... }: {
   options = {};
 
-  config = lib.mkIf config.hypr.enable {
+  config = lib.mkIf config.hyprland.enable {
     wayland.windowManager.hyprland.settings = {
       bindd = [
         ##### General Window Controls #####
