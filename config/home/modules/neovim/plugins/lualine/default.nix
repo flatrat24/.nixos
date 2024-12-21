@@ -8,14 +8,20 @@
     };
   };
 
-  config = {
+  config = lib.mkIf config.neovim.plugins.lualine.enable {
     programs.nixvim = {
       plugins.lualine = {
         enable = true;
         settings = {
           options = {
             disabled_filetypes = {
-              statusline = [ "dashboard" ];
+              statusline = [
+                "dashboard"
+                "neo-tree"
+                "trouble"
+		"undotree"
+		"diff"
+              ];
             };
           };
         };
