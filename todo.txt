@@ -18,6 +18,13 @@ NEOVIM
   - Figure out a solution to navigating the filesystem
   - Get a buffer management plugin
   - Get neovim working with LaTeX and zathura
+  - Backspace to <C-o>
+  - Replace telescope with fzf
+  - Get undotree on the right
+  - Whichkey
+  - Add animations for scrolling and cursor movement
+  - Add neovim as default editor
+  - Make changing the filesystem impossible from neotree
 
 WOFI
   - Advanced use-cases for Wofi:
@@ -40,5 +47,7 @@ SCHOOL
 
 FIREFOX
   - Integrate firefox with keepass or pass
-  - Sidebery keybinds for tab navigation (or just general firefox keybinds)
   - Firefox keybinds (looks like it has to be an extension)
+
+ZSH
+  - Get vim mode back
