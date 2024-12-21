@@ -72,28 +72,41 @@ in {
         };
       };
     })
-    (lib.mkIf (config.email.thunderbird.enable == true) { # TODO: Make it rely on both email and thunderbird options
-      programs.thunderbird = {
-        enable = true;
-        settings = { };
-        profiles = {
-          "Main" = {
-            isDefault = true;
-            search = {
-              force = true;
-              default = "Startpage";
-              privateDefault = "Startpage";
-              order = [ "Startpage" ];
-              engines = {
-                "Startpage" = {
-                  urls = [ { template = "https://www.startpage.com/rd/search?query={searchTerms}&language=auto"; } ];
-                  definedAliases = [ "@s" ];
+    (lib.mkIf (config.email.thunderbird.enable == true) (lib.mkMerge [
+      {
+        programs.thunderbird = {
+          enable = true;
+          settings = { };
+          profiles = {
+            "Main" = {
+              isDefault = true;
+              search = {
+                force = true;
+                default = "Startpage";
+                privateDefault = "Startpage";
+                order = [ "Startpage" ];
+                engines = {
+                  "Startpage" = {
+                    urls = [ { template = "https://www.startpage.com/rd/search?query={searchTerms}&language=auto"; } ];
+                    definedAliases = [ "@s" ];
+                  };
                 };
               };
             };
           };
         };
-      };
-    })
+      }
+      (lib.mkIf config.hypr.windowRules.enable {
+        wayland.windowManager.hyprland.settings.windowrulev2 = [
+          "float,title:(Sign in to your account)(.*),class:thunderbird"
+          "size 50% 50%,title:(Sign in to your account)(.*),class:thunderbird"
+          "move 25% 25%,title:(Sign in to your account)(.*),class:thunderbird"
+
+          "float,title:Create New Calendar,class:thunderbird"
+          "size 50% 50%,title:Create New Calendar,class:thunderbird"
+          "move 25% 25%,title:Create New Calendar,class:thunderbird"
+        ];
+      })
+    ]))
   ];
 }
