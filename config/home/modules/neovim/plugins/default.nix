@@ -4,6 +4,8 @@
     ./dashboard
     ./eyeliner
     ./git
+    ./grug-far
+    ./illuminate
     ./indent-blankline
     ./leap
     ./lualine
