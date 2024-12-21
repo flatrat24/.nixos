@@ -1,57 +1,28 @@
-MUSIC
-
 THEMEING
   - Get better wallpapers for catppuccin
   - Fix following errors:
     - Icons in GTK apps not consistent
   - Theme following applications:
     - sddm
-    - Grub (minecraft flake)
     - thunderbird
-
-YAZI
 
 MIME
   - Get all applications integrated with xdg-mime/xdg-open
 
 EMAIL
-  - Get google calendar working with thunderbird
   - Get some about:config things going
     - Prevent welcome screen/popups
     - Remove tasks and chat from toolbar
 
-AGS
-  - Get a barebones setup working and move on
-  - Once returned, possible ideas:
-    - School integration (show current course; other information)
-    - Calendar
-    - Basic Hyprland actions (screenshot, hyprpicker, switch workspaces)
-    - Brightness, volume, nightlight controls
-
-PASS
-  - Push to a git repository on github
-  - Get gpg signing/authenticating to work
-  - Get gpg running on desktop
-  - Passepartui
-
 NEOVIM
-  - Remake alpha.nvim landing page
   - Figure out a solution to navigating the filesystem
-  - Configure consistent behavior for ","
   - Get a buffer management plugin
   - Get neovim working with LaTeX and zathura
-  - Do a general cleanup of plugins and options
-  - Peruse for new plugins and options
-  - Set as manpager
 
 WOFI
-  - Get Wofi working as a:
-    - Password manager (read-only)
   - Advanced use-cases for Wofi:
     - Calculator
-    - Emoji selector
     - Hyprland keybinds
-    - Bookmark manager
     - Quick-open filesystem
     - Window (focus) switcher?
 
@@ -60,7 +31,6 @@ SCHOOL
   - GET MATLAB WORKING
   - Verify the following:
     - Neovim works with latex documents
-    - Wofi is installed and working
   - Setup:
     - Wofi
     - Hyprland keybinds
@@ -68,15 +38,7 @@ SCHOOL
     - Bookmarks
     - AGS
 
-HYPRLAND
-
-SHELL
-
 FIREFOX
-  - Get better homepage (startTree)
   - Integrate firefox with keepass or pass
   - Sidebery keybinds for tab navigation (or just general firefox keybinds)
   - Firefox keybinds (looks like it has to be an extension)
-
-DISCORD
-  - Get discord working with voice chat
