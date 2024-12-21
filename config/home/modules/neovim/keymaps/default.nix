@@ -1,5 +1,6 @@
 { ... }: {
   programs.nixvim.globals.mapleader = " ";
+  programs.nixvim.globals.maplocalleader = "\\";
   programs.nixvim.keymaps = [
     ##--- Window Management ---##
     { mode = [ "n" ]; key = "<C-h>"; action = "<C-w>h"; options = { noremap = true; silent = true; desc = "Move Window Focus Left"; }; }
