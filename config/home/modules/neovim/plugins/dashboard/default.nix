@@ -91,6 +91,9 @@
             };
           };
         };
+        keymaps = [
+          { mode = [ "n" ]; key = "<leader>`"; action = "<cmd>Dashboard<CR>"; options = { noremap = true; silent = true; desc = "Return to Dashboard"; }; }
+        ];
       };
     }
   ]);
