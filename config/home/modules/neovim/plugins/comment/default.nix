@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }: {
+{ lib, config, ... }: {
   options = {
     neovim.plugins.comment = {
       enable = lib.mkOption {
@@ -8,7 +8,7 @@
     };
   };
 
-  config = {
+  config = lib.mkIf config.neovim.plugins.comment.enable {
     programs.nixvim = {
       plugins.comment = {
         enable = true;
