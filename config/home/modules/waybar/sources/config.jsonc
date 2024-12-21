@@ -20,6 +20,8 @@
     "hyprland/workspaces",
   ],
   "modules-right": [
+    "bluetooth",
+    "custom/divider",
     "network",
     "custom/divider",
     "backlight",
@@ -79,7 +81,7 @@
     "on-click": "mpc toggle"
   },
   "pulseaudio": {
-    "format": "{icon}  {volume}%",
+    "format": "{icon} {volume}%",
     "tooltip": false,
     "format-muted": "󰝟  ---",
     "on-click": "pamixer -t",
@@ -181,5 +183,16 @@
     "tooltip-format-disconnected": "Disconnected",
     "format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
     "interval": 2
+  },
+  "bluetooth": {
+    "format": "󰂯 {status}",
+    "format-on": "󰂯 =^..^=",
+    "format-off": "󰂲 =^..^=",
+    "format-disabled": " /^(o.o)^\\",
+    "format-connected": "󰂯 {device_alias}",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "$HOME/.config/waybar/scripts/toggleBluetooth.sh"
   }
 }

@@ -28,7 +28,9 @@ tooltip {
 }
 
 #clock.date,
-#pulseaudio {
+#pulseaudio,
+#bluetooth,
+#network {
   padding: 0px 0px;
 }
 
