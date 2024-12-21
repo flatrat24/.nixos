@@ -24,5 +24,10 @@
         };
       };
     }
+    (lib.mkIf config.neovim.plugins.illuminate.enable {
+      programs.nixvim.plugins.illuminate = {
+        providers = [ "treesitter" ];
+      };
+    })
   ]);
 }
