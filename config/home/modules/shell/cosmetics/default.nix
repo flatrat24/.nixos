@@ -7,7 +7,6 @@ let
     figlet
     pipes
     cbonsai
-    cava # TODO: Move this to part of music home module
   ];
   cosmeticsAliases = { };
 in {
