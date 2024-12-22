@@ -16,7 +16,6 @@ let
 in {
   imports = [
     ./autostart/default.nix
-    ./hyprlock/default.nix
     ./hyprpaper/default.nix
     ./input/default.nix
     ./keybinds/default.nix
