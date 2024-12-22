@@ -6,7 +6,7 @@ let
   ];
 in {
   options = {
-    hyprland.hyprlock = {
+    hyprlock = {
       enable = lib.mkOption {
         type = lib.types.bool;
         default = config.hyprland.enable;
@@ -19,8 +19,16 @@ in {
     };
   };
 
-  config = lib.mkIf config.hyprland.hyprlock.enable {
+  config = lib.mkIf config.hyprlock.enable {
     home.packages = dependencies;
+
+    home.file = {
+      ".assets/mountains.png" = {
+        source = ../../../assets/mountains.png;
+        executable = false;
+        recursive = false;
+      };
+    };
     
     programs.hyprlock = {
       enable = true;
@@ -33,7 +41,7 @@ in {
 
         background = [{
           monitor = "";
-          path = "/home/ea/.nixos/config/home/modules/hypr/sources/assets/mountains.png";
+          path = "/home/ea/.assets/mountains.png";
           blur_passes = 3;
           contrast = 0.8916;
           brightness = 0.8172;
@@ -46,7 +54,7 @@ in {
           monitor = "";
           text = ''cmd[update:1000] echo "<span>$(date '+%A, %d %b')</span>"'';
           color = "rgba(225, 225, 225, 0.75)";
-          font_size = 25;
+          font_size = 50; # Was 25 before double for framework
           font_family = "IBM Plex Sans";
           position = "0, -75";
           halign = "center";
@@ -56,7 +64,7 @@ in {
           monitor = "";
           text = ''cmd[update:1000] echo "$(date +'%H:%M')"'';
           color = "rgba(250, 189, 47, .75)";
-          font_size = 125;
+          font_size = 250; # Was 125 before double for framework
           font_family = "IBM Plex Sans";
           position = "0, -100";
           halign = "center";
@@ -66,7 +74,7 @@ in {
             monitor = "";
             text = "cmd[update:1000] echo $(/home/ea/.nixos/config/home/modules/hypr/sources/scripts/songDetails.sh)";
             color = "rgba(235, 219, 178, .75)";
-            font_size = 20;
+            font_size = 40; # Was 20 before double for framework
             font_family = "IBM Plex Sans";
             position = "0, 50";
             halign = "center";
@@ -101,7 +109,7 @@ in {
           numlock_color = -1;
           bothlock_color = -1;
 
-          size = "290, 30";
+          size = "580, 60"; # Was 290, 30 before double for framework
           hide_input = false;
           position = "0, 0";
           halign = "center";
