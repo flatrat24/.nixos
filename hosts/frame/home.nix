@@ -13,6 +13,7 @@
 
   ags.enable = false;
   waybar.enable = true;
+  dunst.enable = true;
   mpv.enable = true;
 
   bookmarks.enable = true;
@@ -42,10 +43,6 @@
 
   hyprland = {
     enable = true;
-    hyprlock = {
-      enable = true;
-      showMusic = true;
-    };
     hyprpaper = {
       enable = true;
       wallpaper = ../../config/assets/mountains.png;

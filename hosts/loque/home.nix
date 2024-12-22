@@ -40,10 +40,6 @@
 
   hypr = {
     enable = true;
-    hyprlock = {
-      enable = true;
-      showMusic = true;
-    };
     hyprpaper = {
       enable = true;
       wallpaper = ../../config/assets/mountains.png;
