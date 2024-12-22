@@ -54,10 +54,6 @@
     (lib.mkIf (config.input.keyboard.formFactor == "ANSI") {
       wayland.windowManager.hyprland.settings = {
         bindd = [
-          ##### Notifications #####
-          ", F9, Restore Last Notification, exec, makoctl restore"
-          ", F10, Dismiss Last Notification, exec, makoctl dismiss"
-
           ##### Color Picker #####
           ", F12, Activate Color Picker, exec, hyprpicker | wl-copy"
         ];
