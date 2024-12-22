@@ -5,15 +5,17 @@ let
   dependencies = with pkgs; [
     wl-clip-persist
     wl-clipboard
+    cliphist
   ];
 in {
   options = { };
 
   config = lib.mkIf config.hyprland.enable {
+    home.packages = dependencies;
+
     wayland.windowManager.hyprland = {
       settings = {
         "exec-once" = [
-          "mako"
           "wl-paste --type text --watch cliphist store"
           "wl-paste --type image --watch cliphist store"
           "wl-clip-persist --clipboard regular"

@@ -10,7 +10,7 @@
     ./modules/gaming
     ./modules/git
     ./modules/gpg
-    ./modules/hypr
+    ./modules/hyprland
     ./modules/importMusic
     ./modules/libreoffice
     ./modules/passwords

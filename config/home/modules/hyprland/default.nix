@@ -6,17 +6,12 @@ let
     hyprlang
     hypridle
     hyprpicker
-    cliphist
-    wl-clipboard
-    wl-clip-persist
     grimblast
-    mako
     libnotify
     rofi-wayland
     pamixer
     brightnessctl
     wev
-    foot
   ];
 in {
   imports = [
