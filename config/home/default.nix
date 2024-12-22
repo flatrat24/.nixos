@@ -1,22 +1,24 @@
 { ... }: {
   imports = [
     ./modules/ags
-    ./modules/email
     ./modules/beeper
     ./modules/bookmarks
     ./modules/discord
+    ./modules/dunst
+    ./modules/email
     ./modules/firefox
     ./modules/foot
     ./modules/gaming
     ./modules/git
     ./modules/gpg
     ./modules/hyprland
+    ./modules/hyprlock
     ./modules/importMusic
     ./modules/libreoffice
-    ./modules/passwords
-    ./modules/music
     ./modules/mpv
+    ./modules/music
     ./modules/neovim
+    ./modules/passwords
     ./modules/shell
     ./modules/slack
     ./modules/swayimg
