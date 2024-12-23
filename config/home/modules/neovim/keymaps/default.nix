@@ -37,7 +37,7 @@
     { mode = [ "n" "x" "o" ]; key = "H"; action = "0"; options = { noremap = true; silent = true; desc = "Go to Front of Line"; }; }
     { mode = [ "n" "x" "o" ]; key = ","; action = ";"; options = { noremap = true; silent = true; desc = "Repeat Find in Line"; }; } # TODO: Make it work in across all modes relevant
     { mode = [ "n" "x" "o" ]; key = "<tab>"; action = "%"; options = { noremap = true; silent = true; desc = "Move to Twin Bracket"; }; }
-    # { mode = [ "n" "x" "o" ]; key = "Backspace"; action = "<C-O>"; options = { noremap = true; silent = true; desc = "Go to Next Cursor Position"; }; }
+    # { mode = [ "n" "x" "o" ]; key = "Backspace"; action = "<C-O>"; options = { noremap = true; silent = true; desc = "Go to Next Cursor Position"; }; } # TODO: Get these two keymaps working
     # { mode = [ "n" "x" "o" ]; key = "<S-Backspace>"; action = "<C-I>"; options = { noremap = true; silent = true; desc = "Go to Previous Cursor Position"; }; }
   ];
 }
