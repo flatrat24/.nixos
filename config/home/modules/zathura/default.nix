@@ -10,6 +10,8 @@ in{
 
   config = lib.mkIf config.zathura.enable (lib.mkMerge [
     {
+      home.packages = dependencies;
+
       programs.zathura = {
         enable = true;
         mappings = {
@@ -72,7 +74,13 @@ in{
         };
       };
 
-      home.packages = dependencies;
+      xdg = {
+        enable = lib.mkDefault true;
+        mimeApps.enable = lib.mkDefault true;
+        mimeApps.defaultApplications = {
+          "application/pdf" = ["org.pwmt.zathura.desktop"];
+        };
+      };
     }
     (lib.mkIf config.yazi.enable {
       programs.yazi.settings.opener = {
