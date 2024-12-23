@@ -15,6 +15,7 @@
   waybar.enable = true;
   dunst.enable = true;
   mpv.enable = true;
+  latex.enable = true;
 
   bookmarks.enable = true;
   beeper.enable = true;
