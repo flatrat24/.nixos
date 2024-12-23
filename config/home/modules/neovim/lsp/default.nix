@@ -1,5 +1,6 @@
 { lib, config, ... }: {
   imports = [
+    ./bash
     ./nix
   ];
 
