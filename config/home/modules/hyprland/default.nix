@@ -38,6 +38,9 @@ in {
           "$mod" = "SUPER";
           "$terminal" = "foot";
         };
+        plugins = [
+          # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
+        ];
       };
     }
     (lib.mkIf config.theme.enable {

@@ -4,13 +4,13 @@
   config = lib.mkIf config.hyprland.enable {
     wayland.windowManager.hyprland.settings = {
       bindd = [
-        ##### General Window Controls #####
+        ##--- General Window Controls ---##
         "$mod, Q, Kill Active Window, killactive, null"
         "$mod, P, Toggle Floating Window, togglefloating,"
         "$mod, O, Toggle Fullscreen Window, fullscreen,"
         "$mod, U, Cycle Left and Bottom Layout, layoutmsg, orientationcycle left top"
 
-        ##### Window Focus #####
+        ##--- Window Focus ---##
         "$mod, h, Focus Left Window, movefocus, l"
         "$mod, l, Focus Right Window, movefocus, r"
         "$mod, k, Focus Upper Window, movefocus, u"
@@ -18,18 +18,21 @@
         "$mod, Tab, Cycle Window Focus, cyclenext, "
         "$mod, Tab,, bringactivetotop, "
 
-        ##### Tab Stacking #####
+        ##--- Tab Stacking ---##
         "$mod, I, Toggle Window Stacking, togglegroup,"
         "$mod CTRL, L, Focus Next Window in Stack, changegroupactive, f"
         "$mod CTRL, H, Focus Previous Window in Stack, changegroupactive, b"
 
-        ##### Moving Windows Within a Workspace #####
+        ##--- Moving Windows Within a Workspace ---##
         "$mod SHIFT, H, Move Window Left, movewindoworgroup, l"
         "$mod SHIFT, L, Move Window Right, movewindoworgroup, r"
         "$mod SHIFT, K, Move Window Up, movewindoworgroup, u"
         "$mod SHIFT, J, Move Window Down, movewindoworgroup, d"
 
-        ##### Workspace Focus #####
+        ##--- Hyprexpo ---##
+        # "$mod, A, hyprexpo:expo, toggle"
+
+        ##--- Workspace Focus ---##
         "$mod, 1, Focus Workspace 1, workspace, 1"
         "$mod, 2, Focus Workspace 2, workspace, 2"
         "$mod, 3, Focus Workspace 3, workspace, 3"
@@ -42,7 +45,7 @@
         "$mod, 0, Focus Workspace 10, workspace, 10"
         "$mod, BackSpace, Focus Most Recent Workspace, workspace, previous"
 
-        ##### Move Windows Between Workspaces #####
+        ##--- Move Windows Between Workspaces ---##
         "$mod SHIFT, 1, Move Window to Workspace 1, movetoworkspace, 0"
         "$mod SHIFT, 2, Move Window to Workspace 2, movetoworkspace, 2"
         "$mod SHIFT, 3, Move Window to Workspace 3, movetoworkspace, 3"
@@ -56,7 +59,7 @@
         "$mod SHIFT, BackSpace, Move Window to Recent Workspace, movetoworkspace, previous"
       ];
       binded = [
-        ##### Resize Focused Window #####
+        ##--- Resize Focused Window ---##
         "$mod SHIFT CTRL, H, Resize Window Leftwards, resizeactive, -40 0"
         "$mod SHIFT CTRL, L, Resize Window Rightwards, resizeactive, 40 0"
         "$mod SHIFT CTRL, K, Resize Window Upwards, resizeactive, 0 -40"
@@ -68,14 +71,14 @@
         "$mod SHIFT, equal, Move Window to Next Workspace, movetoworkspace, r+1"
         "$mod SHIFT, minus, Move Window to Previous Workspace, movetoworkspace, r-1"
 
-        ##### Manage Monitors #####
+        ##--- Manage Monitors ---##
         "$mod SHIFT, equal, Focus Next Monitor, focusmonitor, +1"
         "$mod SHIFT, minus, Focus Previous Monitor, focusmonitor, -1"
         "$mod SHIFT CTRL, equal, Move Workspace to Next Monitor, movecurrentworkspacetomonitor, +1"
         "$mod SHIFT CTRL, minus, Move Workspace to Next Monitor, movecurrentworkspacetomonitor, -1"
       ];
       bindm = [
-        ##### Manage Windows With Mouse #####
+        ##--- Manage Windows With Mouse ---##
         "$mod, mouse:272, movewindow"
         "$mod SHIFT, mouse:272, resizewindow"
         "$mod, ALT_l, movewindow"
