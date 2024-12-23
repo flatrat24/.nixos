@@ -83,7 +83,7 @@ in{
     })
     (lib.mkIf config.theme.enable {
       stylix.targets = {
-        zathura.enable = false;
+        zathura.enable = true;
       };
     })
   ]);
