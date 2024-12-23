@@ -22,6 +22,7 @@
     ./treesitter
     ./trouble
     ./undotree
+    ./vimtex
     ./web-devicons
     ./yazi
   ];
