@@ -14,6 +14,7 @@
     ./modules/hyprland
     ./modules/hyprlock
     ./modules/importMusic
+    ./modules/latex
     ./modules/libreoffice
     ./modules/mpv
     ./modules/music
