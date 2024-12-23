@@ -8,7 +8,8 @@ let
     gc   = "git commit -m"                            ;
     gb   = "git branch"                               ;
     go   = "git checkout"                             ;
-    gp   = "git push"                                 ;
+    gP   = "git push"                                 ;
+    gp   = "git pull"                                 ;
     gm   = "git merge"                                ;
     gf   = "git fetch"                                ;
     gz   = "lazygit"                                  ;
