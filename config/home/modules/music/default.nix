@@ -220,7 +220,7 @@ in {
           { key = "5"        ; command = "show_playlist_editor"                                                                                                                    ; }
           { key = "6"        ; command = "show_tag_editor"                                                                                                                         ; }
           { key = "7"        ; command = "show_outputs"                                                                                                                            ; }
-          { key = "m"        ; command = "show_visualizer"                                                                                                                         ; }
+          { key = "8"        ; command = "show_visualizer"                                                                                                                         ; }
           { key = "9"        ; command = "show_clock"                                                                                                                              ; }
           { key = "@"        ; command = "show_server_info"                                                                                                                        ; }
           #### GLOBAL ####
