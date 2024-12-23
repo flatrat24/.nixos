@@ -20,6 +20,7 @@
     ./modules/music
     ./modules/neovim
     ./modules/passwords
+    ./modules/school
     ./modules/shell
     ./modules/slack
     ./modules/swayimg
