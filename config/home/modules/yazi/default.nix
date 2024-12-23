@@ -136,7 +136,6 @@ in {
 
             # goto
             { on = [ "g" "h" ];        run = "cd ~";                                               desc = "$HOME"; }
-            { on = [ "g" "s" ];        run = "cd ~/Documents/School";                              desc = "School"; }
             { on = [ "g" "p" ];        run = "cd ~/Documents/Personal";                            desc = "Personal"; }
             { on = [ "g" "x" ];        run = "cd ~/.nixos";                                        desc = "NixOS Config"; }
             { on = [ "g" "d" ];        run = "cd ~/Downloads";                                     desc = "Downloads"; }
