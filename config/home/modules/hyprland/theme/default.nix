@@ -22,6 +22,10 @@
           "layout" = "master";
         };
 
+        master = {
+          mfact = "0.5";
+        };
+
         decoration = {
           "rounding" = "0";
           "active_opacity" = "1.0";
