@@ -39,7 +39,7 @@ echoHelpMessage () {
   echo "                                shared directory, including the newest lectures first."
   echo "      --update-main-old [n]     Updates the main.tex file to include n lectures in the"
   echo "                                shared directory, including the oldest lectures first."
-  echo "      --edit-current-lecture    Opens the most recent lecture in \$VISUAL"
+  echo "      --edit-current-lecture    Opens the most recent lecture with xdg-open"
 }
 
 if [[ -d "$1" ]]; then
@@ -87,7 +87,7 @@ while [ "$#" -gt 0 ]; do
 
     -f | --create-figure)
       templatePath="$2"
-      if [[ -f "$CURRQUARTER/xlatex/templates/figure/$(basename "$templatePath")" ]]; then
+      if [[ -f "$CURRENTQUARTER/xlatex/templates/figure/$(basename "$templatePath")" ]]; then
         newPath="$(courseInfo --next-figure)"
         cp "$templatePath" "$newPath"
 
@@ -109,7 +109,7 @@ while [ "$#" -gt 0 ]; do
       ;;
 
     -F | --create-basic-figure)
-      templatePath="$CURRQUARTER/xlatex/templates/figure/basic_figure.tex"
+      templatePath="$CURRENTQUARTER/xlatex/templates/figure/basic_figure.tex"
       if [[ -f "$templatePath" ]]; then
         newPath="$(courseInfo --next-figure)"
         cp "$templatePath" "$newPath"
@@ -132,7 +132,7 @@ while [ "$#" -gt 0 ]; do
 
     -l | --create-lecture)
       templatePath="$(pwd)/$2"
-      if [[ -f "$CURRQUARTER/xlatex/templates/lecture/$(basename "$templatePath")" ]]; then
+      if [[ -f "$CURRENTQUARTER/xlatex/templates/lecture/$(basename "$templatePath")" ]]; then
         newPath="$(courseInfo --next-lecture)"
         cp "$templatePath" "$newPath"
 
@@ -154,7 +154,7 @@ while [ "$#" -gt 0 ]; do
       ;;
 
     -L | --create-basic-lecture)
-      templatePath="$CURRQUARTER/xlatex/templates/lecture/basic_lecture.tex"
+      templatePath="$CURRENTQUARTER/xlatex/templates/lecture/basic_lecture.tex"
       if [[ -f "$templatePath" ]]; then
         newPath="$(courseInfo --next-lecture)"
         cp "$templatePath" "$newPath"
@@ -181,7 +181,7 @@ while [ "$#" -gt 0 ]; do
       time=$(date +"%H%M" | sed 's/^0*//')
       day=$(date +"%a")
 
-      mapfile -t coursePaths < <(find "$CURRQUARTER" -mindepth 1 -maxdepth 1 -type d ! -name xlatex)
+      mapfile -t coursePaths < <(find "$CURRENTQUARTER" -mindepth 1 -maxdepth 1 -type d ! -name xlatex)
       for path in "${coursePaths[@]}"; do
         start=$(courseInfo "$path" --start)
         end=$(courseInfo "$path" --end)
@@ -219,17 +219,21 @@ while [ "$#" -gt 0 ]; do
 
     -s | --set-course)
       newCourseDirectory="$(pwd)/$2"
-      result=$(find "$CURRQUARTER" -type d -wholename "$newCourseDirectory")
-      if [[ -n $result ]]; then
-        ln -sfn "$newCourseDirectory" "$CURRENTCOURSE"
-        title=$(courseInfo --title)
-        short=$(courseInfo --short)
-        notify-send "Current Course Changed" "$short - $title"
-      else
+
+      # verify that it's a real course directory
+      if [ ! -f "$newCourseDirectory/info.json" ]; then
+        echo "Error: Directory does not contain an info.json file."
         title=$(courseInfo --title)
         short=$(courseInfo --short)
         notify-send "Current Course Unchanged" "$short - $title"
+        exit 1
       fi
+
+      ln -sfn "$newCourseDirectory" "$CURRENTCOURSE"
+      title=$(courseInfo --title)
+      short=$(courseInfo --short)
+      notify-send "Current Course Changed" "$short - $title"
+
       shift
       shift
       ;;
@@ -327,9 +331,7 @@ while [ "$#" -gt 0 ]; do
 
     --edit-current-lecture)
       lecturePath=$(courseInfo --last-lecture)
-      cursorLineNumber=$(( $(grep -n "\\\end{document}" "$lecturePath" | cut -d : -f 1) - 1 ))
-      # foot -e $VISUAL "+$cursorLineNumber" "$lecturePath"
-      foot -e nvim "+$cursorLineNumber" "$lecturePath"
+      xdg-open "$lecturePath"
       shift
       ;;
 

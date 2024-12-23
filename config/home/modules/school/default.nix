@@ -3,7 +3,27 @@ let
   dependencies = [
     courseInfo
     courseTools
+    selectNewCourse
+    openCourseBookmark
   ];
+  selectNewCourse = pkgs.writeShellApplication {
+    name = "selectNewCourse";
+    runtimeInputs = [
+      courseInfo
+      courseTools
+      pkgs.wofi
+    ];
+    text = builtins.readFile ./sources/selectNewCourse;
+  };
+  openCourseBookmark = pkgs.writeShellApplication {
+    name = "openCourseBookmark";
+    runtimeInputs = [
+      courseInfo
+      courseTools
+      pkgs.wofi
+    ];
+    text = builtins.readFile ./sources/openCourseBookmark;
+  };
   courseInfo = pkgs.writeShellApplication {
     name = "courseInfo";
     runtimeInputs = with pkgs; [
@@ -37,6 +57,16 @@ in {
         };
       };
     }
+    (lib.mkIf config.hyprland.enable {
+      wayland.windowManager.hyprland.settings = {
+        bindd = [
+          "$mod, slash, Set Current Course, exec, selectNewCourse"
+          "$mod SHIFT, slash, Update Current Course, exec, courseTools --auto-course"
+          "$mod, comma, Open Course Bookmark, exec, openCourseBookmark"
+          "$mod SHIFT, comma, Edit Current Lecture, exec, courseTools --edit-current-lecture"
+        ];
+      };
+    })
     (lib.mkIf config.yazi.enable {
       programs.yazi.keymap.manager.keymap = [
         { on = [ "g" "s" ]; run = "cd ~/Documents/School"; desc = "School"; }

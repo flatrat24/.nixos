@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# get the bookmarks from the current course's info.json file
+mapfile -t messages< <(jq --sort-keys -r '.bookmarks | keys[]' "$(courseInfo --path)"/info.json)
+mapfile -t commands< <(jq --sort-keys -r '.bookmarks[]' "$(courseInfo --path)"/info.json | sed "s/^\(.*\)$/xdg-open '\1'/")
+
+# add generic 'bookmarks' that apply to all courses
+messages+=("Open in Terminal")
+commands+=("$TERM -D $(courseInfo --path)")
+
+messages+=("Open in File Browser")
+commands+=("xdg-open '$(courseInfo --path)'")
+
+messages+=("View Course Notes (Full Compile)")
+commands+=("courseTools --update-main-full && cd $(courseInfo --path)/notes && pdflatex --shell-escape ./main.tex && pdflatex --shell-escape ./main.tex && courseTools -c && xdg-open ./main.pdf")
+
+messages+=("View Course Notes (Don't Compile)")
+commands+=("xdg-open $(courseInfo --path)/notes/main.pdf")
+
+messages+=("Clean Directory")
+commands+=("courseTools -C")
+
+# ask wofi to select one of them, and return the number of the selection
+selection=$(printf "%s\n" "${messages[@]}" | wofi --define=dmenu-print_line_num=true --define=lines=10 --prompt="course bookmarks" -d)
+
+# verify that the user made a selection ($selection must be an integer)
+if ! [[ "$selection" =~ ^[0-9]+$ ]]
+then
+  echo "Error: No selection was made"
+  exit 1
+fi
+
+# run the chosen command
+eval "${commands[$selection]}"
