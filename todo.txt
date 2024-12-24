@@ -26,28 +26,14 @@ NEOVIM
   - Add neovim as default editor
   - Make changing the filesystem impossible from neotree
 
-WOFI
-  - Advanced use-cases for Wofi:
-    - Calculator
-    - Hyprland keybinds
-    - Quick-open filesystem
-    - Window (focus) switcher?
-
 SCHOOL
   - GET SOLIDWORKS WORKING
   - GET MATLAB WORKING
   - Verify the following:
     - Neovim works with latex documents
   - Setup:
-    - Wofi
     - Hyprland keybinds
     - Zathura/Neovim
-    - Bookmarks
-    - AGS
-
-FIREFOX
-  - Integrate firefox with keepass or pass
-  - Firefox keybinds (looks like it has to be an extension)
 
 ZSH
   - Get vim mode back
