@@ -6,6 +6,7 @@
     ./eyeliner
     ./git
     ./grug-far
+    ./highlight-undo-nvim
     ./illuminate
     ./indent-blankline
     ./leap
