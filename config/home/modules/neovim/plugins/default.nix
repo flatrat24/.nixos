@@ -1,6 +1,7 @@
 { ... }: {
   imports = [
     ./aerial
+    ./fzf-lua
     ./comment
     ./dashboard
     ./eyeliner
