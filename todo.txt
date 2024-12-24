@@ -1,39 +1,14 @@
-THEMEING
-  - Get better wallpapers for catppuccin
-  - Fix following errors:
-    - Icons in GTK apps not consistent
-  - Theme following applications:
-    - sddm
-    - thunderbird
-
-MIME
-  - Get all applications integrated with xdg-mime/xdg-open
-
-EMAIL
-  - Get some about:config things going
-    - Prevent welcome screen/popups
-    - Remove tasks and chat from toolbar
-
 NEOVIM
   - Figure out a solution to navigating the filesystem
   - Get a buffer management plugin
-  - Get neovim working with LaTeX and zathura
-  - Backspace to <C-o>
   - Replace telescope with fzf
   - Get undotree on the right
-  - Whichkey
-  - Add animations for scrolling and cursor movement
-  - Add neovim as default editor
-  - Make changing the filesystem impossible from neotree
 
 SCHOOL
   - GET SOLIDWORKS WORKING
   - GET MATLAB WORKING
   - Verify the following:
     - Neovim works with latex documents
-  - Setup:
-    - Hyprland keybinds
-    - Zathura/Neovim
 
 ZSH
   - Get vim mode back
