@@ -85,7 +85,7 @@ in{
     (lib.mkIf config.yazi.enable {
       programs.yazi.settings.opener = {
         pdf = [                                     
-          { run = ''zathura "$@"''; orphan = true; desc = "zathura"; }
+          { run = ''zathura "$@"''; orphan = true; desc = "󰯉 zathura"; }
         ];
       };
     })
