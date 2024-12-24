@@ -6,6 +6,7 @@ let
     hyprlang
     hypridle
     hyprpicker
+    hyprshade
     grimblast
     libnotify
     rofi-wayland
