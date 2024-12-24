@@ -24,6 +24,12 @@ in {
 
   config = lib.mkIf config.neovim.enable (lib.mkMerge [
     {
+      home = {
+        sessionVariables = {
+          EDITOR = lib.mkDefault "nvim";
+          VISUAL = lib.mkDefault "nvim";
+        };
+      };
       programs.neovim = {
         defaultEditor = true;
       };
