@@ -99,6 +99,7 @@ in {
         bindkey '^k' history-search-backward
         bindkey '^j' history-search-forward
         bindkey '^[w' kill-region
+        bindkey -v
       '';
     };
   };
