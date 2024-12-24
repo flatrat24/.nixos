@@ -19,8 +19,9 @@
                 "dashboard"
                 "neo-tree"
                 "trouble"
-		"undotree"
-		"diff"
+                "undotree"
+                "diff"
+                "qf"
               ];
             };
           };
