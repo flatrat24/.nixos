@@ -24,6 +24,7 @@
     ./undotree
     ./vimtex
     ./web-devicons
+    ./which_key
     ./yazi
   ];
 }
