@@ -13,6 +13,7 @@
 
   ags.enable = false;
   school.enable = true;
+  nautilus.enable = true;
   waybar.enable = true;
   dunst.enable = true;
   mpv.enable = true;

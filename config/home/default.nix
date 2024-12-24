@@ -18,6 +18,7 @@
     ./modules/libreoffice
     ./modules/mpv
     ./modules/music
+    ./modules/nautilus
     ./modules/neovim
     ./modules/passwords
     ./modules/school
