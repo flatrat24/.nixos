@@ -62,6 +62,8 @@ in {
         bindd = [
           "$mod, slash, Set Current Course, exec, selectNewCourse"
           "$mod SHIFT, slash, Update Current Course, exec, courseTools --auto-course"
+          "$mod, period, Create Basic Figure, exec, courseTools --create-basic-figure"
+          "$mod SHIFT, period, Create Basic Lecture, exec, courseTools --create-basic-lecture"
           "$mod, comma, Open Course Bookmark, exec, openCourseBookmark"
           "$mod SHIFT, comma, Edit Current Lecture, exec, courseTools --edit-current-lecture"
         ];
