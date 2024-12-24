@@ -74,7 +74,8 @@
   neovim = {
     enable = true;
     plugins = {
-      telescope.enable = false;
+      telescope.enable = true;
+      fzf-lua.enable = false;
     };
   };
 
