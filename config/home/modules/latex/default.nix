@@ -1,13 +1,11 @@
 { pkgs, lib, config, ... }:
 let
-  dependencies = with pkgs; [
-    # (texlive.withPackages (ps: with ps; [
-    #   darkmode
-    #   circuitikz
-    #   latexmk
-    # ]))
-    # biber
-    texliveFull
+  tex = (pkgs.texlive.combine {
+    inherit (pkgs.texlive) scheme-full
+      darkmode;
+  });
+  dependencies = [
+    tex
   ];
 in {
   imports = [ ];
