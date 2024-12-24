@@ -3,7 +3,14 @@ let
   dependencies = with pkgs; [
     ibm-plex
     hyprlock
-  ];
+  ] ++ [ songDetails ];
+  songDetails = pkgs.writeShellApplication {
+    name = "songDetails.sh";
+    runtimeInputs = with pkgs; [
+      mpc-cli
+    ];
+    text = builtins.readFile ./sources/songDetails.sh;
+  };
 in {
   options = {
     hyprlock = {
@@ -53,7 +60,7 @@ in {
           # Current Date
           monitor = "";
           text = ''cmd[update:1000] echo "<span>$(date '+%A, %d %b')</span>"'';
-          color = "rgba(225, 225, 225, 0.75)";
+          color = "rgba(205, 214, 244, 0.75)";
           font_size = 50; # Was 25 before double for framework
           font_family = "IBM Plex Sans";
           position = "0, -75";
@@ -63,18 +70,21 @@ in {
           # Current Time
           monitor = "";
           text = ''cmd[update:1000] echo "$(date +'%H:%M')"'';
-          color = "rgba(250, 189, 47, .75)";
+          color = "rgba(250, 179, 135, .75)";
           font_size = 250; # Was 125 before double for framework
           font_family = "IBM Plex Sans";
           position = "0, -100";
           halign = "center";
           valign = "top";
-        }] ++ (if (config.music.mpd.enable == true) then [ # Make more options for different types of music if necessary. ALternatively, modify the script so it can dynamically find the name of the song regardless of the service through which the music is being played.
+        } {
+
+        } ] ++ (if (config.music.mpd.enable == true) then [ # Make more options for different types of music if necessary. ALternatively, modify the script so it can dynamically find the name of the song regardless of the service through which the music is being played.
           {
+            # MPD Song Status
             monitor = "";
-            text = "cmd[update:1000] echo $(/home/ea/.nixos/config/home/modules/hypr/sources/scripts/songDetails.sh)";
-            color = "rgba(235, 219, 178, .75)";
-            font_size = 40; # Was 20 before double for framework
+            text = "cmd[update:1000] songDetails.sh";
+            color = "rgba(255, 255, 255, .75)";
+            font_size = 20;
             font_family = "IBM Plex Sans";
             position = "0, 50";
             halign = "center";
@@ -86,9 +96,9 @@ in {
           monitor = "";
           rounding = -0.5;
           outline_thickness = 0;
-          outer_color = "rgba(0, 0, 0, 0)";
-          inner_color = "rgba(150, 150, 150, 0.35)";
-          font_color = "rgb(200, 200, 200)";
+          outer_color = "rgba(30, 30, 46, 0)";
+          inner_color = "rgba(49, 50, 58, 0.35)";
+          font_color = "rgb(205, 214, 244)";
 
           dots_size = 0.38; # Scale of input-field height, 0.2 - 0.8
           dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
@@ -100,12 +110,12 @@ in {
 
           check_color = "rgba(60, 56, 54, 0.5)";
 
-          fail_color = "rgba(204, 36, 29, 0.75)";
+          fail_color = "rgba(243, 139, 168, 0.75)";
           fail_text = "";
           fail_timeout = 2000;
           fail_transition = 300;
 
-          capslock_color = "rgba(250, 189, 47, 0.35)";
+          capslock_color = "rgba(249, 226, 175, 0.35)";
           numlock_color = -1;
           bothlock_color = -1;
 
