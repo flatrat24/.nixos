@@ -73,6 +73,9 @@
 
   neovim = {
     enable = true;
+    plugins = {
+      telescope.enable = false;
+    };
   };
 
   shell = {
