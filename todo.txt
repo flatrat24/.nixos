@@ -1,5 +1,3 @@
 SCHOOL
   - GET SOLIDWORKS WORKING
   - GET MATLAB WORKING
-  - Verify the following:
-    - Neovim works with latex documents
