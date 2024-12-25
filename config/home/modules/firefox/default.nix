@@ -70,6 +70,18 @@ let
       updateinterval = 24 * 60 * 60 * 1000; # every day
       definedAliases = [ "@wp" ];
     };
+    "Youtube" = {
+      urls = [{ template = "https://www.youtube.com/results?search_query={searchTerms}"; }];
+      iconupdateurl = "https://upload.wikimedia.org/wikipedia/commons/f/f6/Wikipedia-logo-v2-wordmark.svg";
+      updateinterval = 24 * 60 * 60 * 1000; # every day
+      definedAliases = [ "@yt" ];
+    };
+    "Stylix Handbook" = {
+      urls = [{ template = "https://stylix.danth.me/options/nixos.html?search={searchTerms}"; }];
+      iconupdateurl = "https://upload.wikimedia.org/wikipedia/commons/f/f6/Wikipedia-logo-v2-wordmark.svg";
+      updateinterval = 24 * 60 * 60 * 1000; # every day
+      definedAliases = [ "@stylix" ];
+    };
 
     "Amazon.com".metaData.hidden = true;
     "Bing".metaData.hidden = true;
@@ -173,6 +185,8 @@ in {
                 "Arch Wiki"
                 "Wikimedia Commons"
                 "Wikipedia"
+                "Youtube"
+                "Stylix Handbook"
               ];
             };
             settings = defaultSettings;
