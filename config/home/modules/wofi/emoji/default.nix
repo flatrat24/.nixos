@@ -1,5 +1,3 @@
-# TODO: Get wofi-emoji working with specified configs/styles
-
 { pkgs, lib, config, ... }:
 let
   dependencies = with pkgs; [
