@@ -25,10 +25,6 @@
 
   ##--- Hyprland ---##
   hyprland.enable = true;
-  dunst.enable = true;
-  waybar.enable = true;
-  waycorner.enable = true;
-  wlogout.enable = true;
 
   ##--- Applications ---###
   beeper.enable = true;
