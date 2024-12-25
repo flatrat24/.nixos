@@ -11,7 +11,7 @@
     fonts.fontconfig.enable = true;
 
     stylix = {
-      enable = true;
+      enable = lib.mkDefault true;
       autoEnable = false;
       image = ../../../assets/mountains.png;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
@@ -20,15 +20,24 @@
         gtk.enable = true;
       };
 
-      # iconTheme = {
-      #   enable = true;
-      #   package = pkgs.papirus-icon-theme;
-      # };
-      opacity = {
-        applications = 0.9;
-        desktop = 0.9;
-        popups = 0.9;
-        terminal = 0.9;
+      iconTheme = {
+        enable = true;
+        package = pkgs.catppuccin-papirus-folders;
+        light = "Papirus-Light";
+        dark = "Papirus-Dark";
+      };
+    };
+
+    gtk = lib.mkDefault {
+      enable = true;
+
+      gtk3.extraConfig = { gtk-application-prefer-dark-theme = 1; };
+      gtk4.extraConfig = { gtk-application-prefer-dark-theme = 1; };
+      
+      cursorTheme = lib.mkDefault {
+        name = "catppuccin-frappe-dark-cursors";
+        package = pkgs.catppuccin-cursors.frappeDark;
+        size = 24;
       };
     };
   };

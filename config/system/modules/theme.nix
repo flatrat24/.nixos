@@ -1,13 +1,13 @@
 { pkgs, lib, config, ... }: {
-  ### stylix.enable is already an option
-  # options = {
-  #   stylix.enable = lib.mkEnableOption "enables stylix";
-  # };
+  options = {
+    theme.enable = lib.mkEnableOption "enables theme";
+  };
 
-  config = lib.mkIf config.stylix.enable {
+  config = lib.mkIf config.theme.enable {
     fonts.fontDir.enable = true;
 
     stylix = {
+      enable = lib.mkDefault true;
       autoEnable = false;
       image = ../../assets/mountains.png;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
@@ -18,7 +18,6 @@
 
       targets = {
         console.enable = true;
-        grub.enable = false;
         gtk.enable = true;
         nixos-icons.enable = true;
       };
@@ -28,6 +27,7 @@
         package = pkgs.catppuccin-cursors.frappeDark;
         size = 24;
       };
+
       fonts = {
         serif = {
           name = "IBM Plex Serif";
