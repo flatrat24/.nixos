@@ -1,6 +1,5 @@
 { ... }: {
   imports = [
-    ./modules/ags
     ./modules/beeper
     ./modules/bookmarks
     ./modules/discord
@@ -13,7 +12,6 @@
     ./modules/gpg
     ./modules/hyprland
     ./modules/hyprlock
-    ./modules/importMusic
     ./modules/latex
     ./modules/libreoffice
     ./modules/mpv
