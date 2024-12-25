@@ -20,6 +20,8 @@ in {
           "wl-paste --type image --watch cliphist store"
           "wl-clip-persist --clipboard regular"
 
+          "hyprctl setcursor size 24"
+
           "[workspace 1 silent] foot -e ncmpcpp"
           "[workspace 2 silent] firefox"
           "[workspace 9 silent] beeper"
