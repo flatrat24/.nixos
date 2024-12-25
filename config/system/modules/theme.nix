@@ -29,15 +29,6 @@
         size = 24;
       };
       fonts = {
-        # packages = with pkgs; [
-        #   (pkgs.nerdfonts.override {
-        #     fonts = [
-        #       "IBMPlexMono"
-        #       "Iosevka"
-        #       "IosevkaTerm"
-        #     ];
-        #   })
-        # ];
         serif = {
           name = "IBM Plex Serif";
           package = pkgs.ibm-plex;
