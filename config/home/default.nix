@@ -28,6 +28,8 @@
     ./modules/teams
     ./modules/theme
     ./modules/waybar
+    ./modules/waycorner
+    ./modules/wlogout
     ./modules/wofi
     ./modules/yazi
     ./modules/zathura
