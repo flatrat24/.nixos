@@ -11,69 +11,54 @@
     stateVersion = "24.05";
   };
 
-  ags.enable = false;
-  school.enable = true;
-  nautilus.enable = true;
-  waycorner.enable = true;
-  waybar.enable = true;
-  wlogout.enable = true;
+  ##--- Hardware ---##
+  input = {
+    touchpad.enable = true;
+    keyboard = {
+      formFactor = "ANSI";
+    };
+  };
+  monitors = {
+    microstepMSI.enable = false;
+    framework.enable = true;
+  };
+
+  ##--- Hyprland ---##
+  hyprland.enable = true;
   dunst.enable = true;
-  mpv.enable = true;
-  latex.enable = true;
+  waybar.enable = true;
+  waycorner.enable = true;
+  wlogout.enable = true;
 
-  bookmarks.enable = true;
+  ##--- Applications ---###
   beeper.enable = true;
-
   discord.enable = true;
+  firefox.enable = true;
+  foot.enable = true;
+  libreoffice.enable = true;
+  mpv.enable = true;
+  nautilus.enable = true;
+  slack.enable = true;
+  swayimg.enable = true;
+  teams.enable = true;
+  zathura.enable = true;
+  zoom.enable = true;
 
+  ##--- Scripting Modules ---##
+  bookmarks.enable = true;
+  school.enable = true;
+
+  ##--- Other ---##
   gpg.enable = true;
-
+  latex.enable = true;
   email = {
     enable = true;
     thunderbird.enable = true;
   };
-
-  firefox.enable = true;
-  foot.enable = true;
-
-  gaming = {
-    enable = false;
-  };
-  
-  slack.enable = true;
-  teams.enable = true;
-  zoom.enable = true;
-  libreoffice.enable = true;
+  gaming.enable = false;
   git.enable = true;
-
-  hyprland = {
-    enable = true;
-    hyprpaper = {
-      enable = true;
-      wallpaper = ../../config/assets/mountains.png;
-    };
-    animations = {
-      enable = true;
-    };
-  };
-
-  importMusic.enable = false;
-
-  passwords = {
-    enable = true;
-    keepass.enable = true;
-    pass.enable = true;
-  };
-
-  music = {
-    enable = true;
-    mpd = {
-      enable = true;
-      ncmpcpp.enable = true;
-    };
-    importMusic.enable = true;
-  };
-
+  passwords.enable = true;
+  music.enable = true;
   neovim = {
     enable = true;
     plugins = {
@@ -81,30 +66,10 @@
       fzf-lua.enable = false;
     };
   };
-
-  shell = {
-    enable = true;
-    bash.enable = true;
-    zsh.enable = true;
-  };
-
-  swayimg.enable = true;
+  shell.enable = true;
   theme.enable = true;
   yazi.enable = true;
-  zathura.enable = true;
   zellij.enable = true;
-
-  input = {
-    touchpad.enable = true;
-    keyboard = {
-      formFactor = "ANSI";
-    };
-  };
-
-  monitors = {
-    microstepMSI.enable = false;
-    framework.enable = true;
-  };
 
   xdg.userDirs = {
     enable = true;

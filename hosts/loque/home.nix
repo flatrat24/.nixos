@@ -11,96 +11,65 @@
     stateVersion = "24.05";
   };
   
-  ags.enable = false;
-  waybar.enable = false;
-
-  discord.enable = true;
-
-  gpg.enable = true;
-
-  email = {
-    enable = true;
-    thunderbird.enable = true;
-  };
-
-  bookmarks.enable = true;
-  beeper.enable = true;
-
-  firefox.enable = true;
-  foot.enable = true;
-
-  gaming = {
-    enable = true;
-  };
-
-  slack.enable = true;
-  teams.enable = true;
-  git.enable = true;
-  libreoffice.enable = true;
-
-  hypr = {
-    enable = true;
-    hyprpaper = {
-      enable = true;
-      wallpaper = ../../config/assets/mountains.png;
-    };
-    animations = {
-      enable = true;
-    };
-  };
-
-  importMusic.enable = false;
-
-  passwords = {
-    enable = true;
-    keepass.enable = true;
-    pass.enable = true;
-  };
-
-  music = {
-    enable = true;
-    mpd = {
-      enable = true;
-      ncmpcpp.enable = true;
-    };
-    importMusic.enable = true;
-  };
-
-  neovim = {
-    enable = true;
-    nixvim.enable = false;
-    lua.enable = true;
-  };
-
-  shell = {
-    enable = true;
-    bash.enable = true;
-    zsh.enable = true;
-  };
-
-  swayimg.enable = true;
-  theme.enable = true;
-
-  wofi = {
-    enable = true;
-    emoji.enable = false;
-  };
-
-  yazi.enable = true;
-  zathura.enable = true;
-  zellij.enable = true;
-
+  ##--- Hardware ---##
   input = {
-    touchpad.enable = false;
+    touchpad.enable = true;
     keyboard = {
       formFactor = "mac";
     };
   };
-
   monitors = {
     microstepMSI.enable = true;
     framework.enable = false;
   };
+
+  ##--- Hyprland ---##
+  hyprland.enable = true;
+  dunst.enable = true;
+  waybar.enable = true;
+  waycorner.enable = true;
+  wlogout.enable = true;
+
+  ##--- Applications ---###
+  beeper.enable = true;
+  discord.enable = true;
+  firefox.enable = true;
+  foot.enable = true;
+  libreoffice.enable = true;
+  mpv.enable = true;
+  nautilus.enable = false;
+  slack.enable = true;
+  swayimg.enable = true;
+  teams.enable = true;
+  zathura.enable = true;
+  zoom.enable = true;
+
+  ##--- Scripting Modules ---##
+  bookmarks.enable = true;
+  school.enable = true;
+
+  ##--- Other ---##
+  gpg.enable = true;
+  latex.enable = true;
+  email = {
+    enable = true;
+    thunderbird.enable = true;
+  };
+  gaming.enable = true;
+  git.enable = true;
+  passwords.enable = true;
+  music.enable = true;
+  neovim = {
+    enable = true;
+    plugins = {
+      telescope.enable = true;
+      fzf-lua.enable = false;
+    };
+  };
+  shell.enable = true;
+  theme.enable = true;
+  yazi.enable = true;
+  zellij.enable = true;
 
   xdg.userDirs = {
     enable = true;

@@ -18,9 +18,9 @@
   power.enable          = false;
   printing.enable       = false;
   sddm.enable           = true;
-  stylix.enable         = true;
   syncthing.enable      = true;
   system76.enable       = false;
+  theme.enable          = true;
 
   users.users.ea = {
     isNormalUser = true;
