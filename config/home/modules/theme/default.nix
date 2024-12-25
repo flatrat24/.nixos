@@ -28,17 +28,9 @@
       };
     };
 
-    gtk = lib.mkDefault {
-      enable = true;
-
-      gtk3.extraConfig = { gtk-application-prefer-dark-theme = 1; };
-      gtk4.extraConfig = { gtk-application-prefer-dark-theme = 1; };
-      
-      cursorTheme = lib.mkDefault {
-        name = "catppuccin-frappe-dark-cursors";
-        package = pkgs.catppuccin-cursors.frappeDark;
-        size = 24;
-      };
-    };
+    # home.pointerCursor.hyprcursor = {
+    #   enable = true;
+    #   size = 24;
+    # };
   };
 }
