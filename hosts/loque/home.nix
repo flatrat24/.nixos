@@ -44,6 +44,18 @@
   bookmarks.enable = true;
   school.enable = true;
 
+  ##--- Gaming ---##
+  gaming = {
+    enable = true;
+    minecraft.enable = true;
+    mindustry.enable = true;
+    launchers = {
+      bottles.enable = true;
+      heroic.enable = true;
+      lutris.enable = true;
+    };
+  };
+
   ##--- Other ---##
   gpg.enable = true;
   latex.enable = true;
@@ -51,7 +63,6 @@
     enable = true;
     thunderbird.enable = true;
   };
-  gaming.enable = true;
   git.enable = true;
   passwords.enable = true;
   music.enable = true;
