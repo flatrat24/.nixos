@@ -76,6 +76,24 @@ let
       updateinterval = 24 * 60 * 60 * 1000; # every day
       definedAliases = [ "@yt" ];
     };
+    "Last.fm" = {
+      urls = [{ template = "https://www.last.fm/search?q={searchTerms}"; }];
+      iconupdateurl = "https://upload.wikimedia.org/wikipedia/commons/f/f6/Wikipedia-logo-v2-wordmark.svg";
+      updateinterval = 24 * 60 * 60 * 1000; # every day
+      definedAliases = [ "@ml" ];
+    };
+    "Album of the Year" = {
+      urls = [{ template = "https://www.albumoftheyear.org/search/?q={searchTerms}"; }];
+      iconupdateurl = "https://upload.wikimedia.org/wikipedia/commons/f/f6/Wikipedia-logo-v2-wordmark.svg";
+      updateinterval = 24 * 60 * 60 * 1000; # every day
+      definedAliases = [ "@ma" ];
+    };
+    "Rate Your Music" = {
+      urls = [{ template = "https://rateyourmusic.com/search?searchterm={searchTerms}&searchtype="; }];
+      iconupdateurl = "https://upload.wikimedia.org/wikipedia/commons/f/f6/Wikipedia-logo-v2-wordmark.svg";
+      updateinterval = 24 * 60 * 60 * 1000; # every day
+      definedAliases = [ "@mr" ];
+    };
     "Stylix Handbook" = {
       urls = [{ template = "https://stylix.danth.me/options/nixos.html?search={searchTerms}"; }];
       iconupdateurl = "https://upload.wikimedia.org/wikipedia/commons/f/f6/Wikipedia-logo-v2-wordmark.svg";
@@ -186,6 +204,9 @@ in {
                 "Wikimedia Commons"
                 "Wikipedia"
                 "Youtube"
+                "Rate Your Music"
+                "Album of the Year"
+                "Last.fm"
                 "Stylix Handbook"
               ];
             };
