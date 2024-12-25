@@ -21,8 +21,8 @@
         ];
         binded = [
           ##### Screenshots #####
-          ", XF86KbdBrightnessUp, Screenshot (Select Area), exec, grimblast --notify copysave area"
-          "$mod SHIFT, XF86KbdBrightnessUp, Screenshot (Entire Screen), exec, grimblast --notify copysave screen"
+          '', XF86KbdBrightnessUp, Screenshot (Select Area), exec, hyprshot --mode region --output-folder ~/Downloads''
+          ''$mod SHIFT, XF86KbdBrightnessUp, Screenshot (Entire Screen), exec,  hyprshot --mode output --mode active --output-folder ~/Downloads''
         ];
         bindeld = [
           ##### Volume Controls #####
@@ -40,7 +40,7 @@
           ", XF86MonBrightnessUp, Increase Screen Brightness, exec, brightnessctl s +2%"
 
           ##### Screenshots #####
-          "$mod, XF86KbdBrightnessUp, Screenshot (Focused Window), exec, grimblast --notify copysave active"
+          ''$mod, XF86KbdBrightnessUp, Screenshot (Focused Window), exec,  hyprshot --mode window --output-folder ~/Downloads''
         ];
         bindld = [
           ##### MPD Controls #####
@@ -59,8 +59,8 @@
         ];
         binded = [
           ##### Screenshots #####
-          ", F11, Screenshot (Select Area), exec, grimblast --notify copysave area"
-          "$mod SHIFT, F11, Screenshot (Entire Screen), exec, grimblast --notify copysave screen"
+          '', F11, Screenshot (Select Area), exec, hyprshot --mode region --output-folder ~/Downloads''
+          ''$mod SHIFT, F11, Screenshot (Entire Screen), exec,  hyprshot --mode output --mode active --output-folder ~/Downloads''
         ];
         bindeld = [
           ##### Volume Controls #####
@@ -78,7 +78,7 @@
           ", F8, Increase Screen Brightness, exec, brightnessctl s +2%"
 
           ##### Screenshots #####
-          "$mod, F11, Screenshot (Focused Window), exec, grimblast --notify copysave active"
+          ''$mod, F11, Screenshot (Focused Window), exec,  hyprshot --mode window --output-folder ~/Downloads''
         ];
         bindld = [
           ##### MPD Controls #####

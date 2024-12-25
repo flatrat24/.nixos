@@ -7,7 +7,6 @@ let
     hypridle
     hyprpicker
     hyprshade
-    grimblast
     libnotify
     rofi-wayland
     pamixer
