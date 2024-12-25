@@ -36,7 +36,7 @@ let
       definedAliases = [ "@nd" ];
     };
     "My NixOS" = {
-      urls = [{ template = "https://mynixos.com/search?q={searchterms}"; }];
+      urls = [{ template = "https://mynixos.com/search?q={searchTerms}"; }];
       icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
       definedAliases = [ "@nm" ];
     };
@@ -70,6 +70,14 @@ let
       updateinterval = 24 * 60 * 60 * 1000; # every day
       definedAliases = [ "@wp" ];
     };
+
+    "Amazon.com".metaData.hidden = true;
+    "Bing".metaData.hidden = true;
+    "DuckDuckGo".metaData.hidden = true;
+    "eBay".metaData.hidden = true;
+    "google".metaData.hidden = true;
+    "Google".metaData.hidden = true;
+    "Wikipedia (en)".metaData.hidden = true;
   };
   defaultSettings = {
     # Disable irritating first-run stuff
