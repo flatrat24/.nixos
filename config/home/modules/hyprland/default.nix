@@ -30,6 +30,11 @@ in {
 
   config = lib.mkIf config.hyprland.enable (lib.mkMerge [
     {
+      dunst.enable = lib.mkDefault true;
+      waybar.enable = lib.mkDefault true;
+      waycorner.enable = lib.mkDefault true;
+      wlogout.enable = lib.mkDefault true;
+
       home.packages = dependencies;
 
       wayland.windowManager.hyprland = {
