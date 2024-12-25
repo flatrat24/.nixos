@@ -12,7 +12,7 @@
     ./modules/power.nix
     ./modules/printing.nix
     ./modules/sddm.nix
-    ./modules/stylix.nix
+    ./modules/theme.nix
     ./modules/syncthing.nix
     ./modules/system76.nix
   ];
