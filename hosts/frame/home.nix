@@ -14,7 +14,9 @@
   ags.enable = false;
   school.enable = true;
   nautilus.enable = true;
+  waycorner.enable = true;
   waybar.enable = true;
+  wlogout.enable = true;
   dunst.enable = true;
   mpv.enable = true;
   latex.enable = true;
