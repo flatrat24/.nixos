@@ -5,7 +5,7 @@ let
   ];
   fzfAliases = lib.mkMerge [
     {
-      "fh" = "fc -ln 1 | fzf | wl-copy"; # TODO: make the copy util universal, not just wl-copy
+      "fh" = "fc -ln 1 | fzf | wl-copy";
     }
     (lib.mkIf config.neovim.enable {
       "fv" = "nvim $(ff)";
