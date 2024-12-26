@@ -244,6 +244,10 @@ in {
         "float,class:firefox,title:Picture-in-Picture"
         "size 50% 50%,class:firefox,title:Picture-in-Picture"
         "move 25% 25%,class:firefox,title:Picture-in-Picture"
+
+        "float,class:firefox,title:File Upload"
+        "size 40% 40%,class:firefox,title:File Upload"
+        "move 40% 40%,class:firefox,title:File Upload"
       ];
     })
   ]);
