@@ -1,24 +1,24 @@
 #!/usr/bin/env bash
 
 # get the bookmarks from the current course's info.json file
-mapfile -t messages< <(jq --sort-keys -r '.bookmarks | keys[]' "$(courseInfo --path)"/info.json)
-mapfile -t commands< <(jq --sort-keys -r '.bookmarks[]' "$(courseInfo --path)"/info.json | sed "s/^\(.*\)$/xdg-open '\1'/")
+mapfile -t messages< <(jq --sort-keys -r '.bookmarks | keys[]' "$(courseInfo.sh --path)"/info.json)
+mapfile -t commands< <(jq --sort-keys -r '.bookmarks[]' "$(courseInfo.sh --path)"/info.json | sed "s/^\(.*\)$/xdg-open '\1'/")
 
 # add generic 'bookmarks' that apply to all courses
 messages+=("Open in Terminal")
-commands+=("$TERM -D $(courseInfo --path)")
+commands+=("$TERM -D $(courseInfo.sh --path)")
 
 messages+=("Open in File Browser")
-commands+=("xdg-open '$(courseInfo --path)'")
+commands+=("xdg-open '$(courseInfo.sh --path)'")
 
 messages+=("View Course Notes (Full Compile)")
-commands+=("courseTools --update-main-full && cd $(courseInfo --path)/notes && pdflatex --shell-escape ./main.tex && pdflatex --shell-escape ./main.tex && courseTools -c && xdg-open ./main.pdf")
+commands+=("courseTools.sh --update-main-full && cd $(courseInfo.sh --path)/notes && pdflatex --shell-escape ./main.tex && pdflatex --shell-escape ./main.tex && courseTools.sh -c && xdg-open ./main.pdf")
 
 messages+=("View Course Notes (Don't Compile)")
-commands+=("xdg-open $(courseInfo --path)/notes/main.pdf")
+commands+=("xdg-open $(courseInfo.sh --path)/notes/main.pdf")
 
 messages+=("Clean Directory")
-commands+=("courseTools -C")
+commands+=("courseTools.sh -C")
 
 # ask wofi to select one of them, and return the number of the selection
 selection=$(printf "%s\n" "${messages[@]}" | wofi --define=dmenu-print_line_num=true --define=lines=10 --prompt="course bookmarks" -d)

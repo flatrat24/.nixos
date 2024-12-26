@@ -7,36 +7,36 @@ let
     openCourseBookmark
   ];
   selectNewCourse = pkgs.writeShellApplication {
-    name = "selectNewCourse";
+    name = "selectNewCourse.sh";
     runtimeInputs = [
       courseInfo
       courseTools
       pkgs.wofi
     ];
-    text = builtins.readFile ./sources/selectNewCourse;
+    text = builtins.readFile ./sources/selectNewCourse.sh;
   };
   openCourseBookmark = pkgs.writeShellApplication {
-    name = "openCourseBookmark";
+    name = "openCourseBookmark.sh";
     runtimeInputs = [
       courseInfo
       courseTools
       pkgs.wofi
     ];
-    text = builtins.readFile ./sources/openCourseBookmark;
+    text = builtins.readFile ./sources/openCourseBookmark.sh;
   };
   courseInfo = pkgs.writeShellApplication {
-    name = "courseInfo";
+    name = "courseInfo.sh";
     runtimeInputs = with pkgs; [
       jq
     ];
-    text = builtins.readFile ./sources/courseInfo;
+    text = builtins.readFile ./sources/courseInfo.sh;
   };
   courseTools = pkgs.writeShellApplication {
-    name = "courseTools";
+    name = "courseTools.sh";
     runtimeInputs = with pkgs; [
       jq
     ];
-    text = builtins.readFile ./sources/courseTools;
+    text = builtins.readFile ./sources/courseTools.sh;
   };
 in {
   imports = [ ];
@@ -60,12 +60,12 @@ in {
     (lib.mkIf config.hyprland.enable {
       wayland.windowManager.hyprland.settings = {
         bindd = [
-          "$mod, slash, Set Current Course, exec, selectNewCourse"
-          "$mod SHIFT, slash, Update Current Course, exec, courseTools --auto-course"
-          "$mod, period, Create Basic Figure, exec, courseTools --create-basic-figure"
-          "$mod SHIFT, period, Create Basic Lecture, exec, courseTools --create-basic-lecture"
-          "$mod, comma, Open Course Bookmark, exec, openCourseBookmark"
-          "$mod SHIFT, comma, Edit Current Lecture, exec, courseTools --edit-current-lecture"
+          "$mod, slash, Set Current Course, exec, selectNewCourse.sh"
+          "$mod SHIFT, slash, Update Current Course, exec, courseTools.sh --auto-course"
+          "$mod, period, Create Basic Figure, exec, courseTools.sh --create-basic-figure"
+          "$mod SHIFT, period, Create Basic Lecture, exec, courseTools.sh --create-basic-lecture"
+          "$mod, comma, Open Course Bookmark, exec, openCourseBookmark.sh"
+          "$mod SHIFT, comma, Edit Current Lecture, exec, courseTools.sh --edit-current-lecture"
         ];
       };
     })

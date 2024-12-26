@@ -6,8 +6,8 @@ directories=()
 messages=()
 while IFS= read -r dir; do
   directories+=("$dir")
-  messages+=("$(courseInfo "$dir" --title) <span weight='light' style='italic'>($(basename "$dir"))</span>")
-done < <(courseInfo --list-active)
+  messages+=("$(courseInfo.sh "$dir" --title) <span weight='light' style='italic'>($(basename "$dir"))</span>")
+done < <(courseInfo.sh --list-active)
 
 # ask wofi to select one of them, and return the number of the selection
 selection=$(printf "%s\n" "${messages[@]}" | wofi --define=dmenu-print_line_num=true --define=lines=7 --prompt="set current course" -d)
@@ -24,4 +24,4 @@ tmpVar="${directories[$selection]}"
 newCurrentCourse=${tmpVar//"$HOME/"/}
 
 # link the new current course to the CURRENTCOURSE symlink directory
-courseTools --set-course "$(echo -n "$newCurrentCourse")"
+courseTools.sh --set-course "$(echo -n "$newCurrentCourse")"
