@@ -7,25 +7,7 @@ let
     ];
     text = builtins.readFile ./sources/bookmarks.sh;
   };
-  # addBookmark = pkgs.writeShellApplication {
-  #   name = "addBookmark.sh";
-  #   runtimeInputs = [
-  #     pkgs.wofi
-  #     pkgs.jq
-  #   ];
-  #   text = builtins.readFile ./sources/addBookmark.sh;
-  # };
-  # openBookmark = pkgs.writeShellApplication {
-  #   name = "openBookmark.sh";
-  #   runtimeInputs = [
-  #     pkgs.wofi
-  #     pkgs.jq
-  #   ];
-  #   text = builtins.readFile ./sources/openBookmark.sh;
-  # };
   dependencies = [
-    # openBookmark
-    # addBookmark
     bookmarks
   ];
 in {
