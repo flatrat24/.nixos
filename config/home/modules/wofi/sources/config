@@ -1,6 +1,5 @@
 style         = /home/ea/.config/wofi/styles/default.css
 color         = /home/ea/.config/wofi/colors/mocha.css
-show          = drun
 width         = 25%
 height        = 35%
 prompt        = run
