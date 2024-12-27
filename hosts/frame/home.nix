@@ -34,6 +34,7 @@
   libreoffice.enable = true;
   mpv.enable = true;
   nautilus.enable = true;
+  obs.enable = true;
   slack.enable = true;
   swayimg.enable = true;
   teams.enable = true;

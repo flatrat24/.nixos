@@ -18,6 +18,7 @@
     ./modules/music
     ./modules/nautilus
     ./modules/neovim
+    ./modules/obs
     ./modules/passwords
     ./modules/school
     ./modules/shell
