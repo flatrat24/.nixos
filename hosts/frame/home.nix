@@ -35,6 +35,7 @@
   mpv.enable = true;
   nautilus.enable = true;
   obs.enable = true;
+  overskride.enable = true;
   slack.enable = true;
   swayimg.enable = true;
   teams.enable = true;
@@ -75,6 +76,7 @@
     };
   };
   shell.enable = true;
+  poweralertd.enable = true;
   theme.enable = true;
   yazi.enable = true;
   zellij.enable = true;

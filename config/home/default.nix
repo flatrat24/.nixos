@@ -19,7 +19,9 @@
     ./modules/nautilus
     ./modules/neovim
     ./modules/obs
+    ./modules/overskride
     ./modules/passwords
+    ./modules/poweralertd
     ./modules/school
     ./modules/shell
     ./modules/slack
