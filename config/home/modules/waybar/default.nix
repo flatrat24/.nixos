@@ -15,7 +15,7 @@ in {
       home.file = {
         ".config/waybar" = {
           source = ./sources;
-          executable = true;
+          executable = false;
           recursive = true;
         };
       };
