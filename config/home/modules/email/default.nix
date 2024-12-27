@@ -98,10 +98,12 @@ in {
       }
       (lib.mkIf config.hyprland.windowRules.enable {
         wayland.windowManager.hyprland.settings.windowrulev2 = [
+          # Sign in
           "float,title:(Sign in to your account)(.*),class:thunderbird"
           "size 50% 50%,title:(Sign in to your account)(.*),class:thunderbird"
-          "move 25% 25%,title:(Sign in to your account)(.*),class:thunderbird"
+          "center 1,title:(Sign in to your account)(.*),class:thunderbird"
 
+          # Subscribing to a new calendar
           "float,title:Create New Calendar,class:thunderbird"
           "size 50% 50%,title:Create New Calendar,class:thunderbird"
           "center 1,title:Create New Calendar,class:thunderbird"
