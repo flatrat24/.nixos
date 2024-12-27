@@ -7,6 +7,7 @@ let
     figlet
     pipes
     cbonsai
+    chafa
   ];
   cosmeticsAliases = { };
 in {
