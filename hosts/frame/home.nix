@@ -76,7 +76,7 @@
     };
   };
   shell.enable = true;
-  poweralertd.enable = true;
+  power.enable = true;
   theme.enable = true;
   yazi.enable = true;
   zellij.enable = true;

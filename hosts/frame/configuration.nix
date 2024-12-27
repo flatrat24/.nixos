@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   networking.hostName = "leoito";
 
   imports = [
@@ -15,7 +15,7 @@
   network.enable        = true;
   nvidia.enable         = false;
   pipewire.enable       = true;
-  power.enable          = false;
+  power.enable          = true;
   printing.enable       = false;
   sddm.enable           = true;
   syncthing.enable      = true;
@@ -28,7 +28,6 @@
     description = "Ethan Anthony";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
-    packages = with pkgs; [ ];
   };
 
   system.stateVersion = "24.05"; # Did you read the comment?
