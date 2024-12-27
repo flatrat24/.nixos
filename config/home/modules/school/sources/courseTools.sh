@@ -51,7 +51,7 @@ if [[ -d "$1" ]]; then
     exit 1
   fi
 else
-  courseDirectory=$(courseInfo --path)
+  courseDirectory=$(courseInfo.sh --path)
 fi
 
 if ! VALID_ARGS=$(getopt -o hcCf:Fl:Las: --long clean,full-clean,create-figure:,create-basic-figure,create-lecture:,create-basic-lecture,auto-course,set-course:,update-main-full,update-main-new:,update-main-old:,edit-current-lecture -- "$@")
@@ -88,7 +88,7 @@ while [ "$#" -gt 0 ]; do
     -f | --create-figure)
       templatePath="$2"
       if [[ -f "$CURRENTQUARTER/xlatex/templates/figure/$(basename "$templatePath")" ]]; then
-        newPath="$(courseInfo --next-figure)"
+        newPath="$(courseInfo.sh --next-figure)"
         cp "$templatePath" "$newPath"
 
         titleLineNumber=$(grep -n "\\\title{" "$newPath" | cut -d : -f 1)
@@ -99,7 +99,7 @@ while [ "$#" -gt 0 ]; do
         newDate=$(date +"%B %d, %Y")
         sed -i "$((dateLineNumber))s/\(\\\date{\).*\(}\)/\1$newDate\2/" "$newPath"
 
-        notify-send "Figure Created in $(courseInfo --short)" "$(basename "$newPath")"
+        notify-send "Figure Created in $(courseInfo.sh --short)" "$(basename "$newPath")"
       else
         echo "Error: template doesn't exist"
         exit 1
@@ -111,7 +111,7 @@ while [ "$#" -gt 0 ]; do
     -F | --create-basic-figure)
       templatePath="$CURRENTQUARTER/xlatex/templates/figure/basic_figure.tex"
       if [[ -f "$templatePath" ]]; then
-        newPath="$(courseInfo --next-figure)"
+        newPath="$(courseInfo.sh --next-figure)"
         cp "$templatePath" "$newPath"
 
         titleLineNumber=$(grep -n "\\\title{" "$newPath" | cut -d : -f 1)
@@ -122,7 +122,7 @@ while [ "$#" -gt 0 ]; do
         newDate=$(date +"%B %d, %Y")
         sed -i "$((dateLineNumber))s/\(\\\date{\).*\(}\)/\1$newDate\2/" "$newPath"
 
-        notify-send "Figure Created in $(courseInfo --short)" "$(basename "$newPath")"
+        notify-send "Figure Created in $(courseInfo.sh --short)" "$(basename "$newPath")"
       else
         echo "Error: basic_figure.tex doesn't exist"
         exit 1
@@ -133,7 +133,7 @@ while [ "$#" -gt 0 ]; do
     -l | --create-lecture)
       templatePath="$(pwd)/$2"
       if [[ -f "$CURRENTQUARTER/xlatex/templates/lecture/$(basename "$templatePath")" ]]; then
-        newPath="$(courseInfo --next-lecture)"
+        newPath="$(courseInfo.sh --next-lecture)"
         cp "$templatePath" "$newPath"
 
         titleLineNumber=$(grep -n "\\\title{" "$newPath" | cut -d : -f 1)
@@ -144,7 +144,7 @@ while [ "$#" -gt 0 ]; do
         newDate=$(date +"%B %d, %Y")
         sed -i "$((dateLineNumber))s/\(\\\date{\).*\(}\)/\1$newDate\2/" "$newPath"
 
-        notify-send "Lecture Created in $(courseInfo -short)" "$(basename "$newPath")"
+        notify-send "Lecture Created in $(courseInfo.sh -short)" "$(basename "$newPath")"
       else
         echo "Error: template doesn't exist"
         exit 1
@@ -156,7 +156,7 @@ while [ "$#" -gt 0 ]; do
     -L | --create-basic-lecture)
       templatePath="$CURRENTQUARTER/xlatex/templates/lecture/basic_lecture.tex"
       if [[ -f "$templatePath" ]]; then
-        newPath="$(courseInfo --next-lecture)"
+        newPath="$(courseInfo.sh --next-lecture)"
         cp "$templatePath" "$newPath"
 
         titleLineNumber=$(grep -n "\\\title{" "$newPath" | cut -d : -f 1)
@@ -167,7 +167,7 @@ while [ "$#" -gt 0 ]; do
         newDate=$(date +"%B %d, %Y")
         sed -i "$((dateLineNumber))s/\(\\\date{\).*\(}\)/\1$newDate\2/" "$newPath"
 
-        notify-send "Lecture Created in $(courseInfo --short)" "$(basename "$newPath")"
+        notify-send "Lecture Created in $(courseInfo.sh --short)" "$(basename "$newPath")"
       else
         echo "Error: basic_lecture.tex doesn't exist"
         exit 1
@@ -183,19 +183,19 @@ while [ "$#" -gt 0 ]; do
 
       mapfile -t coursePaths < <(find "$CURRENTQUARTER" -mindepth 1 -maxdepth 1 -type d ! -name xlatex)
       for path in "${coursePaths[@]}"; do
-        start=$(courseInfo "$path" --start)
-        end=$(courseInfo "$path" --end)
-        days="$(courseInfo "$path" --days)"
+        start=$(courseInfo.sh "$path" --start)
+        end=$(courseInfo.sh "$path" --end)
+        days="$(courseInfo.sh "$path" --days)"
 
         if [[ $start -le $time && $end -gt $time && $days =~ $day ]]; then
           newCourseDirectory="$path"
           break
         fi
 
-        if [[ "$(courseInfo "$path" --has-lab)" = true ]]; then
-          labStart=$(courseInfo "$path" --lab-start)
-          labEnd=$(courseInfo "$path" --lab-end)
-          labDays="$(courseInfo "$path" --lab-days)"
+        if [[ "$(courseInfo.sh "$path" --has-lab)" = true ]]; then
+          labStart=$(courseInfo.sh "$path" --lab-start)
+          labEnd=$(courseInfo.sh "$path" --lab-end)
+          labDays="$(courseInfo.sh "$path" --lab-days)"
 
           if [[ $labStart -le $time && $labEnd -gt $time && $labDays =~ $day ]]; then
             newCourseDirectory="$path"
@@ -206,12 +206,12 @@ while [ "$#" -gt 0 ]; do
 
       if [ -d "$newCourseDirectory" ]; then
         ln -sfn "$newCourseDirectory" "$CURRENTCOURSE"
-        title=$(courseInfo -t)
-        short=$(courseInfo -s)
+        title=$(courseInfo.sh -t)
+        short=$(courseInfo.sh -s)
         notify-send "Current Course Changed" "$short - $title"
       else
-        title=$(courseInfo -t)
-        short=$(courseInfo -s)
+        title=$(courseInfo.sh -t)
+        short=$(courseInfo.sh -s)
         notify-send "Current Course Unchanged" "$short - $title"
       fi
       shift
@@ -223,15 +223,15 @@ while [ "$#" -gt 0 ]; do
       # verify that it's a real course directory
       if [ ! -f "$newCourseDirectory/info.json" ]; then
         echo "Error: Directory does not contain an info.json file."
-        title=$(courseInfo --title)
-        short=$(courseInfo --short)
+        title=$(courseInfo.sh --title)
+        short=$(courseInfo.sh --short)
         notify-send "Current Course Unchanged" "$short - $title"
         exit 1
       fi
 
       ln -sfn "$newCourseDirectory" "$CURRENTCOURSE"
-      title=$(courseInfo --title)
-      short=$(courseInfo --short)
+      title=$(courseInfo.sh --title)
+      short=$(courseInfo.sh --short)
       notify-send "Current Course Changed" "$short - $title"
 
       shift
@@ -256,7 +256,7 @@ while [ "$#" -gt 0 ]; do
       if ! [[ $((startLineNumber + 1)) -eq $((endLineNumber)) ]]; then
         sed -i "$((startLineNumber + 1)),$((endLineNumber - 1))d" "$courseDirectory/notes/main.tex"
       fi
-      mapfile -t fileNames < <(find "$(courseInfo --path)/notes" -mindepth 1 -maxdepth 1 -name '*.tex' ! -name 'main.tex' | sed 's/.*\/\([^\.]*\)\.tex/\1/' | sort)
+      mapfile -t fileNames < <(find "$(courseInfo.sh --path)/notes" -mindepth 1 -maxdepth 1 -name '*.tex' ! -name 'main.tex' | sed 's/.*\/\([^\.]*\)\.tex/\1/' | sort)
       for i in "${!fileNames[@]}"; do
         sed -i "$((startLineNumber + 1 + i))i\  \\\input{${fileNames[$i]}}" "$courseDirectory/notes/main.tex"
       done
@@ -282,7 +282,7 @@ while [ "$#" -gt 0 ]; do
         sed -i "$((startLineNumber + 1)),$((endLineNumber - 1))d" "$courseDirectory/notes/main.tex"
       fi
       n=$2
-      mapfile -t fileNames < <(find "$(courseInfo --path)/notes" -mindepth 1 -maxdepth 1 -name '*.tex' ! -name 'main.tex' | sed 's/.*\/\([^\.]*\)\.tex/\1/' | sort)
+      mapfile -t fileNames < <(find "$(courseInfo.sh --path)/notes" -mindepth 1 -maxdepth 1 -name '*.tex' ! -name 'main.tex' | sed 's/.*\/\([^\.]*\)\.tex/\1/' | sort)
       if [[ ${#fileNames[@]} -gt $n ]]; then
         for i in $(seq 0 $((n - 1))); do
           sed -i "$((startLineNumber + 1 + i))i\  \\\input{${fileNames[$((${#fileNames[@]} - n + i))]}}" "$courseDirectory/notes/main.tex"
@@ -315,7 +315,7 @@ while [ "$#" -gt 0 ]; do
         sed -i "$((startLineNumber + 1)),$((endLineNumber - 1))d" "$courseDirectory/notes/main.tex"
       fi
       n=$2
-      mapfile -t fileNames < <(find "$(courseInfo --path)/notes" -mindepth 1 -maxdepth 1 -name '*.tex' ! -name 'main.tex' | sed 's/.*\/\([^\.]*\)\.tex/\1/' | sort)
+      mapfile -t fileNames < <(find "$(courseInfo.sh --path)/notes" -mindepth 1 -maxdepth 1 -name '*.tex' ! -name 'main.tex' | sed 's/.*\/\([^\.]*\)\.tex/\1/' | sort)
       if [[ ${#fileNames[@]} -gt $n ]]; then
         for i in $(seq 0 $((n - 1))); do
           sed -i "$((startLineNumber + 1 + i))i\  \\\input{${fileNames[$i]}}" "$courseDirectory/notes/main.tex"
@@ -330,7 +330,7 @@ while [ "$#" -gt 0 ]; do
       ;;
 
     --edit-current-lecture)
-      lecturePath=$(courseInfo --last-lecture)
+      lecturePath=$(courseInfo.sh --last-lecture)
       xdg-open "$lecturePath"
       shift
       ;;
