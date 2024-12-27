@@ -35,12 +35,5 @@
       ];
       xdgOpenUsePortal = true;
     };
-
-    programs.virt-manager.enable = true;
-    users.groups.libvirtd.members = [ "ea" ];
-    virtualisation = {
-      libvirtd.enable = true;
-      spiceUSBRedirection.enable = true;
-    };
   };
 }
