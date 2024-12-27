@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ##--- Functions ---##
-generate_messages () { jq --raw-output --sort-keys 'to_entries[] | .value | to_entries[] | "<span weight='\''bold'\'' style='\''serif'\''>\(.key)</span>" <span weight='\''light'\'' style='\''italic'\''>\(.value)</span>"' "$SORTED_JSON"; }
+generate_messages () { jq --raw-output --sort-keys 'to_entries[] | .value | to_entries[] | "<span weight='\''bold'\''>\(.key)</span> <span weight='\''light'\'' style='\''italic'\''>\(.value)</span>"' "$SORTED_JSON"; }
 
 if ! VALID_ARGS=$(getopt -o muksoc --long generate-messages,list-urls,list-keys,select-bookmark,open-bookmark,create-bookmark -- "$@")
 then
@@ -31,12 +31,12 @@ while [ "$#" -gt 0 ]; do
       ;;
 
     -s | --select-bookmark)
-      generate_messages | wofi -d | grep -oP "<span[^>]*>\K.*?(?=</span>)"
+      generate_messages | wofi -d | grep -oP "<span[^>]*>.*</span> <span[^>]*>\K.*?(?=</span>)"
       shift
       ;;
 
     -o | --open-bookmark)
-      xdg-open "$(generate_messages | wofi -d --define=width=40% | grep -oP "<span[^>]*>\K.*?(?=</span>)")"
+      xdg-open "$(generate_messages | wofi -d --define=width=40% | grep -oP "<span[^>]*>.*</span> <span[^>]*>\K.*?(?=</span>)")"
       shift
       ;;
 
