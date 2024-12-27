@@ -104,7 +104,42 @@ in {
 
           "float,title:Create New Calendar,class:thunderbird"
           "size 50% 50%,title:Create New Calendar,class:thunderbird"
-          "move 25% 25%,title:Create New Calendar,class:thunderbird"
+          "center 1,title:Create New Calendar,class:thunderbird"
+
+          # New calendar item
+          "float,initialTitle:Edit Item,class:thunderbird"
+          "size 30% 80%,initialTitle:Edit Item,class:thunderbird"
+          "center 1,initialTitle:Edit Item,class:thunderbird"
+
+          # Custom repeat for calendar events
+          "float,title:Edit Recurrence,class:thunderbird"
+          "size 60% 72%,title:Edit Recurrence,class:thunderbird"
+          "center 1,title:Edit Recurrence,class:thunderbird"
+
+          # Custom reminders
+          "float,title:Set up Reminders,class:thunderbird"
+          "size 60% 70%,title:Set up Reminders,class:thunderbird"
+          "center 1,title:Set up Reminders,class:thunderbird"
+
+          # Double click on a calendar item
+          "float,initialTitle:^$,class:thunderbird"
+          "size 50% 50%,initialTitle:^$,class:thunderbird"
+          "center 1,initialTitle:^$,class:thunderbird"
+
+          # Copy repeating event dialogue
+          "float,title:Copy Repeating Event,class:thunderbird"
+          "size 40% 40%,title:Copy Repeating Event,class:thunderbird"
+          "center 1,title:Copy Repeating Event,class:thunderbird"
+
+          # Select calendar (to paste an even into)
+          "float,title:Copy Repeating Event,class:thunderbird"
+          "size 20% 30%,title:Copy Repeating Event,class:thunderbird"
+          "center 1,title:Copy Repeating Event,class:thunderbird"
+
+          # Save event dialogue
+          "float,title:Save Event,class:thunderbird"
+          "size 450 120,title:Save Event,class:thunderbird"
+          "center 1,title:Save Event,class:thunderbird"
         ];
       })
     ]))
