@@ -12,6 +12,8 @@ let
     pamixer
     brightnessctl
     wev
+    grim
+    slurp
   ];
 in {
   imports = [
@@ -46,6 +48,9 @@ in {
         plugins = [
           # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
         ];
+        extraConfig = ''
+          exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+        '';
       };
     }
     (lib.mkIf config.theme.enable {
