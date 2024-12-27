@@ -21,6 +21,7 @@
   syncthing.enable      = true;
   system76.enable       = false;
   theme.enable          = true;
+  vm.enable             = true;
 
   users.users.ea = {
     isNormalUser = true;
