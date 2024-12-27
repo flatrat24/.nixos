@@ -21,7 +21,7 @@
     ./modules/obs
     ./modules/overskride
     ./modules/passwords
-    ./modules/poweralertd
+    ./modules/power
     ./modules/school
     ./modules/shell
     ./modules/slack
