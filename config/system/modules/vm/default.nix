@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }: {
+{ lib, config, ... }: {
   options = {
     vm.enable = lib.mkEnableOption "enables vm";
   };
