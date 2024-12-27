@@ -15,5 +15,6 @@
     ./modules/syncthing
     ./modules/system76
     ./modules/theme
+    ./modules/vm
   ];
 }
