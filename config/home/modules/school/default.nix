@@ -5,6 +5,9 @@ let
     courseTools
     selectNewCourse
     openCourseBookmark
+
+    # For VM (Solidworks)
+    pkgs.libvirt-glib
   ];
   selectNewCourse = pkgs.writeShellApplication {
     name = "selectNewCourse.sh";
