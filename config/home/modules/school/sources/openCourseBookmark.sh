@@ -21,7 +21,7 @@ messages+=("Clean Directory")
 commands+=("courseTools.sh -C")
 
 # ask wofi to select one of them, and return the number of the selection
-selection=$(printf "%s\n" "${messages[@]}" | wofi --define=dmenu-print_line_num=true --define=lines=10 --prompt="course bookmarks" -d)
+selection=$(printf "%s\n" "${messages[@]}" | wofi --define=dmenu-print_line_num=true --define=lines=10 --prompt="$(courseInfo.sh --title)" -d)
 
 # verify that the user made a selection ($selection must be an integer)
 if ! [[ "$selection" =~ ^[0-9]+$ ]]
