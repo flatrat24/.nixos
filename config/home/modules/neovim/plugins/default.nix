@@ -2,10 +2,10 @@
   imports = [
     ./aerial
     ./align-nvim
-    ./fzf-lua
     ./comment
     ./dashboard
     ./eyeliner
+    ./fzf-lua
     ./git
     ./grug-far
     ./highlight-undo-nvim
@@ -19,6 +19,7 @@
     ./nvim-surround
     ./oil
     ./rainbow-delimiters
+    ./spellcheck
     ./telescope
     ./todo-comments
     ./transparent
