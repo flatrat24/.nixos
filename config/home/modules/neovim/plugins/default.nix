@@ -1,6 +1,7 @@
 { ... }: {
   imports = [
     ./aerial
+    ./align-nvim
     ./fzf-lua
     ./comment
     ./dashboard
