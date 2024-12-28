@@ -1,12 +1,13 @@
 { pkgs, lib, inputs, config, ... }:
 let
-    dependencies = with pkgs; [ beeper ];
+  cfg = config.beeper;
+  dependencies = with pkgs; [ beeper ];
 in {
   options = {
     beeper.enable = lib.mkEnableOption "enable beeper";
   };
 
-  config = lib.mkIf config.beeper.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = dependencies;
   };
 }

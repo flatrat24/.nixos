@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.bookmarks;
   bookmarks = pkgs.writeShellApplication {
     name = "bookmarks.sh";
     runtimeInputs = [
@@ -17,7 +18,7 @@ in {
     };
   };
 
-  config = lib.mkIf config.bookmarks.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home = {
         packages = dependencies;
@@ -26,7 +27,7 @@ in {
         };
       };
     }
-    
+
     (lib.mkIf config.hyprland.enable {
       wayland.windowManager.hyprland.settings = {
         bindd = [

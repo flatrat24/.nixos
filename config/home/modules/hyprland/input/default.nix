@@ -26,17 +26,6 @@ in {
         "sensitivity" = "0";
         "mouse_refocus" = "1";
         "float_switch_override_focus" = "0";
-
-        "touchpad" = lib.mkIf config.input.touchpad.enable {
-          "disable_while_typing" = "true";
-          "drag_lock" = "true";
-          "tap-and-drag" = "true";
-          "natural_scroll" = "true";
-        };
-      };
-      gestures = lib.mkIf config.input.touchpad.enable {
-        "workspace_swipe" = "true";
-        "workspace_swipe_fingers" = "3";
       };
       binds = {
         "allow_workspace_cycles" = "true";

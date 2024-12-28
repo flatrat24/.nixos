@@ -1,4 +1,7 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, ... }:
+let
+  cfg = config.gpg;
+in {
   imports = [ ];
 
   options = {
@@ -8,7 +11,7 @@
   };
 
 
-  config = lib.mkIf config.gpg.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       programs = {
         gpg = {

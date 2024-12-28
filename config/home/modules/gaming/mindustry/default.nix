@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.gaming.mindustry;
   dependencies = with pkgs; [ ];
 in {
   options = {
@@ -11,7 +12,7 @@ in {
     };
   };
 
-  config = lib.mkIf config.gaming.mindustry.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home.packages = with pkgs; [
         mindustry-wayland

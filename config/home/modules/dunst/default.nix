@@ -1,5 +1,8 @@
+# TODO: !!!!reverse the order of notifications
+
 { pkgs, lib, inputs, config, ... }:
 let
+  cfg = config.dunst;
   dependencies = with pkgs; [
     dunst
   ];
@@ -10,7 +13,7 @@ in {
     };
   };
 
-  config = lib.mkIf config.dunst.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home = {
         packages = dependencies;

@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.git;
   gitAliases = {
     g    = "git"                                      ;
     ga   = "git add"                                  ;
@@ -25,7 +26,7 @@ in {
     };
   };
 
-  config = lib.mkIf config.git.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       programs.bash.shellAliases = gitAliases;
       programs.zsh.shellAliases = gitAliases;
@@ -45,7 +46,7 @@ in {
         delta
       ];
     }
-    (lib.mkIf config.git.lazygit.enable {
+    (lib.mkIf cfg.lazygit.enable {
       programs.lazygit.enable = true;
     })
     (lib.mkIf config.theme.enable {

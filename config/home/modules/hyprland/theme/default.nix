@@ -1,14 +1,27 @@
-{ pkgs, lib, inputs, config, ... }: {
+{ pkgs, lib, inputs, config, ... }:
+let
+  cfg = config.hyprland.theme;
+in {
   options = {
-    hyprland.animations.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = config.hyprland.enable;
+    hyprland.theme = {
+      enable = lib.mkOption {
+        type = lib.types.bool;
+        default = config.hyprland.enable;
+      };
+      animations.enable = lib.mkOption {
+        type = lib.types.bool;
+        default = config.hyprland.theme.enable;
+      };
     };
   };
 
-  config = lib.mkMerge [
-    (lib.mkIf (config.hyprland.enable == true) {
-      wayland.windowManager.hyprland.settings = {
+  config = lib.mkIf cfg.enable {
+    stylix.targets = {
+      hyprland.enable = true;
+    };
+
+    wayland.windowManager.hyprland.settings = (lib.mkMerge [
+      {
         cursor = {
           "no_hardware_cursors" = "true";
         };
@@ -22,38 +35,18 @@
           "layout" = "master";
         };
 
-        master = {
-          mfact = "0.5";
-        };
-
         decoration = {
           "rounding" = "0";
-          "active_opacity" = "1.0";
-          "inactive_opacity" = "1.0";
-          # "drop_shadow" = "true";
-          # "shadow_range" = "4";
-          # "shadow_render_power" = "3";
+          "active_opacity" = "1";
+          "inactive_opacity" = "1";
           "blur" = {
             "enabled" = "true";
-            "size" = "3";
-            "passes" = "1";
+            "size" = "5";
+            "passes" = "5";
             "vibrancy" = "0.1696";
+            "ignore_opacity" = "true";
           };
         };
-
-        animations = lib.mkMerge [
-          (lib.mkIf (config.hyprland.animations.enable == true) { "enabled" = "true"; })
-          (lib.mkIf (config.hyprland.animations.enable == false) { "enabled" = "false"; })
-          { # Unconditional
-            "bezier" = "myBezier, 0.05, 0.9, 0.1, 1.05";
-            "animation" = [
-              "windows, 1, 2, myBezier, slidein"
-              "border, 1, 2, default"
-              "fade, 1, 2, default"
-              "workspaces, 1, 2, default, slide"
-            ];
-          }
-        ];
 
         dwindle = {
           "pseudotile" = "true";
@@ -62,6 +55,7 @@
 
         master = {
           "new_status" = "slave";
+          mfact = "0.5";
         };
 
         misc = {
@@ -78,7 +72,18 @@
             "render_titles" = "true";
           };
         };
-      };
-    })
-  ];
+      }
+      (lib.mkIf cfg.animations.enable {
+        animations = {
+          "bezier" = "myBezier, 0.05, 0.9, 0.1, 1.05";
+          "animation" = [
+            "windows, 1, 2, myBezier, slidein"
+            "border, 1, 2, default"
+            "fade, 1, 2, default"
+            "workspaces, 1, 2, default, slide"
+          ];
+        };
+      })
+    ]);
+  };
 }

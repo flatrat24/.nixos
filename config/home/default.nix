@@ -10,6 +10,7 @@
     ./modules/gaming
     ./modules/git
     ./modules/gpg
+    ./modules/hardware
     ./modules/hyprland
     ./modules/hyprlock
     ./modules/latex

@@ -1,7 +1,6 @@
-# TODO: Make this modular, I don't want to do this right now
-
 { pkgs, lib, config, ... }:
 let
+  cfg = config.gaming;
   dependencies = with pkgs; [
     mangohud
     protonup
@@ -19,7 +18,7 @@ in {
     };
   };
 
-  config = lib.mkIf config.gaming.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home = {
         packages = dependencies;

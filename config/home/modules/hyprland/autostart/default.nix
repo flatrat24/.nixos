@@ -1,16 +1,22 @@
-# TODO: Make modular with which applications to launch
-
-{ pkgs, lib, inputs, config, ... }:
+{ pkgs, lib, config, ... }:
 let
+  cfg = config.hyprland.autostart;
   dependencies = with pkgs; [
     wl-clip-persist
     wl-clipboard
     cliphist
   ];
 in {
-  options = { };
+  options = {
+    hyprland.autostart = {
+      enable = lib.mkOption {
+        type = lib.types.bool;
+        default = config.hyprland.enable;
+      };
+    };
+  };
 
-  config = lib.mkIf config.hyprland.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = dependencies;
 
     wayland.windowManager.hyprland = {

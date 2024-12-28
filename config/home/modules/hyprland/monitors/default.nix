@@ -12,11 +12,11 @@
   };
 
   config = lib.mkIf config.monitors.enable {
-    wayland.windowManager.hyprland.settings = {
-      "monitor" = [
-        ", preferred, auto-right, 1"
-        "Unknown-1, disable"
-      ];
-    };
+    # wayland.windowManager.hyprland.settings = {
+    #   "monitor" = [
+    #     ", preferred, auto-right, 1"
+    #     "Unknown-1, disable"
+    #   ];
+    # };
   };
 }

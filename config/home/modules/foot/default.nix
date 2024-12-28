@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.foot;
   dependencies = with pkgs; [
     foot
     (nerdfonts.override { fonts = [ "IBMPlexMono" ]; })
@@ -9,7 +10,7 @@ in {
     foot.enable = lib.mkEnableOption "enables foot";
   };
 
-  config = lib.mkIf config.foot.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home.file = {
         ".config/foot/foot.ini" = {

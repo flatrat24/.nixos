@@ -1,5 +1,6 @@
 { pkgs, lib, inputs, config, ... }:
 let
+  cfg = config.firefox;
   profileName = "ea";
   dependencies = [ ];
   extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
@@ -159,7 +160,7 @@ in {
     firefox.enable = lib.mkEnableOption "enables firefox";
   };
 
-  config = lib.mkIf config.firefox.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home = {
         packages = dependencies;

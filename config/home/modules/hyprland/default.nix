@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.hyprland;
   dependencies = with pkgs; [
     hyprland
     hyprshot
@@ -27,10 +28,10 @@ in {
   ];
 
   options = {
-    hyprland.enable = lib.mkEnableOption "enables hypr";
+    hyprland.enable = lib.mkEnableOption "enables hyprland";
   };
 
-  config = lib.mkIf config.hyprland.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       dunst.enable = lib.mkDefault true;
       waybar.enable = lib.mkDefault true;
@@ -53,10 +54,5 @@ in {
         '';
       };
     }
-    (lib.mkIf config.theme.enable {
-      stylix.targets = {
-        hyprland.enable = true;
-      };
-    })
   ]);
 }

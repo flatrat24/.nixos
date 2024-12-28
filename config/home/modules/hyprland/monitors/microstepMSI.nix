@@ -4,10 +4,10 @@
   };
 
   config = lib.mkIf config.monitors.microstepMSI.enable {
-    wayland.windowManager.hyprland.settings = {
-      "monitor" = [
-        "DP-1, 1920x1080@165.00Hz, 0x0, 1"
-      ];
-    };
+    # wayland.windowManager.hyprland.settings = {
+    #   "monitor" = [
+    #     "DP-1, 1920x1080@165.00Hz, 0x0, 1"
+    #   ];
+    # };
   };
 }

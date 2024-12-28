@@ -1,5 +1,6 @@
 { lib, config, ... }:
 let
+  cfg = config.email;
   dependencies = [ ];
 in {
   imports = [ ];
@@ -12,7 +13,7 @@ in {
   };
 
   config = lib.mkMerge [
-    (lib.mkIf (config.email.enable == true) {
+    (lib.mkIf (cfg.enable == true) {
       home.packages = dependencies;
       accounts.email = { # authentication not really working with this
         maildirBasePath = "Mail";
@@ -72,7 +73,7 @@ in {
         };
       };
     })
-    (lib.mkIf (config.email.thunderbird.enable == true) (lib.mkMerge [
+    (lib.mkIf (cfg.thunderbird.enable == true) (lib.mkMerge [
       {
         programs.thunderbird = {
           enable = true;

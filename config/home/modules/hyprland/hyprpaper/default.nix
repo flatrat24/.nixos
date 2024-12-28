@@ -1,5 +1,6 @@
 { pkgs, lib, inputs, config, ... }:
 let
+  cfg = config.hyprland.hyprpaper;
   dependencies = with pkgs; [
     hyprpaper
   ];
@@ -12,22 +13,22 @@ in {
       };
       wallpaper = lib.mkOption {
         type = lib.types.path;
-        default = ../../../../assets/mountains.png; # TODO: Fix error where grove.png is always used no matter what
+        default = ../../../../assets/mountains.png;
       };
     };
   };
 
-  config = lib.mkIf config.hyprland.hyprpaper.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = dependencies;
 
     services.hyprpaper = {
       enable = true;
       settings = {
         preload = [
-          "${config.hyprland.hyprpaper.wallpaper}"
+          "${cfg.wallpaper}"
         ];
         wallpaper = [
-          ",${config.hyprland.hyprpaper.wallpaper}"
+          ",${cfg.wallpaper}"
         ];
       };
     };

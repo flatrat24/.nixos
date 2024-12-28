@@ -1,4 +1,7 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, ... }:
+let
+  cfg = config.gaming.launchers;
+in {
   options = {
     gaming = {
       launchers = {
@@ -19,13 +22,13 @@
   };
 
   config = (lib.mkMerge [
-    (lib.mkIf config.gaming.launchers.heroic.enable {
+    (lib.mkIf cfg.heroic.enable {
       home.packages = with pkgs; [ heroic ];
     })
-    (lib.mkIf config.gaming.launchers.bottles.enable {
+    (lib.mkIf cfg.bottles.enable {
       home.packages = with pkgs; [ bottles ];
     })
-    (lib.mkIf config.gaming.launchers.lutris.enable {
+    (lib.mkIf cfg.lutris.enable {
       home.packages = with pkgs; [ lutris ];
     })
     (lib.mkIf (config.hyprland.windowRules.enable) {
