@@ -6,7 +6,7 @@ mapfile -t commands< <(jq --sort-keys -r '.bookmarks[]' "$(courseInfo.sh --path)
 
 # add generic 'bookmarks' that apply to all courses
 messages+=("Open in Terminal")
-commands+=("$TERM -D $(courseInfo.sh --path)")
+commands+=("foot -D $(courseInfo.sh --path)")
 
 messages+=("Open in File Browser")
 commands+=("xdg-open '$(courseInfo.sh --path)'")
