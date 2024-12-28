@@ -1,16 +1,19 @@
 # TODO: Get which-key groups and a general keybind working
 
-{ lib, config, ... }: {
+{ lib, config, ... }:
+let
+  cfg = config.neovim.plugins.which-key;
+in {
   options = {
     neovim.plugins.which-key = {
       enable = lib.mkOption {
         type = lib.types.bool;
-        default = (config.neovim.enable && config.latex.enable);
+        default = config.neovim.nixvim.enable;
       };
     };
   };
 
-  config = lib.mkIf config.neovim.plugins.which-key.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       programs.nixvim = {
         plugins.which-key = {

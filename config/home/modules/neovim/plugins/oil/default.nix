@@ -1,14 +1,17 @@
-{ lib, config, ... }: {
+{ lib, config, ... }:
+let
+  cfg = config.neovim.plugins.oil;
+in {
   options = {
     neovim.plugins.oil = {
       enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.neovim.enable;
+        default = config.neovim.nixvim.enable;
       };
     };
   };
 
-  config = lib.mkIf config.neovim.plugins.oil.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       programs.nixvim = {
         plugins.oil = {

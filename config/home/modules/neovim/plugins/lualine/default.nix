@@ -1,14 +1,17 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, ... }:
+let
+  cfg = config.neovim.plugins.lualine;
+in {
   options = {
     neovim.plugins.lualine = {
       enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.neovim.enable;
+        default = config.neovim.nixvim.enable;
       };
     };
   };
 
-  config = lib.mkIf config.neovim.plugins.lualine.enable {
+  config = lib.mkIf cfg.enable {
     programs.nixvim = {
       plugins.lualine = {
         enable = true;

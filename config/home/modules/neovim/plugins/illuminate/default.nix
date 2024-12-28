@@ -1,14 +1,17 @@
-{ lib, config, ... }: {
+{ lib, config, ... }:
+let
+  cfg = config.neovim.plugins.illuminate;
+in {
   options = {
     neovim.plugins.illuminate = {
       enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.neovim.enable;
+        default = config.neovim.nixvim.enable;
       };
     };
   };
 
-  config = lib.mkIf config.neovim.plugins.illuminate.enable {
+  config = lib.mkIf cfg.enable {
     programs.nixvim = {
       plugins.illuminate = {
         enable = true;

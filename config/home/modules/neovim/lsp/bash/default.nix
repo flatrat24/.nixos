@@ -1,4 +1,7 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, ... }:
+let
+  cfg = config.neovim.plugins.lsp.languages.bash;
+in {
   options = {
     neovim.plugins.lsp.languages.bash = {
       enable = lib.mkOption {
@@ -8,12 +11,11 @@
     };
   };
 
-  config = lib.mkIf config.neovim.plugins.lsp.languages.bash.enable {
+  config = lib.mkIf cfg.enable {
     programs.nixvim = {
       plugins.lsp.servers.bashls = {
         enable = true;
         autostart = true;
-        # cmd = [ "nixd" ];
         filetypes = [ "sh" ];
       };
     };

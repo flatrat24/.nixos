@@ -1,4 +1,7 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, ... }:
+let
+  cfg = config.neovim.plugins.lsp.languages.nix;
+in {
   options = {
     neovim.plugins.lsp.languages.nix = {
       enable = lib.mkOption {
@@ -8,7 +11,7 @@
     };
   };
 
-  config = lib.mkIf config.neovim.plugins.lsp.languages.nix.enable {
+  config = lib.mkIf cfg.enable {
     programs.nixvim = {
       plugins.lsp.servers.nixd = {
         enable = true;

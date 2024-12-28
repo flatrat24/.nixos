@@ -1,14 +1,17 @@
-{ lib, config, ... }: {
+{ lib, config, ... }:
+let
+  cfg = config.neovim.plugins.luasnip;
+in {
   options = {
     neovim.plugins.luasnip = {
       enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.neovim.enable;
+        default = config.neovim.nixvim.enable;
       };
     };
   };
 
-  config = lib.mkIf config.neovim.plugins.luasnip.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home.file = {
         ".config/nvim/snippets" = {

@@ -1,6 +1,7 @@
 { lib, config, inputs, ... }:
 let
-  neovimAliases = {
+  cfg = config.neovim;
+  aliases = {
     "v" = "nvim";
   };
 in {
@@ -22,7 +23,7 @@ in {
     };
   };
 
-  config = lib.mkIf config.neovim.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home = {
         sessionVariables = {
@@ -30,12 +31,13 @@ in {
           VISUAL = lib.mkDefault "nvim";
         };
       };
+
       programs.neovim = {
         defaultEditor = true;
       };
 
-      programs.bash.shellAliases = neovimAliases;
-      programs.zsh.shellAliases = neovimAliases;
+      programs.bash.shellAliases = aliases;
+      programs.zsh.shellAliases = aliases;
 
       xdg = {
         enable = lib.mkDefault true;
@@ -56,17 +58,7 @@ in {
         };
       };
     }
-    (lib.mkIf config.yazi.enable {
-      programs.yazi.settings.opener = {
-        edit = [
-          { run = ''nvim "$@"''; block = true; desc = " neovim"; }
-        ];
-        directory = [
-          { run = ''nvim "$@"''; block = true; desc = " neovim"; }
-        ];
-      };
-    })
-    (lib.mkIf config.neovim.nixvim.enable {
+    (lib.mkIf cfg.nixvim.enable {
       programs.nixvim = {
         enable = true;
         opts = {
@@ -89,6 +81,16 @@ in {
         colorschemes = {
           catppuccin.enable = true;
         };
+      };
+    })
+    (lib.mkIf config.yazi.enable {
+      programs.yazi.settings.opener = {
+        edit = [
+          { run = ''nvim "$@"''; block = true; desc = " neovim"; }
+        ];
+        directory = [
+          { run = ''nvim "$@"''; block = true; desc = " neovim"; }
+        ];
       };
     })
   ]);

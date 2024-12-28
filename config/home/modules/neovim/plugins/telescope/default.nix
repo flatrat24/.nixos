@@ -1,17 +1,18 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.neovim.plugins.telescope;
   dependencies = with pkgs; [ ripgrep ];
 in {
   options = {
     neovim.plugins.telescope = {
       enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.neovim.enable;
+        default = config.neovim.nixvim.enable;
       };
     };
   };
 
-  config = lib.mkIf config.neovim.plugins.telescope.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       programs.nixvim = {
         plugins.telescope = {

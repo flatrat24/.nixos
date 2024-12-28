@@ -1,14 +1,17 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, ... }:
+let
+  cfg = config.neovim.plugins.nvim-highlight-colors;
+in {
   options = {
     neovim.plugins.nvim-highlight-colors = {
       enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.neovim.enable;
+        default = config.neovim.nixvim.enable;
       };
     };
   };
 
-  config = lib.mkIf config.neovim.plugins.nvim-highlight-colors.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       programs.nixvim = {
         extraPlugins = with pkgs.vimPlugins; [

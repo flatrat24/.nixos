@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.neovim.plugins.align-nvim;
   align-nvim = pkgs.vimUtils.buildVimPlugin {
     name = "align-nvim";
     src = pkgs.fetchFromGitHub {
@@ -14,12 +15,12 @@ in {
     neovim.plugins.align-nvim = {
       enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.neovim.enable;
+        default = config.neovim.nixvim.enable;
       };
     };
   };
 
-  config = lib.mkIf config.neovim.plugins.align-nvim.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       programs.nixvim = {
         extraPlugins = [

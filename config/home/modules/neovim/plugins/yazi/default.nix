@@ -1,17 +1,17 @@
-{ pkgs, lib, config, ... }:
+{ lib, config, ... }:
 let
-  dependencies = with pkgs; [ ];
+  cfg = config.neovim.plugins.yazi;
 in {
   options = {
     neovim.plugins.yazi = {
       enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.neovim.enable;
+        default = config.neovim.nixvim.enable;
       };
     };
   };
 
-  config = lib.mkIf config.neovim.plugins.yazi.enable {
+  config = lib.mkIf cfg.enable {
     programs.nixvim = {
       plugins.yazi.enable = true;
       keymaps = [

@@ -24,7 +24,7 @@ in {
     neovim.plugins.spellcheck = {
       enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.neovim.enable;
+        default = config.neovim.nixvim.enable;
       };
       academic.enable = lib.mkOption {
         type = lib.types.bool;

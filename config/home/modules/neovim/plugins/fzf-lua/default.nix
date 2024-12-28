@@ -1,17 +1,18 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.neovim.plugins.fzf-lua;
   dependencies = with pkgs; [ ripgrep ];
 in {
   options = {
     neovim.plugins.fzf-lua = {
       enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.neovim.enable;
+        default = config.neovim.nixvim.enable;
       };
     };
   };
 
-  config = lib.mkIf config.neovim.plugins.fzf-lua.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       programs.nixvim = {
         plugins.fzf-lua = {

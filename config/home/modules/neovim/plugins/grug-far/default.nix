@@ -1,14 +1,17 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, ... }:
+let
+  cfg = config.neovim.plugins.grug-far;
+in {
   options = {
     neovim.plugins.grug-far = {
       enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.neovim.enable;
+        default = config.neovim.nixvim.enable;
       };
     };
   };
 
-  config = lib.mkIf config.neovim.plugins.grug-far.enable {
+  config = lib.mkIf cfg.enable {
     programs.nixvim = {
       extraPlugins = with pkgs.vimPlugins; [
         grug-far-nvim

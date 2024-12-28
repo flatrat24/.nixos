@@ -1,14 +1,17 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, ... }:
+let
+  cfg = config.neovim.plugins.vimtex;
+in {
   options = {
     neovim.plugins.vimtex = {
       enable = lib.mkOption {
         type = lib.types.bool;
-        default = (config.neovim.enable && config.latex.enable);
+        default = (config.neovim.nixvim.enable && config.latex.enable);
       };
     };
   };
 
-  config = lib.mkIf config.neovim.plugins.vimtex.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       programs.nixvim = {
         plugins.vimtex = {

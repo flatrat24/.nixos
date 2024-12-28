@@ -1,34 +1,37 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, ... }:
+let
+  cfg = config.neovim.plugins.git;
+in {
   options = {
     neovim.plugins.git = {
       enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.neovim.enable;
+        default = config.neovim.nixvim.enable;
       };
       fugitive.enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.neovim.plugins.git.enable;
+        default = cfg.enable;
       };
       lazygit.enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.neovim.plugins.git.enable;
+        default = cfg.enable;
       };
       gitsigns.enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.neovim.plugins.git.enable;
+        default = cfg.enable;
       };
     };
   };
 
-  config = lib.mkIf config.neovim.plugins.git.enable (lib.mkMerge [
-    (lib.mkIf config.neovim.plugins.git.fugitive.enable {
+  config = lib.mkIf cfg.enable (lib.mkMerge [
+    (lib.mkIf cfg.fugitive.enable {
       programs.nixvim = {
         plugins.fugitive = {
           enable = true;
         };
       };
     })
-    (lib.mkIf config.neovim.plugins.git.lazygit.enable {
+    (lib.mkIf cfg.lazygit.enable {
       programs.nixvim = {
         plugins.lazygit = {
           enable = true;
@@ -38,7 +41,7 @@
         ];
       };
     })
-    (lib.mkIf config.neovim.plugins.git.gitsigns.enable {
+    (lib.mkIf cfg.gitsigns.enable {
       programs.nixvim = {
         plugins.gitsigns = {
           enable = true;

@@ -1,4 +1,7 @@
-{ lib, config, ... }: {
+{ lib, config, ... }:
+let
+  cfg = config.neovim.plugins.cmp;
+in {
   options = {
     neovim.plugins.cmp = {
       enable = lib.mkOption {
@@ -8,7 +11,7 @@
     };
   };
 
-  config = lib.mkIf config.neovim.plugins.cmp.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       programs.nixvim = {
         plugins.cmp = {

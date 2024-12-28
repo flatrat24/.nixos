@@ -1,4 +1,7 @@
-{ lib, config, ... }: {
+{ lib, config, ... }:
+let
+  cfg = config.neovim.plugins.lsp;
+in {
   imports = [
     ./bash
     ./nix
@@ -13,7 +16,7 @@
     };
   };
 
-  config = lib.mkIf config.neovim.plugins.lsp.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       programs.nixvim = {
         plugins.lsp = {
