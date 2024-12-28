@@ -83,6 +83,8 @@ in {
           smartcase = true;
           cursorline = true;
           formatoptions = "jql";
+          spell = lib.mkDefault true;
+          spelllang = lib.mkDefault [ "en_us" ];
         };
         colorschemes = {
           catppuccin.enable = true;
