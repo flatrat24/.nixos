@@ -12,15 +12,10 @@
   };
 
   ##--- Hardware ---##
-  input = {
+  hardware = {
+    monitor = "framework";
+    keyboard = "framework";
     touchpad.enable = true;
-    keyboard = {
-      formFactor = "ANSI";
-    };
-  };
-  monitors = {
-    microstepMSI.enable = false;
-    framework.enable = true;
   };
 
   ##--- Hyprland ---##

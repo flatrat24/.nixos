@@ -18,13 +18,11 @@ let
   ];
 in {
   imports = [
-    ./autostart/default.nix
-    ./hyprpaper/default.nix
-    ./input/default.nix
-    ./keybinds/default.nix
-    ./monitors/default.nix
-    ./theme/default.nix
-    ./windowRules/default.nix
+    ./autostart
+    ./hyprpaper
+    ./input
+    ./keybinds
+    ./theme
   ];
 
   options = {
@@ -44,7 +42,9 @@ in {
         enable = true;
         settings = {
           "$mod" = "SUPER";
-          "$terminal" = "foot";
+          windowrulev2 = [
+            "suppressevent maximize, class:.*"
+          ];
         };
         plugins = [
           # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo

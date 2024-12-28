@@ -18,7 +18,7 @@ in {
         mindustry-wayland
       ];
     }
-    (lib.mkIf (config.hyprland.windowRules.enable) {
+    (lib.mkIf (config.hyprland.enable) {
       wayland.windowManager.hyprland.settings.windowrulev2 = [ # TODO: Make windowrule for mindustry
         "float,class:Mindustry,title:Mindustry"
         "size 75% 75%,class:Mindustry,title:Mindustry"

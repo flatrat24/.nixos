@@ -18,7 +18,7 @@ in {
         prismlauncher
       ];
     }
-    (lib.mkIf (config.hyprland.windowRules.enable) {
+    (lib.mkIf (config.hyprland.enable) {
       wayland.windowManager.hyprland.settings.windowrulev2 = [
         "float,class:Minecraft*,title:Minecraft*"
         "size 75% 75%,class:Minecraft*,title:Minecraft*"

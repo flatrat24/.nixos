@@ -31,7 +31,7 @@ in {
     (lib.mkIf cfg.lutris.enable {
       home.packages = with pkgs; [ lutris ];
     })
-    (lib.mkIf (config.hyprland.windowRules.enable) {
+    (lib.mkIf (config.hyprland.enable) {
       wayland.windowManager.hyprland.settings.windowrulev2 = [
         ##--- Battle.net ---##
         # Login Popup

@@ -226,6 +226,12 @@ in {
           "x-scheme-handler/https" = ["firefox.desktop"];
         };
       };
+
+      wayland.windowManager.hyprland.settings = {
+        bindd = [
+          "$mod, S, Launch Browser, exec, firefox"
+        ];
+      };
     }
     (lib.mkIf config.yazi.enable {
       programs.yazi.settings.opener = {
@@ -240,7 +246,7 @@ in {
         ];
       };
     })
-    (lib.mkIf (config.hyprland.windowRules.enable == true) {
+    (lib.mkIf (config.hyprland.enable == true) {
       wayland.windowManager.hyprland.settings.windowrulev2 = [
         "float,class:firefox,title:Picture-in-Picture"
         "size 50% 50%,class:firefox,title:Picture-in-Picture"

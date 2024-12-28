@@ -10,9 +10,13 @@ in {
         type = lib.types.str;
         default = "framework";
       };
-      keyboard = {
+      keyboard = lib.mkOption {
         type = lib.types.str;
         default = "framework";
+      };
+      touchpad.enable = lib.mkOption {
+        type = lib.types.bool;
+        default = true;
       };
     };
   };
@@ -22,16 +26,16 @@ in {
       wayland.windowManager.hyprland.settings = {
         "monitor" = [ ", preferred, auto-right, 1" "Unknown-1, disable" ] # Disables (nvidia) ghost monitor
           ++ lib.optionals (cfg.monitor == "framework") [ "eDP-1, 2880x1920@120.00Hz, 0x0, 2" "DP-1, 1920x1080@165.00Hz, 0x0, 1" ]; # TODO: Split monitors into two and create another option to set to MSI monitor
-        bindd = lib.optionals (cfg.keyboard == "framework") [
+        bindd = [ # lib.optionals (cfg.keyboard == "framework")
           ##### Color Picker #####
           ", F12, Activate Color Picker, exec, hyprpicker | wl-copy"
         ];
-        binded = lib.optionals (cfg.keyboard == "framework") [
+        binded = [
           ##### Screenshots #####
           '', F11, Screenshot (Select Area), exec, hyprshot --mode region --output-folder ~/Downloads''
           ''$mod SHIFT, F11, Screenshot (Entire Screen), exec,  hyprshot --mode output --mode active --output-folder ~/Downloads''
         ];
-        bindeld = lib.optionals (cfg.keyboard == "framework") [
+        bindeld = [
           ##### Volume Controls #####
           ", F1, Toggle Volume Mute, exec, pamixer -t"
           ", F2, Decrease Volume, exec, pamixer -d 2"
@@ -49,7 +53,7 @@ in {
           ##### Screenshots #####
           ''$mod, F11, Screenshot (Focused Window), exec,  hyprshot --mode window --output-folder ~/Downloads''
         ];
-        bindld = lib.optionals (cfg.keyboard == "framework") [
+        bindld = [
           ##### MPD Controls #####
           ", XF86AudioRaiseVolume, Play Next Song (MPD), exec, mpc prev"
           ", XF86AudioLowerVolume, Play/Pause Song (MPD), exec, mpc toggle"

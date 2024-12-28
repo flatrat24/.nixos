@@ -12,7 +12,7 @@ in {
     {
       home.packages = dependencies;
     }
-    (lib.mkIf config.hyprland.windowRules.enable {
+    (lib.mkIf config.hyprland.enable {
       wayland.windowManager.hyprland.settings.windowrulev2 = [
         # For opening it from waybar
         "float,title:overskride"

@@ -97,7 +97,7 @@ in {
           };
         };
       }
-      (lib.mkIf config.hyprland.windowRules.enable {
+      (lib.mkIf config.hyprland.enable {
         wayland.windowManager.hyprland.settings.windowrulev2 = [
           # Sign in
           "float,title:(Sign in to your account)(.*),class:thunderbird"

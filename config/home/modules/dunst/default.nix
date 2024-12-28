@@ -34,13 +34,13 @@ in {
             "dunst"
           ];
         }
-        (lib.mkIf (config.input.keyboard.formFactor == "mac") {
+        (lib.mkIf (config.hardware.keyboard == "mac") {
           bindd = [
             # ", XF86LaunchA, Restore Last Notification, exec, dunstctl restore" <- doesn't exist
             ", XF86LaunchB, Dismiss Last Notification, exec, dunstctl close"
           ];
         })
-        (lib.mkIf (config.input.keyboard.formFactor == "ANSI") {
+        (lib.mkIf (config.hardware.keyboard == "framework") {
           bindd = [
             # ", F9, Restore Last Notification, exec, dunstctl restore" <- doesn't exist
             ", F10, Dismiss Last Notification, exec, dunstctl close"

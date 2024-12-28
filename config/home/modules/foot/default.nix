@@ -101,6 +101,12 @@ in {
       };
 
       home.packages = dependencies;
+
+      wayland.windowManager.hyprland.settings = {
+        bindd = [
+          "$mod, A, Launch Terminal, exec, foot"
+        ];
+      };
     }
     (lib.mkIf config.yazi.enable {
       programs.yazi.settings.opener = {
