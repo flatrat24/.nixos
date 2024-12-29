@@ -33,6 +33,10 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     ags.url = "github:Aylur/ags";
     minegrub-theme.url = "github:Lxtharia/minegrub-theme";
+    wallpapers = {
+      url = "github:ethananthony271/wallpapers";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {

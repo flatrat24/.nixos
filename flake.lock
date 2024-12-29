@@ -1008,7 +1008,8 @@
         "nixpkgs": "nixpkgs_4",
         "nixvim": "nixvim",
         "stylix": "stylix",
-        "textfox": "textfox"
+        "textfox": "textfox",
+        "wallpapers": "wallpapers"
       }
     },
     "stylix": {
@@ -1176,6 +1177,22 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "wallpapers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1735451094,
+        "narHash": "sha256-+CpaONi7PeGVaDRQ6aOEBTcALjPVh9DrC9x35KnUWYM=",
+        "owner": "ethananthony271",
+        "repo": "wallpapers",
+        "rev": "573b0e5608521016be02c92af099dceb929f403a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ethananthony271",
+        "repo": "wallpapers",
         "type": "github"
       }
     },
