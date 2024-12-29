@@ -253,7 +253,7 @@ in {
         "center 1,class:firefox,title:Picture-in-Picture"
 
         "float,class:firefox,title:File Upload"
-        "size 40% 40%,class:firefox,title:File Upload"
+        "size 75% 75%,class:firefox,title:File Upload"
         "center 1,class:firefox,title:File Upload"
       ];
     })
