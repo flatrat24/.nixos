@@ -20,6 +20,7 @@ in {
             "catppuccin"
           ];
           userSettings = {
+            theme = "catppuccin";
             features = {
               copilot = false;
             };
@@ -35,11 +36,11 @@ in {
     }
     (lib.mkIf config.yazi.enable {
       programs.yazi.settings.opener = {
-        edit = [
-          { run = ''zed "$@"''; block = true; desc = " zed"; }
+        edit = lib.mkAfter [
+          { run = ''zeditor "$@"''; block = true; desc = " zed"; }
         ];
-        directory = [
-          { run = ''zed "$@"''; block = true; desc = " zed"; }
+        directory = lib.mkAfter [
+          { run = ''zeditor "$@"''; block = true; desc = " zed"; }
         ];
       };
     })
