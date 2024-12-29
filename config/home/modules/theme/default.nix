@@ -32,5 +32,10 @@
     #   enable = true;
     #   size = 24;
     # };
+    wayland.windowManager.hyprland.settings = {
+      "exec-once" = [
+        "hyprctl setcursor size 24"
+      ];
+    };
   };
 }
