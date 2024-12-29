@@ -19,7 +19,6 @@ let
 in {
   imports = [
     ./autostart
-    ./hyprpaper
     ./input
     ./keybinds
     ./theme
