@@ -36,6 +36,7 @@
     ./modules/wofi
     ./modules/yazi
     ./modules/zathura
+    ./modules/zed
     ./modules/zellij
     ./modules/zoom
   ];
