@@ -8,7 +8,7 @@
       };
       wallpaper = lib.mkOption {
         type = lib.types.str;
-        default = "flower_field";
+        default = "flower_field.jpg";
       };
     };
   };
@@ -27,7 +27,7 @@
     stylix = {
       enable = lib.mkDefault true;
       autoEnable = false;
-      image = ../../../assets/${config.theme.wallpaper}.png;
+      image = ../../../assets/${config.theme.wallpaper};
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${config.theme.colorscheme}.yaml";
 
       targets = {
