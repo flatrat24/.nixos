@@ -4,7 +4,7 @@ let
   dependencies = with pkgs; [
     jq
   ];
-  jsonAliases = { };
+  aliases = { };
 in {
   options = {
     shell.programs.json = {
@@ -26,10 +26,10 @@ in {
   config = lib.mkIf cfg.enable (lib.mkMerge [
     { home.packages = dependencies; }
     (lib.mkIf cfg.bash.enable {
-      programs.bash.shellAliases = jsonAliases;
+      programs.bash.shellAliases = aliases;
     })
     (lib.mkIf cfg.zsh.enable {
-      programs.zsh.shellAliases = jsonAliases;
+      programs.zsh.shellAliases = aliases;
     })
   ]);
 }

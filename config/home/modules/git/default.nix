@@ -1,7 +1,7 @@
 { pkgs, lib, config, ... }:
 let
   cfg = config.git;
-  gitAliases = {
+  aliases = {
     g    = "git"                                      ;
     ga   = "git add"                                  ;
     gs   = "git status"                               ;
@@ -28,8 +28,8 @@ in {
 
   config = lib.mkIf cfg.enable (lib.mkMerge [
     {
-      programs.bash.shellAliases = gitAliases;
-      programs.zsh.shellAliases = gitAliases;
+      programs.bash.shellAliases = aliases;
+      programs.zsh.shellAliases = aliases;
 
       programs.git = {
         enable = true;

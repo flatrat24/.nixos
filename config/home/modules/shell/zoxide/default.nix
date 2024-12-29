@@ -4,7 +4,7 @@ let
   dependencies = with pkgs; [
     zoxide
   ];
-  zoxideAliases = { };
+  aliases = { };
 in {
   options = {
     shell.programs.zoxide = {
@@ -26,10 +26,10 @@ in {
   config = lib.mkIf cfg.enable (lib.mkMerge [
     { home.packages = dependencies; }
     (lib.mkIf cfg.bash.enable {
-      programs.bash.shellAliases = zoxideAliases;
+      programs.bash.shellAliases = aliases;
     })
     (lib.mkIf cfg.zsh.enable {
-      programs.zsh.shellAliases = zoxideAliases;
+      programs.zsh.shellAliases = aliases;
       programs.zsh = {
         initExtra = ''
           eval "$(zoxide init --cmd cd zsh)"

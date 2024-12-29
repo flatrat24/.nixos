@@ -4,7 +4,7 @@ let
   dependencies = with pkgs; [
     croc
   ];
-  crocAliases = { };
+  aliases = { };
 in {
   options = {
     shell.programs.croc = {
@@ -26,10 +26,10 @@ in {
   config = lib.mkIf cfg.enable (lib.mkMerge [
     { home.packages = dependencies; }
     (lib.mkIf cfg.bash.enable {
-      programs.bash.shellAliases = crocAliases;
+      programs.bash.shellAliases = aliases;
     })
     (lib.mkIf cfg.zsh.enable {
-      programs.zsh.shellAliases = crocAliases;
+      programs.zsh.shellAliases = aliases;
     })
   ]);
 }

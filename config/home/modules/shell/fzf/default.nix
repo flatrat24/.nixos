@@ -4,7 +4,7 @@ let
   dependencies = with pkgs; [
     fzf
   ];
-  fzfAliases = lib.mkMerge [
+  aliases = lib.mkMerge [
     {
       "fh" = "fc -ln 1 | fzf | wl-copy";
     }
@@ -55,12 +55,12 @@ in {
       };
     })
     (lib.mkIf cfg.bash.enable {
-      programs.bash.shellAliases = fzfAliases;
+      programs.bash.shellAliases = aliases;
     })
     (lib.mkIf cfg.zsh.enable (lib.mkMerge [
       {
         programs.zsh = {
-          shellAliases = fzfAliases;
+          shellAliases = aliases;
           plugins = [
             fzf-tab
           ];

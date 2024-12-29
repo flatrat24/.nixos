@@ -4,7 +4,7 @@ let
   dependencies = with pkgs; [
     bat
   ];
-  batAliases = {
+  aliases = {
     "cat" = "bat";
   };
 in {
@@ -39,10 +39,10 @@ in {
 
     }
     (lib.mkIf cfg.bash.enable {
-      programs.bash.shellAliases = batAliases;
+      programs.bash.shellAliases = aliases;
     })
     (lib.mkIf cfg.zsh.enable {
-      programs.zsh.shellAliases = batAliases;
+      programs.zsh.shellAliases = aliases;
     })
   ]);
 }

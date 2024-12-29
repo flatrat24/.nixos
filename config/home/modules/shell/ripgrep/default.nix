@@ -4,7 +4,7 @@ let
   dependencies = with pkgs; [
     ripgrep
   ];
-  ripgrepAliases = { };
+  aliases = { };
 in {
   options = {
     shell.programs.ripgrep = {
@@ -26,10 +26,10 @@ in {
   config = lib.mkIf cfg.enable (lib.mkMerge [
     { home.packages = dependencies; }
     (lib.mkIf cfg.bash.enable {
-      programs.bash.shellAliases = ripgrepAliases;
+      programs.bash.shellAliases = aliases;
     })
     (lib.mkIf cfg.zsh.enable {
-      programs.zsh.shellAliases = ripgrepAliases;
+      programs.zsh.shellAliases = aliases;
     })
   ]);
 }

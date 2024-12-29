@@ -4,7 +4,7 @@ let
   dependencies = with pkgs; [
     eza
   ];
-  ezaAliases = {
+  aliases = {
     "ls" = "eza --group-directories-first --hyperlink";
     "la" = "ls --all --long --header --git";
     "lt" = "ls --tree --level=3";
@@ -40,10 +40,10 @@ in {
       };
     }
     (lib.mkIf cfg.bash.enable {
-      programs.bash.shellAliases = ezaAliases;
+      programs.bash.shellAliases = aliases;
     })
     (lib.mkIf cfg.zsh.enable {
-      programs.zsh.shellAliases = ezaAliases;
+      programs.zsh.shellAliases = aliases;
     })
   ]);
 }

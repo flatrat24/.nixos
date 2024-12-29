@@ -1,7 +1,7 @@
 { pkgs, lib, config, ... }:
 let
   cfg = config.music;
-  musicAliases = {
+  aliases = {
     "n" = "ncmpcpp";
   };
   importMusic = pkgs.writeShellApplication {
@@ -129,8 +129,8 @@ in {
     })
     
     (lib.mkIf cfg.mpd.ncmpcpp.enable {
-      programs.bash.shellAliases = musicAliases;
-      programs.zsh.shellAliases = musicAliases;
+      programs.bash.shellAliases = aliases;
+      programs.zsh.shellAliases = aliases;
 
       home.packages = ncmpcppDependencies;
 

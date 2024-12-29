@@ -4,7 +4,7 @@ let
   dependencies = with pkgs; [
     bottom
   ];
-  bottomAliases = {
+  aliases = {
     "b" = "btm";
   };
 in {
@@ -38,10 +38,10 @@ in {
       };
     }
     (lib.mkIf cfg.bash.enable {
-      programs.bash.shellAliases = bottomAliases;
+      programs.bash.shellAliases = aliases;
     })
     (lib.mkIf cfg.zsh.enable {
-      programs.zsh.shellAliases = bottomAliases;
+      programs.zsh.shellAliases = aliases;
     })
   ]);
 }

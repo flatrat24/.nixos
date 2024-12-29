@@ -12,7 +12,7 @@ let
     nix-index
     unzip
   ];
-  utilsAliases = { };
+  aliases = { };
 in {
   options = {
     shell.programs.utils = {
@@ -34,10 +34,10 @@ in {
   config = lib.mkIf cfg.enable (lib.mkMerge [
     { home.packages = dependencies; }
     (lib.mkIf cfg.bash.enable {
-      programs.bash.shellAliases = utilsAliases;
+      programs.bash.shellAliases = aliases;
     })
     (lib.mkIf cfg.zsh.enable {
-      programs.zsh.shellAliases = utilsAliases;
+      programs.zsh.shellAliases = aliases;
     })
   ]);
 }

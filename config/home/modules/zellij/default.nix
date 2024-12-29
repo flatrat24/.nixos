@@ -1,7 +1,7 @@
 { pkgs, lib, config, ... }:
 let
   cfg = config.zellij;
-  zellijAliases = {
+  aliases = {
     "z"  = "zellij";
     "za" = "zellij attach";
     "zd" = "zellij delete-session";
@@ -22,8 +22,8 @@ in {
 
   config = lib.mkIf cfg.enable (lib.mkMerge [
     {
-      programs.bash.shellAliases = zellijAliases;
-      programs.zsh.shellAliases = zellijAliases;
+      programs.bash.shellAliases = aliases;
+      programs.zsh.shellAliases = aliases;
 
       home.packages = dependencies;
 
