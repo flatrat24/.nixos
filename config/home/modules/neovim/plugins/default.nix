@@ -19,6 +19,7 @@
     ./nvim-surround
     ./oil
     ./rainbow-delimiters
+    ./render-markdown
     ./spellcheck
     ./telescope
     ./todo-comments
