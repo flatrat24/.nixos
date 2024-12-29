@@ -27,6 +27,15 @@ in {
         };
       };
     }
+    (lib.mkIf config.latex.enable {
+      programs.nixvim.plugins.treesitter.settings = {
+        highlight = {
+          disable = [
+            "latex"
+          ];
+        };
+      };
+    })
     (lib.mkIf config.neovim.plugins.illuminate.enable {
       programs.nixvim.plugins.illuminate = {
         providers = [ "treesitter" ];
