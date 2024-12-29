@@ -110,7 +110,7 @@ in {
     }
     (lib.mkIf config.yazi.enable {
       programs.yazi.settings.opener = {
-        directory = [
+        directory = lib.mkBefore [
           { run = ''foot -D "$@"''; orphan = true; desc = " foot"; }
         ];
       };
