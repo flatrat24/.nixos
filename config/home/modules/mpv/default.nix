@@ -1,4 +1,7 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, ... }:
+let
+  cfg = config.mpv;
+in {
   imports = [ ];
 
   options = {
@@ -7,7 +10,7 @@
     };
   };
 
-  config = lib.mkIf config.mpv.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       programs.mpv = {
         enable = true;

@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.school;
   dependencies = [
     courseInfo
     courseTools
@@ -50,7 +51,7 @@ in {
     };
   };
 
-  config = lib.mkIf config.school.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home = {
         packages = dependencies;

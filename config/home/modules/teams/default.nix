@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.teams;
   dependencies = with pkgs; [
     teams-for-linux
   ];
@@ -12,7 +13,7 @@ in {
     };
   };
 
-  config = lib.mkIf config.teams.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = dependencies;
   };
 }

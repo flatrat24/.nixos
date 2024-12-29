@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.zellij;
   zellijAliases = {
     "z"  = "zellij";
     "za" = "zellij attach";
@@ -19,7 +20,7 @@ in {
     zellij.enable = lib.mkEnableOption "enables zellij";
   };
 
-  config = lib.mkIf config.zellij.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       programs.bash.shellAliases = zellijAliases;
       programs.zsh.shellAliases = zellijAliases;

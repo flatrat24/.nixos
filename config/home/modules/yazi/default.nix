@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.yazi;
   yaziAliases = {
     "d" = "yazi";
   };
@@ -11,7 +12,7 @@ in {
     yazi.enable = lib.mkEnableOption "enables yazi";
   };
 
-  config = lib.mkIf config.yazi.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       programs.bash.shellAliases = yaziAliases;
       programs.zsh.shellAliases = yaziAliases;

@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.wofi;
   dependencies = with pkgs; [
     wofi
   ];
@@ -18,7 +19,7 @@ in {
     };
   };
 
-  config = lib.mkIf config.wofi.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home = {
         packages = dependencies;

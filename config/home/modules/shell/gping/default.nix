@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.shell.programs.gping;
   dependencies = with pkgs; [
     gping
   ];
@@ -13,21 +14,21 @@ in {
       };
       bash.enable = lib.mkOption {
         type = lib.types.bool;
-        default = (config.shell.programs.gping.enable && config.shell.bash.enable);
+        default = (cfg.enable && config.shell.bash.enable);
       };
       zsh.enable = lib.mkOption {
         type = lib.types.bool;
-        default = (config.shell.programs.gping.enable && config.shell.zsh.enable);
+        default = (cfg.enable && config.shell.zsh.enable);
       };
     };
   };
 
-  config = lib.mkIf config.shell.programs.gping.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     { home.packages = dependencies; }
-    (lib.mkIf config.shell.programs.gping.bash.enable {
+    (lib.mkIf cfg.bash.enable {
       programs.bash.shellAliases = gpingAliases;
     })
-    (lib.mkIf config.shell.programs.gping.zsh.enable {
+    (lib.mkIf cfg.zsh.enable {
       programs.zsh.shellAliases = gpingAliases;
     })
   ]);

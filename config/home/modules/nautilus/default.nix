@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.nautilus;
   dependencies = with pkgs; [
     nautilus
   ];
@@ -12,7 +13,7 @@ in {
     };
   };
 
-  config = lib.mkIf config.nautilus.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home.packages = dependencies;
     }

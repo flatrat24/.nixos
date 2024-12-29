@@ -1,9 +1,6 @@
-# TODO: Fix error where user might have to imperatively run
-#           $ bat cache --build
-#       to load new themes
-
 { pkgs, lib, config, ... }:
 let
+  cfg = config.shell.programs.bat;
   dependencies = with pkgs; [
     bat
   ];
@@ -19,16 +16,16 @@ in {
       };
       bash.enable = lib.mkOption {
         type = lib.types.bool;
-        default = (config.shell.programs.bat.enable && config.shell.bash.enable);
+        default = (cfg.enable && config.shell.bash.enable);
       };
       zsh.enable = lib.mkOption {
         type = lib.types.bool;
-        default = (config.shell.programs.bat.enable && config.shell.zsh.enable);
+        default = (cfg.enable && config.shell.zsh.enable);
       };
     };
   };
 
-  config = lib.mkIf config.shell.programs.bat.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home.packages = dependencies;
 
@@ -41,10 +38,10 @@ in {
       };
 
     }
-    (lib.mkIf config.shell.programs.bat.bash.enable {
+    (lib.mkIf cfg.bash.enable {
       programs.bash.shellAliases = batAliases;
     })
-    (lib.mkIf config.shell.programs.bat.zsh.enable {
+    (lib.mkIf cfg.zsh.enable {
       programs.zsh.shellAliases = batAliases;
     })
   ]);

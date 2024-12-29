@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.shell;
   aliases = {
     "sudo" = "sudo "                                        ;
     ".."   = "cd .."                                        ;
@@ -38,16 +39,16 @@ in {
       enable = lib.mkEnableOption "enables shell";
       bash.enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.shell.enable;
+        default = cfg.enable;
       };
       zsh.enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.shell.enable;
+        default = cfg.enable;
       };
     };
   };
 
-  config = lib.mkIf config.shell.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = dependencies;
 
     programs.bash = {

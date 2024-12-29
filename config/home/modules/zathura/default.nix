@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.zathura;
   dependencies = with pkgs; [
     zathura
   ];
@@ -8,7 +9,7 @@ in{
     zathura.enable = lib.mkEnableOption "enables zathura";
   };
 
-  config = lib.mkIf config.zathura.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home.packages = dependencies;
 

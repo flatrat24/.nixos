@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.libreoffice;
   dependencies = with pkgs; [
     libreoffice
   ];
@@ -12,7 +13,7 @@ in {
     };
   };
 
-  config = lib.mkIf config.libreoffice.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home.packages = dependencies;
     }

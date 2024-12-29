@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.shell.programs.zoxide;
   dependencies = with pkgs; [
     zoxide
   ];
@@ -13,21 +14,21 @@ in {
       };
       bash.enable = lib.mkOption {
         type = lib.types.bool;
-        default = (config.shell.programs.zoxide.enable && config.shell.bash.enable);
+        default = (cfg.enable && config.shell.bash.enable);
       };
       zsh.enable = lib.mkOption {
         type = lib.types.bool;
-        default = (config.shell.programs.zoxide.enable && config.shell.zsh.enable);
+        default = (cfg.enable && config.shell.zsh.enable);
       };
     };
   };
 
-  config = lib.mkIf config.shell.programs.zoxide.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     { home.packages = dependencies; }
-    (lib.mkIf config.shell.programs.zoxide.bash.enable {
+    (lib.mkIf cfg.bash.enable {
       programs.bash.shellAliases = zoxideAliases;
     })
-    (lib.mkIf config.shell.programs.zoxide.zsh.enable {
+    (lib.mkIf cfg.zsh.enable {
       programs.zsh.shellAliases = zoxideAliases;
       programs.zsh = {
         initExtra = ''

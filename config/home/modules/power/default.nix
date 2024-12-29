@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.power;
   dependencies = with pkgs; [
     gnome-power-manager
   ];
@@ -11,16 +12,16 @@ in {
       enable = lib.mkEnableOption "enables power";
       alerts.enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.power.enable;
+        default = cfg.enable;
       };
     };
   };
 
-  config = lib.mkIf config.power.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home.packages = dependencies;
     }
-    (lib.mkIf config.power.alerts.enable {
+    (lib.mkIf cfg.alerts.enable {
       home.packages = [ pkgs.upower-notify ];
     })
   ]);

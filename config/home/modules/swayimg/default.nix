@@ -1,9 +1,12 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, ... }:
+let
+  cfg = config.swayimg;
+in {
   options = {
     swayimg.enable = lib.mkEnableOption "enables swayimg";
   };
 
-  config = lib.mkIf config.swayimg.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home.file = {
         ".config/swayimg/config" = {

@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.shell.programs.fzf;
   dependencies = with pkgs; [
     fzf
   ];
@@ -37,26 +38,26 @@ in {
       };
       bash.enable = lib.mkOption {
         type = lib.types.bool;
-        default = (config.shell.programs.fzf.enable && config.shell.bash.enable);
+        default = (cfg.enable && config.shell.bash.enable);
       };
       zsh.enable = lib.mkOption {
         type = lib.types.bool;
-        default = (config.shell.programs.fzf.enable && config.shell.zsh.enable);
+        default = (cfg.enable && config.shell.zsh.enable);
       };
     };
   };
 
-  config = lib.mkIf config.shell.programs.fzf.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     { home.packages = dependencies; }
     (lib.mkIf config.theme.enable {
       stylix.targets = {
         fzf.enable = true;
       };
     })
-    (lib.mkIf config.shell.programs.fzf.bash.enable {
+    (lib.mkIf cfg.bash.enable {
       programs.bash.shellAliases = fzfAliases;
     })
-    (lib.mkIf config.shell.programs.fzf.zsh.enable (lib.mkMerge [
+    (lib.mkIf cfg.zsh.enable (lib.mkMerge [
       {
         programs.zsh = {
           shellAliases = fzfAliases;

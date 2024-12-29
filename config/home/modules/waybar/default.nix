@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.waybar;
   dependencies = with pkgs; [
     waybar
   ];
@@ -8,7 +9,7 @@ in {
     waybar.enable = lib.mkEnableOption "enables waybar";
   };
 
-  config = lib.mkIf config.waybar.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home.packages = dependencies;
 

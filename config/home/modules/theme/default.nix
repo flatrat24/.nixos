@@ -1,4 +1,7 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, ... }:
+let
+  cfg = config.theme;
+in {
   options = {
     theme = {
       enable = lib.mkEnableOption "enables theme";
@@ -13,7 +16,7 @@
     };
   };
 
-  config = lib.mkIf config.theme.enable {
+  config = lib.mkIf cfg.enable {
     home.file = {
       ".assets" = {
         source = ../../../assets;
@@ -27,8 +30,8 @@
     stylix = {
       enable = lib.mkDefault true;
       autoEnable = false;
-      image = ../../../assets/${config.theme.wallpaper};
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/${config.theme.colorscheme}.yaml";
+      image = ../../../assets/${cfg.wallpaper};
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/${cfg.colorscheme}.yaml";
 
       targets = {
         gtk.enable = true;

@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.shell.programs.bottom;
   dependencies = with pkgs; [
     bottom
   ];
@@ -15,16 +16,16 @@ in {
       };
       bash.enable = lib.mkOption {
         type = lib.types.bool;
-        default = (config.shell.programs.bottom.enable && config.shell.bash.enable);
+        default = (cfg.enable && config.shell.bash.enable);
       };
       zsh.enable = lib.mkOption {
         type = lib.types.bool;
-        default = (config.shell.programs.bottom.enable && config.shell.zsh.enable);
+        default = (cfg.enable && config.shell.zsh.enable);
       };
     };
   };
 
-  config = lib.mkIf config.shell.programs.bottom.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home.packages = dependencies;
 
@@ -36,10 +37,10 @@ in {
         };
       };
     }
-    (lib.mkIf config.shell.programs.bottom.bash.enable {
+    (lib.mkIf cfg.bash.enable {
       programs.bash.shellAliases = bottomAliases;
     })
-    (lib.mkIf config.shell.programs.bottom.zsh.enable {
+    (lib.mkIf cfg.zsh.enable {
       programs.zsh.shellAliases = bottomAliases;
     })
   ]);

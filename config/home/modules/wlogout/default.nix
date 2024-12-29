@@ -1,9 +1,12 @@
-{ lib, config, ... }: {
+{ lib, config, ... }:
+let
+  cfg = config.wlogout;
+in {
   options = {
     wlogout.enable = lib.mkEnableOption "enables wlogout";
   };
 
-  config = lib.mkIf config.wlogout.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home.file = {
         ".config/wlogout" = {

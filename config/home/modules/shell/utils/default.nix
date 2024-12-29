@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.shell.programs.utils;
   dependencies = with pkgs; [
     wget
     moreutils
@@ -21,21 +22,21 @@ in {
       };
       bash.enable = lib.mkOption {
         type = lib.types.bool;
-        default = (config.shell.programs.utils.enable && config.shell.bash.enable);
+        default = (cfg.enable && config.shell.bash.enable);
       };
       zsh.enable = lib.mkOption {
         type = lib.types.bool;
-        default = (config.shell.programs.utils.enable && config.shell.zsh.enable);
+        default = (cfg.enable && config.shell.zsh.enable);
       };
     };
   };
 
-  config = lib.mkIf config.shell.programs.utils.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     { home.packages = dependencies; }
-    (lib.mkIf config.shell.programs.utils.bash.enable {
+    (lib.mkIf cfg.bash.enable {
       programs.bash.shellAliases = utilsAliases;
     })
-    (lib.mkIf config.shell.programs.utils.zsh.enable {
+    (lib.mkIf cfg.zsh.enable {
       programs.zsh.shellAliases = utilsAliases;
     })
   ]);

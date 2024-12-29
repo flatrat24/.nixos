@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.waycorner;
   dependencies = with pkgs; [
     waycorner
   ];
@@ -8,7 +9,7 @@ in {
     waycorner.enable = lib.mkEnableOption "enables waycorner";
   };
 
-  config = lib.mkIf config.waycorner.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home.packages = dependencies;
 

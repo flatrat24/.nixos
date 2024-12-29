@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.shell.programs.eza;
   dependencies = with pkgs; [
     eza
   ];
@@ -17,16 +18,16 @@ in {
       };
       bash.enable = lib.mkOption {
         type = lib.types.bool;
-        default = (config.shell.programs.eza.enable && config.shell.bash.enable);
+        default = (cfg.enable && config.shell.bash.enable);
       };
       zsh.enable = lib.mkOption {
         type = lib.types.bool;
-        default = (config.shell.programs.eza.enable && config.shell.zsh.enable);
+        default = (cfg.enable && config.shell.zsh.enable);
       };
     };
   };
 
-  config = lib.mkIf config.shell.programs.eza.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home.packages = dependencies;
 
@@ -38,10 +39,10 @@ in {
         };
       };
     }
-    (lib.mkIf config.shell.programs.eza.bash.enable {
+    (lib.mkIf cfg.bash.enable {
       programs.bash.shellAliases = ezaAliases;
     })
-    (lib.mkIf config.shell.programs.eza.zsh.enable {
+    (lib.mkIf cfg.zsh.enable {
       programs.zsh.shellAliases = ezaAliases;
     })
   ]);

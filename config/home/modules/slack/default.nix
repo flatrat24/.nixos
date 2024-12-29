@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.slack;
   dependencies = with pkgs; [
     slack
     slack-term
@@ -13,7 +14,7 @@ in {
     };
   };
 
-  config = lib.mkIf config.slack.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = dependencies;
   };
 }

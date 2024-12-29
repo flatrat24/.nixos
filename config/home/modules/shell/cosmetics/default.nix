@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.shell.programs.cosmetics;
   dependencies = with pkgs; [
     typioca
     cowsay
@@ -19,21 +20,21 @@ in {
       };
       bash.enable = lib.mkOption {
         type = lib.types.bool;
-        default = (config.shell.programs.cosmetics.enable && config.shell.bash.enable);
+        default = (cfg.enable && config.shell.bash.enable);
       };
       zsh.enable = lib.mkOption {
         type = lib.types.bool;
-        default = (config.shell.programs.cosmetics.enable && config.shell.zsh.enable);
+        default = (cfg.enable && config.shell.zsh.enable);
       };
     };
   };
 
-  config = lib.mkIf config.shell.programs.cosmetics.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     { home.packages = dependencies; }
-    (lib.mkIf config.shell.programs.cosmetics.bash.enable {
+    (lib.mkIf cfg.bash.enable {
       programs.bash.shellAliases = cosmeticsAliases;
     })
-    (lib.mkIf config.shell.programs.cosmetics.zsh.enable {
+    (lib.mkIf cfg.zsh.enable {
       programs.zsh.shellAliases = cosmeticsAliases;
     })
   ]);

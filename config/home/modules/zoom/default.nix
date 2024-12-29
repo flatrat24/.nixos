@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.zoom;
   dependencies = with pkgs; [
     zoom-us
   ];
@@ -12,7 +13,7 @@ in {
     };
   };
 
-  config = lib.mkIf config.zoom.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = dependencies;
   };
 }

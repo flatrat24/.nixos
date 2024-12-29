@@ -1,11 +1,14 @@
-{ lib, config, ... }: {
+{ lib, config, ... }:
+let
+  cfg = config.notes;
+in {
   options = {
     notes = {
       enable = lib.mkEnableOption "enables notes";
     };
   };
 
-  config = lib.mkIf config.notes.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     (lib.mkIf config.hyprland.enable {
       wayland.windowManager.hyprland.settings = {
         bindd = [

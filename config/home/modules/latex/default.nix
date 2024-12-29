@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.latex;
   tex = (pkgs.texlive.combine { inherit (pkgs.texlive) scheme-full darkmode; });
   dependencies = [
     tex
@@ -13,7 +14,7 @@ in {
     };
   };
 
-  config = lib.mkIf config.latex.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home.packages = dependencies;
     }

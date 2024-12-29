@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  cfg = config.music;
   musicAliases = {
     "n" = "ncmpcpp";
   };
@@ -37,29 +38,29 @@ in {
         enable = lib.mkOption {
           description = "enables mpd";
           type = lib.types.bool;
-          default = config.music.enable;
+          default = cfg.enable;
         };
         ncmpcpp.enable = lib.mkOption {
             description = "enables ncmpcpp";
             type = lib.types.bool;
-            default = config.music.mpd.enable;
+            default = cfg.mpd.enable;
         };
       };
       importMusic.enable = lib.mkOption {
           description = "enables importMusic";
           type = lib.types.bool;
-          default = config.music.enable;
+          default = cfg.enable;
       };
       cava.enable = lib.mkOption {
           description = "enables cava";
           type = lib.types.bool;
-          default = config.music.enable;
+          default = cfg.enable;
       };
     };
   };
 
-  config = lib.mkIf config.music.enable (lib.mkMerge [
-    (lib.mkIf config.music.mpd.enable {
+  config = lib.mkIf cfg.enable (lib.mkMerge [
+    (lib.mkIf cfg.mpd.enable {
       home.packages = mpdDependencies;
 
       services.mpd = {
@@ -127,7 +128,7 @@ in {
       };
     })
     
-    (lib.mkIf config.music.mpd.ncmpcpp.enable {
+    (lib.mkIf cfg.mpd.ncmpcpp.enable {
       programs.bash.shellAliases = musicAliases;
       programs.zsh.shellAliases = musicAliases;
 
@@ -265,7 +266,7 @@ in {
       };
     })
     
-    (lib.mkIf config.music.importMusic.enable {
+    (lib.mkIf cfg.importMusic.enable {
       home.packages = importMusicDependencies;
 
       home.file = {
@@ -285,7 +286,7 @@ in {
       };
     })
 
-    (lib.mkIf config.music.cava.enable {
+    (lib.mkIf cfg.cava.enable {
       home.packages = cavaDependencies;
 
       home.file = {

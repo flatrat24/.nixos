@@ -1,5 +1,6 @@
 { pkgs, lib, inputs, config, ... }:
 let
+  cfg = config.obs;
   dependencies = with pkgs; [
     obs-studio
     obs-cli
@@ -9,7 +10,7 @@ in {
     obs.enable = lib.mkEnableOption "enable obs";
   };
 
-  config = lib.mkIf config.obs.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = dependencies;
   };
 }

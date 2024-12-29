@@ -1,5 +1,6 @@
 { pkgs, lib, inputs, config, ... }:
 let
+  cfg = config.overskride;
   dependencies = with pkgs; [
     overskride
   ];
@@ -8,7 +9,7 @@ in {
     overskride.enable = lib.mkEnableOption "enable overskride";
   };
 
-  config = lib.mkIf config.overskride.enable (lib.mkMerge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home.packages = dependencies;
     }
