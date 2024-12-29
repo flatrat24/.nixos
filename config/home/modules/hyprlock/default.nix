@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, config, ... }:
+{ pkgs, lib, config, ... }:
 let
   dependencies = with pkgs; [
     ibm-plex
@@ -22,7 +22,6 @@ in {
         type = lib.types.bool;
         default = config.mpd.enable;
       };
-      # add topbar option to show things like wifi, bluetooth, etc
     };
   };
 
@@ -41,7 +40,7 @@ in {
         background = [{
           monitor = "";
           path = "/home/ea/.assets/${config.theme.wallpaper}";
-          blur_passes = 3;
+          blur_passes = 2;
           contrast = 0.8916;
           brightness = 0.8172;
           vibrancy = 0.1696;
