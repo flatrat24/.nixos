@@ -1,20 +1,34 @@
-# TODO: Embed this file in each respective program's module or make this theme.nix and
-#       have it include gtk, qt, etc. themeing as well and make all other programs use
-#       program.enable in their modules
-
 { pkgs, lib, config, ... }: {
   options = {
-    theme.enable = lib.mkEnableOption "enables theme";
+    theme = {
+      enable = lib.mkEnableOption "enables theme";
+      colorscheme = lib.mkOption {
+        type = lib.types.str;
+        default = "catppuccin-mocha";
+      };
+      wallpaper = lib.mkOption {
+        type = lib.types.str;
+        default = "flower_field";
+      };
+    };
   };
 
   config = lib.mkIf config.theme.enable {
+    home.file = {
+      ".assets" = {
+        source = ../../../assets;
+        executable = false;
+        recursive = true;
+      };
+    };
+
     fonts.fontconfig.enable = true;
 
     stylix = {
       enable = lib.mkDefault true;
       autoEnable = false;
-      image = ../../../assets/mountains.png;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+      image = ../../../assets/${config.theme.wallpaper}.png;
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/${config.theme.colorscheme}.yaml";
 
       targets = {
         gtk.enable = true;
@@ -28,10 +42,6 @@
       };
     };
 
-    # home.pointerCursor.hyprcursor = {
-    #   enable = true;
-    #   size = 24;
-    # };
     wayland.windowManager.hyprland.settings = {
       "exec-once" = [
         "hyprctl setcursor size 24"
