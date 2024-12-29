@@ -19,6 +19,7 @@
     ./modules/music
     ./modules/nautilus
     ./modules/neovim
+    ./modules/notes
     ./modules/obs
     ./modules/overskride
     ./modules/passwords
