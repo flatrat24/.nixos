@@ -28,14 +28,6 @@ in {
 
   config = lib.mkIf config.hyprlock.enable {
     home.packages = dependencies;
-
-    home.file = {
-      ".assets/mountains.png" = {
-        source = ../../../assets/mountains.png;
-        executable = false;
-        recursive = false;
-      };
-    };
     
     programs.hyprlock = {
       enable = true;
