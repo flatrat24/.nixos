@@ -35,19 +35,6 @@ in {
           "layout" = "master";
         };
 
-        decoration = {
-          "rounding" = "0";
-          "active_opacity" = "1";
-          "inactive_opacity" = "1";
-          "blur" = {
-            "enabled" = "true";
-            "size" = "5";
-            "passes" = "5";
-            "vibrancy" = "0.1696";
-            "ignore_opacity" = "true";
-          };
-        };
-
         dwindle = {
           "pseudotile" = "true";
           "preserve_split" = "true";
