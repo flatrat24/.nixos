@@ -10,7 +10,7 @@
   basicSettings.enable  = true;
   bluetooth.enable      = true;
   gaming.enable         = true;
-  grub.enable           = true;
+  grub.enable           = false;
   hyprland.enable       = true;
   network.enable        = true;
   nvidia.enable         = false;
@@ -20,6 +20,7 @@
   sddm.enable           = true;
   syncthing.enable      = true;
   system76.enable       = false;
+  systemd-boot.enable   = true;
   theme.enable          = true;
   vm.enable             = true;
 

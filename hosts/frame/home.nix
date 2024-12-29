@@ -25,7 +25,7 @@
   theme = {
     enable = true;
     colorscheme = "catppuccin-mocha";
-    wallpaper = "flower_field_catppuccin.jpg";
+    wallpaper = "biking_sunset.jpg";
   };
 
   ##--- Applications ---###

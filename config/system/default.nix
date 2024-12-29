@@ -14,6 +14,7 @@
     ./modules/sddm
     ./modules/syncthing
     ./modules/system76
+    ./modules/systemd-boot
     ./modules/theme
     ./modules/vm
   ];
