@@ -1,19 +1,69 @@
 { pkgs, lib, config, ... }:
 let
-  dependencies = with pkgs; [ ];
+  cfg = config.passwords;
 in {
-  imports = [
-    ./pass/default.nix
-    ./keepass/default.nix
-  ];
-
   options = {
     passwords = {
       enable = lib.mkEnableOption "enables passwords";
+      keepass.enable = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+      };
+      pass.enable = lib.mkOption {
+        type = lib.types.bool;
+        default = cfg.enable;
+      };
     };
   };
 
-  config = lib.mkIf config.passwords.enable {
-    home.packages = dependencies;
-  };
+  config = lib.mkIf cfg.enable (lib.mkMerge [
+    (lib.mkIf cfg.keepass.enable (lib.mkMerge [
+      {
+        home.packages = with pkgs; [
+          keepassxc
+          keepassxc-go
+          keepass-diff
+        ];
+      }
+    ]))
+    (lib.mkIf cfg.pass.enable (lib.mkMerge [
+      {
+        home.packages = with pkgs; [ passepartui ];
+
+        programs = {
+          password-store = {
+            enable = true;
+            package = pkgs.pass.withExtensions (exts: [exts.pass-import]);
+            settings = {
+              PASSWORD_STORE_DIR = "${config.home.homeDirectory}/.password-store";
+            };
+          };
+          browserpass.enable = true;
+        };
+      }
+      (lib.mkIf config.wofi.enable (lib.mkMerge [
+        {
+          home.packages = with pkgs; [
+            wofi-pass
+            wtype
+          ];
+
+          home.file = {
+            ".config/wofi-pass/config" = {
+              source = ./sources/config;
+              executable = false;
+              recursive = false;
+            };
+          };
+        }
+        (lib.mkIf config.hyprland.enable {
+          wayland.windowManager.hyprland.settings = {
+            bindd = [
+              "$mod, c, Wofi Pass, exec, wofi-pass"
+            ];
+          };
+        })
+      ]))
+    ]))
+  ]);
 }
