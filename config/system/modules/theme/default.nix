@@ -1,44 +1,45 @@
 { pkgs, lib, config, inputs, ... }:
 let
-  sddm-astronaut = (pkgs.sddm-astronaut.override {
-    themeConfig = {
-      # [General]
-      CustomBackground = true;
-      Background = config.stylix.image;
-      DimBackgroundImage = "0.0";
-      ScreenWidth="2880";
-      ScreenHeight="1920";
-      ScreenPadding="0";
-
-      # [Blur Settings]
-      FullBlur = false;
-      PartialBlur = true;
-      BlurRadius = 80;
-
-      # [Design Customizations]
-      ## Form Customizations
-      HaveFormBackground = true;
-      FormPosition = "left";
-
-      Font = config.stylix.fonts.monospace.name;
-      FontSize = config.stylix.fonts.sizes.applications;
-
-      ## Colors
-      MainColor = config.lib.stylix.colors.withHashtag.base05;
-      AccentColor = config.lib.stylix.colors.withHashtag.base0F;
-
-      # Change password placeholder colors
-      placeholderColor = config.lib.stylix.colors.withHashtag.base0F;
-      IconColor = config.lib.stylix.colors.withHashtag.base05;
-
-      # Make form use a darker color
-      BackgroundColor = config.lib.stylix.colors.withHashtag.base00;
-
-      # [Locale]
-      HourFormat = "\"HH:mm\"";
-      DateFormat = "\"MMMM d, yyyy\"";
-    };
-  });
+  sddm-astronaut = pkgs.libsForQt5.callPackage ../../../../pkgs/sddm-astronaut-theme { };
+  # sddm-astronaut = (pkgs.sddm-astronaut.override {
+  #   themeConfig = {
+  #     # [General]
+  #     CustomBackground = true;
+  #     Background = config.stylix.image;
+  #     DimBackgroundImage = "0.0";
+  #     ScreenWidth="2880";
+  #     ScreenHeight="1920";
+  #     ScreenPadding="0";
+  #
+  #     # [Blur Settings]
+  #     FullBlur = false;
+  #     PartialBlur = true;
+  #     BlurRadius = 80;
+  #
+  #     # [Design Customizations]
+  #     ## Form Customizations
+  #     HaveFormBackground = true;
+  #     FormPosition = "left";
+  #
+  #     Font = config.stylix.fonts.monospace.name;
+  #     FontSize = config.stylix.fonts.sizes.applications;
+  #
+  #     ## Colors
+  #     MainColor = config.lib.stylix.colors.withHashtag.base05;
+  #     AccentColor = config.lib.stylix.colors.withHashtag.base0F;
+  #
+  #     # Change password placeholder colors
+  #     placeholderColor = config.lib.stylix.colors.withHashtag.base0F;
+  #     IconColor = config.lib.stylix.colors.withHashtag.base05;
+  #
+  #     # Make form use a darker color
+  #     BackgroundColor = config.lib.stylix.colors.withHashtag.base00;
+  #
+  #     # [Locale]
+  #     HourFormat = "\"HH:mm\"";
+  #     DateFormat = "\"MMMM d, yyyy\"";
+  #   };
+  # });
 in {
   options = {
     theme.enable = lib.mkEnableOption "enables theme";
