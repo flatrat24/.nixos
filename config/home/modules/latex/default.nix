@@ -1,9 +1,6 @@
 { pkgs, lib, config, ... }:
 let
-  tex = (pkgs.texlive.combine {
-    inherit (pkgs.texlive) scheme-full
-      darkmode;
-  });
+  tex = (pkgs.texlive.combine { inherit (pkgs.texlive) scheme-full darkmode; });
   dependencies = [
     tex
   ];
