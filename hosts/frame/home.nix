@@ -21,6 +21,13 @@
   ##--- Hyprland ---##
   hyprland.enable = true;
 
+  ##--- Theme ---##
+  theme = {
+    enable = true;
+    colorscheme = "catppuccin-mocha";
+    wallpaper = "flower_field_catppuccin";
+  };
+
   ##--- Applications ---###
   beeper.enable = true;
   discord.enable = true;
@@ -40,6 +47,7 @@
   ##--- Scripting Modules ---##
   bookmarks.enable = true;
   school.enable = true;
+  notes.enable = true;
 
   ##--- Gaming ---##
   gaming = {
@@ -72,7 +80,6 @@
   };
   shell.enable = true;
   power.enable = true;
-  theme.enable = true;
   yazi.enable = true;
   zellij.enable = true;
 
