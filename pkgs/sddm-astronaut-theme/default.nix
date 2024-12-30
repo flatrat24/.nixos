@@ -6,7 +6,7 @@ in stdenvNoCC.mkDerivation rec {
   version = "1.0";
 
   src = pkgs.fetchFromGitHub {
-    owner = "ethananthony271";
+    owner = "flatrat24";
     repo = "sddm-astronaut-theme";
     rev = "4b6b58505a1cf1f60b0365be3d964b4f68e26ffc";
     hash = "sha256-LJQrcbPvh3VMBrW3mlbF+kwai0+Y6kVD6716IvxjjYk=";

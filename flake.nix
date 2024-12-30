@@ -34,7 +34,7 @@
     ags.url = "github:Aylur/ags";
     minegrub-theme.url = "github:Lxtharia/minegrub-theme";
     wallpapers = {
-      url = "github:ethananthony271/wallpapers";
+      url = "github:flatrat24/wallpapers";
       flake = false;
     };
   };
