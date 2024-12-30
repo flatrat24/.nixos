@@ -63,7 +63,6 @@ in {
 
     services.displayManager.sddm = {
       theme = "sddm-astronaut-theme";
-      extraPackages = [ sddm-astronaut ];
       settings = {
         General = {
           GreeterEnvironment = lib.mkDefault "QT_SCREEN_SCALE_FACTORS=2,QT_FONT_DPI=192"; # For hidpi # TODO: Make different for different monitors

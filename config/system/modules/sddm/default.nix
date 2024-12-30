@@ -8,7 +8,7 @@
       enable = true;
       wayland.enable = true;
       package = pkgs.kdePackages.sddm; # qt6 sddm version
-      enableHidpi = true;
+      enableHidpi = true; # TODO: Make part of monitor config
     };
   };
 }
