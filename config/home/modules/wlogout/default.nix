@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 let
   cfg = config.wlogout;
 in {
@@ -87,27 +87,27 @@ in {
           }
 
           #lock {
-            background-image: url("/home/ea/.config/wlogout/icons/lock.svg");
+            background-image: image(url("${pkgs.wleave}/share/wleave/icons/lock.svg")); 
           }
 
           #logout {
-            background-image: url("/home/ea/.config/wlogout/icons/logout.svg");
+            background-image: image(url("${pkgs.wleave}/share/wleave/icons/logout.svg"));
           }
 
           #suspend {
-            background-image: url("/home/ea/.config/wlogout/icons/suspend.svg");
+            background-image: image(url("${pkgs.wleave}/share/wleave/icons/shutdown.svg"));
           }
 
           #hibernate {
-            background-image: url("/home/ea/.config/wlogout/icons/hibernate.svg");
+            background-image: image(url("${pkgs.wleave}/share/wleave/icons/hibernate.svg"));
           }
 
           #shutdown {
-            background-image: url("/home/ea/.config/wlogout/icons/shutdown.svg");
+            background-image: image(url("${pkgs.wleave}/share/wleave/icons/shutdown.svg"));
           }
 
           #reboot {
-            background-image: url("/home/ea/.config/wlogout/icons/reboot.svg");
+            background-image: image(url("${pkgs.wleave}/share/wleave/icons/reboot.svg"));
           }
         '';
       };
