@@ -37,6 +37,8 @@ in {
         wayland.windowManager.hyprland.settings = {
           bindd = [
             "$mod, Space, Wofi Drun, exec, wofi --define=sort_order=alphabetical --show drun"
+            ''$mod, f, Wofi fd, exec, fd -X printf "%q\n" | wofi --prompt=open --define=width=75% -d | xargs xdg-open''
+            ''$mod SHIFT, f, Wofi fd (copy), exec, fd | wofi --prompt=copy --define=width=75% -d | wl-copy''
           ];
         };
       }
