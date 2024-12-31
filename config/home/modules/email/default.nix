@@ -139,6 +139,11 @@ in {
           "size 20% 30%,title:Copy Repeating Event,class:thunderbird"
           "center 1,title:Copy Repeating Event,class:thunderbird"
 
+          # Event reminders
+          "float,title:Calendar Reminders,class:thunderbird"
+          "size 50% 50%,title:Calendar Reminders,class:thunderbird"
+          "center 1,title:Calendar Reminders,class:thunderbird"
+
           # Save event dialogue
           "float,title:Save Event,class:thunderbird"
           "size 450 120,title:Save Event,class:thunderbird"
