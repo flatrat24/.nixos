@@ -24,7 +24,7 @@ in {
         gpg-agent = {
           enable = true;
           enableSshSupport = true;
-          pinentryPackage = pkgs.pinentry-curses;
+          pinentryPackage = pkgs.pinentry-qt;
           maxCacheTtl = 7 * 24 * 60 * 60; # One week
           defaultCacheTtl = 7 * 24 * 60 * 60; # One week
         };
