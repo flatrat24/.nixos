@@ -68,6 +68,8 @@ while [ "$#" -gt 0 ]; do
       cd "$BOOKMARKS" || exit 1
       git add bookmarks.json
       git commit -m "+$title in $category"
+
+      rm "$temp_bookmarks"
       shift
       ;;
 
@@ -76,3 +78,5 @@ while [ "$#" -gt 0 ]; do
       ;;
   esac
 done
+
+rm "$SORTED_JSON"
