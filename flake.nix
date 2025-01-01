@@ -32,7 +32,6 @@
     textfox.url = "github:adriankarlen/textfox";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     ags.url = "github:Aylur/ags";
-    minegrub-theme.url = "github:Lxtharia/minegrub-theme";
     wallpapers = {
       url = "github:flatrat24/wallpapers";
       flake = false;
@@ -56,7 +55,6 @@
             };
           }
           inputs.stylix.nixosModules.stylix
-          inputs.minegrub-theme.nixosModules.default
         ];
       };
       leoito = nixpkgs.lib.nixosSystem {
@@ -75,7 +73,6 @@
           }
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
           inputs.stylix.nixosModules.stylix
-          inputs.minegrub-theme.nixosModules.default
         ];
       };
     };
