@@ -77,6 +77,7 @@
     plugins = {
       telescope.enable = true;
       fzf-lua.enable = false;
+      highlight-undo.enable = false;
     };
   };
   shell.enable = true;
