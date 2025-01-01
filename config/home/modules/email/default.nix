@@ -77,7 +77,24 @@ in {
       {
         programs.thunderbird = {
           enable = true;
-          settings = { };
+          settings = {
+            # General
+            "app.donation.eoy.version.viewed" = 1000;
+            "mail.rights.version" = 1;
+            "mail.shell.checkDefaultClient" = false;
+            "mailnews.start_page.enabled" = false;
+
+            # Phishing detection
+            "mail.phishing.detection.enabled" = false;
+
+            # Telemetry
+            "datareporting.healthreport.uploadEnabled" = false;
+            "datareporting.policy.dataSubmissionEnabled" = false;
+
+            # UI
+            "apz.overscroll.enabled" = true;
+            "mail.biff.play_sound" = false; # Disable notification sound
+          };
           profiles = {
             "Main" = {
               isDefault = true;
@@ -103,6 +120,11 @@ in {
           "float,title:(Sign in to your account)(.*),class:thunderbird"
           "size 50% 50%,title:(Sign in to your account)(.*),class:thunderbird"
           "center 1,title:(Sign in to your account)(.*),class:thunderbird"
+
+          # Edit Calendar
+          "float,title:Edit Calendar,class:thunderbird"
+          "size 50% 50%,title:Edit Calendar,class:thunderbird"
+          "center 1,title:Edit Calendar,class:thunderbird"
 
           # Subscribing to a new calendar
           "float,title:Create New Calendar,class:thunderbird"
