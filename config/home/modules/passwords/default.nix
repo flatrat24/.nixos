@@ -1,6 +1,14 @@
 { pkgs, lib, config, ... }:
 let
   cfg = config.passwords;
+  wofipass = pkgs.writeShellApplication {
+    name = "wofipass.sh";
+    runtimeInputs = with pkgs; [
+      fd
+      wofi
+    ];
+    text = builtins.readFile ./sources/wofipass.sh;
+  };
 in {
   options = {
     passwords = {
@@ -17,15 +25,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable (lib.mkMerge [
-    (lib.mkIf cfg.keepass.enable (lib.mkMerge [
-      {
-        home.packages = with pkgs; [
-          keepassxc
-          keepassxc-go
-          keepass-diff
-        ];
-      }
-    ]))
     (lib.mkIf cfg.pass.enable (lib.mkMerge [
       {
         home.packages = with pkgs; [ passepartui ];
@@ -43,27 +42,28 @@ in {
       }
       (lib.mkIf config.wofi.enable (lib.mkMerge [
         {
-          home.packages = with pkgs; [
-            wofi-pass
-            wtype
+          home.packages = [
+            pkgs.wtype
+            wofipass
           ];
-
-          home.file = {
-            ".config/wofi-pass/config" = {
-              source = ./sources/config;
-              executable = false;
-              recursive = false;
-            };
-          };
         }
         (lib.mkIf config.hyprland.enable {
           wayland.windowManager.hyprland.settings = {
             bindd = [
-              "$mod, c, Wofi Pass, exec, wofi-pass"
+              "$mod, c, Wofi Pass, exec, wofipass.sh"
             ];
           };
         })
       ]))
+    ]))
+    (lib.mkIf cfg.keepass.enable (lib.mkMerge [
+      {
+        home.packages = with pkgs; [
+          keepassxc
+          keepassxc-go
+          keepass-diff
+        ];
+      }
     ]))
   ]);
 }
