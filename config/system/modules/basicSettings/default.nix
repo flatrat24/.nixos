@@ -28,6 +28,9 @@
 
     services.pcscd.enable = true; # Helps with GPG, idk why
 
+    nix.gc.automatic = true; # Automatically garbage collect
+    nix.settings.auto-optimise-store = true; # Automatically optimize nix store
+
     xdg.portal = {
       enable = true;
       extraPortals = with pkgs; [
