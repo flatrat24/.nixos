@@ -166,6 +166,21 @@ in {
           "size 50% 50%,title:Calendar Reminders,class:thunderbird"
           "center 1,title:Calendar Reminders,class:thunderbird"
 
+          # Send Message Confirmation
+          "float,title:Send Message,class:thunderbird"
+          "size 450 150,title:Send Message,class:thunderbird"
+          "center 1,title:Send Message,class:thunderbird"
+
+          # Sending Message Dialogue
+          "float,title:(Sending Message - )(.*),class:thunderbird"
+          "size 450 120,title:(Sending Message - )(.*),class:thunderbird"
+          "center 1,title:(Sending Message - )(.*),class:thunderbird"
+
+          # Confirm Deletion
+          "float,title:Confirm Deletion,class:thunderbird"
+          "size 450 150,title:Confirm Deletion,class:thunderbird"
+          "center 1,title:Confirm Deletion,class:thunderbird"
+
           # Save event dialogue
           "float,title:Save Event,class:thunderbird"
           "size 450 120,title:Save Event,class:thunderbird"
