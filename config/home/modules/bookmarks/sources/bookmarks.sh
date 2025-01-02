@@ -31,7 +31,7 @@ while [ "$#" -gt 0 ]; do
       ;;
 
     -s | --select-bookmark)
-      generate_messages | wofi -d | grep -oP "<span[^>]*>.*</span> <span[^>]*>\K.*?(?=</span>)"
+      generate_messages | wofi -d --define=width=40% | grep -oP "<span[^>]*>.*</span> <span[^>]*>\K.*?(?=</span>)"
       shift
       ;;
 
