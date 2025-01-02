@@ -1,9 +1,14 @@
 { pkgs, lib, config, ... }: {
   options = {
-    basicSettings.enable = lib.mkEnableOption "enables basic settings";
+    basics.enable = lib.mkEnableOption "enables basic";
   };
 
-  config = lib.mkIf config.basicSettings.enable {
+  config = lib.mkIf config.basics.enable {
+    environment.systemPackages = with pkgs; [
+      wget
+      git
+    ];
+
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     nixpkgs.config.allowUnfree = true;
 

@@ -1,7 +1,6 @@
 { ... }: {
   imports = [
-    ./modules/basicPackages
-    ./modules/basicSettings
+    ./modules/basics
     ./modules/bluetooth
     ./modules/gaming
     ./modules/grub
