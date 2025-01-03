@@ -41,6 +41,7 @@
   slack.enable = true;
   swayimg.enable = true;
   teams.enable = true;
+  whatsapp.enable = true;
   zathura.enable = true;
   zed.enable = true;
   zoom.enable = true;

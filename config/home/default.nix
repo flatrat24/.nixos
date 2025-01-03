@@ -32,6 +32,7 @@
     ./modules/theme
     ./modules/waybar
     ./modules/waycorner
+    ./modules/whatsapp
     ./modules/wlogout
     ./modules/wofi
     ./modules/yazi
