@@ -1,6 +1,4 @@
-# TODO: !!!!reverse the order of notifications
-
-{ pkgs, lib, inputs, config, ... }:
+{ pkgs, lib, config, ... }:
 let
   cfg = config.dunst;
   dependencies = with pkgs; [
@@ -36,13 +34,13 @@ in {
         }
         (lib.mkIf (config.hardware.keyboard == "mac") {
           bindd = [
-            # ", XF86LaunchA, Restore Last Notification, exec, dunstctl restore" <- doesn't exist
+            ", XF86LaunchA, Restore Last Notification, exec, dunstctl history-pop"
             ", XF86LaunchB, Dismiss Last Notification, exec, dunstctl close"
           ];
         })
         (lib.mkIf (config.hardware.keyboard == "framework") {
           bindd = [
-            # ", F9, Restore Last Notification, exec, dunstctl restore" <- doesn't exist
+            ", F9, Restore Last Notification, exec, dunstctl history-pop"
             ", F10, Dismiss Last Notification, exec, dunstctl close"
           ];
         })
