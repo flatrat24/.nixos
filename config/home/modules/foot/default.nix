@@ -27,7 +27,7 @@ in {
             color=11111b f5e0dc
 
             [colors]
-            alpha=0.95
+            alpha=1.00
             foreground=cdd6f4
             background=1e1e2e
 
@@ -101,13 +101,17 @@ in {
       };
 
       home.packages = dependencies;
-
+    }
+    (lib.mkIf config.hyprland.enable {
       wayland.windowManager.hyprland.settings = {
-        bindd = [
-          "$mod, A, Launch Terminal, exec, foot"
+        bindd = [                                
+          "$mod, A, Launch Terminal, exec, foot" 
+        ];                                       
+        windowrulev2 = [
+          "opacity 0.90 0.90 0.90 override 0.90 0.90 0.90 override,class:foot,title:terminal"
         ];
       };
-    }
+    })
     (lib.mkIf config.yazi.enable {
       programs.yazi.settings.opener = {
         directory = lib.mkBefore [
