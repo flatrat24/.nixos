@@ -77,6 +77,12 @@ let
       updateinterval = 24 * 60 * 60 * 1000; # every day
       definedAliases = [ "@yt" ];
     };
+    "Youtube Music" = {
+      urls = [{ template = "https://music.youtube.com/search?q={searchTerms}"; }];
+      iconupdateurl = "https://upload.wikimedia.org/wikipedia/commons/f/f6/Wikipedia-logo-v2-wordmark.svg";
+      updateinterval = 24 * 60 * 60 * 1000; # every day
+      definedAliases = [ "@ym" ];
+    };
     "Last.fm" = {
       urls = [{ template = "https://www.last.fm/search?q={searchTerms}"; }];
       iconupdateurl = "https://upload.wikimedia.org/wikipedia/commons/f/f6/Wikipedia-logo-v2-wordmark.svg";
@@ -205,6 +211,7 @@ in {
                 "Wikimedia Commons"
                 "Wikipedia"
                 "Youtube"
+                "Youtube Music"
                 "Rate Your Music"
                 "Album of the Year"
                 "Last.fm"
