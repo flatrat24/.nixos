@@ -50,7 +50,7 @@ in {
         (lib.mkIf config.hyprland.enable {
           wayland.windowManager.hyprland.settings = {
             bindd = [
-              "$mod, c, Wofi Pass, exec, wofipass.sh"
+              "$mod, c, Wofi Pass, exec, wofipass.sh | wl-copy"
             ];
           };
         })
