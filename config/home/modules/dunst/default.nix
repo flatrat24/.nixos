@@ -33,13 +33,13 @@ in {
           ];
         }
         (lib.mkIf (config.hardware.keyboard == "mac") {
-          bindd = [
+          binded = [
             ", XF86LaunchA, Restore Last Notification, exec, dunstctl history-pop"
             ", XF86LaunchB, Dismiss Last Notification, exec, dunstctl close"
           ];
         })
         (lib.mkIf (config.hardware.keyboard == "framework") {
-          bindd = [
+          binded = [
             ", F9, Restore Last Notification, exec, dunstctl history-pop"
             ", F10, Dismiss Last Notification, exec, dunstctl close"
           ];
