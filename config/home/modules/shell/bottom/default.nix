@@ -43,5 +43,17 @@ in {
     (lib.mkIf cfg.zsh.enable {
       programs.zsh.shellAliases = aliases;
     })
+    (lib.mkIf config.hyprland.enable {
+      wayland.windowManager.hyprland.settings = {
+        bindd = [
+          "$mod, b, Open System Monitor, exec, foot --title=SYSMONITOR -e btm"
+        ];
+        windowrulev2 = [
+          "float,title:SYSMONITOR"
+          "size 75% 75%,title:SYSMONITOR"
+          "center 1,title:SYSMONITOR"
+        ];
+      };
+    })
   ]);
 }
