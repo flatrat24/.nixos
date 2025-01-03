@@ -50,6 +50,20 @@ in {
           "disable_hyprland_logo" = "true";
         };
 
+        decoration = {
+          active_opacity = "1.0";
+          inactive_opacity = "1.0";
+          fullscreen_opacity = "1.0";
+
+          blur = {
+            enabled = "true";
+            size = "8";
+            passes = "2";
+            new_optimizations = "true";
+            ignore_opacity = "true";
+          };
+        };
+
         group = {
           groupbar = {
             "enabled" = "true";
