@@ -118,11 +118,5 @@ in {
         }];
       };
     };
-
-    wayland.windowManager.hyprland.settings = {
-      bindd = [
-        "$mod, Escape, Lock Screen, exec, hyprlock"
-      ];
-    };
   };
 }

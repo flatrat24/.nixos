@@ -112,5 +112,12 @@ in {
         '';
       };
     }
+    (lib.mkIf config.hyprland.enable {
+      wayland.windowManager.hyprland.settings = {
+        bindd = [
+          "$mod, Escape, Lock Screen, exec, wlogout"
+        ];
+      };
+    })
   ]);
 }
