@@ -42,6 +42,8 @@ in {
           binded = [
             ", F9, Restore Last Notification, exec, dunstctl history-pop"
             ", F10, Dismiss Last Notification, exec, dunstctl close"
+            # "$mod, F9, Focus Last Notification, exec, dunstctl history-pop"
+            "$mod, F10, Dismiss Last Notification, exec, (($(dunstctl count displayed) > 0)) && dunstctl action 0 && sleep 0.01s && hyprctl dispatch focusurgentorlast"
           ];
         })
       ]);
