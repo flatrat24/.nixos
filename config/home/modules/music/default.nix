@@ -143,6 +143,11 @@ in {
           ncmpcpp_directory         = "~/.config/ncmpcpp";
           startup_screen            = "media_library";
 
+          ##--- Miscellaneous ---##
+          external_editor = "nvim";
+          autocenter_mode = "yes";
+          centered_cursor = "yes";
+
           ##--- Visualizer ---##
           visualizer_data_source          = "/tmp/mpd.fifo";
           visualizer_output_name          = "Visualizer";
@@ -152,13 +157,13 @@ in {
           visualizer_fps                  = "60";
 
           ##--- Basic UI ---##
-          user_interface      = "classic";
-          colors_enabled      = "yes";
-          color1              = "green"; # Selected item color
-          color2              = "black"; # I don't know
-          main_window_color   = "blue"; # Self explanatory
-          current_item_prefix = "$(green)$r"; # Highlight when hovering over an item
-          current_item_suffix = "$/r$(yellow)"; # Unselected items
+          user_interface       = "classic";
+          colors_enabled       = "yes";
+          color1               = "green"; # Selected item color
+          color2               = "black"; # I don't know
+          main_window_color    = "blue"; # Self explanatory
+          current_item_prefix  = "$(green)$r"; # Highlight when hovering over an item
+          current_item_suffix  = "$/r$(yellow)"; # Unselected items
 
           ##--- Popup Menu ---##
           window_border_color  = "green";
