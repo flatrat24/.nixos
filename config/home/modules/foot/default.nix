@@ -108,7 +108,7 @@ in {
           "$mod, A, Launch Terminal, exec, foot" 
         ];                                       
         windowrulev2 = [
-          "opacity 0.90 0.90 0.90 override 0.90 0.90 0.90 override,class:foot,title:terminal"
+          "opacity 0.90 0.90 0.90 override 0.90 0.90 0.90 override,initialClass:foot,initialTitle:terminal"
         ];
       };
     })
