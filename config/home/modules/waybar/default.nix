@@ -27,6 +27,9 @@ in {
           "exec-once" = [
             "waybar"
           ];
+          bindd = [
+            "$mod, w, Toggle Waybar, exec,  killall waybar || killall .waybar-wrapped || waybar"
+          ];
         };
       };
     })
