@@ -45,8 +45,8 @@
   },
   "mpd#playpause": {
     "format": "{stateIcon}",
-    "format-disconnected": "",
-    "format-stopped": "",
+    "format-disconnected": "",
+    "format-stopped": "",
     "interval": 10,
     "max-length": 50,
     "state-icons": {
