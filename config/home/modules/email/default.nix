@@ -12,8 +12,8 @@ in {
     };
   };
 
-  config = lib.mkMerge [
-    (lib.mkIf (cfg.enable == true) {
+  config = lib.mkIf cfg.enable (lib.mkMerge [
+    {
       home.packages = dependencies;
       accounts.email = { # authentication not really working with this
         maildirBasePath = "Mail";
@@ -72,9 +72,19 @@ in {
           };
         };
       };
-    })
+    }
     (lib.mkIf (cfg.thunderbird.enable == true) (lib.mkMerge [
       {
+        home = {
+          file = {
+            ".thunderbird" = {
+              source = ./sources;
+              executable = false;
+              recursive = true;
+            };
+          };
+        };
+
         programs.thunderbird = {
           enable = true;
           settings = {
@@ -94,6 +104,9 @@ in {
             # UI
             "apz.overscroll.enabled" = true;
             "mail.biff.play_sound" = false; # Disable notification sound
+            "msgcompose.default_colors" = false;
+            "msgcompose.background_color" = "#EEEEFF";
+            "font.name.sans-serif.x-western" = "IBM Plex Sans";
           };
           profiles = {
             "Main" = {
@@ -176,6 +189,11 @@ in {
           "size 450 120,title:(Sending Message - )(.*),class:thunderbird"
           "center 1,title:(Sending Message - )(.*),class:thunderbird"
 
+          # Save Message Dialogue
+          "float,title:Save Message,class:thunderbird"
+          "size 450 150,title:Save Message,class:thunderbird"
+          "center 1,title:Save Message,class:thunderbird"
+
           # Confirm Deletion
           "float,title:Confirm Deletion,class:thunderbird"
           "size 450 150,title:Confirm Deletion,class:thunderbird"
@@ -193,5 +211,5 @@ in {
         ];
       })
     ]))
-  ];
+  ]);
 }
