@@ -181,6 +181,11 @@ in {
           "size 450 150,title:Confirm Deletion,class:thunderbird"
           "center 1,title:Confirm Deletion,class:thunderbird"
 
+          # Office365 Sign-in Prompt
+          "float,title:(Enter credentials for)(.*),class:thunderbird"
+          "size 50% 50%,title:(Enter credentials for)(.*),class:thunderbird"
+          "center 1,title:(Enter credentials for)(.*),class:thunderbird"
+
           # Save event dialogue
           "float,title:Save Event,class:thunderbird"
           "size 450 120,title:Save Event,class:thunderbird"
