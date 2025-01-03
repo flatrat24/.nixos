@@ -31,7 +31,7 @@ in {
     (lib.mkIf config.hyprland.enable {
       wayland.windowManager.hyprland.settings = {
         bindd = [
-          "$mod, m, Open Bookmark, exec, bookmarks.sh -o"
+          "$mod, m, Open Bookmark, exec, bookmarks.sh -o && hyprctl dispatch focusurgentorlast"
           "$mod SHIFT, m, Add Bookmark, exec, bookmarks.sh -c"
         ];
       };
