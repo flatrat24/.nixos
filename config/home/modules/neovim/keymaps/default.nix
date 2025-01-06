@@ -27,6 +27,7 @@
       { mode = [ "n" ]; key = "<C-;>"; action = "<C-y>"; options = { noremap = true; silent = true; desc = "Move Screen Up"; }; }
       { mode = [ "n" ]; key = "<C-'>"; action = "<C-e>"; options = { noremap = true; silent = true; desc = "Move Screen Down"; }; }
       { mode = [ "n" ]; key = "<leader>vh"; action = "<cmd>nohl<CR>"; options = { noremap = true; silent = true; desc = "Clear Highlighting"; }; }
+      { mode = [ "n" ]; key = "<leader>vw"; action = "<cmd>set wrap!<CR>"; options = { noremap = true; silent = true; desc = "Toggle Line Wrap"; }; }
 
       ##--- Buffer Management ---##
       { mode = [ "n" ]; key = "<leader>fw"; action = "<cmd>w<CR>"; options = { noremap = true; silent = true; desc = "Write Current Buffer"; }; }
