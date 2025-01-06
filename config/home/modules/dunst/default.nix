@@ -43,7 +43,7 @@ in {
             ", F9, Restore Last Notification, exec, dunstctl history-pop"
             ", F10, Dismiss Last Notification, exec, dunstctl close"
             # "$mod, F9, Focus Last Notification, exec, dunstctl history-pop"
-            "$mod, F10, Dismiss Last Notification, exec, (($(dunstctl count displayed) > 0)) && dunstctl action 0 && dunstctl close && sleep 0.025s && hyprctl dispatch focusurgentorlast"
+            "$mod, F10, Dismiss Last Notification, exec, (($(dunstctl count displayed) > 0)) && dunstctl action 0 && dunstctl close && sleep 0.1s && hyprctl dispatch focusurgentorlast"
           ];
         })
       ]);
