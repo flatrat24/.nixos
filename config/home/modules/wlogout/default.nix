@@ -22,37 +22,37 @@ in {
           {
             label = "lock";
             action = "hyprlock";
-            text = "Lock";
+            text = "[L]ock";
             keybind = "L";
           }
           {
             label = "hibernate";
             action = "systemctl hibernate";
-            text = "Hibernate";
+            text = "[H]ibernate";
             keybind = "H";
           }
           {
             label = "logout";
             action = "hyprctl dispatch exit";
-            text = "Logout";
-            keybind = "E";
+            text = "lo[G]out";
+            keybind = "G";
           }
           {
             label = "shutdown";
             action = "systemctl poweroff";
-            text = "Shutdown";
+            text = "[S]hutdown";
             keybind = "S";
           }
           {
             label = "suspend";
             action = "systemctl suspend";
-            text = "Suspend";
+            text = "s[U]spend";
             keybind = "U";
           }
           {
             label = "reboot";
             action = "systemctl reboot";
-            text = "Reboot";
+            text = "[R]eboot";
             keybind = "R";
           }
         ];
@@ -68,9 +68,9 @@ in {
 
           button {
             border-radius: 0px;
-            border-color: #f38ba8;
-            text-decoration-color: #cdd6f4;
-            color: #cdd6f4;
+            border-color: #CBA6F7;
+            text-decoration-color: #CDD6F4;
+            color: #CDD6F4;
             background-color: #181825;
             border-style: solid;
             border-width: 3px;
@@ -79,6 +79,7 @@ in {
             background-size: 40%;
             margin: 5px;
           }
+
 
           button:focus, button:active, button:hover {
             /* 20% Overlay 2, 80% mantle */
