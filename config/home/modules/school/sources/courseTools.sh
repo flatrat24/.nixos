@@ -21,7 +21,7 @@ echoHelpMessage () {
   echo "                                current course's notes/figures/ directory."
   echo "  -F, --create-basic-figure     Copies the basic_figure.tex template from the templates/"
   echo "                                directory into the next figure in the current course's"
-  echo "                                notes/figures/ directory."
+  echo "                                notes/figures/directory."
   echo "  -l, --create-lecture          Takes a single argument as a path to a lecture template."
   echo "                                Copies the template into the next lecture in the"
   echo "                                current course's notes/ directory."
@@ -100,6 +100,7 @@ while [ "$#" -gt 0 ]; do
         sed -i "$((dateLineNumber))s/\(\\\date{\).*\(}\)/\1$newDate\2/" "$newPath"
 
         notify-send "Figure Created in $(courseInfo.sh --short)" "$(basename "$newPath")"
+        echo -e "\\includestandalone{figures/$(basename "$newPath" .tex)}"
       else
         echo "Error: template doesn't exist"
         exit 1
@@ -112,7 +113,7 @@ while [ "$#" -gt 0 ]; do
       templatePath="$CURRENTQUARTER/xlatex/templates/figure/basic_figure.tex"
       if [[ -f "$templatePath" ]]; then
         newPath="$(courseInfo.sh --next-figure)"
-        cp "$templatePath" "$newPath"
+        cp "$templatePath" "$newPath" || exit 1
 
         titleLineNumber=$(grep -n "\\\title{" "$newPath" | cut -d : -f 1)
         newTitle=$(echo "$newPath" | sed 's/.*\/fig_\([0-9]\{3\}\)\.tex/Figure \1/')
@@ -123,6 +124,7 @@ while [ "$#" -gt 0 ]; do
         sed -i "$((dateLineNumber))s/\(\\\date{\).*\(}\)/\1$newDate\2/" "$newPath"
 
         notify-send "Figure Created in $(courseInfo.sh --short)" "$(basename "$newPath")"
+        echo -e "\\includestandalone{figures/$(basename "$newPath" .tex)}"
       else
         echo "Error: basic_figure.tex doesn't exist"
         exit 1
