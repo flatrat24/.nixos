@@ -185,6 +185,11 @@ in {
           "center 1,title:Send Message,class:thunderbird"
 
           # Sending Message Dialogue
+          "float,title:([0-9]+)( Reminder),class:thunderbird"
+          "size 50% 50%,title:([0-9]+)( Reminder),class:thunderbird"
+          "center 1,title:([0-9]+)( Reminder),class:thunderbird"
+
+          # Sending Message Dialogue
           "float,title:(Sending Message - )(.*),class:thunderbird"
           "size 450 120,title:(Sending Message - )(.*),class:thunderbird"
           "center 1,title:(Sending Message - )(.*),class:thunderbird"
@@ -204,9 +209,14 @@ in {
           "size 50% 50%,title:(Enter credentials for)(.*),class:thunderbird"
           "center 1,title:(Enter credentials for)(.*),class:thunderbird"
 
+          # Delete Event Confirmation
+          "float,title:Delete Event,class:thunderbird"
+          "size 450 120,title:Delete Event,class:thunderbird"
+          "center 1,title:Delete Event,class:thunderbird"
+
           # Save event dialogue
           "float,title:Save Event,class:thunderbird"
-          "size 450 120,title:Save Event,class:thunderbird"
+          "size 450 150,title:Save Event,class:thunderbird"
           "center 1,title:Save Event,class:thunderbird"
         ];
       })
