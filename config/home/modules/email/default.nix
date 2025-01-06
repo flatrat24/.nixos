@@ -209,10 +209,20 @@ in {
           "size 50% 50%,title:(Enter credentials for)(.*),class:thunderbird"
           "center 1,title:(Enter credentials for)(.*),class:thunderbird"
 
+          # Delete Contact Confirmation
+          "float,title:Delete Contact,class:thunderbird"
+          "size 450 120,title:Delete Contact,class:thunderbird"
+          "center 1,title:Delete Contact,class:thunderbird"
+
           # Delete Event Confirmation
           "float,title:Delete Event,class:thunderbird"
           "size 450 120,title:Delete Event,class:thunderbird"
           "center 1,title:Delete Event,class:thunderbird"
+
+          # Delete Repeating Event Confirmation
+          "float,title:Delete Repeating Event,class:thunderbird"
+          "size 400 250,title:Delete Repeating Event,class:thunderbird"
+          "center 1,title:Delete Repeating Event,class:thunderbird"
 
           # Save event dialogue
           "float,title:Save Event,class:thunderbird"
