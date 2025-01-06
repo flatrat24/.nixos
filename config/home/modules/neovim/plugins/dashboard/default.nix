@@ -66,7 +66,7 @@ in {
                   icon = "  ";
                   desc = "School";
                   key = "s";
-                  action = "cd $CURRENTCOURSE | Yazi";
+                  action = "cd $HOME/Documents/School | Yazi";
                 }
                 {
                   icon = "󱄅  ";
