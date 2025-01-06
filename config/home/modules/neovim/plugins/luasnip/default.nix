@@ -35,6 +35,28 @@ in {
             ];
           };
         };
+        extraConfigLua = ''
+          vim.keymap.set({ "i", "s" }, "<c-l>", function()
+            if require("luasnip").jumpable(1) then
+              require("luasnip").jump(1)
+            end
+          end,                                                                                { noremap = true, silent = true,            desc = "expand or jump within snippet"       })
+          vim.keymap.set({ "i", "s" }, "<c-h>", function()
+            if require("luasnip").jumpable(-1) then
+              require("luasnip").jump(-1)
+            end
+          end,                                                                                { noremap = true, silent = true,            desc = "Jump Back Within Snippet"            })
+          vim.keymap.set({ "i", "s" }, "<c-s-l>", function()
+            if require("luasnip").choice_active() then
+              require("luasnip").change_choice(1)
+            end
+          end,                                                                                { noremap = true, silent = true,            desc = "Change Choice Within Snippet"        })
+          vim.keymap.set({ "i", "s" }, "<c-s-h>", function()
+            if require("luasnip").choice_active() then
+              require("luasnip").change_choice(-1)
+            end
+          end,                                                                                { noremap = true, silent = true,            desc = "Change Choice Within Snippet"        })
+        '';
       };
     }
     (lib.mkIf config.neovim.plugins.cmp.enable {
