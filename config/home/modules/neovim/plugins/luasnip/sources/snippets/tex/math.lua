@@ -51,6 +51,7 @@ return {
   s( -- mm -> Inline Math )
     {
       trig = "mm",
+      snippetType = "autosnippet"
     },
     fmta(
       [[
