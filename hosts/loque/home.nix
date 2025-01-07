@@ -12,37 +12,47 @@
   };
   
   ##--- Hardware ---##
-  input = {
+  hardware = {
+    monitor = "framework";
+    keyboard = "framework";
     touchpad.enable = true;
-    keyboard = {
-      formFactor = "mac";
-    };
-  };
-  monitors = {
-    microstepMSI.enable = true;
-    framework.enable = false;
   };
 
   ##--- Hyprland ---##
   hyprland.enable = true;
 
+  ##--- Theme ---##
+  theme = {
+    enable = true;
+    colorscheme = "catppuccin-mocha";
+    wallpaper = "biking_sunset.jpg";
+  };
+
   ##--- Applications ---###
   beeper.enable = true;
+  bottles.enable = true;
   discord.enable = true;
   firefox.enable = true;
   foot.enable = true;
   libreoffice.enable = true;
   mpv.enable = true;
-  nautilus.enable = false;
+  nautilus.enable = true;
+  obs.enable = true;
+  octave.enable = true;
+  overskride.enable = true;
+  pinta.enable = true;
   slack.enable = true;
   swayimg.enable = true;
   teams.enable = true;
+  whatsapp.enable = true;
   zathura.enable = true;
+  zed.enable = true;
   zoom.enable = true;
 
   ##--- Scripting Modules ---##
   bookmarks.enable = true;
   school.enable = true;
+  notes.enable = true;
 
   ##--- Gaming ---##
   gaming = {
@@ -70,10 +80,11 @@
     plugins = {
       telescope.enable = true;
       fzf-lua.enable = false;
+      highlight-undo.enable = false;
     };
   };
   shell.enable = true;
-  theme.enable = true;
+  power.enable = true;
   yazi.enable = true;
   zellij.enable = true;
 
@@ -88,6 +99,14 @@
     publicShare = null; # "${config.home.homeDirectory}/Public";
     templates = null; # "${config.home.homeDirectory}/Templates";
     videos = null; # "${config.home.homeDirectory}/Videos";
+  };
+
+  # For Virtual Machine to work? (https://nixos.wiki/wiki/Virt-manager)
+  dconf.settings = {
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = ["qemu:///system"];
+      uris = ["qemu:///system"];
+    };
   };
 
   programs.home-manager.enable = true;
