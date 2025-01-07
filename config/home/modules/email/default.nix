@@ -224,6 +224,11 @@ in {
           "size 400 250,title:Delete Repeating Event,class:thunderbird"
           "center 1,title:Delete Repeating Event,class:thunderbird"
 
+          # Remove Calendar Dialogue
+          "float,title:Remove Calendar,class:thunderbird"
+          "size 450 150,title:Remove Calendar,class:thunderbird"
+          "center 1,title:Remove Calendar,class:thunderbird"
+
           # Save event dialogue
           "float,title:Save Event,class:thunderbird"
           "size 450 150,title:Save Event,class:thunderbird"
