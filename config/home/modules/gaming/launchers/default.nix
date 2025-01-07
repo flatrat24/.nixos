@@ -9,10 +9,6 @@ in {
           type = lib.types.bool;
           default = false;
         };
-        bottles.enable = lib.mkOption {
-          type = lib.types.bool;
-          default = false;
-        };
         lutris.enable = lib.mkOption {
           type = lib.types.bool;
           default = false;
@@ -24,9 +20,6 @@ in {
   config = (lib.mkMerge [
     (lib.mkIf cfg.heroic.enable {
       home.packages = with pkgs; [ heroic ];
-    })
-    (lib.mkIf cfg.bottles.enable {
-      home.packages = with pkgs; [ bottles ];
     })
     (lib.mkIf cfg.lutris.enable {
       home.packages = with pkgs; [ lutris ];

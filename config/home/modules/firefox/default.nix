@@ -132,6 +132,10 @@ let
     "browser.bookmarks.restore_default_bookmarks" = false;
     "browser.bookmarks.addedImportButton" = true;
 
+    # Credit Card Settings
+    "extensions.formautofill.creditCards.enabled" = false;
+    "services.sync.engine.creditcards.available" = true;
+
     # UI Options
     "browser.compactmode.show" = true;
     "browser.uidensity" = 1;

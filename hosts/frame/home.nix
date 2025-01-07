@@ -30,6 +30,7 @@
 
   ##--- Applications ---###
   beeper.enable = true;
+  bottles.enable = true;
   discord.enable = true;
   firefox.enable = true;
   foot.enable = true;
@@ -37,6 +38,7 @@
   mpv.enable = true;
   nautilus.enable = true;
   obs.enable = true;
+  octave.enable = true;
   overskride.enable = true;
   slack.enable = true;
   swayimg.enable = true;
@@ -57,7 +59,6 @@
     minecraft.enable = false;
     mindustry.enable = false;
     launchers = {
-      bottles.enable = false;
       heroic.enable = false;
       lutris.enable = false;
     };

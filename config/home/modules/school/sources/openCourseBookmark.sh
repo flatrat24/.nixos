@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
 # get the bookmarks from the current course's info.json file
-mapfile -t messages< <(jq --sort-keys -r '.bookmarks | keys[]' "$(courseInfo.sh --path)"/info.json)
-mapfile -t commands< <(jq --sort-keys -r '.bookmarks[]' "$(courseInfo.sh --path)"/info.json | sed "s/^\(.*\)$/xdg-open '\1'/")
+mapfile -t sorted_pairs < <(jq -r '.bookmarks | to_entries | sort_by(.key)[] | "\(.key)\t\(.value)"' "$(courseInfo.sh --path)"/info.json)
+  # Extract keys into messages and values into commands
+  mapfile -t messages < <(printf "%s\n" "${sorted_pairs[@]}" | cut -f1)
+  mapfile -t commands < <(printf "%s\n" "${sorted_pairs[@]}" | cut -f2 | sed "s|^|xdg-open '|;s|$|'|")
 
 # add generic 'bookmarks' that apply to all courses
 messages+=("Open in Terminal")

@@ -2,6 +2,7 @@
   imports = [
     ./modules/beeper
     ./modules/bookmarks
+    ./modules/bottles
     ./modules/discord
     ./modules/dunst
     ./modules/email
@@ -21,6 +22,7 @@
     ./modules/neovim
     ./modules/notes
     ./modules/obs
+    ./modules/octave
     ./modules/overskride
     ./modules/passwords
     ./modules/power

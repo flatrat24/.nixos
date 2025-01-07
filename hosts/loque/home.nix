@@ -50,7 +50,6 @@
     minecraft.enable = true;
     mindustry.enable = true;
     launchers = {
-      bottles.enable = true;
       heroic.enable = true;
       lutris.enable = true;
     };
