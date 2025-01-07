@@ -36,7 +36,7 @@ local date_input = function(args, snip, old_state, fmt)
 end
 
 local buffer_is_empty = function()
-  -- Technically doens't verify that the buffer is empty, just that
+  -- Technically doesn't verify that the buffer is empty, just that
   -- there is a single line in the buffer and that the snippet trigger
   -- is the first set of characters in the line
   local last_line = vim.fn.line('$')
