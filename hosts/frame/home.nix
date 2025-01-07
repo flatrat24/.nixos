@@ -40,6 +40,7 @@
   obs.enable = true;
   octave.enable = true;
   overskride.enable = true;
+  pinta.enable = true;
   slack.enable = true;
   swayimg.enable = true;
   teams.enable = true;

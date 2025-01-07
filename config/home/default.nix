@@ -25,6 +25,7 @@
     ./modules/octave
     ./modules/overskride
     ./modules/passwords
+    ./modules/pinta
     ./modules/power
     ./modules/school
     ./modules/shell
