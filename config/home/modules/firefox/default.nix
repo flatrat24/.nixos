@@ -95,6 +95,12 @@ let
       updateinterval = 24 * 60 * 60 * 1000; # every day
       definedAliases = [ "@ma" ];
     };
+    "MusicBrainz" = {
+      urls = [{ template = "https://musicbrainz.org/search?query={searchTerms}&type=artist&method=indexed"; }];
+      iconupdateurl = "https://upload.wikimedia.org/wikipedia/commons/f/f6/Wikipedia-logo-v2-wordmark.svg";
+      updateinterval = 24 * 60 * 60 * 1000; # every day
+      definedAliases = [ "@mb" ];
+    };
     "Rate Your Music" = {
       urls = [{ template = "https://rateyourmusic.com/search?searchterm={searchTerms}&searchtype="; }];
       iconupdateurl = "https://upload.wikimedia.org/wikipedia/commons/f/f6/Wikipedia-logo-v2-wordmark.svg";
@@ -218,6 +224,7 @@ in {
                 "Youtube Music"
                 "Rate Your Music"
                 "Album of the Year"
+                "MusicBrainz"
                 "Last.fm"
                 "Stylix Handbook"
               ];
