@@ -129,6 +129,11 @@ in {
       }
       (lib.mkIf config.hyprland.enable {
         wayland.windowManager.hyprland.settings.windowrulev2 = [
+          # Compose Email Window
+          "float,title:(Write: )(.*),class:thunderbird"
+          "size 90% 90%,title:(Write: )(.*),class:thunderbird"
+          "center 1,title:(Write: )(.*),class:thunderbird"
+
           # Sign in
           "float,title:(Sign in to your account)(.*),class:thunderbird"
           "size 50% 50%,title:(Sign in to your account)(.*),class:thunderbird"
