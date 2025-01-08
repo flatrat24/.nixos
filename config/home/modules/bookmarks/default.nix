@@ -33,6 +33,7 @@ in {
         bindd = [
           "$mod, m, Open Bookmark, exec, bookmarks.sh -o && sleep 0.15s && hyprctl dispatch focusurgentorlast"
           "$mod SHIFT, m, Add Bookmark, exec, bookmarks.sh -c"
+          "$mod SHIFT CTRL, m, Pull Bookmarks Git Repository, exec, cd ~/.bookmarks && git pull || notify-send 'Error' 'Unable to pull bookmarks repository'"
         ];
       };
     })

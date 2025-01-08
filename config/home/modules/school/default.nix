@@ -66,6 +66,7 @@ in {
         bindd = [
           "$mod, slash, Set Current Course, exec, selectNewCourse.sh"
           "$mod SHIFT, slash, Update Current Course, exec, courseTools.sh --auto-course"
+          "$mod SHIFT CTRL, slash, Pull Current Quarter Git Repository, exec, cd $CURRENTQUARTER && git pull || notify-send 'Error' 'Unable to pull current quarter repository'"
           "$mod, period, Create Basic Figure, exec, courseTools.sh --create-basic-figure | wl-copy"
           "$mod SHIFT, period, Create Basic Lecture, exec, courseTools.sh --create-basic-lecture"
           "$mod, comma, Open Course Bookmark, exec, openCourseBookmark.sh"

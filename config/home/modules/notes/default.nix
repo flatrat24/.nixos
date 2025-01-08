@@ -12,7 +12,8 @@ in {
     (lib.mkIf config.hyprland.enable {
       wayland.windowManager.hyprland.settings = {
         bindd = [
-          "$mod, n, Open Notes, exec, foot --title=NOTES -e nvim -c 'set wrap nonu' ~/.notes/main.md"
+          "$mod, n, Open Notes, exec, foot --title=NOTES -e nvim -c 'set wrap nonu' ~/.notes/main.md && cd ~/.notes && git add . && git commit 'notes' && git push"
+          "$mod SHIFT CTRL, n, Pull Notes Git Repository, exec, cd ~/.notes && git pull || notify-send 'Error' 'Unable to pull .notes repository'"
         ];
         windowrulev2 = [
           "float,title:NOTES"
