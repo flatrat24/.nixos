@@ -170,9 +170,9 @@ in {
           "center 1,title:Copy Repeating Event,class:thunderbird"
 
           # Select calendar (to paste an even into)
-          "float,title:Copy Repeating Event,class:thunderbird"
-          "size 20% 30%,title:Copy Repeating Event,class:thunderbird"
-          "center 1,title:Copy Repeating Event,class:thunderbird"
+          "float,title:Select Calendar,class:thunderbird"
+          "size 20% 30%,title:Select Calendar,class:thunderbird"
+          "center 1,title:Select Calendar,class:thunderbird"
 
           # Event reminders
           "float,title:Calendar Reminders,class:thunderbird"
