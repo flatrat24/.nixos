@@ -31,6 +31,7 @@
   ##--- Applications ---###
   beeper.enable = true;
   bottles.enable = true;
+  calculator.enable = true;
   discord.enable = true;
   firefox.enable = true;
   foot.enable = true;

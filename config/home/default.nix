@@ -3,6 +3,7 @@
     ./modules/beeper
     ./modules/bookmarks
     ./modules/bottles
+    ./modules/calculator
     ./modules/discord
     ./modules/dunst
     ./modules/email
