@@ -17,7 +17,7 @@ in {
         ];
         windowrulev2 = [
           "float,title:NOTES"
-          "size 30% 80%,title:NOTES"
+          "size 40% 80%,title:NOTES"
           "center 1,title:NOTES"
         ];
       };
