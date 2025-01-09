@@ -268,22 +268,11 @@ return {
     },
     fmta(
       [[
-        \color{<>}
+        {\color{<>} <>}
       ]],
       {
-        c(1, {
-          t("pg"),
-          t("fg"),
-          t("bg"),
-          t("re"),
-          t("gr"),
-          t("ye"),
-          t("or"),
-          t("bl"),
-          t("ma"),
-          t("cy"),
-          t("pi"),
-        }),
+        i(1, "color"),
+        i(2),
       }
     ),
     {}
