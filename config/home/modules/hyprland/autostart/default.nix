@@ -29,7 +29,6 @@ in {
 
           "[workspace 1 silent] foot -e ncmpcpp"
           "[workspace 2 silent] firefox"
-          "[workspace 9 silent] beeper"
           "[workspace 10 silent] thunderbird"
         ];
       };
