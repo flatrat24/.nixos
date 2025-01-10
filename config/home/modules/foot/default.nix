@@ -3,6 +3,7 @@ let
   cfg = config.foot;
   dependencies = with pkgs; [
     foot
+    libsixel
     (nerdfonts.override { fonts = [ "IBMPlexMono" ]; })
   ];
 in {
