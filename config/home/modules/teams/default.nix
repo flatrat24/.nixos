@@ -13,7 +13,21 @@ in {
     };
   };
 
-  config = lib.mkIf cfg.enable {
-    home.packages = dependencies;
-  };
+  config = lib.mkIf cfg.enable (lib.mkMerge [
+    {
+      home.packages = dependencies;
+    }
+    (lib.mkIf config.hyprland.enable {
+      wayland.windowManager.hyprland = {
+        settings = {
+          "exec-once" = [
+            "[workspace 9 silent] teams-for-linux"
+          ];
+          windowrulev2 = [
+            "group set,class:teams-for-linux"
+          ];
+        };
+      };
+    })
+  ]);
 }
