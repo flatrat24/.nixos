@@ -200,10 +200,35 @@ return {
         c(1, {
           fmta(
             [[
-              \ref{<>}
+              Figure \ref{fig:<>}
             ]],
             {
-              i(1, "id"),
+              i(1, "000"),
+            }
+          ),
+          fmta(
+            [[
+              Table \ref{tbl:<>}
+            ]],
+            {
+              i(1, "000"),
+            }
+          ),
+          fmta(
+            [[
+              (\ref{eq:<>})
+            ]],
+            {
+              i(1, "000"),
+            }
+          ),
+          fmta(
+            [[
+              \href{<>}{<>}
+            ]],
+            {
+              i(1, "link"),
+              i(2, "text"),
             }
           ),
           fmta(
@@ -220,15 +245,6 @@ return {
             ]],
             {
               i(1, "id"),
-            }
-          ),
-          fmta(
-            [[
-              \href{<>}{<>}
-            ]],
-            {
-              i(1, "link"),
-              i(2, "text"),
             }
           ),
           fmta(
