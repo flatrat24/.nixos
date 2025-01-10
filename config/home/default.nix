@@ -10,6 +10,7 @@
     ./modules/firefox
     ./modules/foot
     ./modules/gaming
+    ./modules/geogebra
     ./modules/git
     ./modules/gpg
     ./modules/hardware

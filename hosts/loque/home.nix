@@ -35,6 +35,7 @@
   discord.enable = true;
   firefox.enable = true;
   foot.enable = true;
+  geogebra.enable = true;
   libreoffice.enable = true;
   mpv.enable = true;
   nautilus.enable = true;
