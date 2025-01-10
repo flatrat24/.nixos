@@ -6,6 +6,7 @@ let
     ".."   = "cd .."                                        ;
     "c"    = "clear"                                        ;
     "q"    = "exit"                                         ;
+    "open" = "xdg-open"                                     ;
 
     "nr"   = "nixos-rebuild switch --flake /home/ea/.nixos" ;
     "ns"   = "nix-shell -p --command $SHELL "               ;
