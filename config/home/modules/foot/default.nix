@@ -24,6 +24,8 @@ in {
             font-bold-italic                        =IBM Plex Mono:style=Bold:style=Italic:size=12
             font-size-adjustment                    =0.5
 
+            pad=5x5 center
+
             [cursor]
             color=11111b f5e0dc
 
