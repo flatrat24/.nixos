@@ -55,9 +55,9 @@ in {
         ];
         bindld = [
           ##### MPD Controls #####
-          ", XF86AudioRaiseVolume, Play Next Song (MPD), exec, mpc prev"
+          ", XF86AudioRaiseVolume, Play Next Song (MPD), exec, mpc next"
           ", XF86AudioLowerVolume, Play/Pause Song (MPD), exec, mpc toggle"
-          ", XF86AudioMute, Play Previous Song (MPD), exec, mpc next"
+          ", XF86AudioMute, Play Previous Song (MPD), exec, mpc prev"
         ];
         input = {
           "touchpad" = {
