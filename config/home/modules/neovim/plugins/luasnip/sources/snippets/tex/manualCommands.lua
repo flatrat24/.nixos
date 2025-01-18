@@ -216,6 +216,30 @@ return {
           ),
           fmta(
             [[
+              Section \ref{sec:<>}
+            ]],
+            {
+              i(1, ""),
+            }
+          ),
+          fmta(
+            [[
+              Subsection \ref{ssec:<>}
+            ]],
+            {
+              i(1, ""),
+            }
+          ),
+          fmta(
+            [[
+              Subsubsection \ref{sssec:<>}
+            ]],
+            {
+              i(1, ""),
+            }
+          ),
+          fmta(
+            [[
               (\ref{eq:<>})
             ]],
             {
