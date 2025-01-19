@@ -31,7 +31,7 @@ in {
     (lib.mkIf config.hyprland.enable {
       wayland.windowManager.hyprland.settings = {
         bindd = [
-          "$mod, m, Open Bookmark, exec, bookmarks.sh -o && sleep 0.15s && hyprctl dispatch focusurgentorlast"
+          "$mod, m, Open Bookmark, exec, bookmarks.sh -o"
           "$mod SHIFT, m, Add Bookmark, exec, bookmarks.sh -c && cd ~/.bookmarks && git add . && git commit -m 'added bookmark' && git push && cd"
           "$mod SHIFT CTRL, m, Pull Bookmarks Git Repository, exec, cd ~/.bookmarks && git pull && cd || notify-send 'Error' 'Unable to pull bookmarks repository'"
         ];
