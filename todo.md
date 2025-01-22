@@ -1,0 +1,8 @@
+  - Make a snippet for to\[short, -*\] with battery, resistor, etc
+  - Change delay of whichkey for spelling corrections
+  - Change colors of markdown plugin nvim
+  - Make hardware a system config option
+  - Fix SDDM on desktop monitor
+  - Fix Waybar on desktop monitor
+  - Improve equation environment snippet
+  - Get git keybinds straight for nvim
