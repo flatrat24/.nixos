@@ -41,6 +41,9 @@ in {
         enable = true;
         settings = {
           "$mod" = "SUPER";
+          misc = {
+            "focus_on_activate" = "true";
+          };
           windowrulev2 = [
             "suppressevent maximize, class:.*"
           ];
