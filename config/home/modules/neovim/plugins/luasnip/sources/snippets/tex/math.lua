@@ -235,6 +235,20 @@ return {
     ),
     {}
   ),
+  s( -- si -> Units )
+    {
+      trig = "si",
+    },
+    fmta(
+      [[
+        \,\si{<>}
+      ]],
+      {
+        d(1, get_visual),
+      }
+    ),
+    {}
+  ),
   s( -- ^ -> Superscript )
     {
       trig = "^",
