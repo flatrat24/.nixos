@@ -234,6 +234,11 @@ in {
           "size 450 150,title:Remove Calendar,class:thunderbird"
           "center 1,title:Remove Calendar,class:thunderbird"
 
+          # Link Confirmation Detections
+          "float,title:Link Mismatch Detected,class:thunderbird"
+          "size 50% 20%,title:Link Mismatch Detected,class:thunderbird"
+          "center 1,title:Link Mismatch Detected,class:thunderbird"
+
           # Save event dialogue
           "float,title:Save Event,class:thunderbird"
           "size 450 150,title:Save Event,class:thunderbird"
