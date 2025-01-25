@@ -1,7 +1,7 @@
 { pkgs, lib, config, ... }:
 let
   cfg = config.latex;
-  tex = (pkgs.texlive.combine { inherit (pkgs.texlive) scheme-full darkmode; });
+  tex = (pkgs.texlive.combine { inherit (pkgs.texlive) scheme-full physics; });
   dependencies = [
     tex
   ];
