@@ -93,7 +93,7 @@ in {
         '';
       };
       home.file = {
-        ".mpdscribble/mpdscribble.conf" = { # TODO: Systemd not starting this module
+        ".mpdscribble/mpdscribble.conf" = {
           text = ''
             verbose = 1
             host = localhost
