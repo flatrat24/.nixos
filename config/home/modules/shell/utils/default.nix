@@ -7,6 +7,7 @@ let
     xdg-utils
     imagemagick
     poppler_utils
+    pdftk
     killall
     nix-prefetch-github
     nix-index
