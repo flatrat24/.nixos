@@ -43,6 +43,7 @@
   octave.enable = true;
   overskride.enable = true;
   pinta.enable = true;
+  rss.enable = true;
   slack.enable = true;
   swayimg.enable = true;
   teams.enable = true;

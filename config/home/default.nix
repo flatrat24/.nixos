@@ -29,6 +29,7 @@
     ./modules/passwords
     ./modules/pinta
     ./modules/power
+    ./modules/rss
     ./modules/school
     ./modules/shell
     ./modules/slack

@@ -1,0 +1,16 @@
+categories:
+  - name: News
+    desc: News from around the world
+    subscriptions:
+      - name: Breakthrough News
+        desc: Breaking through the cycle of coporate media
+        url: https://breakthroughnews.org/feed/
+      - name: Grayzone
+        desc: Independent News & Investigative Journalism on Empire
+        url: https://thegrayzone.com/feed/
+      - name: Red Sails
+        desc: Essays aimed to demystify and desacralize theory
+        url: https://redsails.org/rss.xml
+      - name: Liberation News
+        desc: Newspaper of the Party for Socialism and Liberation
+        url: https://www.liberationnews.org/feed/
