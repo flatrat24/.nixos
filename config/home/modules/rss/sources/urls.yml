@@ -14,3 +14,9 @@ categories:
       - name: Liberation News
         desc: Newspaper of the Party for Socialism and Liberation
         url: https://www.liberationnews.org/feed/
+  - name: Other
+    desc: Other things
+    subscriptions:
+      - name: Cisgender Prophet
+        desc: u think u know me
+        url: https://nitter.privacydev.net/robert_jones56/rss
