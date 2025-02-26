@@ -2,16 +2,17 @@
 let
   cfg = config.shell;
   aliases = {
-    "sudo" = "sudo "                                        ;
-    ".."   = "cd .."                                        ;
-    "c"    = "clear"                                        ;
-    "q"    = "exit"                                         ;
-    "open" = "xdg-open"                                     ;
+    "sudo" = "sudo "                                                                       ;
+    ".."   = "cd .."                                                                       ;
+    "c"    = "clear"                                                                       ;
+    "q"    = "exit"                                                                        ;
+    "open" = "xdg-open"                                                                    ;
 
-    "nr"   = "nixos-rebuild switch --flake /home/ea/.nixos" ;
-    "ns"   = "nix-shell -p --command $SHELL "               ;
+    "nr"   = "nixos-rebuild switch --flake /home/ea/.nixos"                                ;
+    "ns"   = "nix-shell -p --command $SHELL "                                              ;
+    # "nd"   = "nix-collect-garbage -d && nix-store --gc && nix-env --delete-old-generations" ;
 
-    "p"    = "python3"                                      ;
+    "p"    = "python3"                                                                     ;
   };
   dependencies = with pkgs; [
     delta # TODO: Get this working as a submodule
