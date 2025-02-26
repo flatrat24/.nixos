@@ -20,8 +20,6 @@
 
       ##--- Tab Stacking ---##
       "$mod, I, Toggle Window Stacking, togglegroup,"
-      "$mod CTRL, L, Focus Next Window in Stack, changegroupactive, f"
-      "$mod CTRL, H, Focus Previous Window in Stack, changegroupactive, b"
 
       ##--- Moving Windows Within a Workspace ---##
       "$mod SHIFT, H, Move Window Left, movewindoworgroup, l"
@@ -70,6 +68,10 @@
 
       "$mod SHIFT, equal, Move Window to Next Workspace, movetoworkspace, r+1"
       "$mod SHIFT, minus, Move Window to Previous Workspace, movetoworkspace, r-1"
+
+      ##--- Tab Stacking ---##
+      "$mod CTRL, L, Focus Next Window in Stack, changegroupactive, f"
+      "$mod CTRL, H, Focus Previous Window in Stack, changegroupactive, b"
 
       ##--- Manage Monitors ---##
       "$mod SHIFT, equal, Focus Next Monitor, focusmonitor, +1"
