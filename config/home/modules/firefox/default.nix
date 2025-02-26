@@ -9,7 +9,7 @@ let
     sponsorblock
     firefox-color
     new-tab-override
-  ];
+  ] ++ lib.optionals (config.passwords.pass.enable) [ inputs.firefox-addons.packages."x86_64-linux".browserpass ];
   searchEngines = {
     "Startpage" = {
       urls = [ { template = "https://www.startpage.com/rd/search?query={searchTerms}&language=auto"; } ];
@@ -274,6 +274,9 @@ in {
         "size 75% 75%,class:firefox,title:File Upload"
         "center 1,class:firefox,title:File Upload"
       ];
+    })
+    (lib.mkIf (config.passwords.pass.enable == true) {
+      # programs.firefox.nativeMessagingHosts.browserpass = true;
     })
   ]);
 }
