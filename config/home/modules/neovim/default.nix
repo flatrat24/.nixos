@@ -3,6 +3,7 @@ let
   cfg = config.neovim;
   aliases = {
     "v" = "nvim";
+    "vt" = "v $(mktemp)";
   };
 in {
   imports = [
