@@ -1,6 +1,9 @@
 { pkgs, lib, config, ... }:
 let
   cfg = config.hyprland;
+  aliases = {
+    "copy" = "wl-copy";
+  };
   dependencies = with pkgs; [
     hyprland
     hyprshot
@@ -35,6 +38,9 @@ in {
       waycorner.enable = lib.mkDefault true;
       wlogout.enable = lib.mkDefault true;
 
+      programs.bash.shellAliases = aliases;
+      programs.zsh.shellAliases = aliases;
+
       home.packages = dependencies;
 
       wayland.windowManager.hyprland = {
@@ -46,6 +52,7 @@ in {
           };
           windowrulev2 = [
             "suppressevent maximize, class:.*"
+            "center, floating:1"
           ];
           # bindd = [
           #   "$mod, grave, Workspace Overview, hyprexpo:expo, toggle"
