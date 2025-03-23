@@ -7,6 +7,7 @@
     ./modules/discord
     ./modules/dunst
     ./modules/email
+    ./modules/fabric
     ./modules/firefox
     ./modules/foot
     ./modules/gaming
@@ -16,6 +17,7 @@
     ./modules/hardware
     ./modules/hyprland
     ./modules/hyprlock
+    ./modules/ignis
     ./modules/latex
     ./modules/libreoffice
     ./modules/mpv
@@ -23,6 +25,7 @@
     ./modules/nautilus
     ./modules/neovim
     ./modules/notes
+    ./modules/nyxt
     ./modules/obs
     ./modules/octave
     ./modules/overskride
@@ -45,6 +48,7 @@
     ./modules/zathura
     ./modules/zed
     ./modules/zellij
+    ./modules/zenBrowser
     ./modules/zoom
   ];
 }
