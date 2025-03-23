@@ -37,9 +37,9 @@ in {
         ];
         bindeld = [
           ##### Volume Controls #####
-          ", F1, Toggle Volume Mute, exec, pamixer -t"
-          ", F2, Decrease Volume, exec, pamixer -d 2"
-          ", F3, Increase Volume, exec, pamixer -i 2"
+          ", XF86AudioMute, Toggle Volume Mute, exec, pamixer -t"
+          ", XF86AudioLowerVolume, Decrease Volume, exec, pamixer -d 2"
+          ", XF86AudioRaiseVolume, Increase Volume, exec, pamixer -i 2"
 
           ##### Unbound Keys #####
           # ", F4, Toggle Volume Mute, exec, pamixer -t"
@@ -47,17 +47,17 @@ in {
           # ", F6, Decrease Volume, exec, pamixer -d 2"
 
           ##### Brightness #####
-          ", F7, Decrease Screen Brightness, exec, brightnessctl s 2%-"
-          ", F8, Increase Screen Brightness, exec, brightnessctl s +2%"
+          ", XF86MonBrightnessUp, Decrease Screen Brightness, exec, brightnessctl s +2%"
+          ", XF86MonBrightnessDown, Increase Screen Brightness, exec, brightnessctl s 2%-"
 
           ##### Screenshots #####
           ''$mod, F11, Screenshot (Focused Window), exec,  hyprshot --mode window --output-folder ~/Downloads''
         ];
         bindld = [
           ##### MPD Controls #####
-          ", XF86AudioRaiseVolume, Play Next Song (MPD), exec, mpc next"
-          ", XF86AudioLowerVolume, Play/Pause Song (MPD), exec, mpc toggle"
-          ", XF86AudioMute, Play Previous Song (MPD), exec, mpc prev"
+          ", XF86AudioNext, Play Next Song (MPD), exec, mpc next"
+          ", XF86AudioPlay, Play/Pause Song (MPD), exec, mpc toggle"
+          ", XF86AudioPrev, Play Previous Song (MPD), exec, mpc prev"
         ];
         input = {
           "touchpad" = {
