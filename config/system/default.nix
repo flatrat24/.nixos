@@ -10,6 +10,7 @@
     ./modules/pipewire
     ./modules/power
     ./modules/printing
+    ./modules/qmk
     ./modules/sddm
     ./modules/syncthing
     ./modules/system76
