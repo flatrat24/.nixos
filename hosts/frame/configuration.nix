@@ -16,6 +16,7 @@
   pipewire.enable     = true;
   power.enable        = true;
   printing.enable     = false;
+  qmk.enable          = true;
   sddm.enable         = true;
   syncthing.enable    = true;
   system76.enable     = false;
