@@ -32,20 +32,48 @@
     #   inputs.hyprland.follows = "hyprland";
     # };
 
+    ##--- Fabric ---##
+    fabric = {
+      url = "github:Fabric-Development/fabric";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    fabric-cli = {
+      url = "github:HeyImKyu/fabric-cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     ##--- others ---##
     textfox.url = "github:adriankarlen/textfox";
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    ags.url = "github:Aylur/ags";
+    ignis.url = "github:linkfrg/ignis";
     wallpapers = {
       url = "github:flatrat24/wallpapers";
       flake = false;
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    fabric,
+    fabric-cli,
+    ...
+    } @ inputs:
+    let
+      systemArchitecture = "x86_64-linux";
+      overlays = [
+        (final: prev: {fabric-run-widget = fabric.packages.${systemArchitecture}.run-widget;})
+        (final: prev: {fabric = fabric.packages.${systemArchitecture}.default;})
+        (final: prev: {fabric-cli = fabric-cli.packages.${systemArchitecture}.default;})
+        fabric.overlays.${systemArchitecture}.default
+      ];
+    in
+    {
     nixosConfigurations = {
       leo = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        system = systemArchitecture;
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/loque/configuration.nix
@@ -62,18 +90,34 @@
         ];
       };
       leoito = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        system = systemArchitecture;
+        specialArgs = {
+          inherit inputs;
+          pkgs = import nixpkgs {
+            system = systemArchitecture;
+            overlays = overlays;
+            config.allowUnfree = true;
+          };
+        };
         modules = [
           ./hosts/frame/configuration.nix
           home-manager.nixosModules.home-manager {
             home-manager = {
+              extraSpecialArgs = {
+                pkgs = import nixpkgs {
+                  system = systemArchitecture;
+                  config.allowUnfree = true;
+                };
+              };
               useGlobalPkgs = true;
               useUserPackages = true;
               users.ea = import ./hosts/frame/home.nix;
               backupFileExtension = "hm-backup";
               extraSpecialArgs = { inherit inputs; };
             };
+            nixpkgs.overlays = [
+              overlays
+            ];
           }
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
           inputs.stylix.nixosModules.stylix
