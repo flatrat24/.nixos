@@ -64,7 +64,8 @@ window {
 }
 
 #input * {
-  outline: 4px solid --wofi-color8!important;
+  outline: 4px solid --wofi-color8;
+  /* outline: 4px solid --wofi-color8!important; */
 }
 
 /* Text */
@@ -100,5 +101,5 @@ window {
 }
 
 #entry:drop(active) {
-  background-color: --wofi-color7!important;
+  background-color: --wofi-color7;
 }
