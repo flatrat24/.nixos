@@ -33,12 +33,15 @@
   bottles.enable = true;
   calculator.enable = true;
   discord.enable = true;
+  # fabric.enable = true;
   firefox.enable = true;
   foot.enable = true;
   geogebra.enable = true;
+  ignis.enable = true;
   libreoffice.enable = true;
   mpv.enable = true;
   nautilus.enable = true;
+  nyxt.enable = true;
   obs.enable = true;
   octave.enable = true;
   overskride.enable = true;
@@ -50,6 +53,7 @@
   whatsapp.enable = true;
   zathura.enable = true;
   zed.enable = true;
+  zenBrowser.enable = true;
   zoom.enable = true;
 
   ##--- Scripting Modules ---##
