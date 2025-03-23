@@ -99,9 +99,9 @@ return {
     ),
     {}
   ),
-  s( -- sq -> Square Root )
+  s( -- sqr -> Square Root )
     {
-      trig = "sq",
+      trig = "sqr",
     },
     fmta(
       [[
@@ -115,9 +115,9 @@ return {
     ),
     {}
   ),
-  s( -- ii -> Integral )
+  s( -- int -> Integral )
     {
-      trig = "ii",
+      trig = "int",
     },
     fmta(
       [[
@@ -137,9 +137,85 @@ return {
     ),
     {}
   ),
-  s( -- ss -> Sigma Sum )
+  s( -- >> -> Greater Than )
     {
-      trig = "ss",
+      trig = ">>",
+    },
+    fmta(
+      [[
+        <>
+      ]],
+      {
+        c(1, {
+          t(">"),
+          t("\\geq"),
+          t("\\ngess"),
+          t("\\ngeq"),
+        }),
+      }
+    ),
+    {}
+  ),
+  s( -- == -> Equalities )
+    {
+      trig = "==",
+    },
+    fmta(
+      [[
+        <>
+      ]],
+      {
+        c(1, {
+          t("\\equal"),
+          t("\\neq"),
+          t("\\equiv"),
+          t("\\approx"),
+          t("\\cong"),
+          t("\\simeq"),
+          t("\\sim"),
+          t("\\propto"),
+          t("\\doteq"),
+        }),
+      }
+    ),
+    {}
+  ),
+  s( -- mc -> Mathcal )
+    {
+      trig = "mc",
+    },
+    fmta(
+      [[
+        \mathcal{<>}
+      ]],
+      {
+        i(0)
+      }
+    ),
+    {}
+  ),
+  s( -- << -> Less Than )
+    {
+      trig = "<<",
+    },
+    fmta(
+      [[
+        <>
+      ]],
+      {
+        c(1, {
+          t("<"),
+          t("\\leq"),
+          t("\\nless"),
+          t("\\nleq"),
+        }),
+      }
+    ),
+    {}
+  ),
+  s( -- sum -> Sigma Sum )
+    {
+      trig = "sum",
     },
     fmta(
       [[
@@ -158,9 +234,68 @@ return {
     ),
     {}
   ),
-  s( -- ll -> Limit )
+  s( -- pwf -> piecewise function )
     {
-      trig = "ll",
+      trig = "pwf",
+    },
+    fmta(
+      [[
+        <> = \begin{cases}
+          <> ,&\ <> \leq <> << <> \\
+        \end{cases}
+      ]],
+      {
+        i(1),
+        i(2),
+        i(3),
+        i(4),
+        i(5)
+        -- i(1, "f(t)"),
+        -- i(2, "f_1(t)"),
+        -- i(3),
+        -- i(4, "t"),
+        -- i(5),
+      }
+    ),
+    {}
+  ),
+  s( -- map -> maps to )
+    {
+      trig = "map",
+    },
+    fmta(
+      [[
+        \left[<>\right]_{<> \mapsto <>}
+      ]],
+      {
+        i(0),
+        i(1),
+        i(2)
+      }
+    ),
+    {}
+  ),
+  s( -- lap -> Laplace )
+    {
+      trig = "lap",
+    },
+    fmta(
+      [[
+        \<>\big\{<>\big\}
+      ]],
+      {
+        c(1, {
+          t("mathcal"),
+          t("mathcal^{-1}"),
+        }),
+        i(0, "f(t)")
+      }
+    ),
+    {}
+  ),
+  s( -- lim -> Limit )
+    {
+      trig = "lim",
     },
     fmta(
       [[
@@ -175,9 +310,9 @@ return {
     ),
     {}
   ),
-  s( -- o^ -> Hat )
+  s( -- o^^ -> Hat )
     {
-      trig = "o^",
+      trig = "o^^",
     },
     fmta(
       [[
@@ -190,9 +325,9 @@ return {
     ),
     {}
   ),
-  s( -- o- -> Overline )
+  s( -- o-- -> Overline )
     {
-      trig = "o-",
+      trig = "o--",
     },
     fmta(
       [[
@@ -273,6 +408,63 @@ return {
       ]],
       {
         d(1, get_visual),
+      }
+    ),
+    {}
+  ),
+  s( -- sin -> sine )
+    {
+      trig = "sin",
+    },
+    fmta(
+      [[
+        \<>(<>)
+      ]],
+      {
+        c(1, {
+          t("sin"),
+          t("csc"),
+          t("sinh"),
+        }),
+        i(0, "t")
+      }
+    ),
+    {}
+  ),
+  s( -- cos -> cosine )
+    {
+      trig = "cos",
+    },
+    fmta(
+      [[
+        \<>(<>)
+      ]],
+      {
+        c(1, {
+          t("cos"),
+          t("sec"),
+          t("cosh"),
+        }),
+        i(0, "x")
+      }
+    ),
+    {}
+  ),
+  s( -- tan -> tangent )
+    {
+      trig = "tan",
+    },
+    fmta(
+      [[
+        \<>(<>)
+      ]],
+      {
+        c(1, {
+          t("tan"),
+          t("cot"),
+          t("tanh"),
+        }),
+        i(0, "x")
       }
     ),
     {}

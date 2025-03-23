@@ -84,8 +84,8 @@ return {
           t("equation*"),
           t("align"),
           t("align*"),
-          t("multiline"),
-          t("multiline*"),
+          t("multline"),
+          t("multline*"),
           t("gather"),
           t("gather*"),
         }),
@@ -388,11 +388,12 @@ return {
     },
     fmta(
       [[
-        \begin{example}
+        \begin{example}{<>}
           <>
         \end{example}
       ]],
       {
+        i(1),
         d(1, get_visual),
       }
     ),
