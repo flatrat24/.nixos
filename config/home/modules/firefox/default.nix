@@ -3,7 +3,9 @@ let
   cfg = config.firefox;
   profileName = "ea";
   dependencies = [ ];
+  # extensions = [ ];
   extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+    sidebery
     youtube-shorts-block
     ublock-origin
     sponsorblock
@@ -179,7 +181,7 @@ in {
   config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home = {
-        packages = dependencies;
+        # packages = dependencies;
         file = {
           ".mozilla/startpage" = {
             source = ./sources/startpage;
@@ -190,10 +192,12 @@ in {
       };
 
       textfox = {
-        enable = true;
+        enable = false;
         profile = "${profileName}";
         config = {
-          displayHorizontalTabs = false;
+          tabs = {
+            horizontal.enable = false;
+          };
           displayNavButtons = true;
         };
       };
