@@ -37,6 +37,10 @@
       url = "github:Fabric-Development/fabric";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    fabric-gray = {
+      url = "github:Fabric-Development/gray";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     fabric-cli = {
       url = "github:HeyImKyu/fabric-cli";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -58,6 +62,7 @@
     nixpkgs,
     home-manager,
     fabric,
+    fabric-gray,
     fabric-cli,
     ...
     } @ inputs:
@@ -67,6 +72,8 @@
         (final: prev: {fabric-run-widget = fabric.packages.${systemArchitecture}.run-widget;})
         (final: prev: {fabric = fabric.packages.${systemArchitecture}.default;})
         (final: prev: {fabric-cli = fabric-cli.packages.${systemArchitecture}.default;})
+        (final: prev: {fabric-gray = fabric-gray.packages.${systemArchitecture}.default;})
+
         fabric.overlays.${systemArchitecture}.default
       ];
     in
