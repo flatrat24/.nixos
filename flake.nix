@@ -113,6 +113,7 @@
               extraSpecialArgs = {
                 pkgs = import nixpkgs {
                   system = systemArchitecture;
+                  overlays = overlays;
                   config.allowUnfree = true;
                 };
               };
@@ -122,9 +123,7 @@
               backupFileExtension = "hm-backup";
               extraSpecialArgs = { inherit inputs; };
             };
-            nixpkgs.overlays = [
-              overlays
-            ];
+            nixpkgs.overlays = overlays;
           }
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
           inputs.stylix.nixosModules.stylix
