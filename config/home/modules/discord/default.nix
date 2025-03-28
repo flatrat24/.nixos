@@ -1,7 +1,7 @@
 { pkgs, lib, inputs, config, ... }:
 let
   cfg = config.discord;
-  dependencies = with pkgs; [ legcord ];
+  dependencies = with pkgs; [ vesktop ];
 in {
   options = {
     discord = {
@@ -13,13 +13,13 @@ in {
     home = {
       packages = dependencies;
 
-      file = {
-        ".config/legcord" = {
-          source = ./sources;
-          executable = false;
-          recursive = true;
-        };
-      };
+      # file = {
+      #   ".config/legcord" = {
+      #     source = ./sources;
+      #     executable = false;
+      #     recursive = true;
+      #   };
+      # };
     };
   };
 }
