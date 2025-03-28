@@ -47,6 +47,7 @@ local buffer_is_empty = function()
   end
 end
 
+
 return {
   s( -- dr -> TikZ Draw )
     {
@@ -55,38 +56,22 @@ return {
     },
     fmta(
       [[
-        <> <>;
+        \<>[<>] <>;
       ]],
       {
         c(1, {
-          fmta(
-            [[
-              \draw[draw=<>, <>]
-            ]],
-            {
-              i(1),
-              i(2),
-            }
-          ),
-          fmta(
-            [[
-              \fill[fill=<>, <>]
-            ]],
-            {
-              i(1),
-              i(2),
-            }
-          ),
-          fmta(
-            [[
-              \filldraw[fill=<>, draw=<>, <>]
-            ]],
-            {
-              i(1),
-              i(2),
-              i(3),
-            }
-          ),
+          t("draw"),
+          t("fill"),
+          t("filldraw"),
+        }),
+        c(2, {
+          t(""),
+          t("wire"),
+          t("body"),
+          t("force"),
+          t("dimension"),
+          t("support"),
+          t("line"),
         }),
         i(0),
       }
@@ -202,247 +187,6 @@ return {
       condition = line_begin
     }
   ),
-  -- s( -- sinwav -> Sine Wave TikZ )
-  --   {
-  --     trig = "sinwav",
-  --   },
-  --   fmta(
-  --     [[
-  --   % Sine Wave
-  --   \def \amplitude{<>}
-  --   \def \frequency{<>}
-  --   \def \periods{<>}
-  --
-  --   \pgfmathsetmacro{\n}{(\periods * 4) - 1}
-  --   \foreach \i in {0,...,\n} {
-  --   \ifthenelse{\isodd \i}{
-  --   \pgfmathsetmacro{\xi}{((\i * pi) / 2) / \frequency}
-  --   \pgfmathsetmacro{\xf}{(((\i + 1) * pi) / 2) / \frequency}
-  --   \pgfmathsetmacro{\yi}{(sin((\frequency * \xi * 180 / (pi))) * \amplitude}
-  --   \pgfmathsetmacro{\yf}{(sin((\frequency * \xf * 180 / (pi))) * \amplitude}
-  --   \draw[<>] (\xi,\yi) cos (\xf,\yf) ;
-  --   }{
-  --   \pgfmathsetmacro{\xi}{((\i * pi) / 2) / \frequency}
-  --   \pgfmathsetmacro{\xf}{(((\i + 1) * pi) / 2) / \frequency}
-  --   \pgfmathsetmacro{\yi}{(sin((\frequency * \xi * 180 / (pi))) * \amplitude}
-  --   \pgfmathsetmacro{\yf}{(sin((\frequency * \xf * 180 / (pi))) * \amplitude}
-  --   \draw[<>] (\xi,\yi) sin (\xf,\yf) ;
-  --   }
-  --   }
-  --   ]],
-  --     {
-  --       i(1, "1"),
-  --       i(2, "1"),
-  --       i(3, "1"),
-  --       i(4),
-  --       rep(4),
-  --     }
-  --   ),
-  --   {}
-  -- ),
-  -- s( -- coswav -> Cosine Wave TikZ )
-  --   {
-  --     trig = "coswav",
-  --   },
-  --   fmta(
-  --     [[
-  --   % Cosine Wave
-  --   \def \amplitude{<>}
-  --   \def \frequency{<>}
-  --   \def \periods{<>}
-  --
-  --   \pgfmathsetmacro{\n}{(\periods * 4) - 1}
-  --   \foreach \i in {0,...,\n} {
-  --   \ifthenelse{\isodd \i}{
-  --   \pgfmathsetmacro{\xi}{((\i * pi) / 2) / \frequency}
-  --   \pgfmathsetmacro{\xf}{(((\i + 1) * pi) / 2) / \frequency}
-  --   \pgfmathsetmacro{\yi}{(cos((\frequency * \xi * 180 / (pi))) * \amplitude}
-  --   \pgfmathsetmacro{\yf}{(cos((\frequency * \xf * 180 / (pi))) * \amplitude}
-  --   \draw[<>] (\xi,\yi) sin (\xf,\yf) ;
-  --   }{
-  --   \pgfmathsetmacro{\xi}{((\i * pi) / 2) / \frequency}
-  --   \pgfmathsetmacro{\xf}{(((\i + 1) * pi) / 2) / \frequency}
-  --   \pgfmathsetmacro{\yi}{(cos((\frequency * \xi * 180 / (pi))) * \amplitude}
-  --   \pgfmathsetmacro{\yf}{(cos((\frequency * \xf * 180 / (pi))) * \amplitude}
-  --   \draw[<>] (\xi,\yi) cos (\xf,\yf) ;
-  --   }
-  --   }
-  --   ]],
-  --     {
-  --       i(1, "1"),
-  --       i(2, "1"),
-  --       i(3, "1"),
-  --       i(4),
-  --       rep(4),
-  --     }
-  --   ),
-  --   {}
-  -- ),
-  -- s( -- 2mp -> 2D Moving Particle TikZ )
-  --   {
-  --     trig = "2mp",
-  --   },
-  --   fmta(
-  --     [[
-  --   % 2D Moving Particle
-  --   \def \velocity {<>}
-  --   \def \angle {<>}
-  --   \def \xPosition {<>}
-  --   \def \yPosition {<>}
-  --   \def \maxRadius {<>}
-  --   \def \n {<>}
-  --   \foreach \i in {1,...,\n} {
-  --   \pgfmathsetmacro \v {\velocity / 5}
-  --   \pgfmathsetmacro \colorValue {(100 / \n) * \i}
-  --   \pgfmathsetmacro \r {(\maxRadius * \i) / \n}
-  --   \pgfmathsetmacro \x {\xPosition + (cos(\angle) * (\i * \v))}
-  --   \pgfmathsetmacro \y {\yPosition + (sin(\angle) * (\i * \v))}
-  --   \filldraw[red!\colorValue!white] (\x,\y) circle (\r cm);
-  --   }
-  --   ]],
-  --     {
-  --       i(1),
-  --       i(2),
-  --       i(3),
-  --       i(4),
-  --       i(5),
-  --       i(6),
-  --     }
-  --   ),
-  --   {}
-  -- ),
-  -- s( -- 3mp -> 3D Moving Particle TikZ )
-  --   {
-  --     trig = "3mp",
-  --   },
-  --   fmta(
-  --     [[
-  --   % 3D Moving Particle
-  --   \def \velocity {<>}
-  --   \def \polarAngle {<>}
-  --   \def \azimuthalAngle {<>}
-  --   \def \xPosition {<>}
-  --   \def \yPosition {<>}
-  --   \def \zPosition {<>}
-  --   \def \maxRadius {<>}
-  --   \def \n {<>}
-  --   \foreach \i in {1,...,\n} {
-  --   \pgfmathsetmacro \v {\velocity / 5}
-  --   \pgfmathsetmacro \colorValue {(100 / \n) * \i}
-  --   \pgfmathsetmacro \r {(\maxRadius * \i) / \n}
-  --   \pgfmathsetmacro \x {\xPosition + (sin(\polarAngle) * cos(\azimuthalAngle) * (\i * \v))}
-  --   \pgfmathsetmacro \y {\yPosition + (sin(\polarAngle) * sin(\azimuthalAngle) * (\i * \v))}
-  --   \pgfmathsetmacro \z {\zPosition + (cos(\azimuthalAngle) * (\i * \v))}
-  --   \filldraw[red!\colorValue!white] (\x,\y,\z) circle (\r cm);
-  --   }
-  --   ]],
-  --     {
-  --       i(1),
-  --       i(2),
-  --       i(3),
-  --       i(4),
-  --       i(5),
-  --       i(6),
-  --       i(7),
-  --       i(8),
-  --     }
-  --   ),
-  --   {}
-  -- ),
-  -- s( -- 3rp -> 3D Rectangular Prism TikZ )
-  --   {
-  --     trig = "3rp",
-  --   },
-  --   fmta(
-  --     [[
-  --   % 3D Rectangular Prism
-  --   \def \x {<>}
-  --   \def \y {<>}
-  --   \def \z {<>}
-  --   \def \xLen {<>}
-  --   \def \yLen {<>}
-  --   \def \zLen {<>}
-  --   \def \gridStep {<>}
-  --
-  --   \pgfmathsetmacro \xi {\x - \gridStep}
-  --   \pgfmathsetmacro \xf {\xLen + \gridStep}
-  --   \pgfmathsetmacro \zi {\z - \gridStep}
-  --   \pgfmathsetmacro \zf {\zLen + \gridStep}
-  --   \pgfmathsetmacro \negGridStep {\gridStep * -1}
-  --   \foreach \a in {\xi,\x,...,\xf} {
-  --     \foreach \b in {\zi,\z,...,\zf} {
-  --       \draw[gridLine] (\a,\y,\zi) -- (\a,\y,\zf);
-  --       \draw[gridLine] (\xi,\y,\b) -- (\xf,\y,\b);
-  --     }
-  --   }
-  --
-  --   \pgfmathsetmacro \X {\x + \xLen}
-  --   \pgfmathsetmacro \Y {\y + \yLen}
-  --   \pgfmathsetmacro \Z {\z + \zLen}
-  --   \draw[cubeBorder] (\x,\y,\z) -- (\x,\Y,\z) -- (\X,\Y,\z) -- (\X,\y,\z) -- cycle;
-  --   \fill[cubeFilling] (\x,\y,\z) -- (\x,\Y,\z) -- (\X,\Y,\z) -- (\X,\y,\z) -- cycle;
-  --   \draw[cubeBorder] (\x,\y,\z) -- (\x,\Y,\z) -- (\x,\Y,\Z) -- (\x,\y,\Z) -- cycle;
-  --   \fill[cubeFilling] (\x,\y,\z) -- (\x,\Y,\z) -- (\x,\Y,\Z) -- (\x,\y,\Z) -- cycle;
-  --   \draw[cubeBorder] (\x,\y,\z) -- (\x,\y,\Z) -- (\X,\y,\Z) -- (\X,\y,\z) -- cycle;
-  --   \fill[cubeFilling] (\x,\y,\z) -- (\x,\y,\Z) -- (\X,\y,\Z) -- (\X,\y,\z) -- cycle;
-  --
-  --   <>
-  --
-  --   \draw[cubeBorder] (\X,\y,\z) -- (\X,\y,\Z) -- (\X,\Y,\Z) -- (\X,\Y,\z) -- cycle;
-  --   \fill[cubeFilling] (\X,\y,\z) -- (\X,\y,\Z) -- (\X,\Y,\Z) -- (\X,\Y,\z) -- cycle;
-  --   \draw[cubeBorder] (\x,\y,\Z) -- (\x,\Y,\Z) -- (\X,\Y,\Z) -- (\X,\y,\Z) -- cycle;
-  --   \fill[cubeFilling] (\x,\y,\Z) -- (\x,\Y,\Z) -- (\X,\Y,\Z) -- (\X,\y,\Z) -- cycle;
-  --   \draw[cubeBorder] (\x,\Y,\z) -- (\x,\Y,\Z) -- (\X,\Y,\Z) -- (\X,\Y,\z) -- cycle;
-  --   \fill[cubeFilling] (\x,\Y,\z) -- (\x,\Y,\Z) -- (\X,\Y,\Z) -- (\X,\Y,\z) -- cycle;
-  --   ]],
-  --     {
-  --       i(1),
-  --       i(2),
-  --       i(3),
-  --       i(4),
-  --       i(5),
-  --       i(6),
-  --       i(7),
-  --       i(0),
-  --     }
-  --   ),
-  --   {}
-  -- ),
-  -- s( -- r3p -> n Random 3D Particles )
-  --   {
-  --     trig = "r3p",
-  --   },
-  --   fmta(
-  --     [[
-  --   % n Random 3D Particles
-  --   \def \n {<>}
-  --   \def \xMin {<>}
-  --   \def \yMin {<>}
-  --   \def \zMin {<>}
-  --   \def \xMax {<>}
-  --   \def \yMax {<>}
-  --   \def \zMax {<>}
-  --   \def \radius {<>}
-  --   \foreach \x in {1,...,\n} {
-  --     \pgfmathsetmacro \x {(rnd * (\xMax - \xMin)) + \xMin}
-  --     \pgfmathsetmacro \y {(rnd * (\yMax - \yMin)) + \yMin}
-  --     \pgfmathsetmacro \z {(rnd * (\zMax - \zMin)) + \zMin}
-  --     \filldraw[red!100!white] (\x,\y,\z) circle (\radius px);
-  --   }
-  --   ]],
-  --     {
-  --       i(1),
-  --       i(2),
-  --       i(3),
-  --       i(4),
-  --       i(5),
-  --       i(6),
-  --       i(7),
-  --       i(0),
-  --     }
-  --   ),
-  --   {}
-  -- ),
   s( -- mcr -> pgfmathsetmacro )
     {
       trig = "mcr",
