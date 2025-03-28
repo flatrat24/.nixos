@@ -1,0 +1,50 @@
+[options]
+background = 242639
+suppress_default_binds = true
+
+[aliases]
+
+[binds]
+q = quit
+
+# Image navigation
+<bracketleft> = prev
+<bracketright> = next
+gg = goto 1
+<Shift+G> = goto -1
+
+# Panning
+j = pan 0 -50
+k = pan 0 50
+h = pan 50 0
+l = pan -50 0
+<Shift+J> = pan 0 -100
+<Shift+K> = pan 0 100
+<Shift+H> = pan 100 0
+<Shift+L> = pan -100 0
+
+# Zooming
+<equal> = zoom 1
+<minus> = zoom -1
+<Shift+equal> = zoom actual
+
+# Rotate Clockwise by 90 degrees
+r = rotate by 90
+
+# Other commands
+x = close
+d = overlay
+p = exec echo $imv_current_file
+# e = exec pinta $imv_current_file
+c = center
+s = scaling next
+<Shift+S> = upscaling next
+<Shift+R> = reset
+
+# Gif playback
+<period> = next_frame
+<space> = toggle_playing
+
+# Slideshow control
+t = slideshow +1
+<Shift+T> = slideshow -1
