@@ -1,9 +1,12 @@
 { ... }: {
   imports = [
     ./modules/beeper
+    ./modules/magic-wormhole
     ./modules/bookmarks
     ./modules/bottles
     ./modules/calculator
+    ./modules/calendar
+    ./modules/digital
     ./modules/discord
     ./modules/dunst
     ./modules/email
@@ -18,6 +21,7 @@
     ./modules/hyprland
     ./modules/hyprlock
     ./modules/ignis
+    ./modules/imv
     ./modules/latex
     ./modules/libreoffice
     ./modules/mpv
