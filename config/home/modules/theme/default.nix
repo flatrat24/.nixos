@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, inputs, ... }:
 let
   cfg = config.theme;
 in {
@@ -16,6 +16,8 @@ in {
     };
   };
 
+  imports = [inputs.catppuccin.homeManagerModules.catppuccin];
+
   config = lib.mkIf cfg.enable {
     home.file = {
       ".assets" = {
@@ -25,25 +27,32 @@ in {
       };
     };
 
-    fonts.fontconfig.enable = true;
-
-    stylix = {
-      enable = lib.mkDefault true;
-      autoEnable = false;
-      image = ../../../assets/${cfg.wallpaper};
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/${cfg.colorscheme}.yaml";
-
-      targets = {
-        gtk.enable = true;
+    gtk = {
+      enable = true;
+      cursorTheme = {
+        package = pkgs.catppuccin-cursors.frappeDark;
+        name = "catppuccin-frappe-dark-cursors";
+        size = 24;
       };
-
+      font = {
+        package = "${pkgs.ibm-plex}";
+        name = "IBM Plex Sans";
+        size = 12;
+      };
       iconTheme = {
-        enable = true;
         package = pkgs.catppuccin-papirus-folders;
-        light = "Papirus-Light";
-        dark = "Papirus-Dark";
+        name = "Papirus-Dark";
+      };
+      catppuccin = {
+        enable = true;
+        flavor = "mocha";
+        accent = "pink";
+        size = "standard";
+        tweaks = [ "normal" ];
       };
     };
+
+    fonts.fontconfig.enable = true;
 
     wayland.windowManager.hyprland.settings = {
       "exec-once" = [
