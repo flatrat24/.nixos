@@ -24,6 +24,8 @@
       { mode = [ "x" ]; key = "<"; action = "<gv"; options = { noremap = true; silent = true; desc = "Decrease line indent"; }; }
 
       ##--- View Management ---##
+      # { mode = [ "n" ]; key = "<C-k>"; action = "<C-u>"; options = { noremap = true; silent = true; desc = "Move Screen Up"; }; }
+      # { mode = [ "n" ]; key = "<C-j>"; action = "<C-d>"; options = { noremap = true; silent = true; desc = "Move Screen Down"; }; }
       { mode = [ "n" ]; key = "<C-;>"; action = "<C-y>"; options = { noremap = true; silent = true; desc = "Move Screen Up"; }; }
       { mode = [ "n" ]; key = "<C-'>"; action = "<C-e>"; options = { noremap = true; silent = true; desc = "Move Screen Down"; }; }
       { mode = [ "n" ]; key = "<leader>vh"; action = "<cmd>nohl<CR>"; options = { noremap = true; silent = true; desc = "Clear Highlighting"; }; }
