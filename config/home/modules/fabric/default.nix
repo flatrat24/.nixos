@@ -1,5 +1,6 @@
-{ config, pkgs, inputs, ... }:
+{ lib, config, pkgs, inputs, ... }:
 let
+  cfg = config.fabric;
   ax-shell = builtins.fetchGit {
     url = "https://github.com/HeyImKyu/Ax-Shell.git";
     ref = "main";
@@ -7,40 +8,48 @@ let
   };
 in
 {
-  home.file."${config.xdg.configHome}/Ax-Shell" = {
-    source = ax-shell;
+  options = {
+    fabric.enable = lib.mkEnableOption "enable fabric";
   };
 
-  home.file.".local/share/fonts/tabler-icons.ttf" = {
-    source = "${ax-shell}/assets/fonts/tabler-icons/tabler-icons.ttf";
-  };
+  config = lib.mkIf cfg.enable (lib.mkMerge [
+    {
+      home.file."${config.xdg.configHome}/Ax-Shell" = {
+        source = ax-shell;
+      };
 
-  home.file."${config.xdg.configHome}/matugen/config.toml" = {
-    source = ./matugen.toml;
-  };
+      home.file.".local/share/fonts/tabler-icons.ttf" = {
+        source = "${ax-shell}/assets/fonts/tabler-icons/tabler-icons.ttf";
+      };
 
-  home.packages = with pkgs; [
-    matugen
-    cava
-    fabric
-    fabric-cli
-    (fabric-run-widget.override {
-      extraPythonPackages = with python3Packages; [
-        ijson
-        pillow
-        psutil
-        requests
-        setproctitle
-        toml
-        watchdog
+      home.file."${config.xdg.configHome}/matugen/config.toml" = {
+        source = ./matugen.toml;
+      };
+
+      home.packages = with pkgs; [
+        matugen
+        cava
+        fabric
+        fabric-cli
+        (fabric-run-widget.override {
+          extraPythonPackages = with python3Packages; [
+            ijson
+            pillow
+            psutil
+            requests
+            setproctitle
+            toml
+            watchdog
+          ];
+          extraBuildInputs = [
+            fabric-gray
+            networkmanager
+            networkmanager.dev
+            playerctl
+          ];
+        })
+        fabric-cli
       ];
-      extraBuildInputs = [
-        fabric-gray
-        networkmanager
-        networkmanager.dev
-        playerctl
-      ];
-    })
-    fabric-cli
-  ];
+    }
+  ]);
 }
