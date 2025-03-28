@@ -10,14 +10,6 @@
       "$mod, O, Toggle Fullscreen Window, fullscreen,"
       "$mod, U, Cycle Left and Bottom Layout, layoutmsg, orientationcycle left top"
 
-      ##--- Window Focus ---##
-      "$mod, h, Focus Left Window, movefocus, l"
-      "$mod, l, Focus Right Window, movefocus, r"
-      "$mod, k, Focus Upper Window, movefocus, u"
-      "$mod, j, Focus Lower Window, movefocus, d"
-      "$mod, Tab, Cycle Window Focus, cyclenext, "
-      "$mod, Tab,, bringactivetotop, "
-
       ##--- Tab Stacking ---##
       "$mod, I, Toggle Window Stacking, togglegroup,"
 
@@ -41,7 +33,6 @@
       "$mod, 8, Focus Workspace 8, workspace, 8"
       "$mod, 9, Focus Workspace 9, workspace, 9"
       "$mod, 0, Focus Workspace 10, workspace, 10"
-      "$mod, BackSpace, Focus Most Recent Workspace, workspace, previous"
 
       ##--- Move Windows Between Workspaces ---##
       "$mod SHIFT, 1, Move Window to Workspace 1, movetoworkspace, 0"
@@ -73,11 +64,22 @@
       "$mod CTRL, L, Focus Next Window in Stack, changegroupactive, f"
       "$mod CTRL, H, Focus Previous Window in Stack, changegroupactive, b"
 
+      ##--- Window Focus ---##
+      "$mod, h, Focus Left Window, movefocus, l"
+      "$mod, l, Focus Right Window, movefocus, r"
+      "$mod, k, Focus Upper Window, movefocus, u"
+      "$mod, j, Focus Lower Window, movefocus, d"
+      "$mod, Tab, Cycle Window Focus, cyclenext, "
+      "$mod, Tab,, bringactivetotop, "
+
       ##--- Manage Monitors ---##
       "$mod SHIFT, equal, Focus Next Monitor, focusmonitor, +1"
       "$mod SHIFT, minus, Focus Previous Monitor, focusmonitor, -1"
       "$mod SHIFT CTRL, equal, Move Workspace to Next Monitor, movecurrentworkspacetomonitor, +1"
       "$mod SHIFT CTRL, minus, Move Workspace to Next Monitor, movecurrentworkspacetomonitor, -1"
+
+      ##--- Workspace Focus ---##
+      "$mod, BackSpace, Focus Most Recent Workspace, workspace, previous"
     ];
     bindm = [
       ##--- Manage Windows With Mouse ---##
