@@ -32,13 +32,17 @@
   beeper.enable = true;
   bottles.enable = true;
   calculator.enable = true;
+  calendar.enable = true;
+  digital.enable = true;
   discord.enable = true;
-  # fabric.enable = true;
+  fabric.enable = true;
   firefox.enable = true;
   foot.enable = true;
   geogebra.enable = true;
   ignis.enable = true;
+  imv.enable = true;
   libreoffice.enable = true;
+  magic-wormhole.enable = true;
   mpv.enable = true;
   nautilus.enable = true;
   nyxt.enable = true;
@@ -48,7 +52,7 @@
   pinta.enable = true;
   rss.enable = true;
   slack.enable = true;
-  swayimg.enable = true;
+  swayimg.enable = false;
   teams.enable = true;
   whatsapp.enable = true;
   zathura.enable = true;
