@@ -53,5 +53,11 @@
       gnome-online-accounts.enable = true;
       gnome-keyring.enable = true;
     };
+
+    # For AppImages
+    programs.appimage = {
+      enable = true;
+      binfmt = true;
+    };
   };
 }
