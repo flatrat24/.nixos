@@ -3,6 +3,7 @@
     ./modules/basics
     ./modules/bluetooth
     ./modules/gaming
+    ./modules/gnome
     ./modules/grub
     ./modules/hyprland
     ./modules/network
