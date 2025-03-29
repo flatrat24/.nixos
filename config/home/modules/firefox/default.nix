@@ -5,7 +5,6 @@ let
   dependencies = [ ];
   # extensions = [ ];
   extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
-    sidebery
     youtube-shorts-block
     ublock-origin
     sponsorblock
