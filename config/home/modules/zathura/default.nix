@@ -52,7 +52,7 @@ in{
           inputbar-fg             = "rgba(205,214,244,1)";
           inputbar-bg             = "rgba(49,50,68,1)";
 
-          recolor                 = "true";
+          recolor                 = "false";
           recolor-lightcolor      = "rgba(30,30,46,1)";
           recolor-darkcolor       = "rgba(205,214,244,1)";
 
@@ -64,9 +64,10 @@ in{
           render-loading-bg       = "rgba(30,30,46,1)";
           render-loading-fg       = "rgba(205,214,244,1)";
 
-          highlight-color         = "rgba(87,82,104,0.5)";
-          highlight-fg            = "rgba(245,194,231,0.5)";
-          highlight-active-color  = "rgba(245,194,231,0.5)";
+          highlight-color         = "rgba(17, 17, 27, 0.75)";
+          highlight-fg            = "rgba(223, 142, 29, 0.75)";
+          highlight-active-color  = "rgba(223, 142, 29, 0.75)";
+          # highlight-active-color  = "rgba(245,194,231,0.5)";
 
           page-padding            = 3;
           font                    = "IBM Plex mono 10";
