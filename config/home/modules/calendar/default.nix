@@ -11,14 +11,14 @@ in {
     {
       home.packages = dependencies;
     }
-    (lib.mkIf config.hyprland.enable {
-      wayland.windowManager.hyprland = {
-        settings = {
-          "exec-once" = [
-            "[workspace 10 silent] gnome-calendar"
-          ];
-        };
-      };
-    })
+    # (lib.mkIf config.hyprland.enable {
+    #   wayland.windowManager.hyprland = {
+    #     settings = {
+    #       "exec-once" = [
+    #         "[workspace 10 silent] gnome-calendar"
+    #       ];
+    #     };
+    #   };
+    # })
   ]);
 }
