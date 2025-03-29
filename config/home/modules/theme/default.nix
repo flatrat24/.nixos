@@ -27,6 +27,14 @@ in {
       };
     };
 
+    qt = {
+      enable = true;
+      style = {
+        package = pkgs.catppuccin-qt5ct;
+        name = "qt5ct";
+      };
+    };
+
     gtk = {
       enable = true;
       cursorTheme = {
