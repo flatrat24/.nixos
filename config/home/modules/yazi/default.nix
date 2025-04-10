@@ -397,7 +397,32 @@ in {
           ];
           opener = {
             directory = [
+              { run = ''xdg-open "$@"''; orphan = true; desc = " xdg-open"; }
               { run = ''$TERM -e yazi "$@"''; orphan = true; desc = "󰇥 yazi"; }
+            ];
+            image = [
+              { run = ''xdg-open "$@"''; orphan = true; desc = " xdg-open"; }
+              { run = ''xdg-email --attach "$@"''; orphan = true; desc = "󰇮 email"; }
+            ];
+            edit = [
+              { run = ''xdg-open "$@"''; orphan = true; desc = " xdg-open"; }
+              { run = ''xdg-email --attach "$@"''; orphan = true; desc = "󰇮 email"; }
+            ];
+            video = [
+              { run = ''xdg-open "$@"''; orphan = true; desc = " xdg-open"; }
+              { run = ''xdg-email --attach "$@"''; orphan = true; desc = "󰇮 email"; }
+            ];
+            audio = [
+              { run = ''xdg-open "$@"''; orphan = true; desc = " xdg-open"; }
+              { run = ''xdg-email --attach "$@"''; orphan = true; desc = "󰇮 email"; }
+            ];
+            pdf = [
+              { run = ''xdg-open "$@"''; orphan = true; desc = " xdg-open"; }
+              { run = ''xdg-email --attach "$@"''; orphan = true; desc = "󰇮 email"; }
+            ];
+            office = [
+              { run = ''xdg-open "$@"''; orphan = true; desc = " xdg-open"; }
+              { run = ''xdg-email --attach "$@"''; orphan = true; desc = "󰇮 email"; }
             ];
           };
           manager = {
