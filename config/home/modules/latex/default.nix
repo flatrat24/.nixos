@@ -1,7 +1,10 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, nixpkgs-unstable, lib, config, ... }:
 let
   cfg = config.latex;
-  tex = (pkgs.texlive.combine { inherit (pkgs.texlive) scheme-full physics; });
+  # Define TeX Live with minted coming from unstable nixpkgs
+  tex = pkgs.texlive.combine {
+    inherit (pkgs.texlive) scheme-full physics;
+  };
   dependencies = [
     tex
   ];
