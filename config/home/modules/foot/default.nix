@@ -70,10 +70,10 @@ in {
             [key-bindings]
             scrollback-up-page                          = Shift+Page_Up
             scrollback-up-half-page                     = Page_Up
-            scrollback-up-line                          = Up
+            # scrollback-up-line                          = Up
             scrollback-down-page                        = Shift+Page_Down
             scrollback-down-half-page                   = Page_Down
-            scrollback-down-line                        = Down
+            # scrollback-down-line                        = Down
             scrollback-home                             = none
             scrollback-end                              = none
             clipboard-copy                              = Control+Shift+c XF86Copy
