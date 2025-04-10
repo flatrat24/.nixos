@@ -4,6 +4,7 @@
   inputs = {
     ##--- follow nixpkgs ---##
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -48,6 +49,7 @@
 
     ##--- others ---##
     textfox.url = "github:adriankarlen/textfox";
+    better-control.url = "github:rishabh5321/better-control-flake";
     catppuccin.url = "github:catppuccin/nix";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -61,11 +63,13 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     home-manager,
     catppuccin,
     fabric,
     fabric-gray,
     fabric-cli,
+    better-control,
     ...
     } @ inputs:
     let
@@ -117,6 +121,10 @@
                 pkgs = import nixpkgs {
                   system = systemArchitecture;
                   overlays = overlays;
+                  config.allowUnfree = true;
+                };
+                unstablePkgs = import nixpkgs-unstable {
+                  system = systemArchitecture;
                   config.allowUnfree = true;
                 };
               };

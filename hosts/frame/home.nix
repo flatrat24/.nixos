@@ -30,6 +30,7 @@
 
   ##--- Applications ---###
   beeper.enable = true;
+  better-control.enable = true;
   bottles.enable = true;
   calculator.enable = true;
   calendar.enable = true;
