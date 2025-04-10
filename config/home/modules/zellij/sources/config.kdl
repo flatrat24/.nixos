@@ -75,7 +75,7 @@ keybinds clear-defaults=true {
 
     bind "Alt n"     { NewPane "Down"                      ; SwitchToMode "Normal" ; }
     bind "Alt m"     { NewPane "Right"                     ; SwitchToMode "Normal" ; }
-    bind "Alt w"     { CloseFocus                          ; SwitchToMode "Normal" ; }
+    bind "Alt q"     { CloseFocus                          ; SwitchToMode "Normal" ; }
     bind "Alt o"     { ToggleFocusFullscreen               ; SwitchToMode "Normal" ; }
     bind "Alt p"     { TogglePaneEmbedOrFloating           ; SwitchToMode "Normal" ; }
     bind "Alt r"     { SwitchToMode "RenamePane"           ; PaneNameInput 0       ; }
