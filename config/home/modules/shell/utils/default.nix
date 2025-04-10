@@ -12,6 +12,7 @@ let
     nix-prefetch-github
     nix-index
     unzip
+    gcc
   ];
   aliases = { };
 in {

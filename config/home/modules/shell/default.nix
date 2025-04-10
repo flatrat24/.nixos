@@ -17,7 +17,9 @@ let
   dependencies = with pkgs; [
     delta # TODO: Get this working as a submodule
 
-    python3
+    (pkgs.python39.withPackages (ps: with ps; [
+      pygments # For latex minted package
+    ]))
   ];
 in {
   imports = [
