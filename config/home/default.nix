@@ -1,7 +1,7 @@
 { ... }: {
   imports = [
     ./modules/beeper
-    ./modules/magic-wormhole
+    ./modules/better-control
     ./modules/bookmarks
     ./modules/bottles
     ./modules/calculator
@@ -13,6 +13,7 @@
     ./modules/fabric
     ./modules/firefox
     ./modules/foot
+    ./modules/magic-wormhole
     ./modules/gaming
     ./modules/geogebra
     ./modules/git
