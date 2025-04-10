@@ -48,9 +48,9 @@ local buffer_is_empty = function()
 end
 
 return {
-  s( -- ee -> Generic Environment )
+  s( -- e -> Generic Environment )
     {
-      trig = "ee",
+      trig = "e",
     },
     fmta(
       [[
@@ -68,9 +68,28 @@ return {
       condition = line_begin
     }
   ),
-  s( -- eq -> Equation Environment )
+  s( -- ecd -> Listings Environment )
     {
-      trig = "eq",
+      trig = "ecd",
+    },
+    fmta(
+      [[
+        \begin{listings}[language=<>]
+          <>
+        \end{listings}
+      ]],
+      {
+        i(1),
+        d(2, get_visual),
+      }
+    ),
+    {
+      condition = line_begin
+    }
+  ),
+  s( -- equ -> Equation Environment )
+    {
+      trig = "equ",
     },
     fmta(
       [[
@@ -97,9 +116,9 @@ return {
       condition = line_begin
     }
   ),
-  s( -- et -> Tabularray Environment )
+  s( -- etb -> Tabularray Environment )
     {
-      trig = "et",
+      trig = "etb",
     },
     fmta(
       [[
@@ -121,9 +140,9 @@ return {
       condition = line_begin
     }
   ),
-  s( -- ef -> Figure Environment )
+  s( -- efg -> Figure Environment )
     {
-      trig = "ef",
+      trig = "efg",
     },
     fmta(
       [[
@@ -339,9 +358,9 @@ return {
       condition = line_begin
     }
   ),
-  s( -- el -> List Environment )
+  s( -- els -> List Environment )
     {
-      trig = "el",
+      trig = "els",
     },
     fmta(
       [[
@@ -363,9 +382,9 @@ return {
       condition = line_begin
     }
   ),
-  s( -- em -> Forumla Environment )
+  s( -- efm -> Forumla Environment )
     {
-      trig = "em",
+      trig = "efm",
     },
     fmta(
       [[
@@ -382,9 +401,9 @@ return {
       condition = line_begin
     }
   ),
-  s( -- ex -> Example Environment )
+  s( -- eex -> Example Environment )
     {
-      trig = "ex",
+      trig = "eex",
     },
     fmta(
       [[
@@ -401,9 +420,9 @@ return {
       condition = line_begin
     }
   ),
-  s( -- ed -> Definition Environment )
+  s( -- edf -> Definition Environment )
     {
-      trig = "ed",
+      trig = "edf",
     },
     fmta(
       [[
@@ -420,9 +439,9 @@ return {
       condition = line_begin
     }
   ),
-  s( -- ez -> TikZ Environment )
+  s( -- etk -> TikZ Environment )
     {
-      trig = "ez",
+      trig = "etk",
     },
     fmta(
       [[
@@ -443,9 +462,9 @@ return {
       condition = line_begin
     }
   ),
-  s( -- ea -> Axis Environment (Tikz) )
+  s( -- eax -> Axis Environment (Tikz) )
     {
-      trig = "ea",
+      trig = "eax",
     },
     fmta(
       [[
@@ -478,56 +497,6 @@ return {
         i(9),
         i(10),
         i(0),
-      }
-    ),
-    {
-      condition = line_begin
-    }
-  ),
-  s( -- ev -> Known Values Example Split Tcolorbox )
-    {
-      trig = "ev",
-    },
-    fmta(
-      [[
-        \begin{tcolorbox}[
-          standard jigsaw, % Allows opacity
-          colframe=fg,
-          boxrule=0px,
-          opacityback=0,
-          sidebyside,
-          lefthand width=100px,
-          coltext=fg,
-        ]
-        \textbf{Known Values}
-        \begin{align*}
-          <>
-        \end{align*}
-        \tcblower
-        <>
-        \end{tcolorbox}
-      ]],
-      {
-        i(1),
-        i(0),
-      }
-    ),
-    {
-      condition = line_begin
-    }
-  ),
-  s( -- ec -> Center Environment )
-    {
-      trig = "ec",
-    },
-    fmta(
-      [[
-        \begin{center}
-          <>
-        \end{center}
-      ]],
-      {
-        d(1, get_visual),
       }
     ),
     {

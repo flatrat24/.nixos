@@ -5,6 +5,7 @@ in {
   imports = [
     ./bash
     ./nix
+    ./c
   ];
 
   options = {

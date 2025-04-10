@@ -1,6 +1,10 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, unstablePkgs, lib, config, ... }:
 let
   cfg = config.neovim.plugins.vimtex;
+  tex = pkgs.texlive.combine {
+    inherit (pkgs.texlive) scheme-full physics;
+    minted = unstablePkgs.texlive.minted;
+  };
 in {
   options = {
     neovim.plugins.vimtex = {
@@ -14,8 +18,21 @@ in {
   config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       programs.nixvim = {
+        extraConfigVim = ''
+          " latexmk compilation (the important one is shell escape as it is needed for pygments minted)
+          let g:vimtex_compiler_latexmk = {
+          \ 'options' : [
+          \    '-shell-escape',
+          \    '-verbose',
+          \    '-file-line-error',
+          \    '-synctex=1',
+          \    '-interaction=nonstopmode',
+          \ ],
+          \}
+        '';
         plugins.vimtex = {
           enable = true;
+          # texlivePackage = tex;
           texlivePackage = pkgs.texliveFull;
           # settings = {
           #   fold_enabled = true;
