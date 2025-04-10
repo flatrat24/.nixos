@@ -165,7 +165,7 @@ let
     "extensions.enabledScopes" = 15;
 
     # Miscellaneous options
-    "general.autoScroll" = true; # Enable autoscrolling
+    "general.autoScroll" = false; # Enable autoscrolling
     "browser.aboutConfig.showWarning" = false; # Prevent about:config warning
   };
 in {
