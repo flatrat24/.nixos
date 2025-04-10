@@ -28,6 +28,10 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    split-monitor-workspaces = {
+      url = "github:Duckonaut/split-monitor-workspaces";
+      inputs.hyprland.follows = "hyprland";
+    };
     # Hyprspace = {
     #   url = "github:KZDKM/Hyprspace";
     #   inputs.hyprland.follows = "hyprland";
@@ -69,6 +73,7 @@
     fabric,
     fabric-gray,
     fabric-cli,
+    split-monitor-workspaces,
     better-control,
     ...
     } @ inputs:
