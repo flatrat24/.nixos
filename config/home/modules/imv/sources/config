@@ -1,5 +1,5 @@
 [options]
-background = 242639
+background = 1E1E2E
 suppress_default_binds = true
 
 [aliases]
