@@ -18,6 +18,12 @@
       { mode = [ "n" ]; key = "<C-S-h>"; action = "<cmd>vertical resize -2<CR>"; options = { noremap = true; silent = true; desc = "Horizontally Grow Focused Window"; }; }
       { mode = [ "n" ]; key = "<C-S-l>"; action = "<cmd>vertical resize +2<CR>"; options = { noremap = true; silent = true; desc = "Vertically Grow Focused Window"; }; }
 
+      ##--- Code Folding ---##
+      { mode = [ "n" ]; key = "zl"; action = "zo"; options = { noremap = true; silent = true; desc = "Open Fold"; }; }
+      { mode = [ "n" ]; key = "zL"; action = "zR"; options = { noremap = true; silent = true; desc = "Open Fold"; }; }
+      { mode = [ "n" ]; key = "zh"; action = "zc"; options = { noremap = true; silent = true; desc = "Close Fold"; }; }
+      { mode = [ "n" ]; key = "zH"; action = "zM"; options = { noremap = true; silent = true; desc = "Close Fold"; }; }
+
       ##--- Miscellaneous ---##
       { mode = [ "n" ]; key = "U"; action = "<C-r>"; options = { noremap = true; silent = true; desc = "Redo"; }; }
       { mode = [ "x" ]; key = ">"; action = ">gv"; options = { noremap = true; silent = true; desc = "Increase line indent"; }; }

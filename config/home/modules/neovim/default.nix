@@ -78,6 +78,16 @@ in {
           formatoptions = "jql";
           spell = lib.mkDefault true;
           spelllang = lib.mkDefault [ "en_us" ];
+
+          ##--- Folding ---##
+          foldmethod = "expr";
+          foldexpr = "nvim_treesitter#foldexpr()";
+          foldenable = true;
+          foldcolumn = "0";
+          foldtext = "";
+          foldlevelstart = 2;
+          foldnestmax = 6;
+          foldlevel = 99;
         };
         colorschemes = {
           catppuccin.enable = true;
