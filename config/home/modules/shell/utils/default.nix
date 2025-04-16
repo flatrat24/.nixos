@@ -13,6 +13,7 @@ let
     nix-index
     unzip
     gcc
+    valgrind
   ];
   aliases = { };
 in {
