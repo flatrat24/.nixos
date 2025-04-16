@@ -58,6 +58,10 @@
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     ignis.url = "github:linkfrg/ignis";
+    nix-yazi-plugins = {
+      url = "github:lordkekz/nix-yazi-plugins";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     wallpapers = {
       url = "github:flatrat24/wallpapers";
       flake = false;
@@ -90,23 +94,23 @@
     in
     {
     nixosConfigurations = {
-      leo = nixpkgs.lib.nixosSystem {
-        system = systemArchitecture;
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/loque/configuration.nix
-          home-manager.nixosModules.home-manager {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.ea = import ./hosts/loque/home.nix;
-              backupFileExtension = "hm-backup";
-              extraSpecialArgs = { inherit inputs; };
-            };
-          }
-          inputs.stylix.nixosModules.stylix
-        ];
-      };
+      # leo = nixpkgs.lib.nixosSystem {
+      #   system = systemArchitecture;
+      #   specialArgs = { inherit inputs; };
+      #   modules = [
+      #     ./hosts/loque/configuration.nix
+      #     home-manager.nixosModules.home-manager {
+      #       home-manager = {
+      #         useGlobalPkgs = true;
+      #         useUserPackages = true;
+      #         users.ea = import ./hosts/loque/home.nix;
+      #         backupFileExtension = "hm-backup";
+      #         extraSpecialArgs = { inherit inputs; };
+      #       };
+      #     }
+      #     inputs.stylix.nixosModules.stylix
+      #   ];
+      # };
       leoito = nixpkgs.lib.nixosSystem {
         system = systemArchitecture;
         specialArgs = {
