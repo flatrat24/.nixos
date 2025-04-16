@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, inputs, ... }:
 let
   cfg = config.yazi;
   aliases = {
@@ -8,6 +8,11 @@ let
     yazi
   ];
 in {
+  imports = [ inputs.nix-yazi-plugins.legacyPackages.x86_64-linux.homeManagerModules.default ];
+  # imports = [
+  #   inputs.yazi-plugins.nixpkgs.${pkgs.system}.homeManagerModules.default
+  # ];
+
   options = {
     yazi.enable = lib.mkEnableOption "enables yazi";
   };
@@ -22,6 +27,23 @@ in {
       programs.yazi = {
         enable = true;
         enableZshIntegration = true;
+        # yaziPlugins = {
+        #   enable = true;
+        #   plugins = {
+        #     relative-motions = {
+        #       enable = true;
+        #       show_numbers = "relative_absolute";
+        #       show_motion = true;
+        #     };
+        #     full-border = {
+        #       enable = true;
+        #     };
+        #     max-preview = {
+        #       enable = true;
+        #       keys.toggle.on = [ "n" ];
+        #     };
+        #   };
+        # };
         keymap = {
           manager.keymap = [
             # General
