@@ -22,6 +22,15 @@ in {
             delay = 1000;
             preset = "modern";
             expand = 1;
+            triggersNoWait = [
+              "`"
+              "'"
+              "g`"
+              "g'"
+              ''"''
+              "<c-r>"
+              "z="
+            ];
             replace = {
               desc = [
                 [
