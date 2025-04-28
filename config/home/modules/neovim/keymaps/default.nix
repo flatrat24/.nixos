@@ -19,10 +19,12 @@
       { mode = [ "n" ]; key = "<C-S-l>"; action = "<cmd>vertical resize +2<CR>"; options = { noremap = true; silent = true; desc = "Vertically Grow Focused Window"; }; }
 
       ##--- Code Folding ---##
-      { mode = [ "n" ]; key = "zl"; action = "zo"; options = { noremap = true; silent = true; desc = "Open Fold"; }; }
-      { mode = [ "n" ]; key = "zL"; action = "zR"; options = { noremap = true; silent = true; desc = "Open Fold"; }; }
+      { mode = [ "n" ]; key = "zl"; action = "zo"; options = { noremap = true; silent = true; desc = "Open Fold Under Cursor"; }; }
+      { mode = [ "n" ]; key = "zL"; action = "zO"; options = { noremap = true; silent = true; desc = "Open All Folds Under Cursor"; }; }
+      { mode = [ "n" ]; key = "zO"; action = "zR"; options = { noremap = true; silent = true; desc = "Open All Folds"; }; }
       { mode = [ "n" ]; key = "zh"; action = "zc"; options = { noremap = true; silent = true; desc = "Close Fold"; }; }
-      { mode = [ "n" ]; key = "zH"; action = "zM"; options = { noremap = true; silent = true; desc = "Close Fold"; }; }
+      { mode = [ "n" ]; key = "zH"; action = "zC"; options = { noremap = true; silent = true; desc = "Close All Folds Under Cursor"; }; }
+      { mode = [ "n" ]; key = "zC"; action = "zM"; options = { noremap = true; silent = true; desc = "Close All Folds"; }; }
 
       ##--- Miscellaneous ---##
       { mode = [ "n" ]; key = "U"; action = "<C-r>"; options = { noremap = true; silent = true; desc = "Redo"; }; }
