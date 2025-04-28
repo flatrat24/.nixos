@@ -285,8 +285,8 @@ return {
       ]],
       {
         c(1, {
-          t("mathcal"),
-          t("mathcal^{-1}"),
+          t("mathcal{L}"),
+          t("mathcal{L}^{-1}"),
         }),
         i(0, "f(t)")
       }
