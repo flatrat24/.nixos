@@ -4,8 +4,9 @@ let
 in {
   imports = [
     ./bash
-    ./nix
     ./c
+    ./cpp
+    ./nix
   ];
 
   options = {
