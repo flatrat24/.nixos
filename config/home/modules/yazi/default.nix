@@ -360,6 +360,7 @@ in {
             # Programming
             { name = "c";             text = ""; }
             { name = "cpp";           text = ""; }
+            { name = "cc";            text = ""; }
             { name = "h";             text = ""; }
             { name = "hpp";           text = ""; }
             { name = "rs";            text = ""; }
