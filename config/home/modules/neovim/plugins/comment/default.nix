@@ -16,10 +16,6 @@ in {
       plugins.comment = {
         enable = true;
         settings = {
-          opleader = {
-            line = "x";
-            block = "X";
-          };
         };
       };
     };
