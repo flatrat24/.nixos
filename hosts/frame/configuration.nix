@@ -25,6 +25,8 @@
   theme.enable        = true;
   vm.enable           = true;
 
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   users.users.ea = {
     isNormalUser = true;
     description = "Ethan Anthony";
