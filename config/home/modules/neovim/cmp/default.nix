@@ -17,6 +17,13 @@ in {
         plugins.cmp = {
           enable = true;
           autoEnableSources = true;
+          # filetype = {
+          #   tex = {
+          #     sources = [
+          #       { name = "buffer"; keyword_length = 4; }
+          #     ];
+          #   };
+          # };
           settings = (lib.mkMerge [
             {
               sources = [
