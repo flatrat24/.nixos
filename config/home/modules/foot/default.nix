@@ -109,6 +109,7 @@ in {
       wayland.windowManager.hyprland.settings = {
         bindd = [                                
           "$mod, A, Launch Terminal, exec, foot" 
+          "$mod SHIFT, A, Launch Terminal with Zellij, exec, foot -e zellij" 
         ];                                       
         windowrulev2 = [
           "opacity 1.00 1.00 1.00 override 1.00 1.00 1.00 override,initialClass:foot,initialTitle:terminal"
