@@ -52,6 +52,7 @@
   overskride.enable = true;
   pinta.enable = true;
   rss.enable = true;
+  rtorrent.enable = true;
   slack.enable = true;
   swayimg.enable = false;
   teams.enable = true;

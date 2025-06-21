@@ -13,7 +13,6 @@
     ./modules/fabric
     ./modules/firefox
     ./modules/foot
-    ./modules/magic-wormhole
     ./modules/gaming
     ./modules/geogebra
     ./modules/git
@@ -25,6 +24,7 @@
     ./modules/imv
     ./modules/latex
     ./modules/libreoffice
+    ./modules/magic-wormhole
     ./modules/mpv
     ./modules/music
     ./modules/nautilus
@@ -38,6 +38,7 @@
     ./modules/pinta
     ./modules/power
     ./modules/rss
+    ./modules/rtorrent
     ./modules/school
     ./modules/shell
     ./modules/slack
