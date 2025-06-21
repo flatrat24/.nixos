@@ -18,9 +18,13 @@ let
     delta # TODO: Get this working as a submodule
     gnumake
 
+    wireguard-tools
+
     (pkgs.python39.withPackages (ps: with ps; [
       pygments # For latex minted package
     ]))
+
+    starship
   ];
 in {
   imports = [
@@ -84,29 +88,31 @@ in {
       };
       plugins = [
         {
-          name = "powerlevel10k";
-          src = pkgs.zsh-powerlevel10k;
-          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-        }
-        {
-          name = "powerlevel10k-config";
-          src = ./sources;
-          file = "p10k.zsh";
+          name = "vi-mode";
+          src = pkgs.zsh-vi-mode;
+          file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
         }
         # {
-        #   name = "vi-mode";
-        #   src = pkgs.zsh-vi-mode;
-        #   file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+        #   name = "zsh-transient-prompt";
+        #   file = "transient-prompt.plugin.zsh";
+        #   src = pkgs.fetchFromGitHub {
+        #     owner = "olets";
+        #     repo = "zsh-transient-prompt";
+        #     rev = "v1.0.1";
+        #     hash = "sha256-6DTWKf15mPvNGkgWyjT178MggfucKxUlJ6hr53L0QPo=";
+        #   };
         # }
       ];
       dotDir = ".config/zsh";
-      initExtra = ''
-        bindkey '^f' autosuggest-accept
-        bindkey '^k' history-search-backward
-        bindkey '^j' history-search-forward
-        bindkey '^[w' kill-region
-        bindkey -v
-      '';
+      initExtra = builtins.readFile ./sources/extra.zsh;
+    };
+
+    home.file = {
+      ".config/starship.toml" = {
+        source = ./sources/starship.toml;
+        executable = false;
+        recursive = false;
+      };
     };
   };
 }
