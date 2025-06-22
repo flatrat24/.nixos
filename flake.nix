@@ -54,7 +54,7 @@
     ##--- others ---##
     textfox.url = "github:adriankarlen/textfox";
     better-control.url = "github:rishabh5321/better-control-flake";
-    catppuccin.url = "github:catppuccin/nix";
+    # catppuccin.url = "github:catppuccin/nix";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     ignis.url = "github:linkfrg/ignis";
@@ -73,7 +73,7 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
-    catppuccin,
+    # catppuccin,
     fabric,
     fabric-gray,
     fabric-cli,
@@ -123,7 +123,7 @@
         };
         modules = [
           ./hosts/frame/configuration.nix
-          catppuccin.nixosModules.catppuccin
+          # catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager {
             home-manager = {
               extraSpecialArgs = {

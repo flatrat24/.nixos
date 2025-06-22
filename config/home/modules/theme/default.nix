@@ -16,7 +16,9 @@ in {
     };
   };
 
-  imports = [inputs.catppuccin.homeManagerModules.catppuccin];
+  imports = [
+    # inputs.catppuccin.homeManagerModules.catppuccin
+  ];
 
   config = lib.mkIf cfg.enable {
     home.file = {
@@ -51,13 +53,13 @@ in {
         package = pkgs.catppuccin-papirus-folders;
         name = "Papirus-Dark";
       };
-      catppuccin = {
-        enable = true;
-        flavor = "mocha";
-        accent = "pink";
-        size = "standard";
-        tweaks = [ "normal" ];
-      };
+      # catppuccin = {
+      #   enable = true;
+      #   flavor = "mocha";
+      #   accent = "pink";
+      #   size = "standard";
+      #   tweaks = [ "normal" ];
+      # };
     };
 
     fonts.fontconfig.enable = true;
