@@ -1,5 +1,6 @@
 { ... }: {
   imports = [
+    ./modules/aerc
     ./modules/beeper
     ./modules/better-control
     ./modules/bookmarks
@@ -22,6 +23,7 @@
     ./modules/hyprlock
     ./modules/ignis
     ./modules/imv
+    ./modules/khard
     ./modules/latex
     ./modules/libreoffice
     ./modules/magic-wormhole
@@ -45,6 +47,7 @@
     ./modules/swayimg
     ./modules/teams
     ./modules/theme
+    ./modules/vdirsyncer
     ./modules/waybar
     ./modules/waycorner
     ./modules/whatsapp
