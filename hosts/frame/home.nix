@@ -29,6 +29,8 @@
   };
 
   ##--- Applications ---###
+  aerc.enable = true;
+  khard.enable = true;
   beeper.enable = true;
   better-control.enable = true;
   bottles.enable = true;
@@ -56,6 +58,7 @@
   slack.enable = true;
   swayimg.enable = false;
   teams.enable = true;
+  vdirsyncer.enable = true;
   whatsapp.enable = true;
   zathura.enable = true;
   zed.enable = true;
