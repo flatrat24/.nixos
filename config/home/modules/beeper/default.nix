@@ -1,9 +1,9 @@
 { pkgs, lib, inputs, config, ... }:
 let
   cfg = config.beeper;
-  # beeper = import ../../../../derivations/beeper.nix { inherit pkgs; };
+  beeper = import ../../../../derivations/beeper.nix { inherit pkgs; };
   dependencies = [
-    pkgs.beeper
+    beeper
   ];
 in {
   options = {
