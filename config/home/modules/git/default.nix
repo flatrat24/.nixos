@@ -34,7 +34,7 @@ in {
       programs.git = {
         enable = true;
         userName = "Ethan Anthony";
-        userEmail = "ethan.anthony@du.edu";
+        userEmail = "ethananthony@worldofmail.com";
         delta.enable = true;
         extraConfig = {
           init.defaultBranch = "main";
