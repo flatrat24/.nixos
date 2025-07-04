@@ -1,6 +1,6 @@
 { ... }: {
   imports = [
-    ./modules/aerc
+    ./modules/thunderbird
     ./modules/beeper
     ./modules/better-control
     ./modules/bookmarks

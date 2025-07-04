@@ -29,7 +29,6 @@
   };
 
   ##--- Applications ---###
-  aerc.enable = true;
   khard.enable = true;
   beeper.enable = true;
   better-control.enable = true;
@@ -58,6 +57,7 @@
   slack.enable = true;
   swayimg.enable = false;
   teams.enable = true;
+  thunderbird.enable = true;
   vdirsyncer.enable = true;
   whatsapp.enable = true;
   zathura.enable = true;
@@ -84,10 +84,7 @@
   ##--- Other ---##
   gpg.enable = true;
   latex.enable = true;
-  email = {
-    enable = true;
-    thunderbird.enable = true;
-  };
+  email.enable = true;
   git.enable = true;
   passwords.enable = true;
   music.enable = true;
