@@ -28,19 +28,20 @@ let
   ];
 in {
   imports = [
-    ./eza/default.nix
     ./bat/default.nix
-    ./json/default.nix
-    ./fd/default.nix
-    ./fzf/default.nix
-    ./gping/default.nix
-    ./ripgrep/default.nix
     ./bottom/default.nix
-    ./zoxide/default.nix
-    ./utils/default.nix
     ./cosmetics/default.nix
     ./croc/default.nix
+    ./eza/default.nix
+    ./fd/default.nix
+    ./fzf/default.nix
+    ./glow/default.nix
+    ./gping/default.nix
+    ./json/default.nix
     ./qrcp/default.nix
+    ./ripgrep/default.nix
+    ./utils/default.nix
+    ./zoxide/default.nix
   ];
 
   options = {
