@@ -61,7 +61,6 @@
   vdirsyncer.enable = true;
   whatsapp.enable = true;
   zathura.enable = true;
-  zed.enable = true;
   zenBrowser.enable = true;
   zoom.enable = true;
 
