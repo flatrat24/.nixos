@@ -86,7 +86,7 @@ in {
           foldcolumn = "0";
           foldtext = "";
           foldlevelstart = 2;
-          foldnestmax = 6;
+          foldnestmax = 99;
           foldlevel = 99;
         };
         colorschemes = {
