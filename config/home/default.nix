@@ -10,7 +10,6 @@
     ./modules/digital
     ./modules/discord
     ./modules/dunst
-    ./modules/email
     ./modules/fabric
     ./modules/firefox
     ./modules/foot
@@ -27,6 +26,7 @@
     ./modules/latex
     ./modules/libreoffice
     ./modules/magic-wormhole
+    ./modules/mail
     ./modules/mpv
     ./modules/music
     ./modules/nautilus
