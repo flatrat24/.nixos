@@ -3,17 +3,17 @@ let
   cfg = config.git;
   aliases = {
     g    = "git"                                      ;
-    ga   = "git add"                                  ;
-    gs   = "git status"                               ;
-    gd   = "git diff"                                 ;
-    gc   = "git commit -m"                            ;
-    gb   = "git branch"                               ;
-    go   = "git checkout"                             ;
-    gP   = "git push"                                 ;
-    gp   = "git pull"                                 ;
-    gm   = "git merge"                                ;
-    gf   = "git fetch"                                ;
     gz   = "lazygit"                                  ;
+    # ga   = "git add"                                  ;
+    # gs   = "git status"                               ;
+    # gd   = "git diff"                                 ;
+    # gc   = "git commit -m"                            ;
+    # gb   = "git branch"                               ;
+    # go   = "git checkout"                             ;
+    # gP   = "git push"                                 ;
+    # gp   = "git pull"                                 ;
+    # gm   = "git merge"                                ;
+    # gf   = "git fetch"                                ;
   };
 in {
   options = {
