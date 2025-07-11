@@ -3,7 +3,6 @@ let
   cfg = config.email;
   dependencies = with pkgs; [
     glow
-    w3m
     pandoc
   ];
 in {
@@ -17,6 +16,9 @@ in {
 
   config = lib.mkIf cfg.enable (lib.mkMerge [
     {
+      programs.mbsync.enable = true;
+    }
+    {
       programs.aerc = {
         enable = true;
         extraConfig = {
@@ -26,16 +28,19 @@ in {
             term = "foot";
           };
           "multipart-converters" = {
-            # "text/html" = "${pkgs.pandoc}/bin/pandoc -f html -t markdown --standalone | ${pkgs.glow}/bin/glow";
-            "text/html" = "w3m -dump -T text/html -o display_link_number=true";
+            "text/html" = "${pkgs.pandoc}/bin/pandoc -f html -t markdown --standalone | ${pkgs.glow}/bin/glow";
+            # "text/html" = "w3m -dump -T text/html -o display_link_number=true";
+          };
+          compose = {
+            address-book-cmd = "khard email --parsable %s | awk '{ print $1 }' | tail -n +2";
           };
           filters = {
             ".headers" = "${pkgs.aerc}/libexec/aerc/filters/colorize";
             "text/calendar" = "${pkgs.gawk}/bin/awk -f ${pkgs.aerc}/libexec/aerc/filters/calendar";
-            # "text/html" = "${pkgs.pandoc}/bin/pandoc -f html -t markdown --standalone | ${pkgs.glow}/bin/glow";
-            "text/html" = "w3m -dump -T text/html -o display_link_number=true";
-            # "text/plain" = "${pkgs.aerc}/libexec/aerc/filters/colorize";
-            "text/plain" = "colorize";
+            "text/html" = "${pkgs.pandoc}/bin/pandoc -f html -t markdown --standalone | ${pkgs.glow}/bin/glow";
+            # "text/html" = "w3m -dump -T text/html -o display_link_number=true";
+            "text/plain" = "${pkgs.aerc}/libexec/aerc/filters/colorize";
+            # "text/plain" = "colorize";
             "text/*" = "${pkgs.bat}/bin/bat";
             "message/delivery-status" = "colorize";
             "message/rfc822" = "colorize";
@@ -51,39 +56,46 @@ in {
             spinner = ".  ,.. ,..., ..,  ., ..,...,.. ";
             spinner-interval = "100ms";
             auto-mark-read = false;
-            icon-encrypted = "󰯅";
-            icon-attachment = "󰏢";
-            icon-new = "*";
-            icon-old = "*";
-            icon-flagged = "󰈾";
-            icon-deleted = "󰧧";
+            icon-encrypted   = "e"; # 󰯅
+            icon-attachment  = "a"; # 󰏢
+            icon-new         = "n"; # *
+            icon-old         = "n"; # *
+            icon-flagged     = "f"; # 󰈾
+            icon-deleted     = "d"; # 󰧧
             icon-unencrypted = ""; # 󰒙
-            icon-signed = "󱦹";
-            icon-unknown = "?";
-            icon-invalid = "!";
-            icon-replied = "󱞧";
-            icon-forwarded = "󱞫";
-            icon-marked = "x";
-            icon-draft = "󰟷";
+            icon-signed      = "s"; # 󱦹
+            icon-unknown     = "?"; # ?
+            icon-invalid     = "!"; # !
+            icon-replied     = "r"; # 󱞧
+            icon-forwarded   = ""; # 󱞫
+            icon-marked      = "x"; # x
+            icon-draft       = ""; # 󰟷
           };
         };
         extraAccounts = {
           purelymail = {
-            folder-map = "${pkgs.writeText "folder-map" ''
-              Inbox = INBOX
-            ''}";
-            "folders-sort" = "Inbox,Drafts,Sent,Archive,Trash,Junk";
+            postpone = "drafts";
+            copy-to = "sent";
+            default = "inbox";
+            from = "Ethan Anthony <ethananthony@worldofmail.com>";
+            folders-sort = "inbox,drafts,sent,archive,trash,junk";
+            source = "maildir://${config.accounts.email.maildirBasePath}/purelymail";
+            outgoing = "smtps+plain://ethananthony@worldofmail.com@smtp.purelymail.com:465";
+            outgoing-cred-cmd = "pass show purelymail.com/ethananthony@worldofmail.com | sed -n '1p'";
+            check-mail-cmd = "mbsync purelymail";
+            check-mail-timeout = "30s";
           };
         };
         extraBinds = {
           global = {
-            "<tab>"     = ":next-tab<enter>";
-            "<backtab>" = ":next-tab<enter>";
-            "?"         = ":help keys<enter>";
+            "<c-l>" = ":next-tab<enter>";
+            "<c-h>" = ":prev-tab<enter>";
+            "?"     = ":help keys<enter>";
           };
           messages = {
             # General
             "q" = ":quit<enter>";
+            "Q" = ":quit -f<enter>";
             "?" = ":help keys<enter>";
 
             # Pane Management
@@ -95,15 +107,15 @@ in {
             "<C-S-l>" = ":hsplit +3<enter>";
 
             # Actions
-            "C"   = ":compose<enter>";
-            "D"   = ":delete<enter>";
-            "A"   = ":archive flat";
-            "T"   = ":toggle-threads<enter>";
-            "|"   = ":pipe<space>";
+            "C"         = ":compose<enter>";
+            "D"         = ":delete<enter>";
+            "A"         = ":archive flat";
+            "T"         = ":toggle-threads<enter>";
+            "|"         = ":pipe<space>";
             "<enter>"   = ":view<enter>";
 
             "<space>" = ":mark -t<enter>:next<enter>";
-            "v" = ":mark -v<enter>";
+            "v"       = ":mark -v<enter>";
 
             "cc" = ":cf<space>";
             "ca" = ":cf Archive <enter>";
@@ -120,20 +132,20 @@ in {
             "zz" = ":fold -t<enter>";
             "zZ" = ":fold -at<enter>";
 
-            "rr"   = ":reply<enter>";
-            "rq"   = ":reply -q<enter>";
-            "Rr"   = ":reply -a<enter>";
-            "Rq"   = ":reply -qa<enter>";
+            "rr" = ":reply<enter>";
+            "rq" = ":reply -q<enter>";
+            "Rr" = ":reply -a<enter>";
+            "Rq" = ":reply -qa<enter>";
 
             # Navigation
-            "<c-h>" = ":collapse-folder<enter>";
-            "<c-j>" = ":next-folder<enter>";
-            "<c-k>" = ":prev-folder<enter>";
-            "<c-l>" = ":expand-folder<enter>";
+            "H" = ":collapse-folder<enter>";
+            "J" = ":next-folder<enter>";
+            "K" = ":prev-folder<enter>";
+            "L" = ":expand-folder<enter>";
             "j" = ":next<enter>";
             "k" = ":prev<enter>";
-            "J"   = ":next 5<enter>";
-            "K"   = ":prev 5<enter>";
+            # "J"   = ":next 5<enter>";
+            # "K"   = ":prev 5<enter>";
             "G"   = ":select -1";
             "gg"  = ":select 0";
             "f"   = ":filter<space>";
@@ -219,9 +231,8 @@ in {
       };
     }
     {
-      home.packages = dependencies;
       accounts.email = {
-        maildirBasePath = ".mail";
+        maildirBasePath = "mail";
         accounts = {
           purelymail = {
             primary = true;
@@ -244,14 +255,79 @@ in {
               text = "Ethan Anthony";
               showSignature = "none";
             };
-            maildir.path = "purelymail";
-
-            aerc = {
+            aerc = { # Doesn't play well with maildir
+              enable = false;
+            };
+            mbsync = {
               enable = true;
+              create = "both";
+              expunge = "both";
+              remove = "both";
+              groups."purelymail" = {
+                channels = {
+                  inbox = {
+                    farPattern = "INBOX";
+                    nearPattern = "inbox";
+                    extraConfig = {
+                      Create = "both";
+                      Expunge = "both";
+                      SyncState = "*";
+                    };
+                  };
+                  sent = {
+                    farPattern = "Sent";
+                    nearPattern = "sent";
+                    extraConfig = {
+                      Create = "both";
+                      Expunge = "both";
+                      SyncState = "*";
+                    };
+                  };
+                  drafts = {
+                    farPattern = "Drafts";
+                    nearPattern = "drafts";
+                    extraConfig = {
+                      Create = "both";
+                      Expunge = "both";
+                      SyncState = "*";
+                    };
+                  };
+                  archive = {
+                    farPattern = "Archive";
+                    nearPattern = "archive";
+                    extraConfig = {
+                      Create = "both";
+                      Expunge = "both";
+                      SyncState = "*";
+                    };
+                  };
+                  junk = {
+                    farPattern = "Junk";
+                    nearPattern = "junk";
+                    extraConfig = {
+                      Create = "both";
+                      Expunge = "both";
+                      SyncState = "*";
+                    };
+                  };
+                  trash = {
+                    farPattern = "Trash";
+                    nearPattern = "trash";
+                    extraConfig = {
+                      Create = "both";
+                      Expunge = "both";
+                      SyncState = "*";
+                    };
+                  };
+                };
+              };
             };
           };
         };
       };
+    }
+    {
+      home.packages = dependencies;
     }
   ]);
 }
