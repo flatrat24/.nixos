@@ -163,7 +163,7 @@ in {
           color2               = "black"; # I don't know
           main_window_color    = "blue"; # Self explanatory
           current_item_prefix  = "$(green)$r"; # Highlight when hovering over an item
-          current_item_suffix  = "$/r$(yellow)"; # Unselected items
+          current_item_suffix  = "$/r$(white)"; # Unselected items
 
           ##--- Popup Menu ---##
           window_border_color  = "green";

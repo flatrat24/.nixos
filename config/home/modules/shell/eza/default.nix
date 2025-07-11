@@ -33,7 +33,7 @@ in {
 
       home.file = {
         ".config/eza/theme.yml" = {
-          source = ./sources/catppuccin.yml;
+          source = ./sources/eldritch.yml;
           executable = false;
           recursive = false;
         };

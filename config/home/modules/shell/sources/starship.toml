@@ -11,10 +11,10 @@ $git_status\
 $cmd_duration
 """
 
-palette = 'catppuccin_mocha'
+palette = 'eldritch'
 
 [directory]
-style = "bg:base fg:blue"
+style = "bg:bg fg:base06"
 format = "[ $path ]($style)"
 home_symbol = '~'
 truncate_to_repo = true
@@ -22,39 +22,39 @@ truncation_symbol = '…/'
 
 [character]
 disabled = false
-success_symbol = '[ \$ ](bg:surface0 bold fg:green)'
-error_symbol = '[ \$ ](bg:surface0 bold fg:red)'
-vimcmd_symbol = '[ V ](bg:surface0 bold fg:blue)'
-vimcmd_replace_one_symbol = '[ r ](bg:surface0 bold fg:pink)'
-vimcmd_replace_symbol = '[ R ](bg:surface0 bold fg:pink)'
-vimcmd_visual_symbol = '[ V ](bg:surface0 bold fg:mauve)'
+success_symbol = '[ \$ ](bg:surface0 bold fg:base02)'
+error_symbol = '[ \$ ](bg:surface0 bold fg:base01)'
+vimcmd_symbol = '[ V ](bg:surface0 bold fg:base06)'
+vimcmd_replace_one_symbol = '[ r ](bg:surface0 bold fg:base13)'
+vimcmd_replace_symbol = '[ R ](bg:surface0 bold fg:base13)'
+vimcmd_visual_symbol = '[ V ](bg:surface0 bold fg:base12)'
 
-# ZVM_MODE_NORMAL = '[ N ](bg:surface0 bold fg:blue)'
-# ZVM_MODE_INSERT = '[ I ](bg:surface0 bold fg:green)'
-# ZVM_MODE_VISUAL = '[ V ](bg:surface0 bold fg:mauve)'
-# ZVM_MODE_VISUAL_LINE = '[ V ](bg:surface0 bold fg:mauve)'
-# ZVM_MODE_REPLACE = '[ R ](bg:surface0 bold fg:pink)'
+# ZVM_MODE_NORMAL = '[ N ](bg:surface0 bold fg:base06)'
+# ZVM_MODE_INSERT = '[ I ](bg:surface0 bold fg:base02)'
+# ZVM_MODE_VISUAL = '[ V ](bg:surface0 bold fg:base12)'
+# ZVM_MODE_VISUAL_LINE = '[ V ](bg:surface0 bold fg:base12)'
+# ZVM_MODE_REPLACE = '[ R ](bg:surface0 bold fg:base13)'
 
 [git_branch]
-style = "bg:base fg:mauve"
+style = "bg:bg fg:base12"
 format = '[$symbol $branch]($style)'
 symbol = ''
 
 [git_status]
-style = "bg:base"
+style = "bg:bg"
 format = '[$ahead_behind$modified$staged$untracked]($style)'
-ahead = '[ ⇡${count}](fg:yellow)'
-behind = '[ ⇣${count}](fg:yellow)'
-diverged = '[ ⇕${count}](fg:yellow)'
+ahead = '[ ⇡${count}](fg:base03)'
+behind = '[ ⇣${count}](fg:base03)'
+diverged = '[ ⇕${count}](fg:base03)'
 up_to_date = ''
-modified = '[ !${count}](fg:red)'
-staged = '[ +${count}](fg:green)'
-untracked = '[ ?${count}](fg:blue)'
+modified = '[ !${count}](fg:base01)'
+staged = '[ +${count}](fg:base02)'
+untracked = '[ ?${count}](fg:base06)'
 
 [cmd_duration]
 show_milliseconds = true
 format = '[ 󰔟$duration]($style)'
-style = "bg:base fg:pink"
+style = "bg:bg fg:base13"
 disabled = false
 min_time = 0
 show_notifications = false
@@ -62,6 +62,38 @@ min_time_to_notify = 30_000
 
 [line_break]
 disabled = false
+
+[palettes.eldritch]
+base00    = "#21222C"
+base01    = "#F9515D"
+base02    = "#37F499"
+base03    = "#E9F941"
+base04    = "#9071F4"
+base05    = "#F265B5"
+base06    = "#04D1F9"
+base07    = "#EBFAFA"
+base08    = "#7081D0"
+base09    = "#F16C75"
+base10    = "#69F8B3"
+base11    = "#F1FC79"
+base12    = "#A48CF2"
+base13    = "#FD92CE"
+base14    = "#66E4FD"
+base15    = "#FFFFFF"
+fg        = "#ebfafa"
+bg        = "#212337"
+text      = "#CDD6F4"
+subtext1  = "#BAC2DE"
+subtext0  = "#A6ADC8"
+overlay2  = "#9399B2"
+overlay1  = "#7F849C"
+overlay0  = "#6C7086"
+surface2  = "#585B70"
+surface1  = "#45475A"
+surface0  = "#313244"
+base      = "#1E1E2E"
+mantle    = "#181825"
+crust     = "#11111B"
 
 [palettes.catppuccin_mocha]
 rosewater = "#F5E0DC"

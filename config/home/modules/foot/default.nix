@@ -27,42 +27,30 @@ in {
             pad=5x5 center
 
             [cursor]
-            color=11111b f5e0dc
+            color=37f499 11111b
 
             [colors]
             alpha=1.00
-            foreground=cdd6f4
-            background=1e1e2e
+            foreground=ebfafa
+            background=212337
 
-            regular0=45475a
-            regular1=f38ba8
-            regular2=a6e3a1
-            regular3=f9e2af
-            regular4=89b4fa
-            regular5=f5c2e7
-            regular6=94e2d5
-            regular7=bac2de
+            regular0=21222c
+            regular1=f9515d
+            regular2=37f499
+            regular3=e9f941
+            regular4=9071f4
+            regular5=f265b5
+            regular6=04d1f9
+            regular7=ebfafa
 
-            bright0=585b70
-            bright1=f38ba8
-            bright2=a6e3a1
-            bright3=f9e2af
-            bright4=89b4fa
-            bright5=f5c2e7
-            bright6=94e2d5
-            bright7=a6adc8
-
-            16=fab387
-            17=f5e0dc
-
-            selection-foreground=cdd6f4
-            selection-background=414356
-
-            search-box-no-match=11111b f38ba8
-            search-box-match=cdd6f4 313244
-
-            jump-labels=11111b fab387
-            urls=89b4fa
+            bright0=7081d0
+            bright1=f16c75
+            bright2=69F8B3
+            bright3=f1fc79
+            bright4=a48cf2
+            bright5=FD92CE
+            bright6=66e4fd
+            bright7=ffffff
 
             [mouse]
             hide-when-typing = yes

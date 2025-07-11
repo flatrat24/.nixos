@@ -89,9 +89,9 @@ in {
           foldnestmax = 99;
           foldlevel = 99;
         };
-        colorschemes = {
-          catppuccin.enable = true;
-        };
+        # colorschemes = {
+        #   catppuccin.enable = true;
+        # };
       };
     })
     (lib.mkIf config.yazi.enable {

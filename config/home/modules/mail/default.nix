@@ -194,38 +194,51 @@ in {
             "*.default" = "true";
             "*.normal" = "true";
 
-            "default.fg" = "#cdd6f4";
+            "default.fg" = "#EBFAFA";
 
-            "error.fg" = "#f38ba8";
-            "warning.fg" = "#fab387";
-            "success.fg" = "#a6e3a1";
+            "error.fg" = "#F9515D";
+            "warning.fg" = "#E9F941";
+            "success.fg" = "#37F499";
 
-            "tab.fg" = "#6c7086";
-            "tab.bg" = "#181825";
-            "tab.selected.fg" = "#cdd6f4";
-            "tab.selected.bg" = "#1e1e2e";
+            "tab.fg" = "#EBFAFA";
+            "tab.bg" = "#212337";
+            "tab.selected.fg" = "#CBDADA";
+            "tab.selected.bg" = "#212337";
             "tab.selected.bold" = "true";
 
-            "border.fg" = "#11111b";
+            "border.fg" = "#212337";
             "border.bold" = "true";
 
             "msglist_unread.bold" = "true";
-            "msglist_flagged.fg" = "#f9e2af";
+            "msglist_flagged.fg" = "#E9F941";
             "msglist_flagged.bold" = "true";
-            "msglist_result.fg" = "#89b4fa";
+            "msglist_result.fg" = "#9071F4";
             "msglist_result.bold" = "true";
             "msglist_*.selected.bold" = "true";
-            "msglist_*.selected.bg" = "#313244";
+            "msglist_*.selected.bg" = "#212337";
 
             "dirlist_*.selected.bold" = "true";
-            "dirlist_*.selected.bg" = "#313244";
+            "dirlist_*.selected.bg" = "#212337";
 
-            "statusline_default.fg" = "#9399b2";
-            "statusline_default.bg" = "#313244";
+            "statusline_default.fg" = "#EBFAFA";
+            "statusline_default.bg" = "#212337";
             "statusline_error.bold" = "true";
             "statusline_success.bold" = "true";
 
-            "completion_default.selected.bg" = "#313244";
+            "completion_default.selected.bg" = "#212337";
+          };
+          viewer = {
+            "url.fg" = "#04D1F9";
+            "url.underline" = "true";
+            "header.bold" = "true";
+            "signature.dim" = "true";
+            "diff_meta.bold" = "true";
+            "diff_chunk.fg" = "#04D1F9";
+            "diff_chunk_func.fg" = "#04D1F9";
+            "diff_chunk_func.bold" = "true";
+            "diff_add.fg" = "#37F499";
+            "diff_del.fg" = "#F9515D";
+            "quote_*.fg" = "#EBFAFA";
           };
         };
       };

@@ -4,6 +4,7 @@
     ./align-nvim
     ./comment
     ./dashboard
+    ./eldritch
     ./eyeliner
     ./fzf-lua
     ./git

@@ -2,8 +2,22 @@ pane_frames false
 default_layout "default"
 copy_command "wl-copy"
 
-theme "catppuccin-mocha"
+theme "eldritch"
 themes {
+  eldritch {
+    bg "#212337"
+    fg "#ebfafa"
+    red "#F9515D"
+    green "#37F499"
+    blue "#9071F4"
+    yellow "#E9F941"
+    magenta "#F265B5"
+    orange "#FD92CE"
+    cyan "#04D1F9"
+    black "#21222C"
+    white "#FFFFFF"
+  }
+
   catppuccin-latte {
     bg "#acb0be" // Surface2
     fg "#4c4f69" // Text
