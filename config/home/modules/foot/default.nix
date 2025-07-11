@@ -27,7 +27,7 @@ in {
             pad=5x5 center
 
             [cursor]
-            color=37f499 11111b
+            color=212337 ebfafa
 
             [colors]
             alpha=1.00
