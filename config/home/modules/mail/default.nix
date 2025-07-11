@@ -18,6 +18,20 @@ in {
     {
       programs.mbsync.enable = true;
     }
+    # {
+    #   services.imapnotify = {
+    #     enable = true;
+    #     path = with pkgs; [
+    #       coreutils
+    #       python3
+    #       libnotify
+    #       offlineimap
+    #       gnupg
+    #       notmuch
+    #       sops
+    #     ];
+    #   };
+    # }
     {
       programs.aerc = {
         enable = true;
@@ -29,7 +43,6 @@ in {
           };
           "multipart-converters" = {
             "text/html" = "${pkgs.pandoc}/bin/pandoc -f html -t markdown --standalone | ${pkgs.glow}/bin/glow";
-            # "text/html" = "w3m -dump -T text/html -o display_link_number=true";
           };
           compose = {
             address-book-cmd = "khard email --parsable %s | awk '{ print $1 }' | tail -n +2";
@@ -38,9 +51,7 @@ in {
             ".headers" = "${pkgs.aerc}/libexec/aerc/filters/colorize";
             "text/calendar" = "${pkgs.gawk}/bin/awk -f ${pkgs.aerc}/libexec/aerc/filters/calendar";
             "text/html" = "${pkgs.pandoc}/bin/pandoc -f html -t markdown --standalone | ${pkgs.glow}/bin/glow";
-            # "text/html" = "w3m -dump -T text/html -o display_link_number=true";
             "text/plain" = "${pkgs.aerc}/libexec/aerc/filters/colorize";
-            # "text/plain" = "colorize";
             "text/*" = "${pkgs.bat}/bin/bat";
             "message/delivery-status" = "colorize";
             "message/rfc822" = "colorize";
@@ -251,7 +262,8 @@ in {
             primary = true;
             address = "ethananthony@worldofmail.com";
             userName = "ethananthony@worldofmail.com";
-            passwordCommand = "pass show purelymail.com/ethananthony@worldofmail.com | sed -n '1p'";
+            # passwordCommand = "pass show purelymail.com/ethananthony@worldofmail.com | sed -n '1p'";
+            passwordCommand = "pass show purelymail.com/ethananthony@worldofmail.com";
             realName = "Ethan Anthony";
             flavor = "plain";
             imap = {
@@ -271,6 +283,16 @@ in {
             aerc = { # Doesn't play well with maildir
               enable = false;
             };
+            # imapnotify = {
+            #   enable = true;
+            #   boxes = [
+            #     "inbox"
+            #   ];
+            #   onNotifyPost = {
+            #     mail = "${pkgs.libnotify}/bin/notify-send 'New mail arrived!'";
+            #   };
+            #   onNotify = "${pkgs.isync}/bin/mbsync -a";
+            #   };
             mbsync = {
               enable = true;
               create = "both";
