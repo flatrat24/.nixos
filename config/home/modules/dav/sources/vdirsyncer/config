@@ -1,0 +1,35 @@
+[general]
+status_path = "~/.vdirsyncer/status/"
+
+[pair contacts]
+a = "contacts_local"
+b = "contacts_purelymail"
+collections = ["from a", "from b"]
+
+[storage contacts_local]
+type = "filesystem"
+path = "~/.contacts/"
+fileext = ".vcf"
+
+[storage contacts_purelymail]
+type = "carddav"
+url = "https://purelymail.com/webdav/153315/carddav/"
+username = "ethananthony@worldofmail.com"
+password.fetch = [ "shell", "pass show purelymail.com/ethananthony@worldofmail.com | sed -n '1p'" ]
+
+[pair calendar]
+a = "calendar_local"
+b = "calendar_purelymail"
+collections = ["from a", "from b"]
+metadata = ["displayname", "color"]
+
+[storage calendar_local]
+type = "filesystem"
+path = "~/.calendar/"
+fileext = ".ics"
+
+[storage calendar_purelymail]
+type = "caldav"
+url = "https://purelymail.com/webdav/153315/caldav/"
+username = "ethananthony@worldofmail.com"
+password.fetch = [ "shell", "pass show purelymail.com/ethananthony@worldofmail.com | sed -n '1p'" ]
