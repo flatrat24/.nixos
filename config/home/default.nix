@@ -7,6 +7,7 @@
     ./modules/bottles
     ./modules/calculator
     ./modules/calendar
+    ./modules/dav
     ./modules/digital
     ./modules/discord
     ./modules/dunst
@@ -22,7 +23,6 @@
     ./modules/hyprlock
     ./modules/ignis
     ./modules/imv
-    ./modules/khard
     ./modules/latex
     ./modules/libreoffice
     ./modules/magic-wormhole
@@ -47,7 +47,6 @@
     ./modules/swayimg
     ./modules/teams
     ./modules/theme
-    ./modules/vdirsyncer
     ./modules/waybar
     ./modules/waycorner
     ./modules/whatsapp
