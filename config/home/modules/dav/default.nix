@@ -3,13 +3,38 @@ let
   cfg = config.khard;
   dependencies = with pkgs; [
     khard
+    vdirsyncer
   ];
 in {
   options = {
     khard.enable = lib.mkEnableOption "enables khard";
+    vdirsyncer.enable = lib.mkEnableOption "enables vdirsyncer";
   };
 
   config = lib.mkIf cfg.enable (lib.mkMerge [
+    {
+      services.vdirsyncer = {
+        enable = true;
+        package = pkgs.vdirsyncer;
+        frequency = "15min";
+      };
+
+      programs.vdirsyncer = {
+        enable = true;
+        package = pkgs.vdirsyncer;
+        statusPath = "~/.vdirsyncer";
+      };
+
+      home.file = {
+        ".config/vdirsyncer" = {
+          source = ./sources;
+          executable = false;
+          recursive = true;
+        };
+      };
+
+      home.packages = dependencies;
+    }
     {
       # programs.khard = {
       #   enable = true;
