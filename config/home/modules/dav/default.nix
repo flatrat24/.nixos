@@ -19,21 +19,50 @@ in {
     }
     {
       home.file = {
-        ".config/vdirsyncer" = {
-          source = ./sources/vdirsyncer;
-          executable = false;
-          recursive = true;
+        ".config/vdirsyncer/config" = lib.mkForce {
+          text = ''
+            [general]
+            status_path = "~/.vdirsyncer/status/"
+
+            [pair contacts]
+            a = "contacts_local"
+            b = "contacts_purelymail"
+            collections = ["from a", "from b"]
+
+            [storage contacts_local]
+            type = "filesystem"
+            path = "~/.contacts/"
+            fileext = ".vcf"
+
+            [storage contacts_purelymail]
+            type = "carddav"
+            url = "https://purelymail.com/webdav/153315/carddav/"
+            username = "ethananthony@worldofmail.com"
+            password.fetch = [ "shell", "pass show purelymail.com/ethananthony@worldofmail.com | sed -n '1p'" ]
+
+            [pair calendar]
+            a = "calendar_local"
+            b = "calendar_purelymail"
+            collections = ["from a", "from b"]
+            metadata = ["displayname", "color"]
+
+            [storage calendar_local]
+            type = "filesystem"
+            path = "~/.calendar/"
+            fileext = ".ics"
+
+            [storage calendar_purelymail]
+            type = "caldav"
+            url = "https://purelymail.com/webdav/153315/caldav/"
+            username = "ethananthony@worldofmail.com"
+            password.fetch = [ "shell", "pass show purelymail.com/ethananthony@worldofmail.com | sed -n '1p'" ]
+          '';
         };
       };
       services.vdirsyncer = {
         enable = true;
         package = pkgs.vdirsyncer;
         frequency = "15min";
-      };
-      programs.vdirsyncer = {
-        enable = true;
-        package = pkgs.vdirsyncer;
-        statusPath = "~/.vdirsyncer";
       };
     }
     {
@@ -44,19 +73,27 @@ in {
 
             [[personal]]
             path = ~/.calendar/personal
+            color = light green
+            priority = 1
 
             [[work]]
             path = ~/.calendar/work
+            color = yellow
+            priority = 0
 
             [[birthdays]]
-            path = ~/.contacts
+            path = ~/.contacts/default
+            color = light blue
+            priority = 0
 
             [default]
             timedelta = 5d
+            highlight_event_days = true
+            print_new = event
             default_calendar = personal
 
             [keybindings]
-            delete = x
+            delete = D
             duplicate = d
             export = e
             external_edit = E
@@ -79,7 +116,7 @@ in {
             timeformat = %H:%M
             dateformat = %m/%d/%Y
             longdateformat = %m/%d/%Y
-            datetimeformat = %m/%d/%Y %H:%M
+            datetimeformat = %m/%d %H:%M
             longdatetimeformat = %m/%d/%Y %H:%M
           '';
           executable = false;
