@@ -45,7 +45,8 @@ in {
             "text/html" = "${pkgs.pandoc}/bin/pandoc -f html -t markdown --standalone | ${pkgs.glow}/bin/glow";
           };
           compose = {
-            address-book-cmd = "khard email --parsable %s | awk '{ print $1 }' | tail -n +2";
+            no-attachment-warning = "(attach|attached|attachments?)";
+            address-book-cmd = "khard email --parsable %s";
           };
           filters = {
             ".headers" = "${pkgs.aerc}/libexec/aerc/filters/colorize";
@@ -180,17 +181,28 @@ in {
             "rq" = ":reply -q<enter>";
             "Rq" = ":reply -qa<enter>";
           };
-          compose = {
+          compose = { # Keybindings used when the embedded terminal is not selected in the compose
             "$noinherit" = "true";
             "$ex" = "<C-x>";
-            "<C-k>" = ":prev-field<Enter>";
-            "<C-j>" = ":next-field<Enter>";
-            "<C-h>" = ":switch-account -p<Enter>";
-            "<C-l>" = ":switch-account -n<Enter>";
-            "<tab>" = ":next-tab<Enter>";
-            "<backtab>" = ":prev-tab<Enter>";
+            "$complete" = "<C-j>";
+            "<C-q>" = ":abort<Enter>";
+            "<C-p>" = ":prev-field<Enter>";
+            "<C-n>" = ":next-field<Enter>";
+            "<C-a>" = ":switch-account -p<Enter>";
+            "<C-A>" = ":switch-account -n<Enter>";
+            "<C-l>" = ":next-tab<Enter>";
+            "<C-h>" = ":prev-tab<Enter>";
           };
-          "compose::review" = {
+          "compose::editor" = { # Keybindings used when the embedded terminal is selected in the compose view
+            "$noinherit" = "true";
+            "$ex" = "<C-x>";
+            "<C-q>" = ":abort<Enter>";
+            "<C-p>" = ":prev-field<Enter>";
+            "<C-n>" = ":next-field<Enter>";
+            "<C-h>" = ":prev-tab<Enter>";
+            "<C-l>" = ":next-tab<Enter>";
+          };
+          "compose::review" = { # Keybindings used when reviewing a message to be sent
             "y" = ":send<Enter>";
             "n" = ":abort<Enter>";
             "p" = ":postpone<Enter>";
@@ -200,58 +212,58 @@ in {
             "d" = ":detach<space>";
           };
         };
-        stylesets = {
-          default = {
-            "*.default" = "true";
-            "*.normal" = "true";
-
-            "default.fg" = "#EBFAFA";
-
-            "error.fg" = "#F9515D";
-            "warning.fg" = "#E9F941";
-            "success.fg" = "#37F499";
-
-            "tab.fg" = "#EBFAFA";
-            "tab.bg" = "#212337";
-            "tab.selected.fg" = "#CBDADA";
-            "tab.selected.bg" = "#212337";
-            "tab.selected.bold" = "true";
-
-            "border.fg" = "#212337";
-            "border.bold" = "true";
-
-            "msglist_unread.bold" = "true";
-            "msglist_flagged.fg" = "#E9F941";
-            "msglist_flagged.bold" = "true";
-            "msglist_result.fg" = "#9071F4";
-            "msglist_result.bold" = "true";
-            "msglist_*.selected.bold" = "true";
-            "msglist_*.selected.bg" = "#212337";
-
-            "dirlist_*.selected.bold" = "true";
-            "dirlist_*.selected.bg" = "#212337";
-
-            "statusline_default.fg" = "#EBFAFA";
-            "statusline_default.bg" = "#212337";
-            "statusline_error.bold" = "true";
-            "statusline_success.bold" = "true";
-
-            "completion_default.selected.bg" = "#212337";
-          };
-          viewer = {
-            "url.fg" = "#04D1F9";
-            "url.underline" = "true";
-            "header.bold" = "true";
-            "signature.dim" = "true";
-            "diff_meta.bold" = "true";
-            "diff_chunk.fg" = "#04D1F9";
-            "diff_chunk_func.fg" = "#04D1F9";
-            "diff_chunk_func.bold" = "true";
-            "diff_add.fg" = "#37F499";
-            "diff_del.fg" = "#F9515D";
-            "quote_*.fg" = "#EBFAFA";
-          };
-        };
+        # stylesets = {
+        #   default = {
+        #     "*.default" = "true";
+        #     "*.normal" = "true";
+        #
+        #     "default.fg" = "#EBFAFA";
+        #
+        #     "error.fg" = "#F9515D";
+        #     "warning.fg" = "#E9F941";
+        #     "success.fg" = "#37F499";
+        #
+        #     "tab.fg" = "#EBFAFA";
+        #     "tab.bg" = "#212337";
+        #     "tab.selected.fg" = "#CBDADA";
+        #     "tab.selected.bg" = "#212337";
+        #     "tab.selected.bold" = "true";
+        #
+        #     "border.fg" = "#212337";
+        #     "border.bold" = "true";
+        #
+        #     "msglist_unread.bold" = "true";
+        #     "msglist_flagged.fg" = "#E9F941";
+        #     "msglist_flagged.bold" = "true";
+        #     "msglist_result.fg" = "#9071F4";
+        #     "msglist_result.bold" = "true";
+        #     "msglist_*.selected.bold" = "true";
+        #     "msglist_*.selected.bg" = "#212337";
+        #
+        #     "dirlist_*.selected.bold" = "true";
+        #     "dirlist_*.selected.bg" = "#212337";
+        #
+        #     "statusline_default.fg" = "#EBFAFA";
+        #     "statusline_default.bg" = "#212337";
+        #     "statusline_error.bold" = "true";
+        #     "statusline_success.bold" = "true";
+        #
+        #     "completion_default.selected.bg" = "#212337";
+        #   };
+        #   viewer = {
+        #     "url.fg" = "#04D1F9";
+        #     "url.underline" = "true";
+        #     "header.bold" = "true";
+        #     "signature.dim" = "true";
+        #     "diff_meta.bold" = "true";
+        #     "diff_chunk.fg" = "#04D1F9";
+        #     "diff_chunk_func.fg" = "#04D1F9";
+        #     "diff_chunk_func.bold" = "true";
+        #     "diff_add.fg" = "#37F499";
+        #     "diff_del.fg" = "#F9515D";
+        #     "quote_*.fg" = "#EBFAFA";
+        #   };
+        # };
       };
     }
     {
