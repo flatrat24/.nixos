@@ -268,7 +268,7 @@ in {
     }
     {
       accounts.email = {
-        maildirBasePath = "mail";
+        maildirBasePath = ".mail";
         accounts = {
           purelymail = {
             primary = true;
