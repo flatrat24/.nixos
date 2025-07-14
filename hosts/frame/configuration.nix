@@ -9,7 +9,7 @@
   basics.enable       = true;
   bluetooth.enable    = true;
   gaming.enable       = false;
-  gnome.enable        = true;
+  gnome.enable        = false;
   grub.enable         = false;
   hyprland.enable     = true;
   network.enable      = true;
