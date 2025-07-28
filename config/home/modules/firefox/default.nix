@@ -114,6 +114,11 @@ let
       updateinterval = 24 * 60 * 60 * 1000; # every day
       definedAliases = [ "@stylix" ];
     };
+    "BBC Food" = {
+      urls = [{ template = "https://www.bbc.co.uk/food/search?q={searchTerms}"; }];
+      icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+      definedAliases = [ "@bf" ];
+    };
 
     "Amazon.com".metaData.hidden = true;
     "Bing".metaData.hidden = true;
