@@ -106,6 +106,7 @@ in {
           };
           messages = {
             # General
+            "$complete" = "<C-j>";
             "q" = ":quit<enter>";
             "Q" = ":quit -f<enter>";
             "?" = ":help keys<enter>";
@@ -148,6 +149,11 @@ in {
             "rq" = ":reply -q<enter>";
             "Rr" = ":reply -a<enter>";
             "Rq" = ":reply -qa<enter>";
+            
+            "ym" = ":exec sh -c 'echo {{.MessageId}} | wl-copy'<Enter>";
+            "yf" = ":exec sh -c 'echo {{.From}} | wl-copy'<Enter>";
+            "yd" = ":exec sh -c 'echo {{.Date}} | wl-copy'<Enter>";
+            "ys" = ":exec sh -c 'echo {{.SubjectBase}} | wl-copy'<Enter>";
 
             # Navigation
             "H" = ":collapse-folder<enter>";
@@ -160,11 +166,18 @@ in {
             # "K"   = ":prev 5<enter>";
             "G"   = ":select -1";
             "gg"  = ":select 0";
-            "f"   = ":filter<space>";
             "/"   = ":search<space>";
             "N"   = ":prev-result<enter>";
             "n"   = ":next-result<enter>";
             "Esc" = ":clear<enter>";
+
+            # Filters
+            "F" = ":filter<enter>";
+            "fr" = ":filter -r<enter>";
+            "fu" = ":filter -u<enter>";
+            "fa" = ":filter -f {{(index .From 0).Address}}<enter>";
+            "fn" = ":filter -H from:'{{(index .From 0).Name}}'<enter>";
+            "fs" = ":filter -f {{.SubjectBase}}<enter>";
           };
           view = {
             "q" = ":close<enter>";
@@ -173,6 +186,12 @@ in {
             "|" = ":pipe<space>";
             "D" = ":move Trash<enter>";
             "A" = ":archive flat<enter>";
+            "<tab>" = ":next-part<enter>";
+            "<backtab>" = ":prev-part<enter>";
+            "b" = ":open firefox<enter>";
+
+            "<C-j>" = ":next<Enter>";
+            "<C-k>" = ":prev<Enter>";
 
             "J" = ":next<enter>";
             "K" = ":prev<enter>";
