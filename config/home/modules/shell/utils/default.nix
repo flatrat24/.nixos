@@ -14,6 +14,7 @@ let
     unzip
     gcc
     valgrind
+    rsync
   ];
   aliases = { };
 in {
